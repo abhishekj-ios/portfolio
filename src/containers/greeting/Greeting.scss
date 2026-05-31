@@ -12,7 +12,6 @@
   overflow: hidden;
   background-color: #ffffff;
   
-  /* Matches file name: src/assets/images/HeroBg.png */
   background-image: url("../../assets/images/HeroBg.png");
   background-size: cover;
   background-position: center center;
@@ -75,30 +74,11 @@
   margin: 0 0 35px 0 !important;
 }
 
-/* Button Styling */
-.premium-action-row {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin-bottom: 35px;
-
-  .main-button {
-    background-color: #007AFF !important;
-    color: #ffffff !important;
-    border: 1px solid #007AFF !important;
-    padding: 12px 24px !important;
-    border-radius: 6px !important;
-    text-decoration: none !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-  }
-
-  & > div:nth-child(2) .main-button {
-    background-color: transparent !important;
-    color: #1d1d1f !important;
-    border: 1px solid rgba(0, 0, 0, 0.3) !important;
-  }
+/* FIX FOR SECOND BUTTON BLUE COLOR */
+.premium-action-row > div:nth-child(2) button {
+  background-color: transparent !important;
+  color: #007AFF !important;
+  border: 1px solid #007AFF !important;
 }
 
 .dark-mode {
@@ -106,9 +86,11 @@
   .dark-overlay { opacity: 1; }
   .premium-greeting-title { color: #ffffff !important; }
   .premium-greeting-desc { color: #e5e5ea !important; }
-  
-  .premium-action-row > div:nth-child(2) .main-button {
-    color: #ffffff !important;
-    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+}
+
+@media (max-width: 960px) {
+  .greeting-content-wrapper {
+    align-items: center;
+    text-align: center;
   }
 }
