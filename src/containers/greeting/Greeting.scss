@@ -2,10 +2,15 @@
   /* PUT YOUR BACKGROUND IMAGE NAME HERE */
   background-image: url("../../assets/images/HeroBg.png"); 
   background-size: cover;
-  background-position: center;
+ background-position: center;
   background-repeat: no-repeat;
   padding: 120px 50px; 
+  
+  /* 2. THIS FIXES THE SCROLLING */
+  /* Forces the padding to stay inside the 100vh limit instead of adding to it */
+  box-sizing: border-box; 
   min-height: 100vh;
+  
   display: flex;
   align-items: center;
 }
