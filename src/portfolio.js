@@ -21,10 +21,9 @@ const illustration = {
 
 const greeting = {
   username: "Abhishek",
-  title: "Hi, I'm Abhishek",
-  subTitle: emoji(
-    "Senior iOS Developer with over 12 years of professional experience building scalable mobile architectures. Specializing in Swift, SwiftUI, and creating high-performance apps with clean code methodologies."
-  ),
+  title: "Hello, I'm Abhishek",
+  subTitle: "Senior iOS Developer",
+  resumeSectionDescription: "With 12+ years of expertise in Swift and SwiftUI, I design and deliver scalable, high-performance mobile applications. My focus is on clean architecture, maintainability, and user-centric design.",
   resumeLink: "https://drive.google.com/file/d/14qK3Vm5Ud6vJEbKiPpRGzSQ_EsdM7wvk/view?usp=sharing",
   displayGreeting: true 
 };
