@@ -10,17 +10,16 @@
   box-sizing: border-box;
   position: relative;
   overflow: hidden;
-  background-color: #ffffff; /* Light theme native background container */
+  background-color: #ffffff;
   
-  /* UPDATED IMAGE: Premium dark architectural workspace with high-end contrast */
-
+  /* Full bleed background image setup */
   background-image: url("../../assets/images/HeroBg.png");
   background-size: cover;
-  background-position: right center;
+  background-position: center center; /* Centered to capture the desk and phone naturally */
   background-repeat: no-repeat;
 }
 
-/* Master Layout Mask Layers */
+/* Master Overlay Controls covering the entire frame */
 .premium-hero-overlay {
   position: absolute;
   top: 0;
@@ -31,23 +30,27 @@
   transition: opacity 0.3s ease-in-out;
 }
 
+/* LIGHT MODE: Full tint that balances image visibility 
+   with maximum text readability 
+*/
 .light-overlay {
-  background: linear-gradient(to right, #ffffff 0%, #ffffff 45%, rgba(255, 255, 255, 0.65) 65%, rgba(255, 255, 255, 0) 100%);
+  background: rgba(255, 255, 255, 0.85); 
   opacity: 1;
   z-index: 1;
 }
 
+/* DARK MODE: Full dark cinematic mask */
 .dark-overlay {
-  background: linear-gradient(to right, #121212 0%, #121212 45%, rgba(18, 18, 18, 0.75) 65%, rgba(18, 18, 18, 0.1) 100%);
+  background: rgba(18, 18, 18, 0.75);
   opacity: 0;
   z-index: 1;
 }
 
-/* Content Frame Position Box */
+/* Content layer pushed safely to the front */
 .greeting-content-wrapper {
   position: relative;
-  z-index: 2;
-  max-width: 650px; /* FIXED: Marginally expanded width footprint to support title typography */
+  z-index: 2; /* Keeps text layered above the overlays */
+  max-width: 650px; 
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -55,19 +58,19 @@
 }
 
 .premium-greeting-title {
-  font-size: 3.4rem; /* FIXED: Calibrated font size to keep headline presentation strictly single-line */
+  font-size: 3.4rem; 
   font-weight: 700;
-  color: #1d1d1f !important;
+  color: #1d1d1f !important; /* High-contrast Apple charcoal black */
   margin: 0 0 12px 0 !important;
   letter-spacing: -0.5px;
   line-height: 1.2;
-  white-space: nowrap; /* Forces layout tracking to resist text line-breaks */
+  white-space: nowrap;
 }
 
 .premium-greeting-subtitle {
   font-size: 1.6rem;
   font-weight: 600;
-  color: #007AFF !important;
+  color: #007AFF !important; /* Premium Blue accent */
   margin: 0 0 25px 0 !important;
   letter-spacing: 0.2px;
 }
@@ -76,12 +79,12 @@
   font-size: 1.15rem;
   font-weight: 400;
   line-height: 1.7;
-  color: #515154 !important;
+  color: #3a3a3c !important; /* Slightly darkened for sharper contrast in light mode */
   max-width: 540px;
   margin: 0 0 35px 0 !important;
 }
 
-/* Button Deck Layouts */
+/* Button Layout Rules */
 .premium-action-row {
   display: flex;
   align-items: center;
@@ -97,6 +100,7 @@
   padding: 0 32px;
   font-size: 1rem;
   font-weight: 500;
+  line-height: 1 !important;
   border-radius: 6px;
   text-decoration: none !important;
   box-sizing: border-box;
@@ -119,7 +123,7 @@
 .btn-secondary {
   background-color: transparent !important;
   color: #1d1d1f !important;
-  border: 1px solid rgba(0, 0, 0, 0.25) !important;
+  border: 1px solid rgba(0, 0, 0, 0.3) !important;
 
   &:hover {
     background-color: rgba(0, 0, 0, 0.04) !important;
@@ -132,7 +136,7 @@
   margin-left: -2px;
 }
 
-/* --- Dark Theme Environment Inversion --- */
+/* --- Dark Theme State --- */
 .dark-mode {
   .greet-main {
     background-color: #121212 !important;
@@ -147,7 +151,7 @@
     color: #ffffff !important;
   }
   .premium-greeting-desc {
-    color: #a1a1a6 !important;
+    color: #e5e5ea !important; /* Crisp light gray readability */
   }
   .btn-secondary {
     color: #ffffff !important;
@@ -160,17 +164,16 @@
   }
 }
 
-/* Responsive Scaling Constraints */
+/* Mobile Responsiveness */
 @media (max-width: 960px) {
   .greet-main {
     padding: 60px 24px;
-    background-position: calc(100% + 250px) center; 
   }
   .light-overlay {
-    background: rgba(255, 255, 255, 0.92);
+    background: rgba(255, 255, 255, 0.92); /* Extra text security for smaller displays */
   }
   .dark-overlay {
-    background: rgba(18, 18, 18, 0.9);
+    background: rgba(18, 18, 18, 0.88);
   }
   .greeting-content-wrapper {
     max-width: 100%;
@@ -179,7 +182,7 @@
   }
   .premium-greeting-title {
     font-size: 2.5rem;
-    white-space: normal; /* Permits safe string break updates across small portable phone sizes */
+    white-space: normal;
   }
   .premium-action-row {
     flex-direction: column;
