@@ -19,8 +19,13 @@ export default function Greeting() {
           <p className="greeting-desc">{greeting.resumeSectionDescription}</p>
           
           <div className="button-greeting-div">
-            <Button text="View My Work" href="#skills" />
-            <Button text="Download Resume" newTab={true} href={greeting.resumeLink} />
+            {/* Added wrappers to target specific buttons in SCSS */}
+            <div className="primary-btn-wrapper">
+              <Button text="View My Work" href="#skills" />
+            </div>
+            <div className="secondary-btn-wrapper">
+              <Button text="Download Resume" newTab={true} href={greeting.resumeLink} />
+            </div>
           </div>
           
           <SocialMedia />
