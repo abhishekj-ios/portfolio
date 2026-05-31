@@ -2,89 +2,96 @@
 Certain colors are used for different and multiply types of elements. 
 For greater control over colors visit each components .scss file. */
 
+// Core Apple Developer Accents (Professional Branding)
+$appleBlue: #007AFF;         // Used for standard interactions, matching native iOS
+$appleBlueHover: #0056B3;    // Deeper shade for intuitive hover behaviors
+$appleGrayText: #8E8E93;     // Native iOS secondary text tone
+
 // button colors
-$buttonColor: #55198b;
-$buttonHover: #8c43ce;
-$topButtonHover: #000;
+$buttonColor: $appleBlue;
+$buttonHover: $appleBlueHover;
+$topButtonHover: #1C1C1E;
 
 // text colors light theme
-$titleColor: #000000;
-$textColor: #000000;
-$subTitle: #868e96;
-$cardSubtitle: #666666;
-$talkCardSubTitle: #7f8287;
-$blogCardTitleColor: #262626;
+$titleColor: #1D1D1F;        // Apple-standard rich charcoal-black (easier on eyes than pure #000)
+$textColor: #3A3A3C;         // Highly readable dark gray for long body strings
+$subTitle: $appleGrayText;   // Crisp secondary hierarchy labels
+$cardSubtitle: #636366;
+$talkCardSubTitle: #48484A;
+$blogCardTitleColor: #1D1D1F;
 
 // text color dark theme
-$textColorDark: #ffffff;
+$textColorDark: #F5F5F7;    // Soft premium off-white (prevents high-contrast eye strain)
 
 // toggle switch colors
-$toggleCheck: #2196f3;
-$toggleSwitchSliderBG: #ccc;
+$toggleCheck: $appleBlue;
+$toggleSwitchSliderBG: #AEAEB2;
 
 // githubRepo specific colors
-$githubRepoCardLanguageColorBG: #0000ff;
-$githubRepoCardColor: rgb(88, 96, 105);
-$githubRepoCardRepoCardStatsColor: rgb(106, 115, 125);
-$githubRepoCardRepoNameColor: rgb(36, 41, 46);
-$githubProfileCardLocationTS: #ffebcd;
-$githubProfileCardBorder: #6c63ff;
+$githubRepoCardLanguageColorBG: $appleBlue;
+$githubRepoCardColor: #48484A;
+$githubRepoCardRepoCardStatsColor: $appleGrayText;
+$githubRepoCardRepoNameColor: #1D1D1F;
+$githubProfileCardLocationTS: #E5E5EA;
+$githubProfileCardBorder: #D1D1D6;
 
-// light background colors
-$lightBackground1: #fff;
-$lightBackground2: rgb(255, 255, 255);
-$lightBackground3: #f5f2f4;
-$blogCardContainerColor: #586069;
-// dark background colors
-$darkBackground: #171c28;
+// light background colors (Pure Clean Layouts)
+$lightBackground1: #FFFFFF;
+$lightBackground2: #F5F5F7;  // Premium structural slate tint
+$lightBackground3: #E5E5EA;
+$blogCardContainerColor: #F5F5F7;
+
+// dark background colors (Pro System Dark Mode Setup)
+$darkBackground: #1C1C1E;    // Native iOS 'Secondary System Background' (Elegant slate)
 
 // light theme box shadows
-$lightBoxShadowDark: rgba(0, 0, 0, 0.2);
-$lightBoxShadow: rgba(0, 0, 0, 0.1);
-$lightBoxShadowDarker: rgba(0, 0, 0, 0.3);
+$lightBoxShadowDark: rgba(0, 0, 0, 0.12);
+$lightBoxShadow: rgba(0, 0, 0, 0.06);
+$lightBoxShadowDarker: rgba(0, 0, 0, 0.18);
 
 // dark theme box shadows
-$darkBoxShadow: #d9dbdf;
-$darkBoxShadow2: #ffffff;
+$darkBoxShadow: rgba(0, 0, 0, 0.4);
+$darkBoxShadow2: rgba(255, 255, 255, 0.05);
 
 // linear gradients
 $experienceCardBlurredDivLG: linear-gradient(
-  rgba(0, 0, 0, 0.4),
-  rgba(0, 0, 0, 0.2)
+  rgba(28, 28, 30, 0.6),
+  rgba(28, 28, 30, 0.3)
 );
 $experienceCardBannerLG: linear-gradient(
-  rgba(0, 0, 0, 0.7),
-  rgba(0, 0, 0, 0.5)
+  rgba(0, 0, 0, 0.5),
+  rgba(0, 0, 0, 0.3)
 );
 
 // borders
-$progressBarBackground: rgb(243, 239, 239);
-$lightBorder1: rgba(211, 211, 211, 0.397);
-$educationCardBorder: #a9a7f9;
+$progressBarBackground: #E5E5EA;
+$lightBorder1: rgba(0, 0, 0, 0.08);
+$educationCardBorder: #D1D1D6;
 
 // hovers
-$achievementCertificateCardHoverDark: rgba(255, 255, 255, 0.2);
-$blogCardHoverSmallColor: rgba(255, 255, 255, 0.8);
-$headerHoverBG: #f4f4f4;
-$contactDetailHoverTS: #b5b5b5;
+$achievementCertificateCardHoverDark: rgba(255, 255, 255, 0.05);
+$blogCardHoverSmallColor: rgba(255, 255, 255, 0.9);
+$headerHoverBG: #F5F5F7;
+$contactDetailHoverTS: #AEAEB2;
 
 // misc backgrounds
-$progressBarSpanBG: #aaa5ff;
-$iconBackground: #333;
-$appHeaderBG: #282c34;
+$progressBarSpanBG: $appleBlue;
+$iconBackground: #2C2C2E;
+$appHeaderBG: #1C1C1E;
 
 // misc colors
-$skillsColor: #645beb;
-$appLink: #09d3ac;
+$skillsColor: $appleBlue;
+$appLink: $appleBlue;
 
-// social media icons
-$faceBook: #3b5998;
-$linkedin: #0e76a8;
-$github: #333;
-$gitlab: #fca326;
-$google: #ea4335;
-$twitter: #1da1f2;
-$medium: #000;
-$stackoverflow: #f48024;
-$instagram: #c13584;
-$kaggle: #20beff;
+// Minimalist Monochrome-First Social Brand Tokens 
+// (We map these to neutral states so they don't look like a circus layout)
+$faceBook: #48484A;
+$linkedin: #007AFF;          // Accentuated focus highlights
+$github: #1D1D1F;
+$gitlab: #48484A;
+$google: #48484A;
+$twitter: #48484A;
+$medium: #1D1D1F;
+$stackoverflow: #48484A;
+$instagram: #48484A;
+$kaggle: #48484A;
