@@ -3,7 +3,7 @@ name: Deploy React Portfolio to Pages
 on:
   push:
     branches:
-      - main
+      - master  # Decoupled to explicitly target your master branch topology
 
 permissions:
   contents: read
@@ -34,7 +34,7 @@ jobs:
         run: npm install --legacy-peer-deps
 
       - name: Compile Production Build Assets
-        run: CI=false npm run build  # CI=false ignores styling warnings and forces the build through
+        run: CI=false npm run build  # Forces compilation through despite linter warnings
 
       - name: Upload Static Web Assets
         uses: actions/upload-pages-artifact@v3
