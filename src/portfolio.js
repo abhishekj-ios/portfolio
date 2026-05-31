@@ -20,10 +20,10 @@ const illustration = {
 };
 
 const greeting = {
-  username: "Saad Pasta",
-  title: "Hi all, I'm Saad",
+  username: "Abhishek J",
+  title: "Hi, I'm Abhishek",
   subTitle: emoji(
-    "A passionate Full Stack Software Developer 🚀 having an experience of building Web and Mobile applications with JavaScript / Reactjs / Nodejs / React Native and some other cool libraries and frameworks."
+    "Senior iOS Developer with over 12 years of experience building scalable mobile architectures. Specializing in Swift, SwiftUI, and creating high-performance apps with clean code methodologies."
   ),
   resumeLink:
     "https://drive.google.com/file/d/1ofFdKF_mqscH8WvXkSObnVvC9kK7Ldlu/view?usp=sharing", // Set to empty to hide the button
@@ -49,15 +49,12 @@ const socialMediaLinks = {
 
 const skillsSection = {
   title: "What I do",
-  subTitle: "CRAZY FULL STACK DEVELOPER WHO WANTS TO EXPLORE EVERY TECH STACK",
+  subTitle: "DEVELOPING HIGH-PERFORMANCE NATIVE iOS APPLICATIONS",
   skills: [
-    emoji(
-      "⚡ Develop highly interactive Front end / User Interfaces for your web and mobile applications"
-    ),
-    emoji("⚡ Progressive Web Applications ( PWA ) in normal and SPA Stacks"),
-    emoji(
-      "⚡ Integration of third party services such as Firebase/ AWS / Digital Ocean"
-    )
+    "⚡ 12+ years of experience delivering robust, modular architectures (MVVM-C, VIPER, POP)",
+    "⚡ Expert proficiency in Swift, SwiftUI, UIKit, Combine, and Async/Await concurrency",
+    "⚡ Strong advocate for clean code, dependency injection, and avoiding singleton patterns for scalability",
+    "⚡ Proven track record of managing cross-functional technical teams and leading App Store deployments"
   ],
 
   /* Make Sure to include correct Font Awesome Classname to view your icon
