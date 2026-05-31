@@ -13,11 +13,9 @@ export default function Greeting() {
   return (
     <Fade bottom duration={1000} distance="40px">
       <div className="greet-main" id="greeting">
-        {/* Full-bleed background layers controlled by Greeting.scss */}
         <div className="premium-hero-overlay light-overlay" />
         <div className="premium-hero-overlay dark-overlay" />
 
-        {/* Content layer positioned securely in front with z-index */}
         <div className="greeting-content-wrapper">
           <h1 className="premium-greeting-title">
             {greeting.title}
@@ -29,23 +27,11 @@ export default function Greeting() {
             {greeting.resumeSectionDescription}
           </p>
 
-          {/* Action Button Deck */}
           <div className="premium-action-row">
-            <Button 
-              text="View My Work" 
-              newTab={false} 
-              href="#skills" 
-              className="custom-premium-btn btn-primary"
-            />
-            <Button 
-              text="Download Resume" 
-              newTab={true} 
-              href={greeting.resumeLink} 
-              className="custom-premium-btn btn-secondary"
-            />
+            <Button text="View My Work" href="#skills" />
+            <Button text="Download Resume" newTab={true} href={greeting.resumeLink} />
           </div>
 
-          {/* Social Profiles Grid */}
           <div className="premium-social-wrapper">
             <SocialMedia />
           </div>
