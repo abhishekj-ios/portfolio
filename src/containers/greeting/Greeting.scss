@@ -1,27 +1,69 @@
+.greet-main {
+  /* PUT YOUR BACKGROUND IMAGE NAME HERE */
+  background-image: url("../../assets/images/HeroBg.png"); 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 120px 50px; 
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.greeting-content-wrapper {
+  max-width: 650px;
+}
+
 .greeting-title {
-  font-size: 55px;
-  font-weight: 700;
+  font-size: 65px;
+  line-height: 1.1;
+  font-weight: 500;
   color: #1d1d1f;
-  margin-bottom: 10px;
-  letter-spacing: -0.5px;
+  margin-bottom: 15px;
   
   .dark-mode & { color: #ffffff; }
 }
 
+/* This targets ONLY "Senior iOS Developer" */
 .greeting-subtitle {
-  font-size: 26px;
+  font-size: 28px;
   font-weight: 700;
-  color: #007AFF; /* The blue color ONLY for the short subtitle */
-  margin-bottom: 25px;
+  color: #007AFF; 
+  margin-bottom: 20px;
 }
 
+/* This targets ONLY the description paragraph */
 .greeting-desc {
-  font-size: 18px;
-  line-height: 1.6;
+  font-size: 20px;
+  line-height: 1.5;
   font-weight: 400;
   color: #2c2c2e; 
-  margin-bottom: 35px;
-  max-width: 580px;
+  margin-bottom: 40px;
   
-  .dark-mode & { color: #c7c7cc; } /* The grey color for the description */
+  .dark-mode & { color: #c7c7cc; } 
+}
+
+.button-greeting-div {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 35px;
+}
+
+@media (max-width: 768px) {
+  .greet-main {
+    padding: 80px 20px;
+  }
+  .greeting-title {
+    font-size: 45px;
+  }
+  .greeting-subtitle {
+    font-size: 22px;
+  }
+  .greeting-desc {
+    font-size: 18px;
+  }
+  .button-greeting-div {
+    flex-direction: column;
+    gap: 15px;
+  }
 }
