@@ -15,10 +15,10 @@ export default function Greeting() {
         <div className="greeting-main">
           <div className="greeting-text-div" style={{ width: "100%", textAlign: "center", maxWidth: "800px", margin: "0 auto" }}>
             <div>
-              <h1 className="greeting-text">
+              <h1 className="greeting-text" style={{ color: "var(--text-color)", fontSize: "3rem", fontWeight: "700", marginBottom: "20px", opacity: 1 }}>
                 {greeting.title}
               </h1>
-              <p className="greeting-text-p" style={{ color: "var(--text-color)", fontSize: "1.2rem", fontWeight: "400", lineHeight: "1.6" }}>
+              <p className="greeting-text-p" style={{ color: "var(--text-color)", fontSize: "1.2rem", fontWeight: "400", lineHeight: "1.6", opacity: 0.95 }}>
                 {greeting.subTitle}
               </p>
               <div className="portfolio-repo-btn-div" style={{ justifyContent: "center", display: "flex", gap: "15px", margin: "25px 0" }}>
