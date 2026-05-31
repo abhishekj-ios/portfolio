@@ -12,14 +12,13 @@
   overflow: hidden;
   background-color: #ffffff;
   
-  /* Background Image Context */
+  /* Matches file name: src/assets/images/HeroBg.png */
   background-image: url("../../assets/images/HeroBg.png");
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
 }
 
-/* Background Color Masks */
 .premium-hero-overlay {
   position: absolute;
   top: 0;
@@ -31,18 +30,17 @@
 }
 
 .light-overlay {
-  background: rgba(255, 255, 255, 0.88); /* Clean tint for light mode */
+  background: rgba(255, 255, 255, 0.88);
   opacity: 1;
   z-index: 1;
 }
 
 .dark-overlay {
-  background: rgba(18, 18, 18, 0.78); /* Deep contrast tint for dark mode */
+  background: rgba(18, 18, 18, 0.78);
   opacity: 0;
   z-index: 1;
 }
 
-/* Foreground Layout Container */
 .greeting-content-wrapper {
   position: relative;
   z-index: 2;
@@ -58,7 +56,6 @@
   font-weight: 700;
   color: #1d1d1f !important;
   margin: 0 0 12px 0 !important;
-  letter-spacing: -0.5px;
   line-height: 1.2;
 }
 
@@ -67,118 +64,51 @@
   font-weight: 600;
   color: #007AFF !important;
   margin: 0 0 25px 0 !important;
-  letter-spacing: 0.2px;
 }
 
 .premium-greeting-desc {
   font-size: 1.15rem;
   font-weight: 400;
   line-height: 1.7;
-  color: #2c2c2e !important; /* Fixed dark contrast for clean layout text */
+  color: #2c2c2e !important;
   max-width: 540px;
   margin: 0 0 35px 0 !important;
 }
 
-/* Custom Safe Action Row Fixes */
+/* Button Styling */
 .premium-action-row {
   display: flex;
   align-items: center;
   gap: 16px;
   margin-bottom: 35px;
 
-  /* Formats the nested subcomponent button wrappers natively */
   .main-button {
-    margin: 0 !important;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    height: 48px;
-    padding: 0 24px;
-    font-size: 1rem;
-    font-weight: 500;
-    border-radius: 6px;
-    transition: all 0.2s ease-in-out;
     background-color: #007AFF !important;
     color: #ffffff !important;
     border: 1px solid #007AFF !important;
-
-    &:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(0, 122, 255, 0.3);
-    }
+    padding: 12px 24px !important;
+    border-radius: 6px !important;
+    text-decoration: none !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
   }
 
-  /* Formats the second nested button as a distinct secondary link item */
-  div:nth-child(2) .main-button {
+  & > div:nth-child(2) .main-button {
     background-color: transparent !important;
     color: #1d1d1f !important;
     border: 1px solid rgba(0, 0, 0, 0.3) !important;
-
-    &:hover {
-      background-color: rgba(0, 0, 0, 0.04) !important;
-      border-color: rgba(0, 0, 0, 0.6) !important;
-      box-shadow: none;
-    }
   }
 }
 
-.premium-social-wrapper {
-  margin-left: -2px;
-}
-
-/* --- Dark Mode Active Overrides --- */
 .dark-mode {
-  .light-overlay {
-    opacity: 0;
-  }
-  .dark-overlay {
-    opacity: 1;
-  }
-  .premium-greeting-title {
-    color: #ffffff !important;
-  }
-  .premium-greeting-desc {
-    color: #e5e5ea !important;
-  }
+  .light-overlay { opacity: 0; }
+  .dark-overlay { opacity: 1; }
+  .premium-greeting-title { color: #ffffff !important; }
+  .premium-greeting-desc { color: #e5e5ea !important; }
   
-  .premium-action-row div:nth-child(2) .main-button {
+  .premium-action-row > div:nth-child(2) .main-button {
     color: #ffffff !important;
     border: 1px solid rgba(255, 255, 255, 0.3) !important;
-
-    &:hover {
-      background-color: rgba(255, 255, 255, 0.08) !important;
-      border-color: rgba(255, 255, 255, 0.6) !important;
-    }
-  }
-}
-
-/* Responsive Breakpoints */
-@media (max-width: 960px) {
-  .greet-main {
-    padding: 60px 24px;
-  }
-  .light-overlay {
-    background: rgba(255, 255, 255, 0.94);
-  }
-  .dark-overlay {
-    background: rgba(18, 18, 18, 0.9);
-  }
-  .greeting-content-wrapper {
-    max-width: 100%;
-    align-items: center;
-    text-align: center;
-  }
-  .premium-greeting-title {
-    font-size: 2.5rem;
-  }
-  .premium-action-row {
-    flex-direction: column;
-    width: 100%;
-    gap: 12px;
-    
-    .main-button {
-      width: 100%;
-      min-width: 260px;
-    }
   }
 }
