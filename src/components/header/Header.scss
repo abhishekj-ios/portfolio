@@ -9,11 +9,11 @@
 
 .dark-menu {
   background-color: $darkBackground !important;
-  color: $textColorDark;
+  color: #F5F5F7 !important; /* Unified crisp off-white for text statements */
 }
 
 .dark-menu li a {
-  color: $textColorDark !important;
+  color: #F5F5F7 !important; /* Enforces crisp contrast in dark viewport slots */
 }
 
 .dark-menu li a:hover {
@@ -23,7 +23,6 @@
 .header {
   background-color: $lightBackground1;
   max-width: 100%;
-  /* CHANGED: Increased top/bottom breathing room from 15px to 25px, and horizontal padding to 45px */
   padding: 25px 45px !important; 
   margin: 0px auto;
 }
@@ -41,9 +40,11 @@
 
 .header li a {
   display: block;
-  padding: 15px 20px;
-  color: $textColor;
+  padding: 10px 20px; /* Refined vertical hit target heights */
+  color: #1D1D1F !important; /* Premium rich charcoal black standard for navigation targets */
   text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
 }
 
 .header li a:hover,
@@ -62,12 +63,25 @@
 }
 
 .header .logo-name {
-  /* CHANGED: Swapped script typeface to inherit your premium system geometric sans-serif */
   font-family: inherit;
   font-weight: bold;
   font-variant-ligatures: no-common-ligatures;
   -webkit-font-variant-ligatures: no-common-ligatures;
   padding: 0 10px;
+  
+  /* Fixes light mode purple bleed overlay */
+  color: #1D1D1F !important; 
+  transition: color 0.2s ease-in-out;
+}
+
+/* Pure CSS Dark Mode Interception */
+.dark-mode {
+  .header .logo-name {
+    color: #FFFFFF !important; /* High-contrast clean white core layout logo */
+  }
+  .header li a {
+    color: #F5F5F7 !important; /* High-contrast navigation elements */
+  }
 }
 
 /* menu */
