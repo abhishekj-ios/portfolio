@@ -13,22 +13,17 @@ export default function Greeting() {
   return (
     <Fade bottom duration={1000} distance="40px">
       <div className="greet-main" id="greeting">
-        <div className="premium-hero-overlay light-overlay" />
-        <div className="premium-hero-overlay dark-overlay" />
-
         <div className="greeting-content-wrapper">
-          <h1 className="premium-greeting-title">{greeting.title}</h1>
-          <h2 className="premium-greeting-subtitle">{greeting.subTitle}</h2>
-          <p className="premium-greeting-desc">{greeting.resumeSectionDescription}</p>
-
-          <div className="premium-action-row">
+          <h1 className="greeting-title">{greeting.title}</h1>
+          <h2 className="greeting-subtitle">{greeting.subTitle}</h2>
+          <p className="greeting-desc">{greeting.resumeSectionDescription}</p>
+          
+          <div className="button-greeting-div">
             <Button text="View My Work" href="#skills" />
             <Button text="Download Resume" newTab={true} href={greeting.resumeLink} />
           </div>
-
-          <div className="premium-social-wrapper">
-            <SocialMedia />
-          </div>
+          
+          <SocialMedia />
         </div>
       </div>
     </Fade>
