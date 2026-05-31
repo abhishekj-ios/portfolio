@@ -2,7 +2,6 @@ import React from "react";
 import "./Greeting.scss";
 import { greeting } from "../../portfolio";
 import SocialMedia from "../../components/socialMedia/SocialMedia";
-import Button from "../../components/button/Button";
 
 export default function Greeting() {
   if (!greeting.displayGreeting) {
@@ -11,47 +10,43 @@ export default function Greeting() {
 
   return (
     <div className="greet-main" id="greeting">
-      <div className="greeting-main-split">
+      <div className="premium-hero-overlay" />
+      
+      <div className="greeting-content-wrapper">
+        {/* Main Typography Header Section */}
+        <h1 className="premium-greeting-title">
+          Hello, I'm Abhishek
+        </h1>
         
-        {/* Left Column (Content Box) */}
-        <div className="greeting-text-column">
-          <h1 className="premium-greeting-title">
-            {greeting.title}
-          </h1>
-          <p className="premium-greeting-desc">
-            {greeting.subTitle}
-          </p>
-          
-          <div className="premium-action-row">
-            <div className="cta-primary-wrapper">
-              <Button
-                text="View My Work"
-                newTab={false}
-                href="#opensource"
-              />
-            </div>
-            {greeting.resumeLink && (
-              <a 
-                href={greeting.resumeLink} 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="cta-secondary-btn"
-              >
-                Download Resume
-              </a>
-            )}
-          </div>
-
-          <div className="premium-social-wrapper">
-            <SocialMedia />
-          </div>
+        <h2 className="premium-greeting-subtitle">
+          Senior iOS Developer
+        </h2>
+        
+        <p className="premium-greeting-desc">
+          With 12+ years of expertise in Swift and SwiftUI, I design and deliver scalable, high-performance mobile applications. My focus is on clean architecture, maintainability, and user-centric design.
+        </p>
+        
+        {/* Perfectly Aligned Dual Button Row */}
+        <div className="premium-action-row">
+          <a href="#opensource" className="cta-btn cta-primary">
+            View My Work
+          </a>
+          {greeting.resumeLink && (
+            <a 
+              href={greeting.resumeLink} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="cta-btn cta-secondary"
+            >
+              Download Resume
+            </a>
+          )}
         </div>
 
-        {/* Right Column (Image Box) */}
-        <div className="greeting-image-column">
-          <div className="premium-hero-graphic" />
+        {/* Clean Subdued Social Networks Row */}
+        <div className="premium-social-wrapper">
+          <SocialMedia />
         </div>
-
       </div>
     </div>
   );
