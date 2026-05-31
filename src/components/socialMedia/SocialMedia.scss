@@ -9,7 +9,10 @@
 }
 
 .icon-button i {
-  color: $textColorDark;
+  /* 1. Default Slate Theme for Light Mode */
+  background-color: rgba(0, 0, 0, 0.06) !important;
+  color: #3A3A3C !important;
+  
   border-radius: 2.6rem;
   cursor: pointer;
   display: inline-block;
@@ -25,50 +28,10 @@
   user-select: none;
   width: 2.6rem;
   margin-bottom: 10px;
-  transition: 0.2s ease-in;
+  transition: all 0.25s ease-in-out;
 }
 
-.facebook i {
-  background-color: $faceBook;
-}
-
-.linkedin i {
-  background-color: $linkedin;
-}
-
-.github i {
-  background-color: $github;
-}
-
-.gitlab i {
-  background-color: $gitlab;
-}
-
-.google i {
-  background-color: $google;
-}
-
-.twitter i {
-  background-color: $twitter;
-}
-
-.medium i {
-  background-color: $medium;
-}
-
-.stack-overflow i {
-  background-color: $stackoverflow;
-}
-
-.kaggle i {
-  background-color: $kaggle;
-}
-
-.instagram i {
-  background-color: $instagram;
-}
-
-/* Hover Transition */
+/* 2. Interactive Hover State — Snaps beautifully to your system blue accent */
 .twitter i:hover,
 .google i:hover,
 .gitlab i:hover,
@@ -79,7 +42,33 @@
 .stack-overflow i:hover,
 .kaggle i:hover,
 .medium i:hover {
-  background-color: $textColor;
+  background-color: #007AFF !important; 
+  color: #FFFFFF !important;
+  transform: translateY(-3px); /* Subtle premium engineering layout lift */
+}
+
+/* 3. Automatic Dark Mode Interception */
+.dark-mode {
+  .icon-button i {
+    /* Premium soft semi-transparent ring matching charcoal backdrop */
+    background-color: rgba(255, 255, 255, 0.08) !important;
+    color: #F5F5F7 !important;
+  }
+  
+  /* Retains the crisp white icon on blue hover layout when dark mode is enabled */
+  .twitter i:hover,
+  .google i:hover,
+  .gitlab i:hover,
+  .github i:hover,
+  .linkedin i:hover,
+  .facebook i:hover,
+  .instagram i:hover,
+  .stack-overflow i:hover,
+  .kaggle i:hover,
+  .medium i:hover {
+    background-color: #007AFF !important;
+    color: #FFFFFF !important;
+  }
 }
 
 /* Media Query */
