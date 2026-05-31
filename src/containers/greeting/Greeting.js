@@ -28,8 +28,8 @@ export default function Greeting() {
           </p>
 
           <div className="premium-action-row">
-            <Button text="View My Work" href="#skills" />
-            <Button text="Download Resume" newTab={true} href={greeting.resumeLink} />
+            <Button text="View My Work" href="#skills" className="main-button" />
+            <Button text="Download Resume" newTab={true} href={greeting.resumeLink} className="main-button" />
           </div>
 
           <div className="premium-social-wrapper">
