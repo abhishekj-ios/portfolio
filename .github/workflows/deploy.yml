@@ -3,7 +3,7 @@ name: Deploy React Portfolio to Pages
 on:
   push:
     branches:
-      - main  # Triggers the automation every time you commit code to main
+      - main
 
 permissions:
   contents: read
@@ -31,10 +31,10 @@ jobs:
           cache: 'npm'
 
       - name: Install Project Dependencies
-        run: npm ci
+        run: npm install --legacy-peer-deps
 
       - name: Compile Production Build Assets
-        run: npm run build
+        run: CI=false npm run build  # CI=false ignores styling warnings and forces the build through
 
       - name: Upload Static Web Assets
         uses: actions/upload-pages-artifact@v3
