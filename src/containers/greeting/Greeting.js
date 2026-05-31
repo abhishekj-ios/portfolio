@@ -10,25 +10,20 @@ export default function Greeting() {
 
   return (
     <div className="greet-main" id="greeting">
-      <div className="premium-hero-overlay" />
+      {/* Background Gradient Overlays */}
+      <div className="premium-hero-overlay light-overlay" />
+      <div className="premium-hero-overlay dark-overlay" />
       
       <div className="greeting-content-wrapper">
-        {/* Main Typography Header Section */}
-        <h1 className="premium-greeting-title">
-          Hello, I'm Abhishek
-        </h1>
-        
-        <h2 className="premium-greeting-subtitle">
-          Senior iOS Developer
-        </h2>
-        
+        <h1 className="premium-greeting-title">Hello, I'm Abhishek</h1>
+        <h2 className="premium-greeting-subtitle">Senior iOS Developer</h2>
         <p className="premium-greeting-desc">
           With 12+ years of expertise in Swift and SwiftUI, I design and deliver scalable, high-performance mobile applications. My focus is on clean architecture, maintainability, and user-centric design.
         </p>
         
-        {/* Perfectly Aligned Dual Button Row */}
+        {/* Perfectly Uniform Custom Buttons */}
         <div className="premium-action-row">
-          <a href="#opensource" className="cta-btn cta-primary">
+          <a href="#opensource" className="custom-premium-btn btn-primary">
             View My Work
           </a>
           {greeting.resumeLink && (
@@ -36,14 +31,13 @@ export default function Greeting() {
               href={greeting.resumeLink} 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="cta-btn cta-secondary"
+              className="custom-premium-btn btn-secondary"
             >
               Download Resume
             </a>
           )}
         </div>
 
-        {/* Clean Subdued Social Networks Row */}
         <div className="premium-social-wrapper">
           <SocialMedia />
         </div>
