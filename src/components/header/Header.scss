@@ -23,7 +23,8 @@
 .header {
   background-color: $lightBackground1;
   max-width: 100%;
-  padding: 15px 20px;
+  /* CHANGED: Increased top/bottom breathing room from 15px to 25px, and horizontal padding to 45px */
+  padding: 25px 45px !important; 
   margin: 0px auto;
 }
 
@@ -61,7 +62,8 @@
 }
 
 .header .logo-name {
-  font-family: "Agustina Regular";
+  /* CHANGED: Swapped script typeface to inherit your premium system geometric sans-serif */
+  font-family: inherit;
   font-weight: bold;
   font-variant-ligatures: no-common-ligatures;
   -webkit-font-variant-ligatures: no-common-ligatures;
