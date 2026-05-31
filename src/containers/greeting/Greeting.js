@@ -16,18 +16,16 @@ export default function Greeting() {
         <div className="greeting-content-wrapper">
           <h1 className="greeting-title">{greeting.title}</h1>
           
-          {/* This will now JUST be "Senior iOS Developer" and will be blue */}
           <h2 className="greeting-subtitle">{greeting.subTitle}</h2>
           
-          {/* This will be the rest of the text and will be grey */}
           <p className="greeting-desc">{greeting.resumeSectionDescription}</p>
           
           <div className="button-greeting-div">
             <div className="primary-btn-wrapper">
-              <Button text="View My Work" href="#skills" />
+              <Button text="VIEW MY WORK" href="#skills" />
             </div>
             <div className="secondary-btn-wrapper">
-              <Button text="Download Resume" newTab={true} href={greeting.resumeLink} />
+              <Button text="DOWNLOAD RESUME" newTab={true} href={greeting.resumeLink} />
             </div>
           </div>
           
