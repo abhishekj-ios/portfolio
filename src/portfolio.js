@@ -25,19 +25,19 @@ const greeting = {
   subTitle: emoji(
     "Senior iOS Developer with over 12 years of professional experience building scalable mobile architectures. Specializing in Swift, SwiftUI, and creating high-performance apps with clean code methodologies."
   ),
-  resumeLink: "https://drive.google.com/file/d/1ofFdKF_mqscH8WvXkSObnVvC9kK7Ldlu/view?usp=sharing",
+  resumeLink: "https://drive.google.com/file/d/14qK3Vm5Ud6vJEbKiPpRGzSQ_EsdM7wvk/view?usp=sharing",
   displayGreeting: true 
 };
 
 // Social Media Links
 
 const socialMediaLinks = {
-  github: "https://github.com/abhishekj-ios",
-  linkedin: "https://www.linkedin.com/in/abhishek-ios/", // Update with your exact URL slug if different
-  gmail: "abhishek.ios.dev@gmail.com", // Replace with your primary professional email
+  github: "",
+  linkedin: "https://www.linkedin.com/in/abhishek-j-ios", // Update with your exact URL slug if different
+  gmail: "kailasj281@gmail.com", // Replace with your primary professional email
   gitlab: "",
   facebook: "",
-  medium: "",
+  medium: "https://medium.com/@abhishek_j",
   stackoverflow: "",
   display: true // Set true to display this section, defaults to false
 };
