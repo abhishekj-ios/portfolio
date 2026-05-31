@@ -9,15 +9,21 @@
 
 .dark-menu {
   background-color: $darkBackground !important;
-  color: #F5F5F7 !important; /* Unified crisp off-white for text statements */
+  color: #F5F5F7 !important; 
 }
 
 .dark-menu li a {
-  color: #F5F5F7 !important; /* Enforces crisp contrast in dark viewport slots */
+  color: #F5F5F7 !important; 
 }
 
 .dark-menu li a:hover {
   background-color: $buttonColor !important;
+}
+
+/* FIX: Stop the blue hover background from bleeding onto the Toggle Switch container */
+.dark-menu li:last-child a:hover,
+.header ul li:last-child a:hover {
+  background-color: transparent !important;
 }
 
 .header {
@@ -32,6 +38,10 @@
   padding: 0;
   list-style: none;
   overflow: hidden;
+  
+  /* Centers navigation items cleanly along the vertical axis */
+  display: flex;
+  align-items: center;
 }
 
 .grey-color {
@@ -40,8 +50,8 @@
 
 .header li a {
   display: block;
-  padding: 10px 20px; /* Refined vertical hit target heights */
-  color: #1D1D1F !important; /* Premium rich charcoal black standard for navigation targets */
+  padding: 10px 20px; 
+  color: #1D1D1F !important; 
   text-decoration: none;
   font-weight: 500;
   transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
@@ -68,8 +78,6 @@
   font-variant-ligatures: no-common-ligatures;
   -webkit-font-variant-ligatures: no-common-ligatures;
   padding: 0 10px;
-  
-  /* Fixes light mode purple bleed overlay */
   color: #1D1D1F !important; 
   transition: color 0.2s ease-in-out;
 }
@@ -77,10 +85,10 @@
 /* Pure CSS Dark Mode Interception */
 .dark-mode {
   .header .logo-name {
-    color: #FFFFFF !important; /* High-contrast clean white core layout logo */
+    color: #FFFFFF !important; 
   }
   .header li a {
-    color: #F5F5F7 !important; /* High-contrast navigation elements */
+    color: #F5F5F7 !important; 
   }
 }
 
