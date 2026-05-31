@@ -17,19 +17,13 @@ export default function Greeting() {
         <div className="premium-hero-overlay dark-overlay" />
 
         <div className="greeting-content-wrapper">
-          <h1 className="premium-greeting-title">
-            {greeting.title}
-          </h1>
-          <h2 className="premium-greeting-subtitle">
-            {greeting.subTitle}
-          </h2>
-          <p className="premium-greeting-desc">
-            {greeting.resumeSectionDescription}
-          </p>
+          <h1 className="premium-greeting-title">{greeting.title}</h1>
+          <h2 className="premium-greeting-subtitle">{greeting.subTitle}</h2>
+          <p className="premium-greeting-desc">{greeting.resumeSectionDescription}</p>
 
           <div className="premium-action-row">
-            <Button text="View My Work" href="#skills" className="main-button" />
-            <Button text="Download Resume" newTab={true} href={greeting.resumeLink} className="main-button" />
+            <Button text="View My Work" href="#skills" />
+            <Button text="Download Resume" newTab={true} href={greeting.resumeLink} />
           </div>
 
           <div className="premium-social-wrapper">
