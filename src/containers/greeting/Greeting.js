@@ -11,25 +11,22 @@ export default function Greeting() {
   }
 
   return (
-    <Fade bottom duration={1000} distance="40px">
-      <div className="greet-main" id="greeting">
-        <div className="greeting-main-split">
-          
-          {/* Left Text Column */}
-          <div className="greeting-text-column">
+    <div className="greet-main" id="greeting">
+      <div className="greeting-main-split">
+        
+        {/* Left Column (Animated) */}
+        <div className="greeting-text-column">
+          <Fade bottom duration={1000} distance="30px">
             <h1 className="premium-greeting-title">
               Hello, I'm Abhishek
             </h1>
-            
             <h2 className="premium-greeting-subtitle">
               Senior iOS Developer
             </h2>
-            
             <p className="premium-greeting-desc">
               With 12+ years of expertise in Swift and SwiftUI, I design and deliver scalable, high-performance mobile applications. My focus is on clean architecture, maintainability, and user-centric design.
             </p>
             
-            {/* Action Buttons Block */}
             <div className="premium-action-row">
               <div className="cta-primary-wrapper">
                 <Button
@@ -50,19 +47,20 @@ export default function Greeting() {
               )}
             </div>
 
-            {/* Social Icons positioned cleanly underneath */}
             <div className="premium-social-wrapper">
               <SocialMedia />
             </div>
-          </div>
-
-          {/* Right Image Spacer Column */}
-          <div className="greeting-image-column">
-            {/* The background image container remains empty; layout properties render the graphics */}
-          </div>
-
+          </Fade>
         </div>
+
+        {/* Right Column (Animated) */}
+        <div className="greeting-image-column">
+          <Fade right duration={1200}>
+            <div className="premium-hero-graphic" />
+          </Fade>
+        </div>
+
       </div>
-    </Fade>
+    </div>
   );
 }
