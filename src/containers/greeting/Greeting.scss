@@ -2,28 +2,38 @@
 
 .greet-main {
   width: 100%;
-  min-height: 75vh;
+  min-height: 85vh;
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 60px 45px;
+  justify-content: flex-start;
+  padding: 80px 10%;
   box-sizing: border-box;
-  background: transparent !important; 
+  position: relative;
+  overflow: hidden;
+  
+  /* The exact laptop setup asset anchored directly to the right margin */
+  background-image: url("https://images.unsplash.com/photo-1587620962725-abab7fe55159?q=80&w=1400&auto=format&fit=crop");
+  background-size: cover;
+  background-position: right center;
+  background-repeat: no-repeat;
 }
 
-.greeting-main-split {
-  display: flex;
+/* Premium Dark Gradient Mask to fade the photo beautifully into the left content side */
+.premium-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  align-items: center;
-  justify-content: space-between;
-  gap: 50px;
+  height: 100%;
+  background: linear-gradient(to right, #0d1117 0%, #0d1117 45%, rgba(13, 17, 23, 0.85) 60%, rgba(13, 17, 23, 0.2) 100%);
+  z-index: 1;
 }
 
-/* Left Text Layout */
-.greeting-text-column {
-  flex: 1;
+/* Floating Content Card Box */
+.greeting-content-wrapper {
+  position: relative;
+  z-index: 2;
+  max-width: 580px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -31,66 +41,77 @@
 }
 
 .premium-greeting-title {
-  font-size: 3.5rem;
+  font-size: 3.8rem;
   font-weight: 700;
-  margin: 0 0 20px 0 !important;
+  color: #ffffff !important;
+  margin: 0 0 8px 0 !important;
   letter-spacing: -0.5px;
-  color: #1D1D1F !important; 
-  line-height: 1.2 !important;
+  line-height: 1.15;
+}
+
+.premium-greeting-subtitle {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #007AFF !important; /* System iOS Accent Blue Title */
+  margin: 0 0 30px 0 !important;
+  letter-spacing: 0.2px;
 }
 
 .premium-greeting-desc {
   font-size: 1.15rem;
   font-weight: 400;
-  line-height: 1.7 !important;
-  color: #515154 !important; 
-  max-width: 520px;
-  margin: 0 0 35px 0 !important;
+  line-height: 1.7;
+  color: #A1A1A6 !important; /* Premium system text gray core typography */
+  margin: 0 0 40px 0 !important;
 }
 
-/* Action Rows */
+/* Perfectly Balanced Button Container Row */
 .premium-action-row {
   display: flex;
   align-items: center;
-  gap: 20px;
-  margin-bottom: 35px;
-  
-  .cta-primary-wrapper button,
-  .cta-primary-wrapper a {
-    padding: 14px 28px !important;
-    font-size: 1rem !important;
-    font-weight: 500 !important;
-    border-radius: 6px !important;
-    background-color: #007AFF !important;
-    border: none !important;
-    color: #ffffff !important;
-    transition: transform 0.2s ease-in-out !important;
-    display: inline-block;
-    text-decoration: none;
-    
-    &:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(0, 122, 255, 0.3);
-    }
+  gap: 16px;
+  margin-bottom: 40px;
+  width: auto;
+}
+
+/* Universal Base Button Metric Interlock */
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px; /* Strict dimensional constraint ensures identical alignment heights */
+  padding: 0 28px;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 6px;
+  text-decoration: none;
+  box-sizing: border-box;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+/* Primary Button Styling */
+.cta-primary {
+  background-color: #007AFF !important;
+  color: #ffffff !important;
+  border: none !important;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 122, 255, 0.35);
   }
 }
 
-.cta-secondary-btn {
-  padding: 13px 26px;
-  font-size: 1rem;
-  font-weight: 500;
-  color: #1D1D1F !important;
-  background-color: transparent;
-  border: 1px solid rgba(0, 0, 0, 0.2) !important;
-  border-radius: 6px;
-  text-decoration: none;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
-  box-sizing: border-box;
+/* Secondary Button Styling (Matches layout outline thickness and gray variables) */
+.cta-secondary {
+  background-color: transparent !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
 
   &:hover {
-    background-color: rgba(0, 0, 0, 0.04);
-    border-color: rgba(0, 0, 0, 0.5) !important;
+    background-color: rgba(255, 255, 255, 0.08) !important;
+    border-color: rgba(255, 255, 255, 0.6) !important;
     transform: translateY(-2px);
   }
 }
@@ -99,58 +120,55 @@
   margin-left: -5px;
 }
 
-/* Right Image Layout */
-.greeting-image-column {
-  flex: 1.1;
-  width: 100%;
-}
-
-.premium-hero-graphic {
-  width: 100%;
-  height: 460px;
-  border-radius: 12px;
-  background: url("https://images.unsplash.com/photo-1587620962725-abab7fe55159?q=80&w=1000&auto=format&fit=crop");
-  background-size: cover;
-  background-position: center;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-}
-
-/* Dark Theme Adjustments */
-.dark-mode {
+/* Light Theme Inversion Masking Selector */
+body:not(.dark-mode) {
+  .premium-hero-overlay {
+    background: linear-gradient(to right, #ffffff 0%, #ffffff 45%, rgba(255, 255, 255, 0.85) 60%, rgba(255, 255, 255, 0.1) 100%);
+  }
   .premium-greeting-title {
-    color: #ffffff !important;
+    color: #1D1D1F !important;
   }
   .premium-greeting-desc {
-    color: #A1A1A6 !important;
+    color: #515154 !important;
   }
-  .cta-secondary-btn {
-    color: #ffffff !important;
-    border-color: rgba(255, 255, 255, 0.3) !important;
+  .cta-secondary {
+    color: #1D1D1F !important;
+    border: 1px solid rgba(0, 0, 0, 0.25) !important;
+    
     &:hover {
-      background-color: rgba(255, 255, 255, 0.06);
-      border-color: rgba(255, 255, 255, 0.6) !important;
+      background-color: rgba(0, 0, 0, 0.05) !important;
+      border-color: rgba(0, 0, 0, 0.6) !important;
     }
-  }
-  .premium-hero-graphic {
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
   }
 }
 
-/* Mobile Responsive Adjustments */
+/* Screen Scaling Adaptation Breakpoints */
 @media (max-width: 960px) {
-  .greeting-main-split {
-    flex-direction: column-reverse;
-    text-align: center;
-    gap: 40px;
+  .greet-main {
+    padding: 60px 5%;
+    background-position: center;
   }
-  .greeting-text-column {
+  .premium-hero-overlay {
+    background: rgba(13, 17, 23, 0.85);
+  }
+  body:not(.dark-mode) .premium-hero-overlay {
+    background: rgba(255, 255, 255, 0.9);
+  }
+  .greeting-content-wrapper {
+    max-width: 100%;
     align-items: center;
     text-align: center;
   }
   .premium-greeting-title {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
   }
-  .premium-hero-graphic {
-    height: 300px;
+  .premium-action-row {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+  .cta-btn {
+    width: 100%;
+    max-width: 280px;
   }
 }
