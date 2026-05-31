@@ -12,14 +12,14 @@
   overflow: hidden;
   background-color: #ffffff;
   
-  /* Full bleed background image setup */
-  background-image: url("../../assets/images/HeroBg.png");
+  /* Background Image Context */
+  background-image: url("../../assets/images/Copilot_20260601_023038.png");
   background-size: cover;
-  background-position: center center; /* Centered to capture the desk and phone naturally */
+  background-position: center center;
   background-repeat: no-repeat;
 }
 
-/* Master Overlay Controls covering the entire frame */
+/* Background Color Masks */
 .premium-hero-overlay {
   position: absolute;
   top: 0;
@@ -30,26 +30,22 @@
   transition: opacity 0.3s ease-in-out;
 }
 
-/* LIGHT MODE: Full tint that balances image visibility 
-   with maximum text readability 
-*/
 .light-overlay {
-  background: rgba(255, 255, 255, 0.85); 
+  background: rgba(255, 255, 255, 0.88); /* Clean tint for light mode */
   opacity: 1;
   z-index: 1;
 }
 
-/* DARK MODE: Full dark cinematic mask */
 .dark-overlay {
-  background: rgba(18, 18, 18, 0.75);
+  background: rgba(18, 18, 18, 0.78); /* Deep contrast tint for dark mode */
   opacity: 0;
   z-index: 1;
 }
 
-/* Content layer pushed safely to the front */
+/* Foreground Layout Container */
 .greeting-content-wrapper {
   position: relative;
-  z-index: 2; /* Keeps text layered above the overlays */
+  z-index: 2;
   max-width: 650px; 
   display: flex;
   flex-direction: column;
@@ -60,17 +56,16 @@
 .premium-greeting-title {
   font-size: 3.4rem; 
   font-weight: 700;
-  color: #1d1d1f !important; /* High-contrast Apple charcoal black */
+  color: #1d1d1f !important;
   margin: 0 0 12px 0 !important;
   letter-spacing: -0.5px;
   line-height: 1.2;
-  white-space: nowrap;
 }
 
 .premium-greeting-subtitle {
   font-size: 1.6rem;
   font-weight: 600;
-  color: #007AFF !important; /* Premium Blue accent */
+  color: #007AFF !important;
   margin: 0 0 25px 0 !important;
   letter-spacing: 0.2px;
 }
@@ -79,56 +74,51 @@
   font-size: 1.15rem;
   font-weight: 400;
   line-height: 1.7;
-  color: #3a3a3c !important; /* Slightly darkened for sharper contrast in light mode */
+  color: #2c2c2e !important; /* Fixed dark contrast for clean layout text */
   max-width: 540px;
   margin: 0 0 35px 0 !important;
 }
 
-/* Button Layout Rules */
+/* Custom Safe Action Row Fixes */
 .premium-action-row {
   display: flex;
   align-items: center;
   gap: 16px;
   margin-bottom: 35px;
-}
 
-.custom-premium-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  height: 48px;
-  padding: 0 32px;
-  font-size: 1rem;
-  font-weight: 500;
-  line-height: 1 !important;
-  border-radius: 6px;
-  text-decoration: none !important;
-  box-sizing: border-box;
-  transition: all 0.2s ease-in-out;
-  cursor: pointer;
-  white-space: nowrap;
-}
+  /* Formats the nested subcomponent button wrappers natively */
+  .main-button {
+    margin: 0 !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 48px;
+    padding: 0 24px;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 6px;
+    transition: all 0.2s ease-in-out;
+    background-color: #007AFF !important;
+    color: #ffffff !important;
+    border: 1px solid #007AFF !important;
 
-.btn-primary {
-  background-color: #007AFF !important;
-  color: #ffffff !important;
-  border: none !important;
-
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 122, 255, 0.3);
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 122, 255, 0.3);
+    }
   }
-}
 
-.btn-secondary {
-  background-color: transparent !important;
-  color: #1d1d1f !important;
-  border: 1px solid rgba(0, 0, 0, 0.3) !important;
+  /* Formats the second nested button as a distinct secondary link item */
+  div:nth-child(2) .main-button {
+    background-color: transparent !important;
+    color: #1d1d1f !important;
+    border: 1px solid rgba(0, 0, 0, 0.3) !important;
 
-  &:hover {
-    background-color: rgba(0, 0, 0, 0.04) !important;
-    border-color: rgba(0, 0, 0, 0.6) !important;
-    transform: translateY(-2px);
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.04) !important;
+      border-color: rgba(0, 0, 0, 0.6) !important;
+      box-shadow: none;
+    }
   }
 }
 
@@ -136,11 +126,8 @@
   margin-left: -2px;
 }
 
-/* --- Dark Theme State --- */
+/* --- Dark Mode Active Overrides --- */
 .dark-mode {
-  .greet-main {
-    background-color: #121212 !important;
-  }
   .light-overlay {
     opacity: 0;
   }
@@ -151,12 +138,13 @@
     color: #ffffff !important;
   }
   .premium-greeting-desc {
-    color: #e5e5ea !important; /* Crisp light gray readability */
+    color: #e5e5ea !important;
   }
-  .btn-secondary {
+  
+  .premium-action-row div:nth-child(2) .main-button {
     color: #ffffff !important;
     border: 1px solid rgba(255, 255, 255, 0.3) !important;
-    
+
     &:hover {
       background-color: rgba(255, 255, 255, 0.08) !important;
       border-color: rgba(255, 255, 255, 0.6) !important;
@@ -164,16 +152,16 @@
   }
 }
 
-/* Mobile Responsiveness */
+/* Responsive Breakpoints */
 @media (max-width: 960px) {
   .greet-main {
     padding: 60px 24px;
   }
   .light-overlay {
-    background: rgba(255, 255, 255, 0.92); /* Extra text security for smaller displays */
+    background: rgba(255, 255, 255, 0.94);
   }
   .dark-overlay {
-    background: rgba(18, 18, 18, 0.88);
+    background: rgba(18, 18, 18, 0.9);
   }
   .greeting-content-wrapper {
     max-width: 100%;
@@ -182,15 +170,15 @@
   }
   .premium-greeting-title {
     font-size: 2.5rem;
-    white-space: normal;
   }
   .premium-action-row {
     flex-direction: column;
     width: 100%;
     gap: 12px;
-  }
-  .custom-premium-btn {
-    width: 100%;
-    max-width: 280px;
+    
+    .main-button {
+      width: 100%;
+      min-width: 260px;
+    }
   }
 }
