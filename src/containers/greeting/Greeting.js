@@ -18,7 +18,7 @@ export default function Greeting() {
               <h1 className="greeting-text">
                 {greeting.title}
               </h1>
-              <p className="greeting-text-p subTitle">
+              <p className="greeting-text-p" style={{ color: "var(--text-color)", fontSize: "1.2rem", fontWeight: "400", lineHeight: "1.6" }}>
                 {greeting.subTitle}
               </p>
               <div className="portfolio-repo-btn-div" style={{ justifyContent: "center", display: "flex", gap: "15px", margin: "25px 0" }}>
