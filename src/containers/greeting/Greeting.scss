@@ -2,7 +2,7 @@
 
 .greet-main {
   width: 100%;
-  min-height: 80vh;
+  min-height: 85vh;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -10,15 +10,16 @@
   box-sizing: border-box;
   position: relative;
   overflow: hidden;
-  background-color: #ffffff; /* Native Light Mode Base */
+  background-color: #ffffff; /* Light theme native background container */
   
-  background-image: url("https://images.unsplash.com/photo-1587620962725-abab7fe55159?q=80&w=1400&auto=format&fit=crop");
+  /* UPDATED IMAGE: Premium dark architectural workspace with high-end contrast */
+  background-image: url("https://images.unsplash.com/photo-1531403009284-440f080d1e12?q=80&w=1600&auto=format&fit=crop");
   background-size: cover;
   background-position: right center;
   background-repeat: no-repeat;
 }
 
-/* Master Overlay Controls */
+/* Master Layout Mask Layers */
 .premium-hero-overlay {
   position: absolute;
   top: 0;
@@ -29,54 +30,57 @@
   transition: opacity 0.3s ease-in-out;
 }
 
-/* Light Mode Overlays: Makes dark laptop visible but blends background seamlessly */
 .light-overlay {
-  background: linear-gradient(to right, #ffffff 0%, #ffffff 40%, rgba(255, 255, 255, 0.7) 60%, rgba(255, 255, 255, 0) 100%);
+  background: linear-gradient(to right, #ffffff 0%, #ffffff 45%, rgba(255, 255, 255, 0.65) 65%, rgba(255, 255, 255, 0) 100%);
   opacity: 1;
   z-index: 1;
 }
+
 .dark-overlay {
-  background: linear-gradient(to right, #121212 0%, #121212 45%, rgba(18, 18, 18, 0.8) 65%, rgba(18, 18, 18, 0.2) 100%);
+  background: linear-gradient(to right, #121212 0%, #121212 45%, rgba(18, 18, 18, 0.75) 65%, rgba(18, 18, 18, 0.1) 100%);
   opacity: 0;
   z-index: 1;
 }
 
+/* Content Frame Position Box */
 .greeting-content-wrapper {
   position: relative;
   z-index: 2;
-  max-width: 540px;
+  max-width: 650px; /* FIXED: Marginally expanded width footprint to support title typography */
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   text-align: left;
 }
 
-/* Clear, high-contrast text typography colors for Light Mode */
 .premium-greeting-title {
-  font-size: 3.6rem;
+  font-size: 3.4rem; /* FIXED: Calibrated font size to keep headline presentation strictly single-line */
   font-weight: 700;
   color: #1d1d1f !important;
-  margin: 0 0 10px 0 !important;
+  margin: 0 0 12px 0 !important;
   letter-spacing: -0.5px;
   line-height: 1.2;
+  white-space: nowrap; /* Forces layout tracking to resist text line-breaks */
 }
 
 .premium-greeting-subtitle {
   font-size: 1.6rem;
   font-weight: 600;
-  color: #007AFF !important; /* Premium system blue accent */
+  color: #007AFF !important;
   margin: 0 0 25px 0 !important;
+  letter-spacing: 0.2px;
 }
 
 .premium-greeting-desc {
   font-size: 1.15rem;
   font-weight: 400;
-  line-height: 1.65;
-  color: #515154 !important; /* Clear Slate Charcoal for visibility */
+  line-height: 1.7;
+  color: #515154 !important;
+  max-width: 540px;
   margin: 0 0 35px 0 !important;
 }
 
-/* Action Button Layout */
+/* Button Deck Layouts */
 .premium-action-row {
   display: flex;
   align-items: center;
@@ -84,7 +88,6 @@
   margin-bottom: 35px;
 }
 
-/* Custom Uniform Button Properties */
 .custom-premium-btn {
   display: inline-flex;
   align-items: center;
@@ -128,7 +131,7 @@
   margin-left: -2px;
 }
 
-/* --- Dark Mode Switch Adjustment --- */
+/* --- Dark Theme Environment Inversion --- */
 .dark-mode {
   .greet-main {
     background-color: #121212 !important;
@@ -143,7 +146,7 @@
     color: #ffffff !important;
   }
   .premium-greeting-desc {
-    color: #a1a1a6 !important; /* Beautiful readable gray text */
+    color: #a1a1a6 !important;
   }
   .btn-secondary {
     color: #ffffff !important;
@@ -156,17 +159,17 @@
   }
 }
 
-/* Responsive Scaling Breakpoint */
+/* Responsive Scaling Constraints */
 @media (max-width: 960px) {
   .greet-main {
     padding: 60px 24px;
-    background-position: calc(100% + 150px) center; /* Keeps laptop on screens */
+    background-position: calc(100% + 250px) center; 
   }
   .light-overlay {
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.92);
   }
   .dark-overlay {
-    background: rgba(18, 18, 18, 0.88);
+    background: rgba(18, 18, 18, 0.9);
   }
   .greeting-content-wrapper {
     max-width: 100%;
@@ -174,7 +177,8 @@
     text-align: center;
   }
   .premium-greeting-title {
-    font-size: 2.6rem;
+    font-size: 2.5rem;
+    white-space: normal; /* Permits safe string break updates across small portable phone sizes */
   }
   .premium-action-row {
     flex-direction: column;
