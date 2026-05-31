@@ -125,3 +125,33 @@
     width: auto;
   }
 }
+
+/* --- High-Contrast Typography Theme Overrides --- */
+
+/* 1. Default Light Mode Styles */
+.greeting-title-text {
+  color: #1D1D1F !important; /* Premium rich charcoal black */
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  opacity: 1 !important;
+}
+
+.greeting-summary-text {
+  color: #3A3A3C !important; /* Dark slate gray for crisp body readability */
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.6;
+  opacity: 1 !important;
+}
+
+/* 2. Automatic Dark Mode Interception */
+.dark-mode {
+  .greeting-title-text {
+    color: #FFFFFF !important; /* Pure solid high-contrast white */
+  }
+  
+  .greeting-summary-text {
+    color: #F5F5F7 !important; /* Premium off-white standard text code */
+  }
+}
