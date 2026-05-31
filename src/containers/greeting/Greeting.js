@@ -9,16 +9,18 @@ export default function Greeting() {
   if (!greeting.displayGreeting) {
     return null;
   }
+
   return (
     <Fade bottom duration={1000} distance="40px">
-      <div className="greet-main" id="greeting" style={{ background: "transparent" }}>
+      <div className="greet-main" id="greeting">
         <div className="greeting-main">
           <div className="greeting-text-div" style={{ width: "100%", textAlign: "center", maxWidth: "800px", margin: "0 auto" }}>
             <div>
-              <h1 style={{ color: "#FFFFFF", fontSize: "3rem", fontWeight: "700", marginBottom: "20px" }}>
+              {/* Dynamic theme-responsive class name hooks */}
+              <h1 className="greeting-title-text">
                 {greeting.title}
               </h1>
-              <p style={{ color: "#FFFFFF", fontSize: "1.2rem", fontWeight: "400", lineHeight: "1.6" }}>
+              <p className="greeting-summary-text">
                 {greeting.subTitle}
               </p>
               <div className="portfolio-repo-btn-div" style={{ justifyContent: "center", display: "flex", gap: "15px", margin: "25px 0" }}>
