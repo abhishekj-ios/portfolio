@@ -2,157 +2,171 @@
 
 .greet-main {
   width: 100%;
-  min-height: 85vh;
+  min-height: 80vh;
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  padding: 80px 10%;
+  padding: 80px 8%;
   box-sizing: border-box;
   position: relative;
   overflow: hidden;
+  background-color: #ffffff; /* Native Light Mode Base */
   
-  /* The exact laptop setup asset anchored directly to the right margin */
   background-image: url("https://images.unsplash.com/photo-1587620962725-abab7fe55159?q=80&w=1400&auto=format&fit=crop");
   background-size: cover;
   background-position: right center;
   background-repeat: no-repeat;
 }
 
-/* Premium Dark Gradient Mask to fade the photo beautifully into the left content side */
+/* Master Overlay Controls */
 .premium-hero-overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to right, #0d1117 0%, #0d1117 45%, rgba(13, 17, 23, 0.85) 60%, rgba(13, 17, 23, 0.2) 100%);
+  pointer-events: none;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* Light Mode Overlays: Makes dark laptop visible but blends background seamlessly */
+.light-overlay {
+  background: linear-gradient(to right, #ffffff 0%, #ffffff 40%, rgba(255, 255, 255, 0.7) 60%, rgba(255, 255, 255, 0) 100%);
+  opacity: 1;
+  z-index: 1;
+}
+.dark-overlay {
+  background: linear-gradient(to right, #121212 0%, #121212 45%, rgba(18, 18, 18, 0.8) 65%, rgba(18, 18, 18, 0.2) 100%);
+  opacity: 0;
   z-index: 1;
 }
 
-/* Floating Content Card Box */
 .greeting-content-wrapper {
   position: relative;
   z-index: 2;
-  max-width: 580px;
+  max-width: 540px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   text-align: left;
 }
 
+/* Clear, high-contrast text typography colors for Light Mode */
 .premium-greeting-title {
-  font-size: 3.8rem;
+  font-size: 3.6rem;
   font-weight: 700;
-  color: #ffffff !important;
-  margin: 0 0 8px 0 !important;
+  color: #1d1d1f !important;
+  margin: 0 0 10px 0 !important;
   letter-spacing: -0.5px;
-  line-height: 1.15;
+  line-height: 1.2;
 }
 
 .premium-greeting-subtitle {
   font-size: 1.6rem;
   font-weight: 600;
-  color: #007AFF !important; /* System iOS Accent Blue Title */
-  margin: 0 0 30px 0 !important;
-  letter-spacing: 0.2px;
+  color: #007AFF !important; /* Premium system blue accent */
+  margin: 0 0 25px 0 !important;
 }
 
 .premium-greeting-desc {
   font-size: 1.15rem;
   font-weight: 400;
-  line-height: 1.7;
-  color: #A1A1A6 !important; /* Premium system text gray core typography */
-  margin: 0 0 40px 0 !important;
+  line-height: 1.65;
+  color: #515154 !important; /* Clear Slate Charcoal for visibility */
+  margin: 0 0 35px 0 !important;
 }
 
-/* Perfectly Balanced Button Container Row */
+/* Action Button Layout */
 .premium-action-row {
   display: flex;
   align-items: center;
   gap: 16px;
-  margin-bottom: 40px;
-  width: auto;
+  margin-bottom: 35px;
 }
 
-/* Universal Base Button Metric Interlock */
-.cta-btn {
+/* Custom Uniform Button Properties */
+.custom-premium-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  height: 48px; /* Strict dimensional constraint ensures identical alignment heights */
-  padding: 0 28px;
+  height: 48px;
+  padding: 0 32px;
   font-size: 1rem;
   font-weight: 500;
   border-radius: 6px;
-  text-decoration: none;
+  text-decoration: none !important;
   box-sizing: border-box;
   transition: all 0.2s ease-in-out;
   cursor: pointer;
   white-space: nowrap;
 }
 
-/* Primary Button Styling */
-.cta-primary {
+.btn-primary {
   background-color: #007AFF !important;
   color: #ffffff !important;
   border: none !important;
 
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 122, 255, 0.35);
+    box-shadow: 0 6px 20px rgba(0, 122, 255, 0.3);
   }
 }
 
-/* Secondary Button Styling (Matches layout outline thickness and gray variables) */
-.cta-secondary {
+.btn-secondary {
   background-color: transparent !important;
-  color: #ffffff !important;
-  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  color: #1d1d1f !important;
+  border: 1px solid rgba(0, 0, 0, 0.25) !important;
 
   &:hover {
-    background-color: rgba(255, 255, 255, 0.08) !important;
-    border-color: rgba(255, 255, 255, 0.6) !important;
+    background-color: rgba(0, 0, 0, 0.04) !important;
+    border-color: rgba(0, 0, 0, 0.6) !important;
     transform: translateY(-2px);
   }
 }
 
 .premium-social-wrapper {
-  margin-left: -5px;
+  margin-left: -2px;
 }
 
-/* Light Theme Inversion Masking Selector */
-body:not(.dark-mode) {
-  .premium-hero-overlay {
-    background: linear-gradient(to right, #ffffff 0%, #ffffff 45%, rgba(255, 255, 255, 0.85) 60%, rgba(255, 255, 255, 0.1) 100%);
+/* --- Dark Mode Switch Adjustment --- */
+.dark-mode {
+  .greet-main {
+    background-color: #121212 !important;
+  }
+  .light-overlay {
+    opacity: 0;
+  }
+  .dark-overlay {
+    opacity: 1;
   }
   .premium-greeting-title {
-    color: #1D1D1F !important;
+    color: #ffffff !important;
   }
   .premium-greeting-desc {
-    color: #515154 !important;
+    color: #a1a1a6 !important; /* Beautiful readable gray text */
   }
-  .cta-secondary {
-    color: #1D1D1F !important;
-    border: 1px solid rgba(0, 0, 0, 0.25) !important;
+  .btn-secondary {
+    color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
     
     &:hover {
-      background-color: rgba(0, 0, 0, 0.05) !important;
-      border-color: rgba(0, 0, 0, 0.6) !important;
+      background-color: rgba(255, 255, 255, 0.08) !important;
+      border-color: rgba(255, 255, 255, 0.6) !important;
     }
   }
 }
 
-/* Screen Scaling Adaptation Breakpoints */
+/* Responsive Scaling Breakpoint */
 @media (max-width: 960px) {
   .greet-main {
-    padding: 60px 5%;
-    background-position: center;
+    padding: 60px 24px;
+    background-position: calc(100% + 150px) center; /* Keeps laptop on screens */
   }
-  .premium-hero-overlay {
-    background: rgba(13, 17, 23, 0.85);
-  }
-  body:not(.dark-mode) .premium-hero-overlay {
+  .light-overlay {
     background: rgba(255, 255, 255, 0.9);
+  }
+  .dark-overlay {
+    background: rgba(18, 18, 18, 0.88);
   }
   .greeting-content-wrapper {
     max-width: 100%;
@@ -160,14 +174,14 @@ body:not(.dark-mode) {
     text-align: center;
   }
   .premium-greeting-title {
-    font-size: 2.8rem;
+    font-size: 2.6rem;
   }
   .premium-action-row {
     flex-direction: column;
     width: 100%;
     gap: 12px;
   }
-  .cta-btn {
+  .custom-premium-btn {
     width: 100%;
     max-width: 280px;
   }
