@@ -12,20 +12,14 @@ export default function Greeting() {
 
   return (
     <Fade bottom duration={1000} distance="40px">
-      <style dangerouslySetInnerHTML={{__html: `
-        .greeting-title { color: #1d1d1f !important; font-size: 55px !important; letter-spacing: -0.5px !important; }
-        .dark-mode .greeting-title { color: #ffffff !important; }
-        
-        .greeting-subtitle { color: #007AFF !important; font-size: 26px !important; font-weight: 700 !important; }
-        
-        .greeting-desc { color: #2c2c2e !important; font-size: 18px !important; line-height: 1.6 !important; }
-        .dark-mode .greeting-desc { color: #c7c7cc !important; }
-      `}} />
-
       <div className="greet-main" id="greeting">
         <div className="greeting-content-wrapper">
           <h1 className="greeting-title">{greeting.title}</h1>
+          
+          {/* This will now JUST be "Senior iOS Developer" and will be blue */}
           <h2 className="greeting-subtitle">{greeting.subTitle}</h2>
+          
+          {/* This will be the rest of the text and will be grey */}
           <p className="greeting-desc">{greeting.resumeSectionDescription}</p>
           
           <div className="button-greeting-div">
