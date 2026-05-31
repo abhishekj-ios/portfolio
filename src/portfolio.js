@@ -23,9 +23,9 @@ const greeting = {
   username: "Abhishek",
   title: "Hi, I'm Abhishek",
   subTitle: emoji(
-    "<span style='color: var(--text-color, inherit); font-weight: 500; font-size: 1.15rem; line-height: 1.6;'>Senior iOS Developer with over 12 years of professional experience building scalable mobile architectures. Specializing in Swift, SwiftUI, and creating high-performance apps with clean code methodologies.</span>"
+    "Senior iOS Developer with over 12 years of professional experience building scalable mobile architectures. Specializing in Swift, SwiftUI, and creating high-performance apps with clean code methodologies."
   ),
-  resumeLink: "https://drive.google.com/file/d/1ofFdKF_mqscH8WvXkSObnVvC9kK7Ldlu/view?usp=sharing", // Your verified resume link
+  resumeLink: "https://drive.google.com/file/d/1ofFdKF_mqscH8WvXkSObnVvC9kK7Ldlu/view?usp=sharing",
   displayGreeting: true 
 };
 
