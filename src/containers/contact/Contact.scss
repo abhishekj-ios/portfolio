@@ -1,20 +1,19 @@
 /* ==========================================================================
-   Premium Fix for Contact Section (Targets Native Template Hierarchy)
+   Contact Section Component Overrides
    ========================================================================== */
-
 .contact-main {
   width: 100%;
   max-width: 1140px;
   margin: 0 auto;
-  padding: 80px 24px 40px 24px;
+  padding: 60px 24px 20px 24px;
   box-sizing: border-box;
 
   @media (max-width: 768px) {
-    padding: 48px 16px;
+    padding: 40px 16px;
   }
 }
 
-/* 1. Fix Title Visibility & Dark Mode Contrast */
+/* Fixes Title Contrast Invisibility on Dark Frameworks */
 .contact-title {
   font-size: 42px;
   font-weight: 700;
@@ -26,7 +25,7 @@
   }
 }
 
-/* Automatically switches title to white when dark-mode is active */
+/* Enforces clean white typography when dark-mode class is active */
 .dark-mode {
   .contact-title {
     color: #f8fafc !important; 
@@ -43,11 +42,11 @@
   margin-bottom: 32px;
 }
 
-/* 2. Transform Raw Links into Premium Interactive Pill Buttons */
+/* Premium Button Component Restyling */
 .contact-text-div {
   display: flex;
   flex-direction: column;
-  gap: 14px; /* Evenly spaces phone and email elements */
+  gap: 12px;
   margin-bottom: 32px;
 
   h6, p {
@@ -57,16 +56,16 @@
 
   a {
     display: inline-block;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 600;
-    color: #2563eb !important; /* Premium system accent blue */
+    color: #2563eb !important; 
     text-decoration: none !important;
-    padding: 12px 24px;
+    padding: 10px 20px;
     background: #f1f5f9;
     border: 1px solid #e2e8f0;
     border-radius: 8px;
     width: fit-content;
-    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.2s ease-in-out;
 
     &:hover {
       background: #e2e8f0;
@@ -75,29 +74,13 @@
   }
 }
 
-/* Dark mode overrides for the contact buttons */
 .dark-mode .contact-text-div a {
   color: #60a5fa !important;
-  background: #1e293b;
-  border-color: #334155;
+  background: #1c2331;
+  border-color: #2a3446;
 
   &:hover {
-    background: #2d3748;
-    border-color: #4a5568;
-  }
-}
-
-/* 3. Safe-guarding the Broken "Man working" Graphic Asset */
-.contact-image-div {
-  img[alt="Man working"] {
-    display: none; /* Hides the broken image icon completely if the asset path is missing */
-    
-    /* Uncomment below if you fix the file path later and want it formatted beautifully: */
-    /* 
-    display: block;
-    max-width: 100%;
-    height: auto;
-    opacity: 0.9;
-    */
+    background: #242f42;
+    border-color: #37465c;
   }
 }
