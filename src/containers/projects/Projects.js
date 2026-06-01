@@ -38,18 +38,31 @@ export default function Projects() {
               className={isDark ? "dark-mode architectural-premium-card" : "architectural-premium-card"}
               onClick={() => openModal(proj)}
             >
-              <div className="card-top-meta">
-                <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "8px" }}>
-                  <img 
-                    src={proj.icon} 
-                    alt={proj.projectName} 
-                    style={{ width: "40px", height: "40px", objectFit: "contain", borderRadius: "25%" }} 
-                  />
-                  <span className="architecture-tag" style={{ margin: 0 }}>{proj.architecture}</span>
-                </div>
-                <h2 className="project-display-name">{proj.projectName}</h2>
-              </div>
-              
+         <div className="card-top-meta">
+  {/* Increased size to 64px for better visual impact */}
+  <div style={{ display: "flex", alignItems: "flex-start", gap: "16px", marginBottom: "16px" }}>
+    <img 
+      src={proj.icon.default || proj.icon} 
+      alt={proj.projectName} 
+      style={{ 
+        width: "64px", 
+        height: "64px", 
+        objectFit: "cover", 
+        borderRadius: "20%", 
+        flexShrink: 0,
+        boxShadow: "0 4px 12px rgba(0,0,0,0.3)" // Adds depth
+      }} 
+    />
+    <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+      <span className="architecture-tag" style={{ margin: 0, fontSize: "12px", opacity: 0.8 }}>
+        {proj.architecture}
+      </span>
+      <h2 className="project-display-name" style={{ margin: 0, fontSize: "1.25rem", lineHeight: "1.3" }}>
+        {proj.projectName}
+      </h2>
+    </div>
+  </div>
+</div>     
               <p className="project-display-summary">{proj.summary}</p>
               
               <div className="card-bottom-meta">
