@@ -303,7 +303,7 @@ const twitterDetails = {
 
 const isHireable = true; // Set to true to flags active engagement availability to technical recruiters
 
-const CustomContactSection = () => {
+export const CustomContactSection = () => {
   return (
     <div style={{
       width: "100%",
