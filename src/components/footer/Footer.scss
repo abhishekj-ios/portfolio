@@ -4,15 +4,16 @@
 .footer-main {
   width: 100% !important;
   min-width: 100% !important;
-  flex: 0 0 100% !important; /* Electronically breaks out of parent flex grids */
-  clear: both !important;     /* Prevents side element clipping overflows */
+  flex: 0 0 100% !important; 
+  clear: both !important;     
   border-top: 1px solid #e2e8f0;
   margin-top: 40px;
   box-sizing: border-box;
+}
 
-  &.dark-mode {
-    border-top-color: #1e2533;
-  }
+/* Dark Mode Rule for Container */
+.footer-main.dark-mode {
+  border-top-color: #1e2533;
 }
 
 .footer-div {
@@ -25,8 +26,11 @@
   flex-wrap: wrap;
   gap: 16px;
   box-sizing: border-box;
+}
 
-  @media (max-width: 768px) {
+/* Responsive Mobile Rules */
+@media (max-width: 768px) {
+  .footer-div {
     flex-direction: column !important;
     text-align: center !important;
     padding: 24px 16px !important;
@@ -39,25 +43,13 @@
   margin: 0;
   font-weight: 500;
   line-height: 1.5;
-
-  &.dark-mode {
-    color: #94a3b8;
-  }
 }
 
-.footer-div p {
-  margin: 4px 0;
-}  color: #64748b;
-  margin: 0;
-  font-weight: 500;
-  line-height: 1.5;
-
-  &.dark-mode {
-    color: #94a3b8;
-  }
+/* Dark Mode Rule for Text */
+.footer-text.dark-mode {
+  color: #94a3b8;
 }
 
-/* Keeps secondary layout elements neatly balanced */
 .footer-div p {
   margin: 4px 0;
 }
