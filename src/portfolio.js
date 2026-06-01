@@ -303,6 +303,68 @@ const twitterDetails = {
 
 const isHireable = true; // Set to true to flags active engagement availability to technical recruiters
 
+const CustomContactSection = () => {
+  return (
+    <div style={{
+      width: "100%",
+      maxWidth: "1140px",
+      margin: "60px auto",
+      padding: "0 20px",
+      boxSizing: "border-box",
+      textAlign: "left",
+      display: "block",
+      clear: "both"
+    }}>
+      <h1 style={{
+        fontSize: "40px",
+        fontWeight: "700",
+        margin: "0 0 20px 0",
+        fontFamily: "inherit"
+      }}>
+        {contactInfo.title}
+      </h1>
+      <p style={{
+        fontSize: "18px",
+        lineHeight: "1.6",
+        maxWidth: "850px",
+        margin: "0 0 30px 0",
+        opacity: 0.85
+      }}>
+        {contactInfo.subtitle}
+      </p>
+      <div style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "flex-start",
+        gap: "12px"
+      }}>
+        <a 
+          href={`tel:${contactInfo.number}`}
+          style={{
+            fontSize: "16px",
+            fontWeight: "500",
+            textDecoration: "none",
+            color: "#60a5fa"
+          }}
+        >
+          {contactInfo.number}
+        </a>
+        <a 
+          href={`mailto:${contactInfo.email_address}`}
+          style={{
+            fontSize: "16px",
+            fontWeight: "500",
+            textDecoration: "none",
+            color: "#60a5fa"
+          }}
+        >
+          {contactInfo.email_address}
+        </a>
+      </div>
+    </div>
+  );
+};
+
 export {
   splashScreen,
   illustration,
