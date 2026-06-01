@@ -31,7 +31,6 @@ export default function Projects() {
           {bigProjects.subtitle}
         </p>
 
-        {/* Re-engineered Card Layout Matrix */}
         <div className="repo-cards-div-main">
           {bigProjects.projects.map((proj) => (
             <div 
@@ -40,7 +39,14 @@ export default function Projects() {
               onClick={() => openModal(proj)}
             >
               <div className="card-top-meta">
-                <span className="architecture-tag">{proj.architecture}</span>
+                <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "8px" }}>
+                  <img 
+                    src={proj.icon} 
+                    alt={proj.projectName} 
+                    style={{ width: "40px", height: "40px", objectFit: "contain", borderRadius: "25%" }} 
+                  />
+                  <span className="architecture-tag" style={{ margin: 0 }}>{proj.architecture}</span>
+                </div>
                 <h2 className="project-display-name">{proj.projectName}</h2>
               </div>
               
@@ -62,7 +68,6 @@ export default function Projects() {
         </div>
       </div>
 
-      {/* Modal Overlay Component */}
       {activeModalProject && (
         <div className="modal-backdrop" onClick={closeModal}>
           <div 
