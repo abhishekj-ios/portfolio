@@ -1,7 +1,6 @@
 import React from "react";
 import "./Experience.scss";
-// Change "ExperienceCardNew" below if your file has a slightly different name (e.g., ExperienceCard)
-import ExperienceCardNew from "../../components/experienceCard/ExperienceCardNew"; 
+import ExperienceCard from "../../components/experienceCard/ExperienceCard";
 import { workExperiences } from "../../portfolio";
 import { Fade } from "react-reveal";
 
@@ -16,7 +15,7 @@ export default function Experience() {
               <div className="experience-cards-div">
                 {workExperiences.experience.map((card, index) => {
                   return (
-                    <ExperienceCardNew
+                    <ExperienceCard
                       key={index}
                       cardInfo={{
                         company: card.company,
