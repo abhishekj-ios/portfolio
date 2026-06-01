@@ -180,3 +180,14 @@
     }
   }
 }
+
+/* ==========================================================================
+   Clean Architectural Work History Trimming
+   ========================================================================== */
+
+.experience-cards-div {
+  /* Target and gracefully hide every card after the second one */
+  & > div:nth-child(n+3) {
+    display: none !important;
+  }
+}
