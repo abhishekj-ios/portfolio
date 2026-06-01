@@ -1,11 +1,12 @@
 /* ==========================================================================
-   Contact Section Wrapper (Fixes Edge Bleeding & Layout Alignment)
+   Premium Fix for Contact Section (Targets Native Template Hierarchy)
    ========================================================================== */
+
 .contact-main {
   width: 100%;
-  max-width: 1140px; // Standardized container alignment bounds
-  margin: 0 auto;    // Centers the container on desktop monitors
-  padding: 80px 24px; // Gives comfortable breathing room top/bottom and prevents edge snaps
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 80px 24px 40px 24px;
   box-sizing: border-box;
 
   @media (max-width: 768px) {
@@ -13,89 +14,90 @@
   }
 }
 
-/* Header & Typography Overrides */
+/* 1. Fix Title Visibility & Dark Mode Contrast */
 .contact-title {
-  font-size: 40px;
+  font-size: 42px;
   font-weight: 700;
   margin-bottom: 16px;
-  color: #1e293b;
-
-  &.dark-mode {
-    color: #f8fafc;
-  }
+  color: #0f172a !important; /* Rich contrast dark tone for light mode */
 
   @media (max-width: 768px) {
-    font-size: 28px;
+    font-size: 32px;
+  }
+}
+
+/* Automatically switches title to white when dark-mode is active */
+.dark-mode {
+  .contact-title {
+    color: #f8fafc !important; 
+  }
+  .contact-subtitle {
+    color: #94a3b8 !important;
   }
 }
 
 .contact-subtitle {
   font-size: 16px;
   line-height: 1.6;
-  max-width: 600px;  // Restricts text line-length for executive readability
-  text-transform: none !important; // Forces lowercase/sentence structure over ALL CAPS
-  letter-spacing: normal !important;
   color: #475569;
   margin-bottom: 32px;
-
-  &.dark-mode {
-    color: #94a3b8;
-  }
-
-  @media (max-width: 768px) {
-    font-size: 14px;
-  }
 }
 
-/* Premium Email Link Component */
-.contact-email-div {
+/* 2. Transform Raw Links into Premium Interactive Pill Buttons */
+.contact-text-div {
+  display: flex;
+  flex-direction: column;
+  gap: 14px; /* Evenly spaces phone and email elements */
   margin-bottom: 32px;
+
+  h6, p {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  a {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 600;
+    color: #2563eb !important; /* Premium system accent blue */
+    text-decoration: none !important;
+    padding: 12px 24px;
+    background: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    width: fit-content;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+
+    &:hover {
+      background: #e2e8f0;
+      transform: translateY(-2px);
+    }
+  }
 }
 
-.contact-email-link {
-  font-size: 18px;
-  font-weight: 600;
-  color: #2563eb; // Royal blue system accent
-  text-decoration: none;
-  display: inline-block;
-  padding: 12px 24px;
-  background: #f1f5f9;
-  border-radius: 10px;
-  border: 1px solid #e2e8f0;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+/* Dark mode overrides for the contact buttons */
+.dark-mode .contact-text-div a {
+  color: #60a5fa !important;
+  background: #1e293b;
+  border-color: #334155;
 
   &:hover {
-    background: #e2e8f0;
-    transform: translateY(-2px);
-  }
-
-  &.dark-mode {
-    color: #60a5fa;
-    background: #1c2331;
-    border-color: #2a3446;
-
-    &:hover {
-      background: #242f42;
-      border-color: #37465c;
-    }
-  }
-
-  @media (max-width: 768px) {
-    font-size: 15px;
-    padding: 10px 20px;
+    background: #2d3748;
+    border-color: #4a5568;
   }
 }
 
-/* Social Media Row Alignment */
-.social-media-div {
-  display: flex;
-  gap: 12px;
-  margin-top: 24px;
-  
-  a {
-    transition: transform 0.2s ease;
-    &:hover {
-      transform: translateY(-3px);
-    }
+/* 3. Safe-guarding the Broken "Man working" Graphic Asset */
+.contact-image-div {
+  img[alt="Man working"] {
+    display: none; /* Hides the broken image icon completely if the asset path is missing */
+    
+    /* Uncomment below if you fix the file path later and want it formatted beautifully: */
+    /* 
+    display: block;
+    max-width: 100%;
+    height: auto;
+    opacity: 0.9;
+    */
   }
 }
