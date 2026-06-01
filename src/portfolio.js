@@ -74,7 +74,11 @@ export const whatIDo = {
   ]
 };
 
-
+export const skillsSection = {
+  title: "Proficiency",
+  subTitle: "",
+  skills: []
+};
 // Education Section
 
 const educationInfo = {
