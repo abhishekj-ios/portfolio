@@ -288,10 +288,10 @@ const resumeSection = {
 };
 
 const contactInfo = {
-  title: emoji("Get In Touch ☎️"),
-  subtitle: "Let's discuss native architecture, remote contract consultation, or senior-grade technical leadership opportunities.",
-  number: "", // Leave empty or add your professional routing contact lines
-  email_address: "abhishek.ios.dev@gmail.com"
+  title: "Get In Touch", // Removed the retro phone emoji
+  subtitle: "Let's discuss native architecture, remote contract consultation, or senior-grade technical leadership opportunities.", // Kept clean and elegant
+  number: "+91 9496775713", 
+  email_address: "kailasj281@gmail.com"
 };
 
 // Twitter Section
