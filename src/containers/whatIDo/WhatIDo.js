@@ -25,18 +25,9 @@ function renderIcon(iconName) {
     case "uiux":
       return (
         <svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="5" y="2" width="14" height="20" rx="3" stroke="#6B7280" strokeWidth="2"/>
-          <line x1="11" y1="19" x2="13" y2="19" stroke="#6B7280" strokeWidth="2" strokeLinecap="round"/>
-          <path d="M14 6h1c1.1 0 2 .9 2 2v4c0 1.1-.9 2-2 2h-1" stroke="#6B7280" strokeWidth="2"/>
-        </svg>
-      );
-    case "performance":
-      return (
-        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M3 13c0-4.97 4.03-9 9-9s9 4.03 9 9" stroke="#2563EB" strokeWidth="2.5" strokeLinecap="round"/>
-          <path d="M12 14l3-5" stroke="#3B82F6" strokeWidth="2.5" strokeLinecap="round"/>
-          <circle cx="12" cy="13" r="2" fill="#2563EB"/>
-          <path d="M6 17l-1.5 1.5M18 17l1.5 1.5" stroke="#9CA3AF" strokeWidth="2" strokeLinecap="round"/>
+          <rect x="5" y="2" width="14" height="20" rx="3" stroke="#A855F7" strokeWidth="2"/>
+          <line x1="11" y1="19" x2="13" y2="19" stroke="#A855F7" strokeWidth="2" strokeLinecap="round"/>
+          <path d="M14 6h1c1.1 0 2 .9 2 2v4c0 1.1-.9 2-2 2h-1" stroke="#A855F7" strokeWidth="2"/>
         </svg>
       );
     case "leadership":
