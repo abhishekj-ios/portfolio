@@ -1,40 +1,53 @@
 /* ==========================================================================
-   Premium Structural Layout for Footer 
+   Premium Structural Layout for Footer (Resolves Alignment Shifting)
    ========================================================================== */
-
 .footer-main {
-  width: 100%;
+  width: 100% !important;
+  min-width: 100% !important;
+  flex: 0 0 100% !important; /* Electronically breaks out of parent flex grids */
+  clear: both !important;     /* Prevents side element clipping overflows */
   border-top: 1px solid #e2e8f0;
-  margin-top: 60px;
-  clear: both; /* Forces footer below layout flows */
+  margin-top: 40px;
   box-sizing: border-box;
 
   &.dark-mode {
-    border-top-color: #1e293b;
+    border-top-color: #1e2533;
   }
 }
 
 .footer-div {
   max-width: 1140px;
-  margin: 0 auto;
-  padding: 32px 24px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  margin: 0 auto !important;
+  padding: 32px 24px !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
   flex-wrap: wrap;
   gap: 16px;
   box-sizing: border-box;
 
   @media (max-width: 768px) {
-    flex-direction: column;
-    text-align: center;
-    padding: 24px 16px;
+    flex-direction: column !important;
+    text-align: center !important;
+    padding: 24px 16px !important;
   }
 }
 
 .footer-text {
   font-size: 14px;
   color: #64748b;
+  margin: 0;
+  font-weight: 500;
+  line-height: 1.5;
+
+  &.dark-mode {
+    color: #94a3b8;
+  }
+}
+
+.footer-div p {
+  margin: 4px 0;
+}  color: #64748b;
   margin: 0;
   font-weight: 500;
   line-height: 1.5;
