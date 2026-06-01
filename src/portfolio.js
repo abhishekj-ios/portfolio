@@ -109,19 +109,83 @@ const techStack = {
 
 // Work experience section
 
-const workExperiences = {
-  display: true, 
+export const workExperiences = {
+  viewExperiences: true,
+  title: "Work History",
   experience: [
     {
-      role: "iOS Technical Lead",
-      company: "Bloomsharing Redesign Project",
-      companylogo: null,
-      date: "Partner Engagement",
-      desc: "Spearheaded the modular refactoring and clean code structural alignment for the application ecosystem.",
+      id: "exp-1",
+      role: "Staff iOS Engineer",
+      company: "Tensai Consulting",
+      location: "Singapore",
+      date: "June 2024 – Present",
+      subtitle: "Deep technical engagement initiated in 2024, continuing through the company’s official incorporation in June 2025.",
       descBullets: [
-        "Led cross-functional engineering squads including Android and Web stakeholders to realign systemic delivery targets.",
-        "Systematically dismantled overused legacy singleton patterns to integrate rigorous dependency injection, driving a 30% increase in user satisfaction ratings."
-      ]
+        "Spearhead high-level technical direction and mobile product strategy for enterprise clients, defining scalable iOS development roadmaps.",
+        "Architect and transition complex architectures into highly decoupled, modular Swift ecosystems to support simultaneous multi-team development tracks.",
+        "Own system design definitions, security standards, and third-party infrastructure integrations across large-scale client applications."
+      ],
+      skills: ["SwiftUI", "Architecture", "Module Design", "Product Strategy"]
+    },
+    {
+      id: "exp-2",
+      role: "Senior iOS Developer (Contract)",
+      company: "Freelance Practice",
+      location: "Remote",
+      date: "June 2021 – May 2024",
+      subtitle: "",
+      descBullets: [
+        "Played an active, lead role in completely redesigning and restructuring legacy codebases into modular MVVM-C architectures, successfully elevating user satisfaction ratings by 30%[cite: 1].",
+        "Designed, developed, and scaled highly reusable white-label iOS applications and framework layers utilized across multiple distinct client brands[cite: 1].",
+        "Independently managed release engineering and uploaded 8 production apps to the App Store as part of complex white-label product pipelines[cite: 1].",
+        "Trained, onboarded, and mentored incoming developers, introducing robust development workflows and code review practices to accelerate team productivity[cite: 1].",
+        "Diagnosed and resolved critical performance bottlenecks, memory leaks, and retention cycles based on runtime feedback to maximize stability[cite: 1]."
+      ],
+      skills: ["MVVM-C", "White-Label", "Release Engineering", "Performance Tuning"]
+    },
+    {
+      id: "exp-3",
+      role: "Senior iOS Developer",
+      company: "Distributed Ledger Technologies (DLT) PTE. LTD.",
+      location: "Singapore",
+      date: "May 2019 – March 2021",
+      subtitle: "",
+      descBullets: [
+        "Acted as the sole iOS developer, owning the complete development lifecycle from requirement analysis and technical design to development, testing, and App Store deployment[cite: 1].",
+        "Successfully built, optimized, and published 3 production iOS applications on the App Store[cite: 1].",
+        "Collaborated closely with product stakeholders, UI/UX designers, and backend engineering teams to translate business requirements into highly scalable mobile solutions[cite: 1].",
+        "Implemented clean architecture patterns (VIPER) and highly reusable UI components to drastically minimize technical debt and improve long-term maintainability[cite: 1].",
+        "Controlled all App Store compliance workflows, including provisioning profiles, certificates, TestFlight beta distribution, and live production releases[cite: 1]."
+      ],
+      skills: ["VIPER", "Full-Lifecycle", "Blockchain Integration", "App Store Compliance"]
+    },
+    {
+      id: "exp-4",
+      role: "Lead iOS Engineer (Independent Practice)",
+      company: "Freelance Practice",
+      location: "Remote",
+      date: "March 2014 – April 2019",
+      subtitle: "",
+      descBullets: [
+        "Successfully designed, engineered, and shipped 7 mobile applications to the App Store, specializing in custom client-centric architectures and white-label platforms[cite: 1].",
+        "Coordinated, managed, and aligned Android and web application development tracks to guarantee cross-platform feature and API parity[cite: 1].",
+        "Led a distributed team of remote and local freelance developers, taking full accountability for task delegation, technical quality, and sprint timelines[cite: 1]."
+      ],
+      skills: ["Team Leadership", "Cross-Platform Alignment", "Bespoke Architecture"]
+    },
+    {
+      id: "exp-5",
+      role: "Junior iOS Developer",
+      company: "Srishti Innovative",
+      location: "Technopark, Trivandrum",
+      date: "March 2013 – February 2014",
+      subtitle: "",
+      descBullets: [
+        "Contributed to the active development of multiple native iOS applications utilizing Objective-C and UIKit within a fast-paced Agile/Scrum team environment[cite: 1].",
+        "Implemented product features, engineered clean layout configurations, and systematically resolved application bugs to improve runtime performance[cite: 1].",
+        "Gained foundational production experience working with MVVM architecture, Git version control workflows, and peer code reviews[cite: 1]."
+      ],
+      skills: ["Objective-C", "UIKit", "Agile/Scrum", "Git Workflows"]
     }
   ]
 };
