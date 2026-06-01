@@ -1,0 +1,143 @@
+.what-i-do-container {
+  padding: 100px 50px;
+  background-color: #ffffff; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: background-color 0.3s ease;
+
+  .dark-mode & {
+    background-color: #0b0f19; /* Navy black hue matches dark mode mock */
+  }
+}
+
+.what-i-do-title {
+  font-size: 48px;
+  font-weight: 700;
+  color: #1f2937;
+  text-align: center;
+  margin-bottom: 20px;
+
+  .dark-mode & {
+    color: #ffffff;
+  }
+}
+
+.what-i-do-subtitle {
+  font-size: 18px;
+  line-height: 1.6;
+  font-weight: 400;
+  color: #4b5563;
+  text-align: center;
+  max-width: 750px;
+  margin-bottom: 60px;
+
+  .dark-mode & {
+    color: #9ca3af;
+  }
+}
+
+.skills-grid-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+  max-width: 1100px;
+  width: 100%;
+
+  /* Centers the final 5th item at the bottom */
+  & > :last-child {
+    grid-column: span 2;
+    justify-self: center;
+    max-width: 537px; 
+    width: 100%;
+  }
+}
+
+.skill-card-item {
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 30px;
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease, border-color 0.3s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
+  }
+
+  .dark-mode & {
+    background-color: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 255, 255, 0.15);
+    }
+  }
+}
+
+.skill-card-icon-zone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+}
+
+.skill-card-text-zone {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.skill-card-title {
+  font-size: 22px;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0;
+
+  .dark-mode & {
+    color: #ffffff;
+  }
+}
+
+.skill-card-description {
+  font-size: 15px;
+  line-height: 1.5;
+  color: #6b7280;
+  margin: 0;
+
+  .dark-mode & {
+    color: #9ca3af;
+  }
+}
+
+/* Responsive breakdowns for tablets and phones */
+@media (max-width: 992px) {
+  .skills-grid-wrapper {
+    grid-template-columns: 1fr;
+    
+    & > :last-child {
+      grid-column: span 1;
+      max-width: 100%;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .what-i-do-container {
+    padding: 60px 20px;
+  }
+  .what-i-do-title {
+    font-size: 36px;
+  }
+  .skill-card-item {
+    padding: 20px;
+  }
+}
