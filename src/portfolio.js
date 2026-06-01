@@ -284,14 +284,15 @@ const podcastSection = {
 const resumeSection = {
   title: "Curriculum Vitae",
   subtitle: "Review my complete professional timeline and architecture focus.",
-  display: true 
+  display: false 
 };
 
 const contactInfo = {
   title: "Get In Touch", // Removed the retro phone emoji
   subtitle: "Let's discuss native architecture, remote contract consultation, or senior-grade technical leadership opportunities.", // Kept clean and elegant
   number: "+91 9496775713", 
-  email_address: "kailasj281@gmail.com"
+  email_address: "kailasj281@gmail.com",
+  display: false
 };
 
 // Twitter Section
