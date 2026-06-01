@@ -1,32 +1,131 @@
-.project-title {
-  font-size: 52px;
-  font-weight: 400;
-  line-height: normal;
-}
+/* ==========================================================================
+   Interactive Architectural Cards
+   ========================================================================== */
+.repo-card-div {
+  position: relative;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+  padding: 24px;
+  border-radius: 12px;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  }
 
-.startup-project-text img {
-  max-width: 100%;
-  height: auto;
-}
+  .repo-name {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0 0 8px 0;
+  }
 
-.repo-cards-div-main {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  gap: 1rem 1rem;
-}
+  &.dark-mode {
+    background-color: #1e222b;
+    border: 1px solid #2d323f;
+    box-shadow: none;
 
-/* Media Query */
-@media (max-width: 1380px) {
-  .project-title {
-    font-size: 40px;
+    &:hover {
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+    }
   }
 }
-@media (max-width: 768px) {
-  .project-title {
-    font-size: 30px;
-    text-align: center;
+
+/* ==========================================================================
+   Premium Modal Architecture Overlay
+   ========================================================================== */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(6px); // Soft background blur
+  z-index: 99999; // Keeps it floating above navigation bars
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.modal-container {
+  background: #ffffff;
+  color: #111827;
+  width: 100%;
+  max-width: 650px;
+  max-height: 85vh;
+  border-radius: 16px;
+  padding: 32px;
+  position: relative;
+  overflow-y: auto; // Allows internal scrolling for small browser windows
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  animation: modalFadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+
+  &.dark-mode {
+    background: #151922;
+    color: #f3f4f6;
+    border: 1px solid #2d323f;
+
+    ul li::before {
+      color: #60a5fa !important;
+    }
   }
-  .repo-cards-div-main {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+  .modal-close-btn {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 36px;
+    line-height: 1;
+    cursor: pointer;
+    color: inherit;
+    opacity: 0.4;
+    transition: opacity 0.2s;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  .modal-body {
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        position: relative;
+        padding-left: 20px;
+        margin-bottom: 12px;
+
+        &::before {
+          content: "▪";
+          position: absolute;
+          left: 0;
+          color: #2563eb;
+          font-size: 16px;
+          line-height: 1;
+        }
+      }
+    }
+  }
+}
+
+/* Smooth modal scaling entrance animation */
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
   }
 }
