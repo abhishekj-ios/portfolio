@@ -117,9 +117,9 @@ export const workExperiences = {
       id: "exp-1",
       role: "Staff iOS Engineer",
       company: "Tensai Consulting",
-      location: "Singapore",
+      location: "Remote",
       date: "June 2024 – Present",
-      subtitle: "Deep technical engagement initiated in 2024, continuing through the company’s official incorporation in June 2025.",
+      subtitle: "Deep technical engagement initiated in 2024, continuing through the company’s official incorporation in 2025.",
       descBullets: [
         "Spearhead high-level technical direction and mobile product strategy for enterprise clients, defining scalable iOS development roadmaps.",
         "Architect and transition complex architectures into highly decoupled, modular Swift ecosystems to support simultaneous multi-team development tracks.",
@@ -147,7 +147,7 @@ export const workExperiences = {
       id: "exp-3",
       role: "Senior iOS Developer",
       company: "Distributed Ledger Technologies (DLT) PTE. LTD.",
-      location: "Singapore",
+      location: "Trivandrum",
       date: "May 2019 – March 2021",
       subtitle: "",
       descBullets: [
