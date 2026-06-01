@@ -1,19 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Experience.scss";
 import ExperienceCard from "../../components/experienceCard/ExperienceCard";
 import { workExperiences } from "../../portfolio";
 import { Fade } from "react-reveal";
 
 export default function Experience() {
-  // State hook to manage the expanded viewport toggle
-  const [isExpanded, setIsExpanded] = useState(false);
-
   if (workExperiences.viewExperiences) {
-    // Show only the 2 most recent roles initially, display all if expanded
-    const visibleExperiences = isExpanded 
-      ? workExperiences.experience 
-      : workExperiences.experience.slice(0, 2);
-
     return (
       <div id="experience">
         <Fade bottom duration={1000} distance="20px">
@@ -21,7 +13,7 @@ export default function Experience() {
             <div>
               <h1 className="experience-heading">{workExperiences.title}</h1>
               <div className="experience-cards-div">
-                {visibleExperiences.map((card, index) => {
+                {workExperiences.experience.map((card, index) => {
                   return (
                     <ExperienceCard
                       key={index}
@@ -38,42 +30,6 @@ export default function Experience() {
                   );
                 })}
               </div>
-
-              {/* Clean, Modern Action Toggle Button */}
-              {workExperiences.experience.length > 2 && (
-                <div style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  marginTop: "40px",
-                  width: "100%"
-                }}>
-                  <button
-                    onClick={() => setIsExpanded(!isExpanded)}
-                    style={{
-                      backgroundColor: "transparent",
-                      color: "#60a5fa",
-                      border: "2px solid #60a5fa",
-                      padding: "12px 28px",
-                      fontSize: "15px",
-                      fontWeight: "600",
-                      borderRadius: "6px",
-                      cursor: "pointer",
-                      transition: "all 0.2s ease-in-out",
-                      fontFamily: "inherit",
-                      outline: "none"
-                    }}
-                    onMouseEnter={(e) => {
-                      e.target.style.backgroundColor = "rgba(96, 165, 250, 0.1)";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.target.style.backgroundColor = "transparent";
-                    }}
-                  >
-                    {isExpanded ? "See Less" : "See More Work History"}
-                  </button>
-                </div>
-              )}
-
             </div>
           </div>
         </Fade>
