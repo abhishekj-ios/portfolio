@@ -1,42 +1,159 @@
 /* ==========================================================================
-   Interactive Architectural Cards
+   Structural Wrapper (Fixes Edge-Bleeding Layout Constraints)
    ========================================================================== */
-.repo-card-div {
-  position: relative;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
-  padding: 24px;
-  border-radius: 12px;
-  background-color: #ffffff;
-  border: 1px solid #e5e7eb;
+.projects-container-wrapper {
+  width: 100%;
+  max-width: 1140px; // Standard enterprise layout container bounds
+  margin: 0 auto;    // Centers perfectly on desktop viewports
+  padding: 0 24px;   // Prevents components from ever snapping against glass edges
+  box-sizing: border-box;
+}
+
+.project-subtitle {
+  text-align: center;
+  opacity: 0.6;
+  margin-bottom: 40px;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   Premium Structural Layout Grid Cards
+   ========================================================================== */
+.repo-cards-div-main {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+  width: 100%;
+}
+
+.architectural-premium-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 28px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100%;
-  
+  cursor: pointer;
+  min-height: 260px;
+  box-sizing: border-box;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+              border-color 0.3s ease;
+
   &:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+    transform: translateY(-6px);
+    border-color: #cbd5e1;
+    box-shadow: 0 20px 40px rgba(17, 24, 39, 0.05);
+
+    .blueprint-action-link {
+      color: #0f172a;
+      .arrow-motion { transform: translateX(4px); }
+    }
   }
 
-  .repo-name {
+  .architecture-tag {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #2563eb; // Royal system brand blue
+    display: inline-block;
+    margin-bottom: 8px;
+  }
+
+  .project-display-name {
     font-size: 20px;
     font-weight: 700;
-    margin: 0 0 8px 0;
+    line-height: 1.3;
+    margin: 0 0 12px 0;
+    color: #1e293b;
   }
 
+  .project-display-summary {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #475569;
+    margin: 0 0 24px 0;
+    opacity: 0.95;
+  }
+
+  .card-bottom-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 16px;
+    border-top: 1px solid #f1f5f9;
+    margin-top: auto;
+  }
+
+  .mini-tech-preview {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+
+    .preview-pill {
+      font-size: 11px;
+      font-weight: 500;
+      background: #f8fafc;
+      color: #64748b;
+      padding: 4px 10px;
+      border-radius: 6px;
+      border: 1px solid #e2e8f0;
+    }
+    .preview-pill-more {
+      font-size: 11px;
+      font-weight: 600;
+      color: #94a3b8;
+      padding-left: 2px;
+    }
+  }
+
+  .blueprint-action-link {
+    font-size: 13px;
+    font-weight: 600;
+    color: #64748b;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    transition: color 0.2s ease;
+
+    .arrow-motion {
+      display: inline-block;
+      transition: transform 0.2s ease;
+    }
+  }
+
+  /* Dark Mode Configurations */
   &.dark-mode {
-    background-color: #1e222b;
-    border: 1px solid #2d323f;
-    box-shadow: none;
+    background: #131722;
+    border: 1px solid #222936;
 
     &:hover {
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+      border-color: #2e3748;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      .blueprint-action-link { color: #f8fafc; }
+    }
+
+    .project-display-name { color: #f8fafc; }
+    .project-display-summary { color: #94a3b8; }
+    .architecture-tag { color: #60a5fa; }
+    .card-bottom-meta { border-top-color: #1e2533; }
+    
+    .mini-tech-preview {
+      .preview-pill {
+        background: #1c2331;
+        color: #94a3b8;
+        border-color: #2a3446;
+      }
     }
   }
 }
 
 /* ==========================================================================
-   Premium Modal Architecture Overlay
+   Full Screen Immersive Blur Overlay Modals
    ========================================================================== */
 .modal-backdrop {
   position: fixed;
@@ -44,88 +161,110 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(6px); // Soft background blur
-  z-index: 99999; // Keeps it floating above navigation bars
+  background-color: rgba(15, 23, 42, 0.4);
+  backdrop-filter: blur(8px);
+  z-index: 99999;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  padding: 24px;
+  box-sizing: border-box;
 }
 
 .modal-container {
   background: #ffffff;
   color: #111827;
   width: 100%;
-  max-width: 650px;
+  max-width: 640px;
   max-height: 85vh;
-  border-radius: 16px;
-  padding: 32px;
+  border-radius: 20px;
+  padding: 36px;
   position: relative;
-  overflow-y: auto; // Allows internal scrolling for small browser windows
+  overflow-y: auto;
+  box-sizing: border-box;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-  animation: modalFadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: modalScaleEntrance 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 
   &.dark-mode {
-    background: #151922;
+    background: #0f131a;
     color: #f3f4f6;
-    border: 1px solid #2d323f;
+    border: 1px solid #222936;
 
-    ul li::before {
-      color: #60a5fa !important;
-    }
+    .modal-section h3 { color: #60a5fa; }
+    .tech-pill { background: #1c2331; color: #94a3b8; border: 1px solid #2a3446; }
+    ul li::before { color: #60a5fa; }
   }
 
   .modal-close-btn {
     position: absolute;
-    top: 16px;
-    right: 20px;
+    top: 20px;
+    right: 24px;
     background: none;
     border: none;
-    font-size: 36px;
-    line-height: 1;
+    font-size: 32px;
     cursor: pointer;
     color: inherit;
     opacity: 0.4;
     transition: opacity 0.2s;
+    &:hover { opacity: 1; }
+  }
 
-    &:hover {
-      opacity: 1;
+  .modal-header {
+    margin-bottom: 28px;
+    h2 { font-size: 24px; font-weight: 800; margin: 0 0 6px 0; }
+    .modal-architecture-badge {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #2563eb;
     }
   }
 
-  .modal-body {
+  .modal-section {
+    margin-bottom: 28px;
+    h3 { font-size: 15px; font-weight: 700; color: #1e40af; margin: 0 0 10px 0; text-transform: uppercase; letter-spacing: 0.03em; }
+    p { font-size: 14px; line-height: 1.6; opacity: 0.85; margin: 0; }
+    
+    .modal-tech-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tech-pill {
+      font-size: 12px;
+      background: #f1f5f9;
+      color: #475569;
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-weight: 500;
+    }
+
     ul {
       list-style: none;
       padding: 0;
       margin: 0;
-
       li {
+        font-size: 14px;
+        line-height: 1.6;
         position: relative;
         padding-left: 20px;
         margin-bottom: 12px;
-
+        opacity: 0.9;
         &::before {
           content: "▪";
           position: absolute;
           left: 0;
           color: #2563eb;
           font-size: 16px;
-          line-height: 1;
         }
       }
     }
   }
 }
 
-/* Smooth modal scaling entrance animation */
-@keyframes modalFadeIn {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
+@keyframes modalScaleEntrance {
+  from { opacity: 0; transform: scale(0.97) translateY(8px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
 }
