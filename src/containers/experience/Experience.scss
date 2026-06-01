@@ -181,20 +181,4 @@
   }
 }
 
-/* ==========================================================================
-   Controlled Structural Work History Hiding
-   ========================================================================== */
 
-/* When the container is collapsed, hide everything from the 3rd card onwards */
-.experience-cards-div.collapsed {
-  & > div:nth-child(n+3) {
-    display: none !important;
-  }
-}
-
-/* When the container is expanded, force all cards to display cleanly */
-.experience-cards-div.expanded {
-  & > div {
-    display: block !important;
-  }
-}
