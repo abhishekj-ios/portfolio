@@ -44,40 +44,41 @@ const socialMediaLinks = {
 // Skills Section
 
 export const whatIDo = {
-  title: "What I Do",
-  subTitle: "I specialize in crafting high-performance iOS applications with clean architecture and exceptional user experiences.",
+  title: "Specializations & Expertise",
+  subTitle: "Over a decade of engineering high-performance mobile systems, shaping modular codebases, and scaling technical teams.",
   skills: [
     {
       id: "1",
       title: "iOS Development",
-      description: "Building scalable, robust, and enterprise-ready apps using Swift & SwiftUI.",
+      description: "Building scalable, robust, and enterprise-ready native applications leveraging the full power of Swift & SwiftUI.",
       icon: "swift"
     },
     {
       id: "2",
       title: "App Architecture",
-      description: "Designing modular software architectures using MVVM, VIPER, and clean abstractions.",
+      description: "Designing modular software ecosystems using MVVM, VIPER, and clean separation of concerns for maintainable lifecycles.",
       icon: "architecture"
     },
     {
       id: "3",
-      title: "UI/UX Design",
-      description: "Crafting fluid animations, highly responsive layouts, and intuitive user interfaces.",
+      title: "UI/UX & Fluid Motion",
+      description: "Crafting polished animations, highly responsive layouts, and accessible interfaces that elevate the overall user experience.",
       icon: "uiux"
     },
     {
       id: "4",
-      title: "Performance Optimization",
-      description: "Advanced instrument profiling, memory leak tracking, and optimization for frame-rate execution.",
-      icon: "performance"
-    },
-{
-  id: "5",
-  title: "Technical Leadership",
-  description: "Driving engineering excellence by mentoring developers, defining code health standards, and spearheading system design.",
-  icon: "leadership"
-}
+      title: "Technical Leadership",
+      description: "Driving engineering excellence by mentoring developers, defining production health standards, and spearheading cross-functional roadmaps.",
+      icon: "leadership"
+    }
   ]
+};
+
+// Keep this here so StackProgress doesn't crash the build
+export const skillsSection = {
+  title: "Proficiency",
+  subTitle: "",
+  skills: []
 };
 //Dummy SkillSection 
 export const skillsSection = {
