@@ -1,14 +1,16 @@
 /* ==========================================================================
-   Premium Footer Engine 
+   Premium Structural Layout for Footer 
    ========================================================================== */
+
 .footer-main {
   width: 100%;
-  border-top: 1px solid #e2e8f0; // Subtle separating line dividing layout blocks
-  margin-top: 40px;
+  border-top: 1px solid #e2e8f0;
+  margin-top: 60px;
+  clear: both; /* Forces footer below layout flows */
   box-sizing: border-box;
 
   &.dark-mode {
-    border-top-color: #1e2533;
+    border-top-color: #1e293b;
   }
 }
 
@@ -17,11 +19,11 @@
   margin: 0 auto;
   padding: 32px 24px;
   display: flex;
-  justify-content: space-between; // Separates details dynamically to left and right margins
+  justify-content: space-between;
   align-items: center;
-  box-sizing: border-box;
   flex-wrap: wrap;
   gap: 16px;
+  box-sizing: border-box;
 
   @media (max-width: 768px) {
     flex-direction: column;
@@ -30,46 +32,19 @@
   }
 }
 
-/* Footer Typography Core */
 .footer-text {
   font-size: 14px;
-  color: #475569;
+  color: #64748b;
   margin: 0;
   font-weight: 500;
+  line-height: 1.5;
 
   &.dark-mode {
     color: #94a3b8;
   }
 }
 
-.footer-tagline {
-  font-size: 14px;
-  font-weight: 600;
-  color: #0f172a;
-  margin: 0 0 4px 0;
-
-  &.dark-mode {
-    color: #f8fafc;
-  }
-}
-
-/* Grouping copyright elements on left */
-.footer-left-block {
-  display: flex;
-  flex-direction: column;
-  
-  @media (max-width: 768px) {
-    align-items: center;
-  }
-}
-
-/* Clean, low-contrast attribution details on right */
-.footer-attribution {
-  font-size: 12px;
-  color: #94a3b8;
-  margin: 0;
-  
-  &.dark-mode {
-    color: #64748b;
-  }
+/* Keeps secondary layout elements neatly balanced */
+.footer-div p {
+  margin: 4px 0;
 }
