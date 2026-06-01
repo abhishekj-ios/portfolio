@@ -1,17 +1,17 @@
 /* ==========================================================================
-   Structural Contact Section Refactor
+   Structural Contact Layout Correction
    ========================================================================== */
 
-// 1. Force the layout container row to break into a vertical stack
+/* 1. Force the container to stack vertically instead of side-by-side columns */
 .contact-div-main {
   display: flex !important;
   flex-direction: column !important;
-  align-items: flex-start !important; // Keeps your text left-aligned elegantly
+  align-items: flex-start !important;
   width: 100% !important;
   max-width: 100% !important;
 }
 
-// 2. Break the text column out of its 50% width cage
+/* 2. Push text panel to occupy full-screen structural width */
 .contact-header {
   width: 100% !important;
   max-width: 100% !important;
@@ -20,7 +20,7 @@
   margin: 0 !important;
 }
 
-// 3. Absolute override rules for the titles and text tags
+/* 3. Explicit sizing and alignment for the title text */
 h1.contact-title {
   font-size: 45px !important;
   font-weight: 700 !important;
@@ -29,53 +29,34 @@ h1.contact-title {
   width: 100% !important;
 }
 
-// 4. Handle both Light and Dark mode variations of the text field
-p.contact-subtitle {
+/* 4. Match alignment for text tags exactly as injected by Contact.js */
+.contact-subtitle {
   font-size: 18px !important;
   line-height: 1.6 !important;
-  max-width: 850px !important; // Keeps long developer descriptions highly readable
+  max-width: 850px !important;
   text-align: left !important;
   margin-bottom: 35px !important;
-
-  &.dark-mode {
-    color: #cbd5e1 !important; // Clean off-white for dark background panels
-  }
-  &.subTitle {
-    color: #475569 !important; // Clean slate gray for light background panels
-  }
 }
 
-// 5. Structure links, numbers, emails, and social layouts stacked cleanly
+/* 5. Structure text block, links, and contact options cleanly */
 .contact-text-div {
   display: flex !important;
   flex-direction: column !important;
   align-items: flex-start !important;
   gap: 12px !important;
   width: 100% !important;
-
-  a.contact-detail,
-  a.contact-detail-email {
-    display: inline-block !important;
-    font-size: 16px !important;
-    font-weight: 500 !important;
-    text-decoration: none !important;
-    color: #2563eb !important; // Fallback professional accent link blue
-    transition: color 0.2s ease;
-
-    &:hover {
-      text-decoration: underline !important;
-    }
-  }
-
-  &.dark-mode {
-    a.contact-detail,
-    a.contact-detail-email {
-      color: #60a5fa !important; // Brighter text accent depth for dark themes
-    }
-  }
 }
 
-// 6. Kill off the image block entirely so it takes up zero space or margin padding
+.contact-detail,
+.contact-detail-email {
+  display: inline-block !important;
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  text-decoration: none !important;
+  width: fit-content !important;
+}
+
+/* 6. Completely hide image tracking columns */
 .contact-image-div {
   display: none !important;
   width: 0 !important;
