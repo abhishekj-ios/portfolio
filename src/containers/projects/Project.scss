@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Structural Wrapper (Fixes Edge-Bleeding Layout Constraints)
+   Structural Wrapper & Typography (Fixes Edge-Bleeding & Titles Centering)
    ========================================================================== */
 .projects-container-wrapper {
   width: 100%;
@@ -7,6 +7,13 @@
   margin: 0 auto;    // Centers perfectly on desktop viewports
   padding: 0 24px;   // Prevents components from ever snapping against glass edges
   box-sizing: border-box;
+}
+
+.project-title {
+  text-align: center; // Centers your core section title heading
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-weight: 700;
 }
 
 .project-subtitle {
@@ -80,19 +87,25 @@
     opacity: 0.95;
   }
 
+  /* ==========================================================================
+     Card Bottom Meta (Stacked layout to fully prevent structural collisions)
+     ========================================================================== */
   .card-bottom-meta {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: column; // Stacks items vertically to clear infinite horizontal room
+    gap: 16px;              // Distinct breathing room separating technical pills from action links
     padding-top: 16px;
     border-top: 1px solid #f1f5f9;
-    margin-top: auto;
+    margin-top: auto;       // Anchors block to the footer base of the element
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .mini-tech-preview {
     display: flex;
+    flex-wrap: wrap;        // Forces tags to drop into secondary wrap lines flawlessly
     gap: 6px;
-    align-items: center;
+    width: 100%;
 
     .preview-pill {
       font-size: 11px;
@@ -102,12 +115,14 @@
       padding: 4px 10px;
       border-radius: 6px;
       border: 1px solid #e2e8f0;
+      white-space: nowrap;  // Disallows text strings inside pill blocks to split mid-word
     }
     .preview-pill-more {
       font-size: 11px;
       font-weight: 600;
       color: #94a3b8;
       padding-left: 2px;
+      align-self: center;
     }
   }
 
@@ -118,6 +133,7 @@
     display: flex;
     align-items: center;
     gap: 4px;
+    align-self: flex-end;   // Positions action element perfectly on the bottom right margin boundary
     transition: color 0.2s ease;
 
     .arrow-motion {
@@ -126,7 +142,7 @@
     }
   }
 
-  /* Dark Mode Configurations */
+  /* Dark Mode Intercepts */
   &.dark-mode {
     background: #131722;
     border: 1px solid #222936;
