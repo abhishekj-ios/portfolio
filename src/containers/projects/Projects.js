@@ -54,7 +54,7 @@ export default function Projects() {
                   {proj.techStack.length > 3 && <span className="preview-pill-more">+{proj.techStack.length - 3}</span>}
                 </div>
                 <div className="blueprint-action-link">
-                  Detailed Blueprint <span className="arrow-motion">→</span>
+                  Detailst <span className="arrow-motion">→</span>
                 </div>
               </div>
             </div>
