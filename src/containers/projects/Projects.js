@@ -38,31 +38,29 @@ export default function Projects() {
               className={isDark ? "dark-mode architectural-premium-card" : "architectural-premium-card"}
               onClick={() => openModal(proj)}
             >
-         <div className="card-top-meta">
-  {/* Increased size to 64px for better visual impact */}
-  <div style={{ display: "flex", alignItems: "flex-start", gap: "16px", marginBottom: "16px" }}>
-    <img 
-      src={proj.icon.default || proj.icon} 
-      alt={proj.projectName} 
-      style={{ 
-        width: "64px", 
-        height: "64px", 
-        objectFit: "cover", 
-        borderRadius: "20%", 
-        flexShrink: 0,
-        boxShadow: "0 4px 12px rgba(0,0,0,0.3)" // Adds depth
-      }} 
-    />
-    <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
-      <span className="architecture-tag" style={{ margin: 0, fontSize: "12px", opacity: 0.8 }}>
-        {proj.architecture}
-      </span>
-      <h2 className="project-display-name" style={{ margin: 0, fontSize: "1.25rem", lineHeight: "1.3" }}>
-        {proj.projectName}
-      </h2>
-    </div>
-  </div>
-</div>     
+              <div className="card-top-meta" style={{ display: "flex", gap: "20px", marginBottom: "20px" }}>
+                <img 
+                  src={proj.icon.default || proj.icon} 
+                  alt={proj.projectName} 
+                  style={{ 
+                    width: "64px", 
+                    height: "64px", 
+                    objectFit: "cover", 
+                    borderRadius: "16px",
+                    flexShrink: 0,
+                    boxShadow: "0 4px 12px rgba(0,0,0,0.3)"
+                  }} 
+                />
+                <div style={{ display: "flex", flexDirection: "column", justifyContent: "center" }}>
+                  <span className="architecture-tag" style={{ margin: 0, fontSize: "11px", opacity: 0.8, textTransform: "uppercase", letterSpacing: "0.5px" }}>
+                    {proj.architecture}
+                  </span>
+                  <h2 className="project-display-name" style={{ margin: "4px 0 0 0", fontSize: "20px", lineHeight: "1.3" }}>
+                    {proj.projectName}
+                  </h2>
+                </div>
+              </div>
+              
               <p className="project-display-summary">{proj.summary}</p>
               
               <div className="card-bottom-meta">
