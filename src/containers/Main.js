@@ -20,6 +20,7 @@ import {splashScreen} from "../portfolio";
 import {StyleProvider} from "../contexts/StyleContext";
 import {useLocalStorage} from "../hooks/useLocalStorage";
 import "./Main.scss";
+import WhatIDo from "./whatIDo/WhatIDo";
 
 const Main = () => {
   const darkPref = window.matchMedia("(prefers-color-scheme: dark)");
@@ -52,7 +53,7 @@ const Main = () => {
           <>
             <Header />
             <Greeting />
-            <Skills />
+            <WhatIDo />
             <StackProgress />
             <Education />
             <WorkExperience />
