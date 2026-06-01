@@ -20,6 +20,7 @@ import {StyleProvider} from "../contexts/StyleContext";
 import {useLocalStorage} from "../hooks/useLocalStorage";
 import "./Main.scss";
 import WhatIDo from "./whatIDo/WhatIDo";
+import Experience from "../../containers/experience/Experience";
 
 const Main = () => {
   const darkPref = window.matchMedia("(prefers-color-scheme: dark)");
