@@ -39,13 +39,10 @@ function renderIcon(iconName) {
           <path d="M6 17l-1.5 1.5M18 17l1.5 1.5" stroke="#9CA3AF" strokeWidth="2" strokeLinecap="round"/>
         </svg>
       );
-    case "opensource":
+    case "leadership":
       return (
         <svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="6" cy="6" r="3" stroke="#4B5563" strokeWidth="2"/>
-          <circle cx="18" cy="18" r="3" stroke="#4B5563" strokeWidth="2"/>
-          <circle cx="6" cy="18" r="3" stroke="#4B5563" strokeWidth="2"/>
-          <path d="M6 9v6M9 6h5a3 3 0 0 1 3 3v6" stroke="#4B5563" strokeWidth="2" strokeLinecap="round"/>
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" stroke="#F59E0B" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
         </svg>
       );
     default:
