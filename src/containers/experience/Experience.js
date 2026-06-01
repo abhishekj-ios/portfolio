@@ -1,13 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "./Experience.scss";
 import ExperienceCard from "../../components/experienceCard/ExperienceCard";
 import { workExperiences } from "../../portfolio";
 import { Fade } from "react-reveal";
+import StyleContext from "../../contexts/StyleContext"; // Import your theme context
 
 export default function Experience() {
   const [isExpanded, setIsExpanded] = useState(false);
+  const { isDark } = useContext(StyleContext); // Read the current theme context
 
   if (workExperiences.viewExperiences) {
+    // Dynamically filter the experience array based on the state hook toggle
+    const visibleExperiences = isExpanded
+      ? workExperiences.experience
+      : workExperiences.experience.slice(0, 2);
+
     return (
       <div id="experience">
         <Fade bottom duration={1000} distance="20px">
@@ -15,9 +22,9 @@ export default function Experience() {
             <div>
               <h1 className="experience-heading">{workExperiences.title}</h1>
               
-              {/* Dynamically append an 'expanded' class when the button is clicked */}
-              <div className={`experience-cards-div ${isExpanded ? "expanded" : "collapsed"}`}>
-                {workExperiences.experience.map((card, index) => {
+              {/* Keep the native original template class names intact */}
+              <div className="experience-cards-div">
+                {visibleExperiences.map((card, index) => {
                   return (
                     <ExperienceCard
                       key={index}
@@ -30,12 +37,13 @@ export default function Experience() {
                         descBullets: card.descBullets,
                         skills: card.skills
                       }}
+                      isDark={isDark} // Force feed the theme prop to the card component
                     />
                   );
                 })}
               </div>
 
-              {/* Robust, self-contained interactive toggle button */}
+              {/* Clean Interactive Toggle Button */}
               {workExperiences.experience.length > 2 && (
                 <div style={{
                   display: "flex",
