@@ -115,7 +115,7 @@ export const workExperiences = {
   experience: [
     {
       id: "exp-1",
-      role: "Staff iOS Engineer",
+      role: "Staff iOS Developer",
       company: "Tensai Consulting",
       location: "Remote",
       date: "June 2024 – Present",
