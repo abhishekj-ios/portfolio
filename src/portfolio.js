@@ -285,11 +285,12 @@ const twitterDetails = {
 
 const isHireable = true; // Set to true to flags active engagement availability to technical recruiters
 
+// REPLACE THE ENTIRE BULK EXPORT AT THE BOTTOM OF portfolio.js WITH THIS:
 export {
+  splashScreen,
   illustration,
   greeting,
   socialMediaLinks,
-  splashScreen,
   educationInfo,
   techStack,
   openSource,
@@ -300,6 +301,5 @@ export {
   podcastSection,
   contactInfo,
   twitterDetails,
-  isHireable,
   resumeSection
 };
