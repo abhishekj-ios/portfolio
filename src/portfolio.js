@@ -79,15 +79,6 @@ export const whatIDo = {
     }
   ]
 };
-//Place holder for Skills section 
-
-export const skillsSection = {
-  display: false,
-  title: "",
-  subTitle: "",
-  skills: []
-};
-
 
 // Education Section
 
