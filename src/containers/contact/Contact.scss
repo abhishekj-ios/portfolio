@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Contact Section Component Overrides
+   Contact Section Component Overrides (Full Width Balanced Layout)
    ========================================================================== */
 .contact-main {
   width: 100%;
@@ -13,12 +13,19 @@
   }
 }
 
+/* 1. Force the parent template container to break out of row mode */
+.contact-main-div {
+  display: flex !important;
+  flex-direction: column !important; /* Stacks contents vertically since image is gone */
+  width: 100% !important;
+}
+
 /* Fixes Title Contrast Invisibility on Dark Frameworks */
 .contact-title {
   font-size: 42px;
   font-weight: 700;
   margin-bottom: 16px;
-  color: #0f172a !important; /* Rich contrast dark tone for light mode */
+  color: #0f172a !important; 
 
   @media (max-width: 768px) {
     font-size: 32px;
@@ -40,14 +47,18 @@
   line-height: 1.6;
   color: #475569;
   margin-bottom: 32px;
+  max-width: 750px; /* Prevents raw text strings from stretching uncomfortably wide */
 }
 
-/* Premium Button Component Restyling */
+/* 2. Overwrite the template's 50% width constraint on the text block */
 .contact-text-div {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 16px;
   margin-bottom: 32px;
+  width: 100% !important;       /* Expands fully into the cleared space */
+  max-width: 100% !important;   
+  flex: 1 1 100% !important;
 
   h6, p {
     margin: 0 !important;
@@ -60,7 +71,7 @@
     font-weight: 600;
     color: #2563eb !important; 
     text-decoration: none !important;
-    padding: 10px 20px;
+    padding: 12px 24px;
     background: #f1f5f9;
     border: 1px solid #e2e8f0;
     border-radius: 8px;
@@ -85,9 +96,15 @@
   }
 }
 
-/* ==========================================================================
-   Absolute annihilation of the broken illustration container 
-   ========================================================================== */
+/* Clean formatting layout alignment for social profile groups */
+.social-media-div {
+  display: flex !important;
+  gap: 12px;
+  margin-top: 8px;
+  width: 100% !important;
+}
+
+/* Absolute annihilation of the broken illustration container space */
 .contact-image-div {
   display: none !important;
   width: 0px !important;
