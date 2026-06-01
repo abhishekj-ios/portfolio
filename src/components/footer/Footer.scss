@@ -1,8 +1,18 @@
 @import "../../_globalColor";
 
 .footer-text {
-  text-align: center;
-  color: $subTitle !important;
+  margin: 4px 0; // Gives the text rows a tiny bit of breathing room
+  
+  &.copyright {
+    font-size: 14px;
+    opacity: 0.8;
+  }
+
+  &.courtesy {
+    font-size: 12px;
+    opacity: 0.5; // Keeps it subtle and out of the way of your main info
+    margin-top: 12px;
+  }
 }
 
 .dark-mode {
