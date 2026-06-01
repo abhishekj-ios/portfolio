@@ -43,38 +43,41 @@ const socialMediaLinks = {
 
 // Skills Section
 
-const skillsSection = {
-  title: "What I do",
-  subTitle: "DEVELOPING HIGH-PERFORMANCE NATIVE iOS APPLICATIONS",
+export const whatIDo = {
+  title: "What I Do",
+  subTitle: "I specialize in crafting high-performance iOS applications with clean architecture and exceptional user experiences.",
   skills: [
-    "⚡ 12+ years of experience delivering robust, modular architectures (MVVM-C, VIPER, POP)",
-    "⚡ Expert proficiency in Swift, SwiftUI, UIKit, Combine, and Async/Await concurrency",
-    "⚡ Strong advocate for clean code, dependency injection, and avoiding singleton patterns for scalability",
-    "⚡ Proven track record of managing cross-functional technical teams and leading App Store deployments"
-  ],
-
-  /* Make Sure to include correct Font Awesome Classname to view your icon
-https://fontawesome.com/icons?d=gallery */
-
-  softwareSkills: [
     {
-      skillName: "swift",
-      fontAwesomeClassname: "fab fa-swift"
+      id: "1",
+      title: "iOS Development",
+      description: "Building scalable, robust, and enterprise-ready apps using Swift & SwiftUI.",
+      icon: "swift"
     },
     {
-      skillName: "iOS SDK",
-      fontAwesomeClassname: "fas fa-mobile-alt"
+      id: "2",
+      title: "App Architecture",
+      description: "Designing modular software architectures using MVVM, VIPER, and clean abstractions.",
+      icon: "architecture"
     },
     {
-      skillName: "App Store",
-      fontAwesomeClassname: "fab fa-apple"
+      id: "3",
+      title: "UI/UX Design",
+      description: "Crafting fluid animations, highly responsive layouts, and intuitive user interfaces.",
+      icon: "uiux"
     },
     {
-      skillName: "Git",
-      fontAwesomeClassname: "fab fa-git-alt"
+      id: "4",
+      title: "Performance Optimization",
+      description: "Advanced instrument profiling, memory leak tracking, and optimization for frame-rate execution.",
+      icon: "performance"
+    },
+    {
+      id: "5",
+      title: "Open Source Contribution",
+      description: "Contributing clean code and modular frameworks back to the core SwiftUI and iOS developer community.",
+      icon: "opensource"
     }
-  ],
-  display: true // Set false to hide this section, defaults to true
+  ]
 };
 
 // Education Section
