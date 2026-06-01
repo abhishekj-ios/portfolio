@@ -1,21 +1,20 @@
 /* ==========================================================================
-   Full-Width Contact Section Alignment Override
+   High-Specificity Global Structural Reset
    ========================================================================== */
 
-/* Force the outer component framework block to expand across the full page width */
-#contact,
-.contact-margin-top {
+/* 1. Force the root container framework block to expand across the page width */
+html body div div div#contact.main.contact-margin-top {
   width: 100% !important;
   max-width: 100% !important;
-  padding-left: 0 !important;
-  padding-right: 0 !important;
   margin-left: 0 !important;
   margin-right: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
   display: block !important;
 }
 
-/* Force the internal row splitter container to break out into a vertical stacked block layout */
-div.contact-div-main {
+/* 2. Overpower the side-by-side flex split layout and stack elements vertically */
+html body div div div div.contact-div-main {
   display: flex !important;
   flex-direction: column !important;
   align-items: flex-start !important;
@@ -26,8 +25,8 @@ div.contact-div-main {
   margin: 0 !important;
 }
 
-/* Force the text column container to span 100% structural width, letting your headers align beautifully */
-div.contact-header {
+/* 3. Allow text header panel to stretch across the full width */
+html body div div div div div.contact-header {
   width: 100% !important;
   max-width: 100% !important;
   flex: 1 1 100% !important;
@@ -36,27 +35,31 @@ div.contact-header {
   text-align: left !important;
 }
 
-/* Ensure paragraph headers and text elements use full wide-screen layout parameters cleanly */
-h1.contact-title,
-.contact-subtitle {
-  width: 100% !important;
-  max-width: 850px !important; /* Elegant readable width boundaries for your engineering profile description */
+/* 4. Correct text bounds and alignment metrics */
+html body div div div div div h1.contact-title {
   text-align: left !important;
-  display: block !important;
+  width: 100% !important;
+  margin: 0 0 20px 0 !important;
 }
 
-/* Align links, button stacks, and phone elements vertically on the left side of the screen */
-div.contact-text-div {
+html body div div div div div p.contact-subtitle {
+  width: 100% !important;
+  max-width: 850px !important;
+  text-align: left !important;
+  display: block !important;
+  margin: 0 0 35px 0 !important;
+}
+
+/* 5. Force link items and lists to stack vertically on the left axis */
+html body div div div div div div.contact-text-div {
   display: flex !important;
   flex-direction: column !important;
   align-items: flex-start !important;
-  justify-content: flex-start !important;
   width: 100% !important;
-  gap: 8px !important;
 }
 
-/* Completely remove the graphic/animation layout container panel so it takes up zero space or padding grid footprint */
-div.contact-image-div {
+/* 6. Enforce absolute zero sizing on the illustration container */
+html body div div div div div.contact-image-div {
   display: none !important;
   width: 0px !important;
   height: 0px !important;
