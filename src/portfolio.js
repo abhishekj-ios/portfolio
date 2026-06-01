@@ -199,8 +199,8 @@ const openSource = {
 // Some big projects you have worked on
 // FIXED: Removed inline export to avoid double-export syntax conflicts
 const bigProjects = {
-  title: "Production App Architecture",
-  subtitle: "ENTERPRISE PROTOCOLS AND SYSTEM INTERFACES",
+  title: "Featured Production Apps",
+  subtitle: "A technical spotlight on my 3 most recent native deployments",
   display: true,
   projects: [
     {
@@ -259,7 +259,7 @@ const achievementSection = {
       footerLink: []
     }
   ],
-  display: true 
+  display: false 
 };
 
 // Blogs Section
