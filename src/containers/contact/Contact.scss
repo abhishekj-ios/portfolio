@@ -84,3 +84,14 @@
     border-color: #37465c;
   }
 }
+
+/* ==========================================================================
+   Absolute annihilation of the broken illustration container 
+   ========================================================================== */
+.contact-image-div {
+  display: none !important;
+  width: 0px !important;
+  height: 0px !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
