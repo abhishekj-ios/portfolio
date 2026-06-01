@@ -5,6 +5,9 @@
 import emoji from "react-easy-emoji";
 import splashAnimation from "./assets/lottie/splashAnimation"; // Rename to your file name for custom animation
 
+import bloomIcon from '../assets/images/bloom-icon.png';
+import smartFinIcon from '../assets/images/smartfin-icon.png';
+import smartFlowIcon from '../assets/images/smartflow-icon.png';
 // Splash Screen
 
 const splashScreen = {
@@ -118,6 +121,7 @@ const bigProjects = {
     {
       id: "hero-bloom",
       projectName: "Bloom — IoT Micro-Mobility Platform",
+      icon: bloomIcon,
       architecture: "Modular MVVM Architecture with Hardware Isolation Layers",
       summary: "Architectural core driving an IoT bike-rental engine scaled seamlessly across 7 distinct white-label client variants. Isolates custom firmware protocols from core business logic.",
       challenge: "Managing asynchronous hardware state-machines, real-time geolocation tracking, and high-stakes multi-tenant payment pipelines concurrently without locking the main thread.",
@@ -131,6 +135,7 @@ const bigProjects = {
     {
       id: "hero-smartfin",
       projectName: "SmartFin — Institutional Banking Hub",
+      icon: smartFinIcon,
       architecture: "Decoupled VIPER Architecture with Strict Interface Abstraction",
       summary: "Enterprise trade-finance services platform enabling international traders to securely negotiate financial assistance directly with international partner banks.",
       challenge: "Handling heavy concurrent data payloads, rendering multi-tiered interactive financial charts, and maintaining air-gapped security parameters across separate role-based submodules.",
@@ -144,6 +149,7 @@ const bigProjects = {
     {
       id: "hero-smartflow",
       projectName: "SmartFlow — Real-Time Ledger Monitor",
+      icon: smartFlowIcon,
       architecture: "Event-Driven VIPER Core with Asynchronous Telemetry",
       summary: "A secure tracking system built to ingest, map, and visualize transaction states across distributed blockchain networks in real-time.",
       challenge: "Translating rapid immutable distributed ledger entries into a fluid, low-latency UI lifecycle timeline without generating memory leaks or performance bottlenecks.",
