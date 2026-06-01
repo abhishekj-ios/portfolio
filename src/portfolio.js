@@ -197,8 +197,8 @@ const openSource = {
 };
 
 // Some big projects you have worked on
-
-export const bigProjects = {
+// FIXED: Removed inline export to avoid double-export syntax conflicts
+const bigProjects = {
   title: "Production App Architecture",
   subtitle: "ENTERPRISE PROTOCOLS AND SYSTEM INTERFACES",
   display: true,
@@ -207,39 +207,39 @@ export const bigProjects = {
       id: "hero-bloom",
       projectName: "Bloom — IoT Micro-Mobility Platform",
       architecture: "Modular MVVM Architecture with Hardware Isolation Layers",
-      summary: "Architectural core driving an IoT bike-rental engine scaled seamlessly across 7 distinct white-label client variants[cite: 1]. Isolates custom firmware protocols from core business logic.",
+      summary: "Architectural core driving an IoT bike-rental engine scaled seamlessly across 7 distinct white-label client variants. Isolates custom firmware protocols from core business logic.",
       challenge: "Managing asynchronous hardware state-machines, real-time geolocation tracking, and high-stakes multi-tenant payment pipelines concurrently without locking the main thread.",
-      techStack: ["CoreBluetooth", "Stripe API", "Apple Pay", "MapKit Core", "Firebase Stream[cite: 1]"],
+      techStack: ["CoreBluetooth", "Stripe API", "Apple Pay", "MapKit Core", "Firebase Stream"],
       wins: [
-        "Architected an abstract Bluetooth communication layer that gracefully handles hardware variations across multiple lock manufacturers[cite: 1].",
-        "Engineered a thread-safe rental billing calculator processing real-time ride duration and server data syncing[cite: 1].",
-        "Successfully delivered high functional and UI customization modules across 7 live production derivatives[cite: 1]."
+        "Architected an abstract Bluetooth communication layer that gracefully handles hardware variations across multiple lock manufacturers.",
+        "Engineered a thread-safe rental billing calculator processing real-time ride duration and server data syncing.",
+        "Successfully delivered high functional and UI customization modules across 7 live production derivatives."
       ]
     },
     {
       id: "hero-smartfin",
       projectName: "SmartFin — Institutional Banking Hub",
       architecture: "Decoupled VIPER Architecture with Strict Interface Abstraction",
-      summary: "Enterprise trade-finance services platform enabling international traders to securely negotiate financial assistance directly with international partner banks[cite: 1].",
-      challenge: "Handling heavy concurrent data payloads, rendering multi-tiered interactive financial charts, and maintaining air-gapped security parameters across separate role-based submodules[cite: 1].",
-      techStack: ["VIPER Core", "Swift Concurrency", "Background Tasks", "Interactive Charting Core[cite: 1]"],
+      summary: "Enterprise trade-finance services platform enabling international traders to securely negotiate financial assistance directly with international partner banks.",
+      challenge: "Handling heavy concurrent data payloads, rendering multi-tiered interactive financial charts, and maintaining air-gapped security parameters across separate role-based submodules.",
+      techStack: ["VIPER Core", "Swift Concurrency", "Background Tasks", "Interactive Charting Core"],
       wins: [
-        "Achieved 100% decoupling of complex bank/trader transaction lifecycles using strict protocol-driven routing[cite: 1].",
-        "Optimized rendering logic and background data ingestion pipelines to maximize UI performance during intense trade spikes[cite: 1].",
-        "Implemented secure, localized role-based access tokens separating authorization models between distinct financial parties[cite: 1]."
+        "Achieved 100% decoupling of complex bank/trader transaction lifecycles using strict protocol-driven routing.",
+        "Optimized rendering logic and background data ingestion pipelines to maximize UI performance during intense trade spikes.",
+        "Implemented secure, localized role-based access tokens separating authorization models between distinct financial parties."
       ]
     },
     {
       id: "hero-smartflow",
       projectName: "SmartFlow — Real-Time Ledger Monitor",
       architecture: "Event-Driven VIPER Core with Asynchronous Telemetry",
-      summary: "A secure tracking system built to ingest, map, and visualize transaction states across distributed blockchain networks in real-time[cite: 1].",
-      challenge: "Translating rapid immutable distributed ledger entries into a fluid, low-latency UI lifecycle timeline without generating memory leaks or performance bottlenecks[cite: 1].",
-      techStack: ["VIPER Core", "Blockchain API Services", "Real-Time Logs", "State Visualization Layers[cite: 1]"],
+      summary: "A secure tracking system built to ingest, map, and visualize transaction states across distributed blockchain networks in real-time.",
+      challenge: "Translating rapid immutable distributed ledger entries into a fluid, low-latency UI lifecycle timeline without generating memory leaks or performance bottlenecks.",
+      techStack: ["VIPER Core", "Blockchain API Services", "Real-Time Logs", "State Visualization Layers"],
       wins: [
-        "Engineered a low-latency transaction status parser that transforms live stream telemetry into structural event logs[cite: 1].",
-        "Constructed a high-fidelity transaction lifecycle visualization component using performance-tuned rendering structures[cite: 1].",
-        "Eliminated runtime retention cycles entirely during persistent WebSockets/API polling phases[cite: 1]."
+        "Engineered a low-latency transaction status parser that transforms live stream telemetry into structural event logs.",
+        "Constructed a high-fidelity transaction lifecycle visualization component using performance-tuned rendering structures.",
+        "Eliminated runtime retention cycles entirely during persistent WebSockets/API polling phases."
       ]
     }
   ]
@@ -317,6 +317,6 @@ export {
   podcastSection,
   contactInfo,
   twitterDetails,
-  isHireable, // <-- added back into the mix
+  isHireable, 
   resumeSection
 };
