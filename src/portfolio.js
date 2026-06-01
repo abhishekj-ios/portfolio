@@ -71,12 +71,12 @@ export const whatIDo = {
       description: "Advanced instrument profiling, memory leak tracking, and optimization for frame-rate execution.",
       icon: "performance"
     },
-    {
-      id: "5",
-      title: "Open Source Contribution",
-      description: "Contributing clean code and modular frameworks back to the core SwiftUI and iOS developer community.",
-      icon: "opensource"
-    }
+{
+  id: "5",
+  title: "Technical Leadership",
+  description: "Driving engineering excellence by mentoring developers, defining code health standards, and spearheading system design.",
+  icon: "leadership"
+}
   ]
 };
 //Dummy SkillSection 
