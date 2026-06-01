@@ -1,26 +1,22 @@
 /* ==========================================================================
-   Contact Section Component Overrides (Full Width Balanced Layout)
+   Contact Section Root-Cause Layout Fix
    ========================================================================== */
-.contact-main {
-  width: 100%;
-  max-width: 1140px;
-  margin: 0 auto;
-  padding: 60px 24px 20px 24px;
-  box-sizing: border-box;
 
-  @media (max-width: 768px) {
-    padding: 40px 16px;
-  }
-}
-
-/* 1. Force the parent template container to break out of row mode */
-.contact-main-div {
+/* 1. Tell the true parent container to stack vertically instead of rows */
+.contact-div-main {
   display: flex !important;
-  flex-direction: column !important; /* Stacks contents vertically since image is gone */
+  flex-direction: column !important; 
   width: 100% !important;
 }
 
-/* Fixes Title Contrast Invisibility on Dark Frameworks */
+/* 2. Release the text container from its 50% width cage */
+.contact-header {
+  width: 100% !important;
+  max-width: 100% !important;
+  flex: 1 1 100% !important;
+}
+
+/* 3. Ensure the title text stays visible against dark backgrounds */
 .contact-title {
   font-size: 42px;
   font-weight: 700;
@@ -32,7 +28,6 @@
   }
 }
 
-/* Enforces clean white typography when dark-mode class is active */
 .dark-mode {
   .contact-title {
     color: #f8fafc !important; 
@@ -47,23 +42,15 @@
   line-height: 1.6;
   color: #475569;
   margin-bottom: 32px;
-  max-width: 750px; /* Prevents raw text strings from stretching uncomfortably wide */
+  max-width: 800px; /* Keeps long paragraphs readable */
 }
 
-/* 2. Overwrite the template's 50% width constraint on the text block */
+/* 4. Formatting for the link buttons and social section */
 .contact-text-div {
   display: flex !important;
   flex-direction: column !important;
   gap: 16px;
   margin-bottom: 32px;
-  width: 100% !important;       /* Expands fully into the cleared space */
-  max-width: 100% !important;   
-  flex: 1 1 100% !important;
-
-  h6, p {
-    margin: 0 !important;
-    padding: 0 !important;
-  }
 
   a {
     display: inline-block;
@@ -96,19 +83,9 @@
   }
 }
 
-/* Clean formatting layout alignment for social profile groups */
-.social-media-div {
-  display: flex !important;
-  gap: 12px;
-  margin-top: 8px;
-  width: 100% !important;
-}
-
-/* Absolute annihilation of the broken illustration container space */
+/* 5. Keep the old image track completely hidden */
 .contact-image-div {
   display: none !important;
-  width: 0px !important;
-  height: 0px !important;
-  opacity: 0 !important;
-  visibility: hidden !important;
+  width: 0 !important;
+  height: 0 !important;
 }
