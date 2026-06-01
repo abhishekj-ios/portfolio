@@ -227,7 +227,6 @@ export {
   greeting,
   socialMediaLinks,
   splashScreen,
-  skillsSection,
   educationInfo,
   techStack,
   workExperiences,
