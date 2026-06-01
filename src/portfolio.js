@@ -306,6 +306,9 @@ const isHireable = true; // Set to true to flags active engagement availability 
 // ==========================================================================
 // Re-engineered, High-Grade Professional Contact Section 
 // ==========================================================================
+// ==========================================================================
+// Re-engineered, Centered Professional Contact Section 
+// ==========================================================================
 export const CustomContactSection = () => {
   return (
     <div style={{
@@ -313,68 +316,63 @@ export const CustomContactSection = () => {
       maxWidth: "100%",
       padding: "80px 4% 100px 4%", // Generous modern breathing room
       boxSizing: "border-box",
-      textAlign: "left",
+      textAlign: "center", // Forces core text alignment to center axis
       display: "block",
       clear: "both"
     }}>
-      {/* Structural Inner Container to break out of parent grid constraints */}
+      {/* Structural Inner Container */}
       <div style={{
         width: "100%",
         maxWidth: "1200px",
-        margin: "0 auto"
+        margin: "0 auto",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center" // Keeps flex container children centered completely
       }}>
-        
-        {/* Modern Section Subtle Tagline */}
-        <span style={{
-          fontSize: "13px",
-          textTransform: "uppercase",
-          letterSpacing: "2px",
-          color: "#60a5fa",
-          fontWeight: "600",
-          display: "block",
-          marginBottom: "12px"
-        }}>
-          Availability
-        </span>
 
-        {/* Clean, Bold Display Title */}
+        {/* Clean, Bold Display Title — Centered */}
         <h1 style={{
-          fontSize: "44px",
+          fontSize: "40px",
           fontWeight: "700",
           margin: "0 0 24px 0",
           fontFamily: "'Montserrat', sans-serif",
           letterSpacing: "-0.5px",
-          color: "#ffffff"
+          color: "#ffffff",
+          textAlign: "center",
+          width: "100%"
         }}>
           {contactInfo.title}
         </h1>
 
-        {/* Unconstrained Description — Forced to expand to full text container limits */}
+        {/* Unconstrained Description — Centered */}
         <p style={{
           fontSize: "19px",
           lineHeight: "1.7",
           width: "100%",
-          maxWidth: "950px", // Lets text stretch naturally into a unified line balance
+          maxWidth: "850px", // Snug width boundary for elegant reading layout
           margin: "0 0 48px 0",
           color: "#cbd5e1", // Off-white modern contrast slate
-          fontFamily: "'Montserrat', sans-serif"
+          fontFamily: "'Montserrat', sans-serif",
+          textAlign: "center"
         }}>
           {contactInfo.subtitle}
         </p>
 
-        {/* Professional Contact Actions Block */}
+        {/* Professional Contact Actions Block — Centered */}
         <div style={{
           display: "flex",
           flexDirection: "row",
           flexWrap: "wrap",
           alignItems: "center",
-          gap: "40px", // Wide clean separation for links
+          justifyContent: "center", // Centers the link groupings horizontally
+          gap: "60px", // Generous premium spacing between options
           margin: "0",
-          padding: "0"
+          padding: "0",
+          width: "100%"
         }}>
           
           {/* Email Channel Action Point */}
-          <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "6px" }}>
             <span style={{ fontSize: "11px", textTransform: "uppercase", letterSpacing: "1px", color: "#64748b", fontWeight: "600" }}>
               Direct Email
             </span>
@@ -386,8 +384,7 @@ export const CustomContactSection = () => {
                 textDecoration: "none",
                 color: "#ffffff",
                 borderBottom: "1px dashed #475569",
-                paddingBottom: "2px",
-                transition: "all 0.2s ease"
+                paddingBottom: "2px"
               }}
             >
               {contactInfo.email_address}
@@ -396,7 +393,7 @@ export const CustomContactSection = () => {
 
           {/* Phone Channel Action Point */}
           {contactInfo.number && (
-            <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "6px" }}>
               <span style={{ fontSize: "11px", textTransform: "uppercase", letterSpacing: "1px", color: "#64748b", fontWeight: "600" }}>
                 Voice / Signal
               </span>
@@ -408,8 +405,7 @@ export const CustomContactSection = () => {
                   textDecoration: "none",
                   color: "#ffffff",
                   borderBottom: "1px dashed #475569",
-                  paddingBottom: "2px",
-                  transition: "all 0.2s ease"
+                  paddingBottom: "2px"
                 }}
               >
                 {contactInfo.number}
