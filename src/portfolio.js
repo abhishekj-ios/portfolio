@@ -193,7 +193,7 @@ export const workExperiences = {
 /* Your Open Source Section to View Your Github Pinned Projects */
 const openSource = {
   showGithubProfile: "false", 
-  display: true 
+  display: false 
 };
 
 // Some big projects you have worked on
