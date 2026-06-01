@@ -292,7 +292,6 @@ export {
   splashScreen,
   educationInfo,
   techStack,
-  workExperiences,
   openSource,
   bigProjects,
   achievementSection,
