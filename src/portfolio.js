@@ -135,11 +135,11 @@ export const workExperiences = {
       date: "June 2021 – May 2024",
       subtitle: "",
       descBullets: [
-        "Played an active, lead role in completely redesigning and restructuring legacy codebases into modular MVVM-C architectures, successfully elevating user satisfaction ratings by 30%[cite: 1].",
-        "Designed, developed, and scaled highly reusable white-label iOS applications and framework layers utilized across multiple distinct client brands[cite: 1].",
-        "Independently managed release engineering and uploaded 8 production apps to the App Store as part of complex white-label product pipelines[cite: 1].",
-        "Trained, onboarded, and mentored incoming developers, introducing robust development workflows and code review practices to accelerate team productivity[cite: 1].",
-        "Diagnosed and resolved critical performance bottlenecks, memory leaks, and retention cycles based on runtime feedback to maximize stability[cite: 1]."
+        "Played an active, lead role in completely redesigning and restructuring legacy codebases into modular MVVM-C architectures, successfully elevating user satisfaction ratings by 30%.",
+        "Designed, developed, and scaled highly reusable white-label iOS applications and framework layers utilized across multiple distinct client brands.",
+        "Independently managed release engineering and uploaded 8 production apps to the App Store as part of complex white-label product pipelines.",
+        "Trained, onboarded, and mentored incoming developers, introducing robust development workflows and code review practices to accelerate team productivity.",
+        "Diagnosed and resolved critical performance bottlenecks, memory leaks, and retention cycles based on runtime feedback to maximize stability."
       ],
       skills: ["MVVM-C", "White-Label", "Release Engineering", "Performance Tuning"]
     },
@@ -151,11 +151,11 @@ export const workExperiences = {
       date: "May 2019 – March 2021",
       subtitle: "",
       descBullets: [
-        "Acted as the sole iOS developer, owning the complete development lifecycle from requirement analysis and technical design to development, testing, and App Store deployment[cite: 1].",
-        "Successfully built, optimized, and published 3 production iOS applications on the App Store[cite: 1].",
-        "Collaborated closely with product stakeholders, UI/UX designers, and backend engineering teams to translate business requirements into highly scalable mobile solutions[cite: 1].",
-        "Implemented clean architecture patterns (VIPER) and highly reusable UI components to drastically minimize technical debt and improve long-term maintainability[cite: 1].",
-        "Controlled all App Store compliance workflows, including provisioning profiles, certificates, TestFlight beta distribution, and live production releases[cite: 1]."
+        "Acted as the sole iOS developer, owning the complete development lifecycle from requirement analysis and technical design to development, testing, and App Store deployment.",
+        "Successfully built, optimized, and published 3 production iOS applications on the App Store.",
+        "Collaborated closely with product stakeholders, UI/UX designers, and backend engineering teams to translate business requirements into highly scalable mobile solutions.",
+        "Implemented clean architecture patterns (VIPER) and highly reusable UI components to drastically minimize technical debt and improve long-term maintainability.",
+        "Controlled all App Store compliance workflows, including provisioning profiles, certificates, TestFlight beta distribution, and live production releases."
       ],
       skills: ["VIPER", "Full-Lifecycle", "Blockchain Integration", "App Store Compliance"]
     },
@@ -167,9 +167,9 @@ export const workExperiences = {
       date: "March 2014 – April 2019",
       subtitle: "",
       descBullets: [
-        "Successfully designed, engineered, and shipped 7 mobile applications to the App Store, specializing in custom client-centric architectures and white-label platforms[cite: 1].",
-        "Coordinated, managed, and aligned Android and web application development tracks to guarantee cross-platform feature and API parity[cite: 1].",
-        "Led a distributed team of remote and local freelance developers, taking full accountability for task delegation, technical quality, and sprint timelines[cite: 1]."
+        "Successfully designed, engineered, and shipped 7 mobile applications to the App Store, specializing in custom client-centric architectures and white-label platforms.",
+        "Coordinated, managed, and aligned Android and web application development tracks to guarantee cross-platform feature and API parity.",
+        "Led a distributed team of remote and local freelance developers, taking full accountability for task delegation, technical quality, and sprint timelines."
       ],
       skills: ["Team Leadership", "Cross-Platform Alignment", "Bespoke Architecture"]
     },
@@ -181,9 +181,9 @@ export const workExperiences = {
       date: "March 2013 – February 2014",
       subtitle: "",
       descBullets: [
-        "Contributed to the active development of multiple native iOS applications utilizing Objective-C and UIKit within a fast-paced Agile/Scrum team environment[cite: 1].",
-        "Implemented product features, engineered clean layout configurations, and systematically resolved application bugs to improve runtime performance[cite: 1].",
-        "Gained foundational production experience working with MVVM architecture, Git version control workflows, and peer code reviews[cite: 1]."
+        "Contributed to the active development of multiple native iOS applications utilizing Objective-C and UIKit within a fast-paced Agile/Scrum team environment.",
+        "Implemented product features, engineered clean layout configurations, and systematically resolved application bugs to improve runtime performance.",
+        "Gained foundational production experience working with MVVM architecture, Git version control workflows, and peer code reviews."
       ],
       skills: ["Objective-C", "UIKit", "Agile/Scrum", "Git Workflows"]
     }
