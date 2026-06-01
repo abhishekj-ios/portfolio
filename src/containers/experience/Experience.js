@@ -1,57 +1,84 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Experience.scss";
+import ExperienceCard from "../../components/experienceCard/ExperienceCard";
 import { workExperiences } from "../../portfolio";
 import { Fade } from "react-reveal";
 
 export default function Experience() {
-  if (!workExperiences.viewExperiences) return null;
+  // State hook to manage the expanded viewport toggle
+  const [isExpanded, setIsExpanded] = useState(false);
 
-  return (
-    <div className="experience-section-container" id="experience">
-      <Fade bottom duration={1000} distance="20px">
-        <h1 className="experience-main-title">{workExperiences.title}</h1>
-      </Fade>
+  if (workExperiences.viewExperiences) {
+    // Show only the 2 most recent roles initially, display all if expanded
+    const visibleExperiences = isExpanded 
+      ? workExperiences.experience 
+      : workExperiences.experience.slice(0, 2);
 
-      <div className="experience-cards-grid">
-        {workExperiences.experience.map((exp, index) => {
-          // The first card (Staff Engineer) gets the premium active styling highlight
-          const isCurrentRole = index === 0; 
-          
-          return (
-            <Fade bottom duration={1000} distance="30px" key={exp.id}>
-              <div className={`experience-history-card ${isCurrentRole ? "active-current-role" : ""}`}>
-                <div className="card-header-row">
-                  <div className="role-company-meta">
-                    <h3 className="experience-card-role">{exp.role}</h3>
-                    <h4 className="experience-card-company">
-                      {exp.company} <span className="meta-location">• {exp.location}</span>
-                    </h4>
-                  </div>
-                  <div className="experience-card-duration">
-                    <span className="duration-pill">{exp.date}</span>
-                  </div>
-                </div>
-
-                {exp.subtitle && (
-                  <p className="experience-card-context-subtitle">{exp.subtitle}</p>
-                )}
-
-                <ul className="experience-bullet-list">
-                  {exp.descBullets.map((bullet, i) => (
-                    <li key={i} className="experience-bullet-item">{bullet}</li>
-                  ))}
-                </ul>
-
-                <div className="experience-card-tags-footer">
-                  {exp.skills.map((skill, i) => (
-                    <span key={i} className="tech-tag-pill">{skill}</span>
-                  ))}
-                </div>
+    return (
+      <div id="experience">
+        <Fade bottom duration={1000} distance="20px">
+          <div className="experience-container" id="workExperiences">
+            <div>
+              <h1 className="experience-heading">{workExperiences.title}</h1>
+              <div className="experience-cards-div">
+                {visibleExperiences.map((card, index) => {
+                  return (
+                    <ExperienceCard
+                      key={index}
+                      cardInfo={{
+                        company: card.company,
+                        desc: card.desc,
+                        meta: card.meta,
+                        role: card.role,
+                        date: card.date,
+                        descBullets: card.descBullets,
+                        skills: card.skills
+                      }}
+                    />
+                  );
+                })}
               </div>
-            </Fade>
-          );
-        })}
+
+              {/* Clean, Modern Action Toggle Button */}
+              {workExperiences.experience.length > 2 && (
+                <div style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  marginTop: "40px",
+                  width: "100%"
+                }}>
+                  <button
+                    onClick={() => setIsExpanded(!isExpanded)}
+                    style={{
+                      backgroundColor: "transparent",
+                      color: "#60a5fa",
+                      border: "2px solid #60a5fa",
+                      padding: "12px 28px",
+                      fontSize: "15px",
+                      fontWeight: "600",
+                      borderRadius: "6px",
+                      cursor: "pointer",
+                      transition: "all 0.2s ease-in-out",
+                      fontFamily: "inherit",
+                      outline: "none"
+                    }}
+                    onMouseEnter={(e) => {
+                      e.target.style.backgroundColor = "rgba(96, 165, 250, 0.1)";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.target.style.backgroundColor = "transparent";
+                    }}
+                  >
+                    {isExpanded ? "See Less" : "See More Work History"}
+                  </button>
+                </div>
+              )}
+
+            </div>
+          </div>
+        </Fade>
       </div>
-    </div>
-  );
+    );
+  }
+  return null;
 }
