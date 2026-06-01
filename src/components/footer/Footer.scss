@@ -1,25 +1,75 @@
-@import "../../_globalColor";
+/* ==========================================================================
+   Premium Footer Engine 
+   ========================================================================== */
+.footer-main {
+  width: 100%;
+  border-top: 1px solid #e2e8f0; // Subtle separating line dividing layout blocks
+  margin-top: 40px;
+  box-sizing: border-box;
 
-.footer-text {
-  margin: 4px 0; // Gives the text rows a tiny bit of breathing room
-  
-  &.copyright {
-    font-size: 14px;
-    opacity: 0.8;
+  &.dark-mode {
+    border-top-color: #1e2533;
   }
-
-  &.courtesy {
-    font-size: 12px;
-    opacity: 0.5; // Keeps it subtle and out of the way of your main info
-    margin-top: 12px;
-  }
-}
-
-.dark-mode {
-  color: $textColorDark !important;
 }
 
 .footer-div {
-  margin-top: 2rem;
-  padding-bottom: 1rem;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 32px 24px;
+  display: flex;
+  justify-content: space-between; // Separates details dynamically to left and right margins
+  align-items: center;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  gap: 16px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    text-align: center;
+    padding: 24px 16px;
+  }
+}
+
+/* Footer Typography Core */
+.footer-text {
+  font-size: 14px;
+  color: #475569;
+  margin: 0;
+  font-weight: 500;
+
+  &.dark-mode {
+    color: #94a3b8;
+  }
+}
+
+.footer-tagline {
+  font-size: 14px;
+  font-weight: 600;
+  color: #0f172a;
+  margin: 0 0 4px 0;
+
+  &.dark-mode {
+    color: #f8fafc;
+  }
+}
+
+/* Grouping copyright elements on left */
+.footer-left-block {
+  display: flex;
+  flex-direction: column;
+  
+  @media (max-width: 768px) {
+    align-items: center;
+  }
+}
+
+/* Clean, low-contrast attribution details on right */
+.footer-attribution {
+  font-size: 12px;
+  color: #94a3b8;
+  margin: 0;
+  
+  &.dark-mode {
+    color: #64748b;
+  }
 }
