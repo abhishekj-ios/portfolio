@@ -303,68 +303,125 @@ const twitterDetails = {
 
 const isHireable = true; // Set to true to flags active engagement availability to technical recruiters
 
+// ==========================================================================
+// Re-engineered, High-Grade Professional Contact Section 
+// ==========================================================================
 export const CustomContactSection = () => {
   return (
     <div style={{
       width: "100%",
-      maxWidth: "1140px",
-      margin: "60px auto",
-      padding: "0 20px",
+      maxWidth: "100%",
+      padding: "80px 4% 100px 4%", // Generous modern breathing room
       boxSizing: "border-box",
       textAlign: "left",
       display: "block",
       clear: "both"
     }}>
-      <h1 style={{
-        fontSize: "40px",
-        fontWeight: "700",
-        margin: "0 0 20px 0",
-        fontFamily: "inherit"
-      }}>
-        {contactInfo.title}
-      </h1>
-      <p style={{
-        fontSize: "18px",
-        lineHeight: "1.6",
-        maxWidth: "850px",
-        margin: "0 0 30px 0",
-        opacity: 0.85
-      }}>
-        {contactInfo.subtitle}
-      </p>
+      {/* Structural Inner Container to break out of parent grid constraints */}
       <div style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "flex-start",
-        gap: "12px"
+        width: "100%",
+        maxWidth: "1200px",
+        margin: "0 auto"
       }}>
-        <a 
-          href={`tel:${contactInfo.number}`}
-          style={{
-            fontSize: "16px",
-            fontWeight: "500",
-            textDecoration: "none",
-            color: "#60a5fa"
-          }}
-        >
-          {contactInfo.number}
-        </a>
-        <a 
-          href={`mailto:${contactInfo.email_address}`}
-          style={{
-            fontSize: "16px",
-            fontWeight: "500",
-            textDecoration: "none",
-            color: "#60a5fa"
-          }}
-        >
-          {contactInfo.email_address}
-        </a>
+        
+        {/* Modern Section Subtle Tagline */}
+        <span style={{
+          fontSize: "13px",
+          textTransform: "uppercase",
+          letterSpacing: "2px",
+          color: "#60a5fa",
+          fontWeight: "600",
+          display: "block",
+          marginBottom: "12px"
+        }}>
+          Availability
+        </span>
+
+        {/* Clean, Bold Display Title */}
+        <h1 style={{
+          fontSize: "44px",
+          fontWeight: "700",
+          margin: "0 0 24px 0",
+          fontFamily: "'Montserrat', sans-serif",
+          letterSpacing: "-0.5px",
+          color: "#ffffff"
+        }}>
+          {contactInfo.title}
+        </h1>
+
+        {/* Unconstrained Description — Forced to expand to full text container limits */}
+        <p style={{
+          fontSize: "19px",
+          lineHeight: "1.7",
+          width: "100%",
+          maxWidth: "950px", // Lets text stretch naturally into a unified line balance
+          margin: "0 0 48px 0",
+          color: "#cbd5e1", // Off-white modern contrast slate
+          fontFamily: "'Montserrat', sans-serif"
+        }}>
+          {contactInfo.subtitle}
+        </p>
+
+        {/* Professional Contact Actions Block */}
+        <div style={{
+          display: "flex",
+          flexDirection: "row",
+          flexWrap: "wrap",
+          alignItems: "center",
+          gap: "40px", // Wide clean separation for links
+          margin: "0",
+          padding: "0"
+        }}>
+          
+          {/* Email Channel Action Point */}
+          <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+            <span style={{ fontSize: "11px", textTransform: "uppercase", letterSpacing: "1px", color: "#64748b", fontWeight: "600" }}>
+              Direct Email
+            </span>
+            <a 
+              href={`mailto:${contactInfo.email_address}`}
+              style={{
+                fontSize: "18px",
+                fontWeight: "500",
+                textDecoration: "none",
+                color: "#ffffff",
+                borderBottom: "1px dashed #475569",
+                paddingBottom: "2px",
+                transition: "all 0.2s ease"
+              }}
+            >
+              {contactInfo.email_address}
+            </a>
+          </div>
+
+          {/* Phone Channel Action Point */}
+          {contactInfo.number && (
+            <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+              <span style={{ fontSize: "11px", textTransform: "uppercase", letterSpacing: "1px", color: "#64748b", fontWeight: "600" }}>
+                Voice / Signal
+              </span>
+              <a 
+                href={`tel:${contactInfo.number}`}
+                style={{
+                  fontSize: "18px",
+                  fontWeight: "500",
+                  textDecoration: "none",
+                  color: "#ffffff",
+                  borderBottom: "1px dashed #475569",
+                  paddingBottom: "2px",
+                  transition: "all 0.2s ease"
+                }}
+              >
+                {contactInfo.number}
+              </a>
+            </div>
+          )}
+
+        </div>
       </div>
     </div>
   );
 };
-
 export {
   splashScreen,
   illustration,
