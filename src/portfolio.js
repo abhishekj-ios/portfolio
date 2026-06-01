@@ -79,7 +79,12 @@ export const whatIDo = {
     }
   ]
 };
-
+//Dummy SkillSection 
+export const skillsSection = {
+  title: "Proficiency",
+  subTitle: "",
+  skills: [] // Keeps it empty so it won't crash the progress bars
+};
 // Education Section
 
 const educationInfo = {
