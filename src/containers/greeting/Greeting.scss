@@ -4,9 +4,10 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
- padding: 80px 50px; box-sizing: border-box; 
-display: flex;
- align-items: center;
+  padding: 80px 50px; 
+  box-sizing: border-box; 
+  display: flex;
+  align-items: center;
 }
 
 .greeting-content-wrapper {
@@ -21,7 +22,6 @@ display: flex;
   margin-bottom: 15px;
 }
 
-/* This targets ONLY "Senior iOS Developer" */
 .greeting-subtitle {
   font-size: 28px;
   font-weight: 700;
@@ -29,7 +29,6 @@ display: flex;
   margin-bottom: 20px;
 }
 
-/* This targets ONLY the description paragraph */
 .greeting-desc {
   font-size: 20px;
   line-height: 1.5;
@@ -46,7 +45,8 @@ display: flex;
 
 @media (max-width: 768px) {
   .greet-main {
-    padding: 80px 20px;
+    /* REDUCED PADDING: This makes the height hug the content */
+    padding: 40px 20px; 
   }
   .greeting-title {
     font-size: 45px;
@@ -56,9 +56,11 @@ display: flex;
   }
   .greeting-desc {
     font-size: 18px;
+    margin-bottom: 25px; // Tightened margin here as well
   }
   .button-greeting-div {
     flex-direction: column;
     gap: 15px;
+    margin-bottom: 0; // Removed bottom margin to keep it tight
   }
 }
