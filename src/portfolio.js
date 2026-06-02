@@ -8,7 +8,7 @@ import splashAnimation from "./assets/lottie/splashAnimation"; // Rename to your
 
 import bloomIcon from './assets/images/bloomnew.webp';
 import smartFinIcon from './assets/images/SmartFin.webp';
-import smartFlowIcon from './assets/images/SmartFlow.webpg';
+import smartFlowIcon from './assets/images/SmartFlow.webp';
 // Splash Screen
 
 const splashScreen = {
