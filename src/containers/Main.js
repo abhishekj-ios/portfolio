@@ -27,6 +27,17 @@ const Main = () => {
   const [isShowingSplashAnimation, setIsShowingSplashAnimation] =
     useState(true);
 
+
+export default function Main({ setPage }) {
+  return (
+    <div>
+      {/* Pass setPage down to where Greeting is rendered */}
+      <Greeting setPage={setPage} />
+      {/* ...rest of your components */}
+    </div>
+  );
+}
+  
   useEffect(() => {
     if (splashScreen.enabled) {
       const splashTimer = setTimeout(
