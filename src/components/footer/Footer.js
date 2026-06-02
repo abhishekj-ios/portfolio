@@ -109,7 +109,7 @@ export default function Footer() {
 
           {/* EMAIL - Mailto Link Protocol */}
           <a 
-            href="mailto:your.email@example.com" 
+            href="mailto:kailasj281@gmail.com"
             style={{ 
               color: isDark ? "#a1a1a6" : "#515154",
               display: "inline-flex",
