@@ -8,18 +8,8 @@
   .all-apps-header {
     text-align: center;
     margin-bottom: 4rem;
-
-    h1 {
-      font-size: 2.5rem;
-      letter-spacing: 2px;
-      margin-bottom: 0.5rem;
-    }
-
-    p {
-      color: #888888;
-      font-size: 0.9rem;
-      letter-spacing: 1px;
-    }
+    h1 { font-size: 2.5rem; letter-spacing: 2px; margin-bottom: 0.5rem; }
+    p { color: #888888; font-size: 0.9rem; letter-spacing: 1px; }
   }
 
   .apps-grid {
@@ -39,30 +29,36 @@
     flex-direction: column;
     gap: 1rem;
 
+    .app-title {
+      font-size: 1.6rem;
+      margin: 0;
+      color: #cca152; // Gold/Amber
+      letter-spacing: 0.5px;
+    }
+
     .card-top {
       display: flex;
       gap: 10px;
+      margin-bottom: 0.5rem;
 
-      .tech-tag {
-        font-size: 0.7rem;
-        padding: 4px 10px;
-        border-radius: 20px;
-        border: 1px solid #cca152; // Amber for Tech
-        color: #cca152;
-      }
       .arch-tag {
         font-size: 0.7rem;
         padding: 4px 10px;
         border-radius: 20px;
-        border: 1px solid #61dafb; // Soft Blue for Arch
+        border: 1px solid #61dafb; // Soft Blue
         color: #61dafb;
+      }
+      .tech-tag {
+        font-size: 0.7rem;
+        padding: 4px 10px;
+        border-radius: 20px;
+        border: 1px solid #a8a8a8; // Neutral Grey
+        color: #a8a8a8;
       }
     }
 
-    h3 { font-size: 1.4rem; margin: 0; color: #ffffff; }
-
     .description {
-      color: #ffffff; // Description is pure white
+      color: #ffffff; // White
       font-size: 0.95rem;
       line-height: 1.6;
       margin: 0;
@@ -71,10 +67,10 @@
     .features-list {
       font-size: 0.85rem;
       color: #b3b3b3;
-      margin: 0;
+      margin-top: auto;
       
       strong {
-        color: #50c878; // Emerald for "Features" label
+        color: #50c878; // Emerald
         display: block;
         margin-bottom: 0.5rem;
       }
@@ -82,11 +78,7 @@
       ul {
         margin: 0;
         padding-left: 1.2rem;
-        
-        li {
-          margin-bottom: 0.25rem;
-          line-height: 1.4;
-        }
+        li { margin-bottom: 0.25rem; }
       }
     }
   }
