@@ -1,7 +1,7 @@
 import React from 'react';
 import './AllApps.scss';
 
-export default function AllApps({ setPage }) {
+export default function AllApps() {
   const projects = [
     { name: 'Bloom Sharing', arch: 'MVVM, MVC', tech: 'Swift', features: 'Bluetooth, Apple Pay, Stripe, Firebase, QR Code Scan, Maps.' },
     { name: 'Beyond Class', arch: 'MVVM, MVC', tech: 'Swift', features: 'Audio/video capture, interactive UI, student-teacher collaboration, role-based access.' },
@@ -21,10 +21,6 @@ export default function AllApps({ setPage }) {
 
   return (
     <div className="all-apps-container">
-      <button className="back-btn" onClick={() => setPage("home")}>
-        &larr; Back to Home
-      </button>
-
       <header className="all-apps-header">
         <h1>PROJECT PORTFOLIO</h1>
         <p>Comprehensive iOS Architecture & Development Summary</p>
