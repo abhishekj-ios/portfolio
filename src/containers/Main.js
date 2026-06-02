@@ -57,7 +57,7 @@ const Main = ({ setPage }) => {
             <WhatIDo />
             <StackProgress />
             <Education />
-            <Projects />
+            <Projects setPage={setPage} />
             <Experience />
             <Achievement />
             <Blogs />
