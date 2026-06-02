@@ -1,24 +1,19 @@
+// App.js
 import React, { useState } from "react";
-import "./App.scss";
 import Main from "./containers/Main";
-import AllApps from "./AllApps";
+import AllApps from "./AllApps"; // Your new component
 
 function App() {
-  // 'page' state tracks which screen to show. 
-  // 'home' is default.
   const [page, setPage] = useState("home");
 
   return (
     <div>
       {page === "home" ? (
-        // Pass a function to Main so the "All Projects" button can change the page
-        <Main onNavigate={(target) => setPage(target)} />
+        <Main setPage={setPage} />
       ) : (
-        // Render AllApps and give it a way to go back home
-        <AllApps onNavigate={(target) => setPage(target)} />
+        <AllApps setPage={setPage} />
       )}
     </div>
   );
 }
-
 export default App;
