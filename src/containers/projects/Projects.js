@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import "./Project.scss"; 
 import { bigProjects } from "../../portfolio";
 import StyleContext from "../../contexts/StyleContext";
@@ -6,6 +6,26 @@ import StyleContext from "../../contexts/StyleContext";
 export default function Projects() {
   const { isDark } = useContext(StyleContext);
   const [activeModalProject, setActiveModalProject] = useState(null);
+  const [preloadedIcons, setPreloadedIcons] = useState({});
+
+  // BROWSER IMAGE CACHE PRELOADER
+  useEffect(() => {
+    if (bigProjects && bigProjects.projects) {
+      bigProjects.projects.forEach((proj) => {
+        const targetSrc = proj.icon?.default || proj.icon;
+        if (targetSrc) {
+          const img = new Image();
+          img.src = targetSrc;
+          img.onload = () => {
+            setPreloadedIcons((prev) => ({
+              ...prev,
+              [proj.id]: targetSrc
+            }));
+          };
+        }
+      });
+    }
+  }, []);
 
   if (!bigProjects || !bigProjects.display) {
     return null;
@@ -39,7 +59,7 @@ export default function Projects() {
           </p>
         </div>
 
-        {/* CARDS CONTAINER (Horizontal scroll on mobile, Grid on desktop) */}
+        {/* CARDS CONTAINER */}
         <div 
           className="featured-apps-scroll-container"
           style={{ 
@@ -54,7 +74,6 @@ export default function Projects() {
             msOverflowStyle: "none"
           }}
         >
-          {/* Custom Media Query Injection via template literal style tag */}
           <style>{`
             .featured-apps-scroll-container::-webkit-scrollbar {
               display: none;
@@ -73,122 +92,129 @@ export default function Projects() {
             }
           `}</style>
 
-          {bigProjects.projects.map((proj) => (
-            <div 
-              key={proj.id}
-              className="showcase-card-node"
-              style={{ 
-                flex: "0 0 auto",
-                width: "85vw",
-                maxWidth: "360px",
-                scrollSnapAlign: "center",
-                backgroundColor: isDark ? "#1c1c1e" : "#ffffff",
-                border: isDark ? "1px solid rgba(255, 255, 255, 0.08)" : "1px solid rgba(0, 0, 0, 0.08)",
-                borderRadius: "20px",
-                overflow: "hidden",
-                display: "flex",
-                flexDirection: "column",
-                boxShadow: isDark ? "0 12px 40px rgba(0,0,0,0.5)" : "0 12px 30px rgba(0,0,0,0.06)",
-                transition: "transform 0.3s ease, box-shadow 0.3s ease"
-              }}
-            >
-              {/* TOP HERO VISUAL IMAGE */}
-              <div style={{ width: "100%", height: "200px", overflow: "hidden", position: "relative" }}>
-                <img 
-                  src={proj.icon.default || proj.icon} 
-                  alt={proj.projectName} 
-                  style={{ 
-                    width: "100%", 
-                    height: "100%", 
-                    objectFit: "cover"
-                  }} 
-                />
-              </div>
+          {bigProjects.projects.map((proj) => {
+            // Check if preloaded from state hook, fallback directly to asset if not yet fully resolved
+            const activeImageSrc = preloadedIcons[proj.id] || (proj.icon?.default || proj.icon);
 
-              {/* CARD DETAILS WRAPPER */}
-              <div style={{ padding: "24px", display: "flex", flexDirection: "column", justifyContent: "space-between", flexGrow: 1 }}>
-                <div>
-                  {/* APP TITLE */}
-                  <h2 style={{ 
-                    margin: "0 0 12px 0", 
-                    fontSize: "22px", 
-                    fontWeight: "600", 
-                    letterSpacing: "-0.3px",
-                    color: isDark ? "#ffffff" : "#1d1d1f" 
-                  }}>
-                    {proj.projectName.split(" — ")[0]}
-                  </h2>
-
-                  {/* HIGH READABILITY ARCHITECTURE BADGE */}
-                  <div style={{ 
-                    fontSize: "11px", 
-                    fontWeight: "600", 
-                    textTransform: "uppercase", 
-                    letterSpacing: "0.5px", 
-                    color: isDark ? "#0a84ff" : "#0071e3", 
-                    marginBottom: "14px" 
-                  }}>
-                    {proj.architecture.split(" with ")[0]}
-                  </div>
-
-                  {/* SUMMARY PARAGRAPH TEXT */}
-                  <p style={{ 
-                    fontSize: "14.5px", 
-                    lineHeight: "1.6", 
-                    color: isDark ? "#e1e1e6" : "#48484a", // Brightened text for crisp readability over dark backdrops
-                    margin: "0 0 24px 0" 
-                  }}>
-                    {proj.summary}
-                  </p>
-
-                  {/* PILL STACKS TRACK */}
-                  <div style={{ display: "flex", flexWrap: "wrap", gap: "8px", marginBottom: "28px" }}>
-                    {proj.techStack.slice(0, 3).map((tech, idx) => (
-                      <span key={idx} style={{
-                        fontSize: "12px",
-                        padding: "6px 14px",
-                        borderRadius: "20px",
-                        backgroundColor: isDark ? "rgba(44, 44, 46, 0.8)" : "#f2f2f7",
-                        color: isDark ? "#ffffff" : "#1d1d1f",
-                        border: isDark ? "1px solid rgba(255,255,255,0.05)" : "none",
-                        fontWeight: "500"
-                      }}>{tech}</span>
-                    ))}
-                    {proj.techStack.length > 3 && (
-                      <span style={{
-                        fontSize: "12px",
-                        padding: "6px 12px",
-                        borderRadius: "20px",
-                        backgroundColor: "transparent",
-                        color: isDark ? "#8e8e93" : "#86868b",
-                        fontWeight: "500"
-                      }}>+{proj.techStack.length - 3}</span>
-                    )}
-                  </div>
+            return (
+              <div 
+                key={proj.id}
+                className="showcase-card-node"
+                style={{ 
+                  flex: "0 0 auto",
+                  width: "85vw",
+                  maxWidth: "360px",
+                  scrollSnapAlign: "center",
+                  backgroundColor: isDark ? "#1c1c1e" : "#ffffff",
+                  border: isDark ? "1px solid rgba(255, 255, 255, 0.08)" : "1px solid rgba(0, 0, 0, 0.08)",
+                  borderRadius: "20px",
+                  overflow: "hidden",
+                  display: "flex",
+                  flexDirection: "column",
+                  boxShadow: isDark ? "0 12px 40px rgba(0,0,0,0.5)" : "0 12px 30px rgba(0,0,0,0.06)",
+                  transition: "transform 0.3s ease, box-shadow 0.3s ease"
+                }}
+              >
+                {/* TOP HERO VISUAL IMAGE CONTAINER WITH IMAGE OPTIMIZATION LOGIC */}
+                <div style={{ width: "100%", height: "200px", overflow: "hidden", position: "relative", backgroundColor: isDark ? "#2c2c2e" : "#e5e5ea" }}>
+                  {activeImageSrc && (
+                    <img 
+                      src={activeImageSrc} 
+                      alt={proj.projectName} 
+                      loading="eager" // Tells the browser to download and decode this immediately
+                      style={{ 
+                        width: "100%", 
+                        height: "100%", 
+                        objectFit: "cover"
+                      }} 
+                    />
+                  )}
                 </div>
 
-                {/* INTERACTIVE ACTION TRIGGER BUTTON */}
-                <button 
-                  onClick={() => openModal(proj)}
-                  style={{
-                    width: "100%",
-                    padding: "14px",
-                    borderRadius: "12px",
-                    border: "none",
-                    background: "linear-index(to right, #4158D0, #C850C0)",
-                    backgroundImage: "linear-gradient(135deg, #4b6cb7 0%, #182848 100%)", // Rich dark multi-hue premium gradient
-                    color: "#ffffff",
-                    fontSize: "15px",
-                    fontWeight: "600",
-                    cursor: "pointer",
-                    boxShadow: "0 4px 15px rgba(0,0,0,0.2)"
-                  }}
-                >
-                  See More
-                </button>
+                {/* CARD DETAILS WRAPPER */}
+                <div style={{ padding: "24px", display: "flex", flexDirection: "column", justifyContent: "space-between", flexGrow: 1 }}>
+                  <div>
+                    {/* APP TITLE */}
+                    <h2 style={{ 
+                      margin: "0 0 12px 0", 
+                      fontSize: "22px", 
+                      fontWeight: "600", 
+                      letterSpacing: "-0.3px",
+                      color: isDark ? "#ffffff" : "#1d1d1f" 
+                    }}>
+                      {proj.projectName.split(" — ")[0]}
+                    </h2>
+
+                    {/* ARCHITECTURE BADGE */}
+                    <div style={{ 
+                      fontSize: "11px", 
+                      fontWeight: "600", 
+                      textTransform: "uppercase", 
+                      letterSpacing: "0.5px", 
+                      color: isDark ? "#0a84ff" : "#0071e3", 
+                      marginBottom: "14px" 
+                    }}>
+                      {proj.architecture.split(" with ")[0]}
+                    </div>
+
+                    {/* SUMMARY TEXT */}
+                    <p style={{ 
+                      fontSize: "14.5px", 
+                      lineHeight: "1.6", 
+                      color: isDark ? "#e1e1e6" : "#48484a", 
+                      margin: "0 0 24px 0" 
+                    }}>
+                      {proj.summary}
+                    </p>
+
+                    {/* PILL STACKS TRACK */}
+                    <div style={{ display: "flex", flexWrap: "wrap", gap: "8px", marginBottom: "28px" }}>
+                      {proj.techStack.slice(0, 3).map((tech, idx) => (
+                        <span key={idx} style={{
+                          fontSize: "12px",
+                          padding: "6px 14px",
+                          borderRadius: "20px",
+                          backgroundColor: isDark ? "rgba(44, 44, 46, 0.8)" : "#f2f2f7",
+                          color: isDark ? "#ffffff" : "#1d1d1f",
+                          border: isDark ? "1px solid rgba(255,255,255,0.05)" : "none",
+                          fontWeight: "500"
+                        }}>{tech}</span>
+                      ))}
+                      {proj.techStack.length > 3 && (
+                        <span style={{
+                          fontSize: "12px",
+                          padding: "6px 12px",
+                          borderRadius: "20px",
+                          backgroundColor: "transparent",
+                          color: isDark ? "#8e8e93" : "#86868b",
+                          fontWeight: "500"
+                        }}>+{proj.techStack.length - 3}</span>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* INTERACTIVE ACTION TRIGGER BUTTON */}
+                  <button 
+                    onClick={() => openModal(proj)}
+                    style={{
+                      width: "100%",
+                      padding: "14px",
+                      borderRadius: "12px",
+                      border: "none",
+                      backgroundImage: "linear-gradient(135deg, #4b6cb7 0%, #182848 100%)", 
+                      color: "#ffffff",
+                      fontSize: "15px",
+                      fontWeight: "600",
+                      cursor: "pointer",
+                      boxShadow: "0 4px 15px rgba(0,0,0,0.2)"
+                    }}
+                  >
+                    See More
+                  </button>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         {/* BOTTOM CENTER VIEW ALL APPS BUTTON GATE */}
