@@ -185,20 +185,18 @@ export default function Projects() {
                       {proj.summary}
                     </p>
 
-                    {/* PILL STACKS TRACK - Perfect two-line capsule rows */}
+                    {/* PILL STACKS TRACK - Array sliced to 6 elements to guarantee exactly two rows with zero truncation */}
                     <div style={{ 
                       display: "flex", 
                       flexWrap: "wrap", 
-                      gap: "6px 8px", // Clean wrap padding spacing
-                      marginBottom: "20px",
-                      maxHeight: "58px", // Hard restriction bounds for exactly two lines
-                      overflow: "hidden"
+                      gap: "8px 8px", 
+                      marginBottom: "20px"
                     }}>
-                      {proj.techStack.map((tech, idx) => (
+                      {proj.techStack.slice(0, 6).map((tech, idx) => (
                         <span key={idx} style={{
                           fontSize: "11px", 
-                          padding: "5px 14px", // Authentic capsule padding symmetry
-                          borderRadius: "20px", // True circular capsule bounds
+                          padding: "5px 14px", 
+                          borderRadius: "20px", 
                           backgroundColor: isDark ? "rgba(34, 54, 86, 0.3)" : "rgba(0, 113, 227, 0.05)",
                           color: isDark ? "#52a2ff" : "#0071e3",
                           border: isDark ? "1px solid rgba(82, 162, 255, 0.15)" : "1px solid rgba(0, 113, 227, 0.08)",
