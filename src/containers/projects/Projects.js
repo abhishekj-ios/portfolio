@@ -185,33 +185,31 @@ export default function Projects() {
                       {proj.summary}
                     </p>
 
-                    {/* PILL STACKS TRACK - Upgraded to 4 items max to eliminate dead space */}
-                    <div style={{ display: "flex", flexWrap: "wrap", gap: "8px", marginBottom: "20px" }}>
-                      {proj.techStack.slice(0, 4).map((tech, idx) => (
+                    {/* PILL STACKS TRACK - Clamped exactly to two lines max height */}
+                    <div style={{ 
+                      display: "flex", 
+                      flexWrap: "wrap", 
+                      gap: "6px", 
+                      marginBottom: "20px",
+                      maxHeight: "64px", // Restricts growth exactly to two lines of small capsules
+                      overflow: "hidden"
+                    }}>
+                      {proj.techStack.map((tech, idx) => (
                         <span key={idx} style={{
-                          fontSize: "12px",
-                          padding: "6px 14px",
-                          borderRadius: "20px",
+                          fontSize: "11px", // Smaller text size for a svelte aesthetic
+                          padding: "4px 10px", // Snug inner bounds
+                          borderRadius: "16px",
                           backgroundColor: isDark ? "rgba(44, 44, 46, 0.8)" : "#f2f2f7",
                           color: isDark ? "#ffffff" : "#1d1d1f",
                           border: isDark ? "1px solid rgba(255,255,255,0.05)" : "none",
-                          fontWeight: "500"
+                          fontWeight: "500",
+                          whiteSpace: "nowrap"
                         }}>{tech}</span>
                       ))}
-                      {proj.techStack.length > 4 && (
-                        <span style={{
-                          fontSize: "12px",
-                          padding: "6px 12px",
-                          borderRadius: "20px",
-                          backgroundColor: "transparent",
-                          color: isDark ? "#8e8e93" : "#86868b",
-                          fontWeight: "500"
-                        }}>+{proj.techStack.length - 4}</span>
-                      )}
                     </div>
                   </div>
 
-                  {/* INTERACTIVE ACTION TRIGGER BUTTON - Gradient calibrated to original mockup */}
+                  {/* INTERACTIVE ACTION TRIGGER BUTTON */}
                   <button 
                     onClick={() => openModal(proj)}
                     style={{
@@ -219,7 +217,7 @@ export default function Projects() {
                       padding: "14px",
                       borderRadius: "12px",
                       border: "none",
-                      backgroundImage: "linear-gradient(90deg, #2f54ff 0%, #a24eff 100%)", // High fidelity blue-to-purple mockup color spectrum
+                      backgroundImage: "linear-gradient(90deg, #2f54ff 0%, #a24eff 100%)", 
                       color: "#ffffff",
                       fontSize: "15px",
                       fontWeight: "600",
