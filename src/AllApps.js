@@ -2,7 +2,7 @@ import React from 'react';
 import './AllApps.scss';
 
 export default function AllApps() {
-  const projects = [
+const projects = [
     { 
       name: 'Bloom Sharing', 
       arch: 'MVVM, MVC', 
@@ -44,6 +44,62 @@ export default function AllApps() {
       tech: 'Swift', 
       desc: 'Real‑time messaging app with phone‑based authentication. MVVM architecture ensures modular scalability and Firebase backend support.', 
       features: ['Twilio integration', '1‑on‑1 and group messaging', 'Secure auth'] 
+    },
+    { 
+      name: 'Backup', 
+      arch: 'MVC', 
+      tech: 'Swift', 
+      desc: 'A vehicle-focused reminder application that allows users to create an account and link multiple vehicles using their license plate numbers.', 
+      features: ['Push/in-app notifications', 'License plate-based lookup', 'Maintenance reminders'] 
+    },
+    { 
+      name: 'Ayurveda', 
+      arch: 'MVVM, MVC', 
+      tech: 'Swift', 
+      desc: 'A digital wellness application that delivers a structured repository of home remedies and Ayurvedic treatments for common ailments.', 
+      features: ['Categorized/searchable content', 'Page flipping animation', 'Location-based deals'] 
+    },
+    { 
+      name: 'Quizline', 
+      arch: 'MVVM, MVC', 
+      tech: 'Swift', 
+      desc: 'A multiplayer mobile trivia game that allows users to compete head-to-head across seven rounds of timed, multiple-choice questions.', 
+      features: ['Real-time matchmaking', 'Round-based scoring', 'Countdown timers'] 
+    },
+    { 
+      name: 'VIN Template', 
+      arch: 'MVVM, MVC', 
+      tech: 'Objective-C', 
+      desc: 'Developed for a vehicle dealership to integrate with a Bluetooth scanner to decode VIN numbers and manage inventory.', 
+      features: ['Bluetooth VIN scanner', 'Dynamic PDF generation', 'Wireless printing workflow'] 
+    },
+    { 
+      name: 'Lottery AI', 
+      arch: 'MVVM, MVC', 
+      tech: 'Objective-C', 
+      desc: 'Enables lottery retailers and wholesalers to efficiently manage ticket inventory and analyze sales performance via Bluetooth scanner.', 
+      features: ['Bluetooth integration', 'Interactive sales graphs', 'Performance pattern insights'] 
+    },
+    { 
+      name: 'Math Planet', 
+      arch: 'MVC', 
+      tech: 'Objective-C', 
+      desc: 'An educational mobile application designed to help children learn basic mathematics through engaging, interactive experiences.', 
+      features: ['Interactive learning modules', 'Animations & audio cues', 'Progress tracking'] 
+    },
+    { 
+      name: 'Jobs 360', 
+      arch: 'MVC', 
+      tech: 'Objective-C', 
+      desc: 'A virtual reality mobile application that aggregates job listings and identifies opportunities near the user using AR.', 
+      features: ['AR-based job visualization', 'RSS feed parsing', 'LinkedIn integration'] 
+    },
+    { 
+      name: 'Write Therapy', 
+      arch: 'MVC', 
+      tech: 'Objective-C', 
+      desc: 'An educational application designed for children with writing difficulties to practice on captured worksheet images.', 
+      features: ['Image processing', 'Touch-based input', 'Core Data integration'] 
     }
   ];
 
