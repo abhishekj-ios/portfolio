@@ -3,7 +3,7 @@ import "./Project.scss";
 import { bigProjects } from "../../portfolio";
 import StyleContext from "../../contexts/StyleContext";
 
-export default function Projects() {
+export default function Projects({ setPage }) {
   const { isDark } = useContext(StyleContext);
   const [activeModalProject, setActiveModalProject] = useState(null);
   const [preloadedIcons, setPreloadedIcons] = useState({});
