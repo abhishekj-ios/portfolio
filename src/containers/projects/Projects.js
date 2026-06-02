@@ -185,23 +185,23 @@ export default function Projects() {
                       {proj.summary}
                     </p>
 
-                    {/* PILL STACKS TRACK - Clamped exactly to two lines max height */}
+                    {/* PILL STACKS TRACK - Perfect two-line capsule rows */}
                     <div style={{ 
                       display: "flex", 
                       flexWrap: "wrap", 
-                      gap: "6px", 
+                      gap: "6px 8px", // Clean wrap padding spacing
                       marginBottom: "20px",
-                      maxHeight: "64px", // Restricts growth exactly to two lines of small capsules
+                      maxHeight: "58px", // Hard restriction bounds for exactly two lines
                       overflow: "hidden"
                     }}>
                       {proj.techStack.map((tech, idx) => (
                         <span key={idx} style={{
-                          fontSize: "11px", // Smaller text size for a svelte aesthetic
-                          padding: "4px 10px", // Snug inner bounds
-                          borderRadius: "16px",
-                          backgroundColor: isDark ? "rgba(44, 44, 46, 0.8)" : "#f2f2f7",
-                          color: isDark ? "#ffffff" : "#1d1d1f",
-                          border: isDark ? "1px solid rgba(255,255,255,0.05)" : "none",
+                          fontSize: "11px", 
+                          padding: "5px 14px", // Authentic capsule padding symmetry
+                          borderRadius: "20px", // True circular capsule bounds
+                          backgroundColor: isDark ? "rgba(34, 54, 86, 0.3)" : "rgba(0, 113, 227, 0.05)",
+                          color: isDark ? "#52a2ff" : "#0071e3",
+                          border: isDark ? "1px solid rgba(82, 162, 255, 0.15)" : "1px solid rgba(0, 113, 227, 0.08)",
                           fontWeight: "500",
                           whiteSpace: "nowrap"
                         }}>{tech}</span>
