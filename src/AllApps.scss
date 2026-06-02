@@ -5,6 +5,23 @@
   padding: 4rem 2rem;
   font-family: sans-serif;
 
+  .all-apps-header {
+    text-align: center;
+    margin-bottom: 4rem;
+
+    h1 {
+      font-size: 2.5rem;
+      letter-spacing: 2px;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      color: #888888;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+    }
+  }
+
   .apps-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -51,13 +68,25 @@
       margin: 0;
     }
 
-    .features {
+    .features-list {
       font-size: 0.85rem;
       color: #b3b3b3;
       margin: 0;
       
       strong {
         color: #50c878; // Emerald for "Features" label
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+
+      ul {
+        margin: 0;
+        padding-left: 1.2rem;
+        
+        li {
+          margin-bottom: 0.25rem;
+          line-height: 1.4;
+        }
       }
     }
   }
