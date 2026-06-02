@@ -42,7 +42,7 @@ export default function Projects() {
   };
 
   const handleViewAllApps = () => {
-    window.location.href = "/all-apps";
+    window.location.href = "/AllApps";
   };
 
   return (
