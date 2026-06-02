@@ -21,64 +21,202 @@ export default function Projects() {
     document.body.style.overflow = "unset"; 
   };
 
-  return (
-    <div className="main" id="opensource">
-      <div className="projects-container-wrapper">
-        <h1 className={isDark ? "dark-mode project-title" : "project-title"}>
-          {bigProjects.title}
-        </h1>
-        <p className={isDark ? "dark-mode project-subtitle" : "project-subtitle"}>
-          {bigProjects.subtitle}
-        </p>
+  const handleViewAllApps = () => {
+    window.location.href = "/all-apps";
+  };
 
-        <div className="repo-cards-div-main">
+  return (
+    <div className="main" id="opensource" style={{ padding: "80px 0", width: "100%", backgroundColor: isDark ? "#0f0f11" : "#f5f5f7" }}>
+      <div className="projects-container-wrapper" style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px" }}>
+        
+        {/* HEADER SECTION */}
+        <div style={{ textAlign: "center", marginBottom: "48px" }}>
+          <h1 className={isDark ? "dark-mode project-title" : "project-title"} style={{ fontSize: "32px", fontWeight: "700", margin: "0 0 12px 0", color: isDark ? "#ffffff" : "#1d1d1f" }}>
+            {bigProjects.title}
+          </h1>
+          <p className={isDark ? "dark-mode project-subtitle" : "project-subtitle"} style={{ fontSize: "16px", color: isDark ? "#a1a1a6" : "#86868b", margin: 0 }}>
+            {bigProjects.subtitle}
+          </p>
+        </div>
+
+        {/* CARDS CONTAINER (Horizontal scroll on mobile, Grid on desktop) */}
+        <div 
+          className="featured-apps-scroll-container"
+          style={{ 
+            display: "flex", 
+            gap: "28px", 
+            overflowX: "auto", 
+            paddingBottom: "32px",
+            paddingTop: "4px",
+            scrollSnapType: "x mandatory",
+            WebkitOverflowScrolling: "touch",
+            scrollbarWidth: "none",
+            msOverflowStyle: "none"
+          }}
+        >
+          {/* Custom Media Query Injection via template literal style tag */}
+          <style>{`
+            .featured-apps-scroll-container::-webkit-scrollbar {
+              display: none;
+            }
+            @media (min-width: 992px) {
+              .featured-apps-scroll-container {
+                display: grid !important;
+                grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)) !important;
+                overflow-x: visible !important;
+                padding-bottom: 0 !important;
+              }
+              .showcase-card-node {
+                scroll-snap-align: none !important;
+                width: auto !important;
+              }
+            }
+          `}</style>
+
           {bigProjects.projects.map((proj) => (
             <div 
               key={proj.id}
-              className={isDark ? "dark-mode architectural-premium-card" : "architectural-premium-card"}
-              onClick={() => openModal(proj)}
+              className="showcase-card-node"
+              style={{ 
+                flex: "0 0 auto",
+                width: "85vw",
+                maxWidth: "360px",
+                scrollSnapAlign: "center",
+                backgroundColor: isDark ? "#1c1c1e" : "#ffffff",
+                border: isDark ? "1px solid rgba(255, 255, 255, 0.08)" : "1px solid rgba(0, 0, 0, 0.08)",
+                borderRadius: "20px",
+                overflow: "hidden",
+                display: "flex",
+                flexDirection: "column",
+                boxShadow: isDark ? "0 12px 40px rgba(0,0,0,0.5)" : "0 12px 30px rgba(0,0,0,0.06)",
+                transition: "transform 0.3s ease, box-shadow 0.3s ease"
+              }}
             >
-              <div className="card-top-meta" style={{ display: "flex", gap: "20px", marginBottom: "20px" }}>
+              {/* TOP HERO VISUAL IMAGE */}
+              <div style={{ width: "100%", height: "200px", overflow: "hidden", position: "relative" }}>
                 <img 
                   src={proj.icon.default || proj.icon} 
                   alt={proj.projectName} 
                   style={{ 
-                    width: "64px", 
-                    height: "64px", 
-                    objectFit: "cover", 
-                    borderRadius: "16px",
-                    flexShrink: 0,
-                    boxShadow: "0 4px 12px rgba(0,0,0,0.3)"
+                    width: "100%", 
+                    height: "100%", 
+                    objectFit: "cover"
                   }} 
                 />
-                <div style={{ display: "flex", flexDirection: "column", justifyContent: "center" }}>
-                  <span className="architecture-tag" style={{ margin: 0, fontSize: "11px", opacity: 0.8, textTransform: "uppercase", letterSpacing: "0.5px" }}>
-                    {proj.architecture}
-                  </span>
-                  <h2 className="project-display-name" style={{ margin: "4px 0 0 0", fontSize: "20px", lineHeight: "1.3" }}>
-                    {proj.projectName}
-                  </h2>
-                </div>
               </div>
-              
-              <p className="project-display-summary">{proj.summary}</p>
-              
-              <div className="card-bottom-meta">
-                <div className="mini-tech-preview">
-                  {proj.techStack.slice(0, 3).map((tech, idx) => (
-                    <span key={idx} className="preview-pill">{tech}</span>
-                  ))}
-                  {proj.techStack.length > 3 && <span className="preview-pill-more">+{proj.techStack.length - 3}</span>}
+
+              {/* CARD DETAILS WRAPPER */}
+              <div style={{ padding: "24px", display: "flex", flexDirection: "column", justifyContent: "space-between", flexGrow: 1 }}>
+                <div>
+                  {/* APP TITLE */}
+                  <h2 style={{ 
+                    margin: "0 0 12px 0", 
+                    fontSize: "22px", 
+                    fontWeight: "600", 
+                    letterSpacing: "-0.3px",
+                    color: isDark ? "#ffffff" : "#1d1d1f" 
+                  }}>
+                    {proj.projectName.split(" — ")[0]}
+                  </h2>
+
+                  {/* HIGH READABILITY ARCHITECTURE BADGE */}
+                  <div style={{ 
+                    fontSize: "11px", 
+                    fontWeight: "600", 
+                    textTransform: "uppercase", 
+                    letterSpacing: "0.5px", 
+                    color: isDark ? "#0a84ff" : "#0071e3", 
+                    marginBottom: "14px" 
+                  }}>
+                    {proj.architecture.split(" with ")[0]}
+                  </div>
+
+                  {/* SUMMARY PARAGRAPH TEXT */}
+                  <p style={{ 
+                    fontSize: "14.5px", 
+                    lineHeight: "1.6", 
+                    color: isDark ? "#e1e1e6" : "#48484a", // Brightened text for crisp readability over dark backdrops
+                    margin: "0 0 24px 0" 
+                  }}>
+                    {proj.summary}
+                  </p>
+
+                  {/* PILL STACKS TRACK */}
+                  <div style={{ display: "flex", flexWrap: "wrap", gap: "8px", marginBottom: "28px" }}>
+                    {proj.techStack.slice(0, 3).map((tech, idx) => (
+                      <span key={idx} style={{
+                        fontSize: "12px",
+                        padding: "6px 14px",
+                        borderRadius: "20px",
+                        backgroundColor: isDark ? "rgba(44, 44, 46, 0.8)" : "#f2f2f7",
+                        color: isDark ? "#ffffff" : "#1d1d1f",
+                        border: isDark ? "1px solid rgba(255,255,255,0.05)" : "none",
+                        fontWeight: "500"
+                      }}>{tech}</span>
+                    ))}
+                    {proj.techStack.length > 3 && (
+                      <span style={{
+                        fontSize: "12px",
+                        padding: "6px 12px",
+                        borderRadius: "20px",
+                        backgroundColor: "transparent",
+                        color: isDark ? "#8e8e93" : "#86868b",
+                        fontWeight: "500"
+                      }}>+{proj.techStack.length - 3}</span>
+                    )}
+                  </div>
                 </div>
-                <div className="blueprint-action-link">
-                  Details <span className="arrow-motion">→</span>
-                </div>
+
+                {/* INTERACTIVE ACTION TRIGGER BUTTON */}
+                <button 
+                  onClick={() => openModal(proj)}
+                  style={{
+                    width: "100%",
+                    padding: "14px",
+                    borderRadius: "12px",
+                    border: "none",
+                    background: "linear-index(to right, #4158D0, #C850C0)",
+                    backgroundImage: "linear-gradient(135deg, #4b6cb7 0%, #182848 100%)", // Rich dark multi-hue premium gradient
+                    color: "#ffffff",
+                    fontSize: "15px",
+                    fontWeight: "600",
+                    cursor: "pointer",
+                    boxShadow: "0 4px 15px rgba(0,0,0,0.2)"
+                  }}
+                >
+                  See More
+                </button>
               </div>
             </div>
           ))}
         </div>
+
+        {/* BOTTOM CENTER VIEW ALL APPS BUTTON GATE */}
+        <div style={{ display: "flex", justifyContent: "center", marginTop: "48px" }}>
+          <button 
+            onClick={handleViewAllApps}
+            style={{
+              padding: "14px 32px",
+              backgroundColor: isDark ? "#2c2c2e" : "#ffffff",
+              color: isDark ? "#ffffff" : "#1d1d1f",
+              border: isDark ? "1px solid rgba(255,255,255,0.15)" : "1px solid #d2d2d7",
+              borderRadius: "12px",
+              fontSize: "15px",
+              fontWeight: "600",
+              cursor: "pointer",
+              boxShadow: "0 2px 8px rgba(0,0,0,0.05)",
+              transition: "background-color 0.2s"
+            }}
+            onMouseOver={(e) => e.currentTarget.style.backgroundColor = isDark ? "#3a3a3c" : "#f5f5f7"}
+            onMouseOut={(e) => e.currentTarget.style.backgroundColor = isDark ? "#2c2c2e" : "#ffffff"}
+          >
+            See All Apps
+          </button>
+        </div>
+
       </div>
 
+      {/* SYSTEM DETAIL EXPANSION DIALOG LAYER */}
       {activeModalProject && (
         <div className="modal-backdrop" onClick={closeModal}>
           <div 
