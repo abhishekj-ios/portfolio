@@ -42,7 +42,8 @@ export default function Projects() {
   };
 
   const handleViewAllApps = () => {
-    window.location.href = window.location.origin + "/AllApps";
+    setPage("all-apps"); 
+    window.scrollTo(0, 0);
   };
 
   return (
