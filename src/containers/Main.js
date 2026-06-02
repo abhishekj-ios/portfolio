@@ -21,23 +21,13 @@ import "./Main.scss";
 import WhatIDo from "./whatIDo/WhatIDo";
 import Experience from "./experience/Experience";
 
-const Main = () => {
+// Added { setPage } to the props
+const Main = ({ setPage }) => {
   const darkPref = window.matchMedia("(prefers-color-scheme: dark)");
   const [isDark, setIsDark] = useLocalStorage("isDark", darkPref.matches);
   const [isShowingSplashAnimation, setIsShowingSplashAnimation] =
     useState(true);
 
-
-export default function Main({ setPage }) {
-  return (
-    <div>
-      {/* Pass setPage down to where Greeting is rendered */}
-      <Greeting setPage={setPage} />
-      {/* ...rest of your components */}
-    </div>
-  );
-}
-  
   useEffect(() => {
     if (splashScreen.enabled) {
       const splashTimer = setTimeout(
@@ -62,7 +52,8 @@ export default function Main({ setPage }) {
         ) : (
           <>
             <Header />
-            <Greeting />
+            {/* Passed setPage to Greeting */}
+            <Greeting setPage={setPage} />
             <WhatIDo />
             <StackProgress />
             <Education />
