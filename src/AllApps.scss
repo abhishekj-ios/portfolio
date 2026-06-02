@@ -2,20 +2,23 @@
   background-color: #121212;
   color: #ffffff;
   min-height: 100vh;
-  padding: 4rem 2rem;
+  // Reduce padding on mobile so cards have more room
+  padding: 2rem 1rem; 
   font-family: sans-serif;
 
   .all-apps-header {
     text-align: center;
-    margin-bottom: 4rem;
-    h1 { font-size: 2.5rem; letter-spacing: 2px; margin-bottom: 0.5rem; }
-    p { color: #888888; font-size: 0.9rem; letter-spacing: 1px; }
+    margin-bottom: 3rem;
+    
+    h1 { font-size: 1.8rem; letter-spacing: 2px; margin-bottom: 0.5rem; }
+    p { color: #888888; font-size: 0.8rem; letter-spacing: 1px; }
   }
 
   .apps-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
+    // Changed min-width to 280px to ensure it fits mobile screens
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
     max-width: 1200px;
     margin: 0 auto;
   }
@@ -24,53 +27,49 @@
     background-color: #1a1a1a;
     border: 1px solid #2a2a2a;
     border-radius: 12px;
-    padding: 2rem;
+    padding: 1.5rem; // Slightly less padding on mobile
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    width: 100%; // Ensure card doesn't exceed parent width
+    box-sizing: border-box; // Prevent padding from breaking width
 
     .app-title {
-      font-size: 1.6rem;
+      font-size: 1.4rem;
       margin: 0;
-      color: #cca152; // Gold/Amber
+      color: #cca152;
       letter-spacing: 0.5px;
     }
 
     .card-top {
       display: flex;
       gap: 10px;
-      margin-bottom: 0.5rem;
+      flex-wrap: wrap; // Allows tags to stack if screen is too narrow
 
-      .arch-tag {
-        font-size: 0.7rem;
-        padding: 4px 10px;
+      .arch-tag, .tech-tag {
+        font-size: 0.65rem;
+        padding: 4px 8px;
         border-radius: 20px;
-        border: 1px solid #61dafb; // Soft Blue
-        color: #61dafb;
+        border: 1px solid;
       }
-      .tech-tag {
-        font-size: 0.7rem;
-        padding: 4px 10px;
-        border-radius: 20px;
-        border: 1px solid #a8a8a8; // Neutral Grey
-        color: #a8a8a8;
-      }
+      .arch-tag { border-color: #61dafb; color: #61dafb; }
+      .tech-tag { border-color: #a8a8a8; color: #a8a8a8; }
     }
 
     .description {
-      color: #ffffff; // White
-      font-size: 0.95rem;
-      line-height: 1.6;
+      color: #ffffff;
+      font-size: 0.9rem;
+      line-height: 1.5;
       margin: 0;
     }
 
     .features-list {
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       color: #b3b3b3;
       margin-top: auto;
       
       strong {
-        color: #50c878; // Emerald
+        color: #50c878;
         display: block;
         margin-bottom: 0.5rem;
       }
@@ -78,6 +77,7 @@
       ul {
         margin: 0;
         padding-left: 1.2rem;
+        
         li { margin-bottom: 0.25rem; }
       }
     }
