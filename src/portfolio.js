@@ -6,7 +6,7 @@
 import emoji from "react-easy-emoji";
 import splashAnimation from "./assets/lottie/splashAnimation"; // Rename to your file name for custom animation
 
-import bloomIcon from './assets/images/bloom-icon.png';
+import bloomIcon from './assets/images/bloomScreen.webp';
 import smartFinIcon from './assets/images/smartfin-icon.png';
 import smartFlowIcon from './assets/images/smartflow-icon.png';
 // Splash Screen
