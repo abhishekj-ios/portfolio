@@ -41,7 +41,9 @@ export default function Projects({ setPage }) {
     document.body.style.overflow = "unset"; 
   };
 
+  // --- FIXED: Push history state to keep the browser back button working ---
   const handleViewAllApps = () => {
+    window.history.pushState({ page: "all-apps" }, "", "");
     setPage("all-apps"); 
     window.scrollTo(0, 0);
   };
