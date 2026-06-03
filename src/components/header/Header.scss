@@ -8,7 +8,8 @@
 /* header */
 
 .dark-menu {
-  background-color: $darkBackground !important;
+  // FIXED: Removed the aggressive background-color !important rule 
+  // This allows our beautiful transparent deep-purple gradient blend to pass through natively
   color: #F5F5F7 !important; 
 }
 
@@ -17,7 +18,9 @@
 }
 
 .dark-menu li a:hover {
-  background-color: $buttonColor !important;
+  // Subtle iOS hover state accent tint instead of a giant solid block background
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  border-radius: 6px;
 }
 
 /* FIX: Stop the blue hover background from bleeding onto the Toggle Switch container */
@@ -27,9 +30,8 @@
 }
 
 .header {
-  background-color: $lightBackground1;
+  // FIXED: Removed absolute backgrounds and padding rules that override our JS container bounds
   max-width: 100%;
-  padding: 25px 45px !important; 
   margin: 0px auto;
 }
 
@@ -50,7 +52,7 @@
 
 .header li a {
   display: block;
-  padding: 10px 20px; 
+  padding: 6px 14px; // Tightened padding parameters for a cleaner sleek profile
   color: #1D1D1F !important; 
   text-decoration: none;
   font-weight: 500;
@@ -59,7 +61,8 @@
 
 .header li a:hover,
 .header .menu-btn:hover {
-  background-color: $headerHoverBG;
+  background-color: rgba(0, 0, 0, 0.04);
+  border-radius: 6px;
 }
 
 .header .logo {
@@ -68,7 +71,7 @@
   float: left;
   font-size: 1.5em;
   text-decoration: none;
-  margin-top: 10px;
+  margin-top: 0px; // Reset to match our flex axis perfectly
   line-height: normal;
 }
 
@@ -106,7 +109,7 @@
   cursor: pointer;
   display: inline-block;
   float: right;
-  padding: 28px 20px;
+  padding: 12px 0px; // Aligns comfortably with line-height
   position: relative;
   user-select: none;
 }
@@ -199,18 +202,19 @@
     display: none;
   }
 }
+
 @media (max-width: 960px) and (min-width: 768px) {
   .header {
     font-size: 12px;
   }
 }
-/* Mobile-only header height reduction */
+
+/* Mobile-only header height alignment */
 @media (max-width: 48em) {
   .header {
-    padding: 10px 20px !important; // Reduced from 25px 45px
+    padding: 0 !important; 
   }
-
   .header .menu-icon {
-    padding: 18px 20px; // Reduced vertical padding (original was 28px)
+    padding: 12px 0px; 
   }
 }
