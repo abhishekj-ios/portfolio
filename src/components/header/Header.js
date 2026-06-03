@@ -11,7 +11,7 @@ function Header() {
       <header 
         className={isDark ? "dark-menu header" : "header"}
         style={{
-          padding: "24px 0", // Gives a premium, spacious height to the navbar
+          padding: "24px 0", // Premium spacious padding
           backgroundColor: isDark ? "#000000" : "#ffffff",
           transition: "all 0.2s ease-in-out"
         }}
@@ -30,7 +30,7 @@ function Header() {
           }}
         >
           
-          {/* --- CHANGED: Premium Typographic Monogram Logo --- */}
+          {/* --- CHANGED: Clean Typography Logo (Abhishek J) --- */}
           <div 
             className="logo" 
             style={{ 
@@ -43,18 +43,17 @@ function Header() {
             <span 
               style={{
                 fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
-                fontWeight: "800",       // Extra bold for a strong brand presence
-                fontSize: "22px",         // Sharp, legible size
-                letterSpacing: "0.5px",   // Subtle premium spacing
+                fontWeight: "700",       // Clean, professional bold weight
+                fontSize: "20px",         // Scaled perfectly for the full string length
+                letterSpacing: "-0.2px",  // Slightly tighter kerning for a crisp modern look
                 color: isDark ? "#ffffff" : "#1d1d1f",
                 lineHeight: "1"
               }}
             >
-              AJ
-              <span style={{ color: "#0071e3" }}>.</span> {/* Sharp accent dot matching your button color */}
+              Abhishek J
             </span>
           </div>
-          {/* -------------------------------------------------- */}
+          {/* ---------------------------------------------------- */}
 
           {/* MOBILE TOGGLE MECHANICS */}
           <input className="menu-btn" type="checkbox" id="menu-btn" />
