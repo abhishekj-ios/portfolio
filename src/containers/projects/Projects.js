@@ -235,30 +235,36 @@ export default function Projects({ setPage }) {
           })}
         </div>
 
-        {/* BOTTOM CENTER VIEW ALL APPS BUTTON GATE */}
-        <div style={{ display: "flex", justifyContent: "center", marginTop: "48px" }}>
-          <button 
-            onClick={handleViewAllApps}
-            style={{
-              padding: "14px 32px",
-              backgroundColor: isDark ? "#2c2c2e" : "#ffffff",
-              color: isDark ? "#ffffff" : "#1d1d1f",
-              border: isDark ? "1px solid rgba(255,255,255,0.15)" : "1px solid #d2d2d7",
-              borderRadius: "12px",
-              fontSize: "15px",
-              fontWeight: "600",
-              cursor: "pointer",
-              boxShadow: "0 2px 8px rgba(0,0,0,0.05)",
-              transition: "background-color 0.2s"
-            }}
-            onMouseOver={(e) => e.currentTarget.style.backgroundColor = isDark ? "#3a3a3c" : "#f5f5f7"}
-            onMouseOut={(e) => e.currentTarget.style.backgroundColor = isDark ? "#2c2c2e" : "#ffffff"}
-          >
-            See All Apps
-          </button>
-        </div>
-
-      </div>
+<div style={{ display: "flex", justifyContent: "center", marginTop: "48px" }}>
+  <button 
+    onClick={handleViewAllApps}
+    style={{
+      padding: "14px 32px",
+      // Glassmorphism Styles
+      backgroundColor: "rgba(255, 255, 255, 0.05)",
+      backdropFilter: "blur(10px)",
+      WebkitBackdropFilter: "blur(10px)",
+      border: "1px solid rgba(255, 255, 255, 0.15)",
+      color: "#ffffff",
+      borderRadius: "12px",
+      fontSize: "15px",
+      fontWeight: "600",
+      cursor: "pointer",
+      boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
+      transition: "all 0.3s ease"
+    }}
+    onMouseOver={(e) => {
+      e.currentTarget.style.backgroundColor = "rgba(255, 255, 255, 0.12)";
+      e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.3)";
+    }}
+    onMouseOut={(e) => {
+      e.currentTarget.style.backgroundColor = "rgba(255, 255, 255, 0.05)";
+      e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.15)";
+    }}
+  >
+    See All Apps
+  </button>
+</div>
 
       {/* SYSTEM DETAIL EXPANSION DIALOG LAYER */}
       {activeModalProject && (
