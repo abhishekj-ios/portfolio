@@ -11,6 +11,12 @@ export default function Greeting({ setPage }) {
     return null;
   }
 
+  // Pushes the custom hash onto the browser stack before modifying state
+  const handleViewProjectsClick = () => {
+    window.history.pushState({ page: "all-apps" }, "", "#projects-view");
+    setPage("all-apps");
+  };
+
   return (
     <Fade bottom duration={1000} distance="40px">
       <div className="greet-main" id="greeting">
@@ -23,10 +29,9 @@ export default function Greeting({ setPage }) {
           
           <div className="button-greeting-div">
             <div className="primary-btn-wrapper">
-              {/* Replaced Button component with a standard button to handle the click event */}
               <button 
                 className="main-button" 
-                onClick={() => setPage("all-apps")}
+                onClick={handleViewProjectsClick}
               >
                 VIEW MY PROJECTS
               </button>
