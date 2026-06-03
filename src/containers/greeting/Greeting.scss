@@ -1,59 +1,85 @@
 .greet-main {
-  // PREMIUM GRADIENT: Replaced the stock image with a high-end, dark luxury tech gradient
   background: linear-gradient(135deg, #0f0c20 0%, #15102a 50%, #06040a 100%);
-  padding: 120px 0 80px 0; 
+  padding: 100px 0 60px 0; // Reduced top/bottom padding to tighten section height
   box-sizing: border-box; 
   display: flex;
   align-items: center;
+  justify-content: center;
   width: 100%;
 }
 
 .greeting-container {
-  // Aligns precisely with your Header's desktop layout parameters
-  max-width: 1340px;
+  max-width: 900px; // Snug layout width for beautiful centered text alignment
   margin: 0 auto;
-  padding: 0 6%;
+  padding: 0 24px;
   width: 100%;
   box-sizing: border-box;
-}
-
-.greeting-content-wrapper {
-  max-width: 800px; // Expanded layout footprint for higher executive readable balance
-  margin-bottom: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; // Centers everything horizontally
+  text-align: center;  // Centers text lines
 }
 
 .greeting-title {
-  font-size: 56px;
+  font-size: 54px;
   line-height: 1.1;
-  font-weight: 800; // Bold typography style
+  font-weight: 800;
   letter-spacing: -1.5px;
-  margin: 0 0 24px 0;
-  // Sleek Apple-style title masking gradient tint
+  margin: 0 0 16px 0; // Tightened bottom gap
   background: linear-gradient(180deg, #ffffff 0%, #e2e2e9 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .greeting-desc {
-  font-size: 19px;
+  font-size: 18px;
   line-height: 1.6;
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.75); // Sophisticated high-end text readability ratio
-  margin: 0 0 40px 0;
-  letter-spacing: -0.2px;
+  color: rgba(255, 255, 255, 0.75);
+  margin: 0 0 32px 0; // Tighter spacing leading into metrics row
+  letter-spacing: -0.1px;
+}
+
+// --- MOVED UP: HIGHER EMBEDDED METRICS GRID ---
+.metrics-row-split {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08); // Wraps metrics beautifully
+  padding: 24px 0; // Tight padding inside the borders
+  margin: 0 0 32px 0; // Balanced margin above the action buttons
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); // Locks 3 columns on desktop
+  gap: 24px;
+  width: 100%;
+}
+
+.metric-column-item {
+  h3 {
+    font-size: 32px;
+    font-weight: 700;
+    margin: 0 0 2px 0;
+    color: #ffffff;
+    letter-spacing: -0.5px;
+  }
+  p {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.45);
+    margin: 0;
+    font-weight: 500;
+    letter-spacing: -0.1px;
+  }
 }
 
 .button-greeting-div {
   display: flex;
   gap: 16px;
-  margin-bottom: 32px;
+  margin-bottom: 24px; // Compact gap before social icons
   align-items: center;
+  justify-content: center;
 }
 
-// Custom wrapper configuration for your legacy elements to stay perfectly uniform
 .primary-btn-wrapper {
   .main-button {
-    background-color: #0071e3 !important; // Enforces premium royal blue matching theme layout
+    background-color: #0071e3 !important;
     color: #ffffff;
     border: none;
     padding: 13px 28px;
@@ -62,41 +88,12 @@
     border-radius: 8px;
     cursor: pointer;
     letter-spacing: -0.1px;
-    box-shadow: 0 4px 12px rgba(0, 113, 227, 0.3);
-    transition: transform 0.2s ease, background-color 0.2s ease;
+    box-shadow: 0 4px 12px rgba(0, 113, 227, 0.25);
+    transition: transform 0.2s ease;
 
     &:hover {
-      background-color: #0077ed !important;
       transform: translateY(-1px);
     }
-  }
-}
-
-// --- NEW HORIZONTAL THREE-COLUMN METRICS GRID ---
-.metrics-row-split {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding-top: 40px;
-  margin-top: 60px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 40px;
-  width: 100%;
-}
-
-.metric-column-item {
-  h3 {
-    font-size: 36px;
-    font-weight: 700;
-    margin: 0 0 4px 0;
-    color: #ffffff;
-    letter-spacing: -0.5px;
-  }
-  p {
-    font-size: 14px;
-    color: rgba(255, 255, 255, 0.5);
-    margin: 0;
-    font-weight: 500;
-    letter-spacing: -0.1px;
   }
 }
 
@@ -105,39 +102,24 @@
   .greet-main {
     padding: 60px 0 40px 0; 
   }
-  .greeting-container {
-    padding: 0 24px;
-  }
-  .greeting-content-wrapper {
-    margin-bottom: 40px;
-  }
   .greeting-title {
-    font-size: 40px;
-    letter-spacing: -0.8px;
-    margin-bottom: 16px;
+    font-size: 38px;
   }
   .greeting-desc {
-    font-size: 17px;
-    margin-bottom: 30px;
+    font-size: 16px;
+  }
+  .metrics-row-split {
+    grid-template-columns: 1fr; // Stack metrics neatly on small viewports
+    gap: 20px;
+    padding: 20px 0;
   }
   .button-greeting-div {
     flex-direction: column;
-    gap: 12px;
-    align-items: flex-start;
     width: 100%;
+    gap: 12px;
     
     .primary-btn-wrapper, .secondary-btn-wrapper, .main-button {
-      width: 100%; // Buttons span full width comfortably on smaller devices
-    }
-  }
-  .metrics-row-split {
-    grid-template-columns: 1fr;
-    gap: 28px;
-    marginTop: 40px;
-  }
-  .metric-column-item {
-    h3 {
-      font-size: 32px;
+      width: 100%;
     }
   }
 }
