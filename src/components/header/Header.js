@@ -1,15 +1,12 @@
-import React, { useContext } from "react";
+import React from "react";
 import Headroom from "react-headroom";
 import "./Header.scss";
-import StyleContext from "../../contexts/StyleContext";
 
 function Header() {
-  const { isDark } = useContext(StyleContext);
-
-  const headerBackground = isDark ? "rgba(15, 12, 32, 0.75)" : "rgba(255, 255, 255, 0.85)";
+  const headerBackground = "rgba(15, 12, 32, 0.75)";
   const glassBlur = "blur(20px)";
+  const permanentWhite = "#ffffff"; // Locks text color to pure white universally
 
-  // FIXED: Programmatically collapses the mobile dropdown drawer state when an inline anchor navigation link is clicked
   const closeMenu = () => {
     const checkbox = document.getElementById("menu-btn");
     if (checkbox) checkbox.checked = false;
@@ -25,12 +22,12 @@ function Header() {
       }}
     >
       <header 
-        className={isDark ? "dark-menu header" : "header"}
+        className="dark-menu header"
         style={{
           backgroundColor: headerBackground, 
           backdropFilter: glassBlur, 
           WebkitBackdropFilter: glassBlur, 
-          borderBottom: isDark ? "1px solid rgba(255, 255, 255, 0.04)" : "1px solid rgba(0, 0, 0, 0.05)",
+          borderBottom: "1px solid rgba(255, 255, 255, 0.04)",
           width: "100%",
           transition: "all 0.3s ease"
         }}
@@ -45,7 +42,7 @@ function Header() {
                 fontWeight: "600",       
                 fontSize: "19px",         
                 letterSpacing: "-0.3px",  
-                color: isDark ? "#ffffff" : "#1d1d1f",
+                color: permanentWhite, 
                 lineHeight: "1"
               }}
             >
@@ -58,19 +55,20 @@ function Header() {
           <label
             className="menu-icon"
             htmlFor="menu-btn"
-            style={{ color: isDark ? "white" : "black" }}
+            style={{ color: permanentWhite }}
           >
-            <span className={isDark ? "navicon navicon-dark" : "navicon"}></span>
+            <span className="navicon navicon-dark"></span>
           </label>
 
           {/* NAVIGATION LINKS */}
-          <ul className={isDark ? "dark-menu menu" : "menu"}>
+          <ul className="dark-menu menu">
             <li>
               <a 
                 href="#whatIDo" 
-                onClick={closeMenu} // Closes drawer automatically
+                onClick={closeMenu} 
+                style={{ color: permanentWhite }} 
                 onMouseEnter={(e) => e.currentTarget.style.color = "#2f80ed"} 
-                onMouseLeave={(e) => e.currentTarget.style.color = isDark ? "#ffffff" : "rgba(0, 0, 0, 0.8)"}
+                onMouseLeave={(e) => e.currentTarget.style.color = permanentWhite}
               >
                 Skills
               </a>
@@ -79,8 +77,9 @@ function Header() {
               <a 
                 href="#opensource" 
                 onClick={closeMenu} 
+                style={{ color: permanentWhite }} 
                 onMouseEnter={(e) => e.currentTarget.style.color = "#2f80ed"}
-                onMouseLeave={(e) => e.currentTarget.style.color = isDark ? "#ffffff" : "rgba(0, 0, 0, 0.8)"}
+                onMouseLeave={(e) => e.currentTarget.style.color = permanentWhite}
               >
                 Recents
               </a>
@@ -89,8 +88,9 @@ function Header() {
               <a 
                 href="#experience" 
                 onClick={closeMenu} 
+                style={{ color: permanentWhite }} 
                 onMouseEnter={(e) => e.currentTarget.style.color = "#2f80ed"}
-                onMouseLeave={(e) => e.currentTarget.style.color = isDark ? "#ffffff" : "rgba(0, 0, 0, 0.8)"}
+                onMouseLeave={(e) => e.currentTarget.style.color = permanentWhite}
               >
                 Experience
               </a>
