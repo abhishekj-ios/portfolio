@@ -36,10 +36,10 @@ function Header() {
             <a href="#skills">Skills</a>
           </li>
           <li>
-            <a href="#experience">Work Experiences</a>
+            <a href="#opensource">Recents</a>
           </li>
           <li>
-            <a href="#projects">Projects</a>
+            <a href="#workExperience">Experience</a>
           </li>
         </ul>
       </header>
