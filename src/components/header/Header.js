@@ -9,9 +9,14 @@ function Header() {
   const headerBackground = isDark ? "rgba(15, 12, 32, 0.75)" : "rgba(255, 255, 255, 0.85)";
   const glassBlur = "blur(20px)";
 
+  // FIXED: Programmatically collapses the mobile dropdown drawer state when an inline anchor navigation link is clicked
+  const closeMenu = () => {
+    const checkbox = document.getElementById("menu-btn");
+    if (checkbox) checkbox.checked = false;
+  };
+
   return (
     <Headroom
-      // FIXED: Allow the headroom layout wrapper to breathe and dynamically scale when the mobile drawer expands
       wrapperStyle={{
         backgroundColor: headerBackground,
         backdropFilter: glassBlur,
@@ -63,8 +68,9 @@ function Header() {
             <li>
               <a 
                 href="#whatIDo" 
+                onClick={closeMenu} // Closes drawer automatically
                 onMouseEnter={(e) => e.currentTarget.style.color = "#2f80ed"} 
-                onMouseLeave={(e) => e.currentTarget.style.color = isDark ? "rgba(255, 255, 255, 0.85)" : "rgba(0, 0, 0, 0.8)"}
+                onMouseLeave={(e) => e.currentTarget.style.color = isDark ? "#ffffff" : "rgba(0, 0, 0, 0.8)"}
               >
                 Skills
               </a>
@@ -72,8 +78,9 @@ function Header() {
             <li>
               <a 
                 href="#opensource" 
+                onClick={closeMenu} 
                 onMouseEnter={(e) => e.currentTarget.style.color = "#2f80ed"}
-                onMouseLeave={(e) => e.currentTarget.style.color = isDark ? "rgba(255, 255, 255, 0.85)" : "rgba(0, 0, 0, 0.8)"}
+                onMouseLeave={(e) => e.currentTarget.style.color = isDark ? "#ffffff" : "rgba(0, 0, 0, 0.8)"}
               >
                 Recents
               </a>
@@ -81,8 +88,9 @@ function Header() {
             <li>
               <a 
                 href="#experience" 
+                onClick={closeMenu} 
                 onMouseEnter={(e) => e.currentTarget.style.color = "#2f80ed"}
-                onMouseLeave={(e) => e.currentTarget.style.color = isDark ? "rgba(255, 255, 255, 0.85)" : "rgba(0, 0, 0, 0.8)"}
+                onMouseLeave={(e) => e.currentTarget.style.color = isDark ? "#ffffff" : "rgba(0, 0, 0, 0.8)"}
               >
                 Experience
               </a>
