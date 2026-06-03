@@ -34,7 +34,6 @@ function App() {
     <div>
       {page === "home" ? (
         <>
-          <Header setPage={setPage} />
           <Main setPage={setPage} />
         </>
       ) : (
