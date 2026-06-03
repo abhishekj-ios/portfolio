@@ -1,33 +1,42 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import Headroom from "react-headroom";
 import "./Header.scss";
 import StyleContext from "../../contexts/StyleContext";
 import { greeting } from "../../portfolio";
 
 function Header() {
-  const {isDark} = useContext(StyleContext);
+  const { isDark } = useContext(StyleContext);
 
   return (
     <Headroom>
       <header className={isDark ? "dark-menu header" : "header"}>
-        <a href="/" className="logo" style={{ textDecoration: "none" }}>
-          <span 
-            className="logo-name" 
+        
+        {/* --- CHANGED: Removed <a> tag link and replaced text with your logo image --- */}
+        <div 
+          className="logo" 
+          style={{ 
+            display: "flex", 
+            alignItems: "center", 
+            cursor: "default" // Makes it look non-clickable
+          }}
+        >
+          <img 
+            src={require("../../assets/images/logo.png")} 
+            alt="Logo" 
             style={{ 
-              fontFamily: "inherit", 
-              fontWeight: "700", 
-              letterSpacing: "1px",
-              textTransform: "uppercase"
-            }}
-          >
-            {greeting.username}
-          </span>
-        </a>
+              height: "35px",   // Adjust this height if you want it bigger or smaller
+              width: "auto", 
+              objectFit: "contain" 
+            }} 
+          />
+        </div>
+        {/* --------------------------------------------------------------------------- */}
+
         <input className="menu-btn" type="checkbox" id="menu-btn" />
         <label
           className="menu-icon"
           htmlFor="menu-btn"
-          style={{color: "white"}}
+          style={{ color: "white" }}
         >
           <span className={isDark ? "navicon navicon-dark" : "navicon"}></span>
         </label>
@@ -46,4 +55,5 @@ function Header() {
     </Headroom>
   );
 }
+
 export default Header;
