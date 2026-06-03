@@ -27,12 +27,11 @@ const Main = ({ setPage }) => {
   const [isShowingSplashAnimation, setIsShowingSplashAnimation] =
     useState(true);
 
-  // --- FIXED: Combined popstate listener and splash end synchronization ---
+  // --- FORCE HARD CHECKPOINT ON HASH CHANGE ---
   useEffect(() => {
-    const handlePopState = (event) => {
-      if (event.state && event.state.page) {
-        setPage(event.state.page);
-      } else {
+    const handlePopState = () => {
+      // If the hash disappears because the user hit back, restore home page state
+      if (!window.location.hash.includes("#projects-view")) {
         setPage("home");
       }
     };
@@ -45,19 +44,10 @@ const Main = ({ setPage }) => {
     if (splashScreen.enabled) {
       const splashTimer = setTimeout(() => {
         setIsShowingSplashAnimation(false);
-        // Force establish 'home' state into the browser pipeline right as the splash drops
-        window.history.replaceState({ page: "home" }, "", "");
       }, splashScreen.duration);
-      
-      return () => {
-        clearTimeout(splashTimer);
-      };
-    } else {
-      // If splash is turned off completely, set home immediately
-      window.history.replaceState({ page: "home" }, "", "");
+      return () => clearTimeout(splashTimer);
     }
   }, []);
-  // ------------------------------------------------------------------------
 
   const changeTheme = () => {
     setIsDark(!isDark);
