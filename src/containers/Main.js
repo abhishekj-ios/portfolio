@@ -21,12 +21,30 @@ import "./Main.scss";
 import WhatIDo from "./whatIDo/WhatIDo";
 import Experience from "./experience/Experience";
 
-// Added { setPage } to the props
 const Main = ({ setPage }) => {
   const darkPref = window.matchMedia("(prefers-color-scheme: dark)");
   const [isDark, setIsDark] = useLocalStorage("isDark", darkPref.matches);
   const [isShowingSplashAnimation, setIsShowingSplashAnimation] =
     useState(true);
+
+  // --- NEW: Fix Browser Back Button History ---
+  useEffect(() => {
+    // 1. Ensure the current state is tracked as the 'home' view
+    window.history.replaceState({ page: "home" }, "", "");
+
+    // 2. Listen for the browser back/forward buttons
+    const handlePopState = (event) => {
+      if (event.state && event.state.page) {
+        setPage(event.state.page);
+      } else {
+        setPage("home"); // Fallback safety
+      }
+    };
+
+    window.addEventListener("popstate", handlePopState);
+    return () => window.removeEventListener("popstate", handlePopState);
+  }, [setPage]);
+  // --------------------------------------------
 
   useEffect(() => {
     if (splashScreen.enabled) {
@@ -52,7 +70,6 @@ const Main = ({ setPage }) => {
         ) : (
           <>
             <Header />
-            {/* Passed setPage to Greeting */}
             <Greeting setPage={setPage} />
             <WhatIDo />
             <StackProgress />
