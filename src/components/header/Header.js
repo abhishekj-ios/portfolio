@@ -13,14 +13,6 @@ function Header() {
   };
 
   return (
-    <Headroom
-      wrapperStyle={{
-        backgroundColor: headerBackground,
-        backdropFilter: glassBlur,
-        WebkitBackdropFilter: glassBlur,
-        transition: "background-color 0.3s ease"
-      }}
-    >
       <header 
         className="dark-menu header"
         style={{
@@ -29,7 +21,10 @@ function Header() {
           WebkitBackdropFilter: glassBlur, 
           borderBottom: "1px solid rgba(255, 255, 255, 0.04)",
           width: "100%",
-          transition: "all 0.3s ease"
+          transition: "all 0.3s ease",
+          position: "sticky", 
+          top: 0,
+          zIndex: 1000
         }}
       >
         <div className="header-container">
