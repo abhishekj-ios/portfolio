@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../components/header/Header";
 import Greeting from "./greeting/Greeting";
 import StackProgress from "./skillProgress/skillProgress";
@@ -14,9 +14,9 @@ import ScrollToTopButton from "./topbutton/Top";
 import Twitter from "./twitter-embed/twitter";
 import Profile from "./profile/Profile";
 import SplashScreen from "./splashScreen/SplashScreen";
-import {splashScreen} from "../portfolio";
-import {StyleProvider} from "../contexts/StyleContext";
-import {useLocalStorage} from "../hooks/useLocalStorage";
+import { splashScreen } from "../portfolio";
+import { StyleProvider } from "../contexts/StyleContext";
+import { useLocalStorage } from "../hooks/useLocalStorage";
 import "./Main.scss";
 import WhatIDo from "./whatIDo/WhatIDo";
 import Experience from "./experience/Experience";
@@ -24,20 +24,40 @@ import Experience from "./experience/Experience";
 const Main = ({ setPage }) => {
   const darkPref = window.matchMedia("(prefers-color-scheme: dark)");
   const [isDark, setIsDark] = useLocalStorage("isDark", darkPref.matches);
-  const [isShowingSplashAnimation, setIsShowingSplashAnimation] =
-    useState(true);
+  const [isShowingSplashAnimation, setIsShowingSplashAnimation] = useState(true);
 
-  // --- FORCE HARD CHECKPOINT ON HASH CHANGE ---
+  // --- GUARANTEED ROUTING MECHANISM ---
   useEffect(() => {
-    const handlePopState = () => {
-      // If the hash disappears because the user hit back, restore home page state
-      if (!window.location.hash.includes("#projects-view")) {
+    // 1. Force establish a clean base history step for the home screen if it doesn't exist
+    if (!window.history.state) {
+      window.history.replaceState({ page: "home" }, "", " ");
+    }
+
+    const handlePopState = (event) => {
+      // Direct catch: Check both state payloads and the URL hash
+      if (event.state && event.state.page === "all-apps") {
+        setPage("all-apps");
+      } else if (window.location.hash.includes("#projects-view")) {
+        setPage("all-apps");
+      } else {
+        // Fall back to home and completely strip any remaining hash extensions safely
         setPage("home");
+        if (window.location.hash) {
+          window.history.replaceState({ page: "home" }, "", " ");
+        }
       }
     };
 
+    // Listen for back/forward events
     window.addEventListener("popstate", handlePopState);
-    return () => window.removeEventListener("popstate", handlePopState);
+    
+    // Also listen to direct hash mutations as a secondary guard layer
+    window.addEventListener("hashchange", handlePopState);
+
+    return () => {
+      window.removeEventListener("popstate", handlePopState);
+      window.removeEventListener("hashchange", handlePopState);
+    };
   }, [setPage]);
 
   useEffect(() => {
@@ -55,7 +75,7 @@ const Main = ({ setPage }) => {
 
   return (
     <div className={isDark ? "dark-mode" : null}>
-      <StyleProvider value={{isDark: isDark, changeTheme: changeTheme}}>
+      <StyleProvider value={{ isDark: isDark, changeTheme: changeTheme }}>
         {isShowingSplashAnimation && splashScreen.enabled ? (
           <SplashScreen />
         ) : (
