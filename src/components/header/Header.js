@@ -95,21 +95,23 @@ function Header({ setPage }) {
                 Work Experience
               </a>
             </li>
-            <li>
-            <span 
-              onClick={navigateToAllProjects}
-              style={{ 
-                color: permanentWhite, 
-                cursor: "pointer",
-                fontSize: "inherit", 
-                fontWeight: "inherit"
-              }}
-              onMouseEnter={(e) => e.currentTarget.style.color = "#2f80ed"}
-              onMouseLeave={(e) => e.currentTarget.style.color = permanentWhite}
-            >
-              All Projects
-            </span>
-          </li>
+<li>
+  <span 
+    onClick={navigateToAllProjects}
+    style={{ 
+      color: permanentWhite, 
+      cursor: "pointer",
+      fontSize: "15px",      // Explicitly set to 15px
+      fontWeight: "500",     // Explicitly set weight
+      fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+      transition: "color 0.3s ease" // Makes the hover effect smooth
+    }}
+    onMouseEnter={(e) => e.currentTarget.style.color = "#2f80ed"}
+    onMouseLeave={(e) => e.currentTarget.style.color = permanentWhite}
+  >
+    All Projects
+  </span>
+</li>
           </ul>
 
         </div>
