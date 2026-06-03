@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
-import "./Project.scss"; 
+import "./Project.scss";
 import { bigProjects } from "../../portfolio";
 import StyleContext from "../../contexts/StyleContext";
 
@@ -8,7 +8,6 @@ export default function Projects({ setPage }) {
   const [activeModalProject, setActiveModalProject] = useState(null);
   const [preloadedIcons, setPreloadedIcons] = useState({});
 
-  // BROWSER IMAGE CACHE PRELOADER
   useEffect(() => {
     if (bigProjects && bigProjects.projects) {
       bigProjects.projects.forEach((proj) => {
@@ -33,18 +32,17 @@ export default function Projects({ setPage }) {
 
   const openModal = (project) => {
     setActiveModalProject(project);
-    document.body.style.overflow = "hidden"; 
+    document.body.style.overflow = "hidden";
   };
 
   const closeModal = () => {
     setActiveModalProject(null);
-    document.body.style.overflow = "unset"; 
+    document.body.style.overflow = "unset";
   };
 
-  // Pushes the custom hash onto the browser stack before modifying state
   const handleViewAllApps = () => {
     window.history.pushState({ page: "all-apps" }, "", "#projects-view");
-    setPage("all-apps"); 
+    setPage("all-apps");
     window.scrollTo(0, 0);
   };
 
@@ -54,255 +52,75 @@ export default function Projects({ setPage }) {
         
         {/* HEADER SECTION */}
         <div style={{ textAlign: "center", marginBottom: "48px" }}>
-          <h1 
-            className={isDark ? "dark-mode project-title" : "project-title"} 
-            style={{ 
-              fontSize: "32px", 
-              fontWeight: "700", 
-              margin: "0 0 12px 0", 
-              color: isDark ? "#ffffff" : "#1d1d1f",
-              background: "transparent !important",
-              backgroundColor: "transparent"
-            }}
-          >
+          <h1 className={isDark ? "dark-mode project-title" : "project-title"} style={{ fontSize: "32px", fontWeight: "700", margin: "0 0 12px 0", color: isDark ? "#ffffff" : "#1d1d1f" }}>
             {bigProjects.title}
           </h1>
-          <p 
-            className={isDark ? "dark-mode project-subtitle" : "project-subtitle"} 
-            style={{ 
-              fontSize: "16px", 
-              color: isDark ? "#a1a1a6" : "#86868b", 
-              margin: 0,
-              background: "transparent !important",
-              backgroundColor: "transparent"
-            }}
-          >
+          <p className={isDark ? "dark-mode project-subtitle" : "project-subtitle"} style={{ fontSize: "16px", color: isDark ? "#a1a1a6" : "#86868b", margin: 0 }}>
             {bigProjects.subtitle}
           </p>
         </div>
 
         {/* CARDS CONTAINER */}
-        <div 
-          className="featured-apps-scroll-container"
-          style={{ 
-            display: "flex", 
-            gap: "28px", 
-            overflowX: "auto", 
-            paddingBottom: "32px",
-            paddingTop: "4px",
-            scrollSnapType: "x mandatory",
-            WebkitOverflowScrolling: "touch",
-            scrollbarWidth: "none",
-            msOverflowStyle: "none"
-          }}
-        >
+        <div className="featured-apps-scroll-container" style={{ display: "flex", gap: "28px", overflowX: "auto", paddingBottom: "32px", paddingTop: "4px", scrollSnapType: "x mandatory" }}>
           <style>{`
-            .featured-apps-scroll-container::-webkit-scrollbar {
-              display: none;
-            }
+            .featured-apps-scroll-container::-webkit-scrollbar { display: none; }
             @media (min-width: 992px) {
-              .featured-apps-scroll-container {
-                display: grid !important;
-                grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)) !important;
-                overflow-x: visible !important;
-                padding-bottom: 0 !important;
-              }
-              .showcase-card-node {
-                scroll-snap-align: none !important;
-                width: auto !important;
-              }
+              .featured-apps-scroll-container { display: grid !important; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)) !important; overflow-x: visible !important; padding-bottom: 0 !important; }
+              .showcase-card-node { scroll-snap-align: none !important; width: auto !important; }
             }
           `}</style>
-
           {bigProjects.projects.map((proj) => {
             const activeImageSrc = preloadedIcons[proj.id] || (proj.icon?.default || proj.icon);
-
             return (
-              <div 
-                key={proj.id}
-                className="showcase-card-node"
-                style={{ 
-                  flex: "0 0 auto",
-                  width: "85vw",
-                  maxWidth: "360px",
-                  scrollSnapAlign: "center",
-                  backgroundColor: isDark ? "#1c1c1e" : "#ffffff",
-                  border: isDark ? "1px solid rgba(255, 255, 255, 0.08)" : "1px solid rgba(0, 0, 0, 0.08)",
-                  borderRadius: "20px",
-                  overflow: "hidden",
-                  display: "flex",
-                  flexDirection: "column",
-                  boxShadow: isDark ? "0 12px 40px rgba(0,0,0,0.5)" : "0 12px 30px rgba(0,0,0,0.06)",
-                  transition: "transform 0.3s ease, box-shadow 0.3s ease"
-                }}
-              >
-                {/* TOP HERO VISUAL IMAGE */}
+              <div key={proj.id} className="showcase-card-node" style={{ flex: "0 0 auto", width: "85vw", maxWidth: "360px", scrollSnapAlign: "center", backgroundColor: isDark ? "#1c1c1e" : "#ffffff", border: isDark ? "1px solid rgba(255, 255, 255, 0.08)" : "1px solid rgba(0, 0, 0, 0.08)", borderRadius: "20px", overflow: "hidden", display: "flex", flexDirection: "column" }}>
                 <div style={{ width: "100%", height: "200px", overflow: "hidden", position: "relative", backgroundColor: isDark ? "#2c2c2e" : "#e5e5ea" }}>
-                  {activeImageSrc && (
-                    <img 
-                      src={activeImageSrc} 
-                      alt={proj.projectName} 
-                      loading="eager"
-                      style={{ 
-                        width: "100%", 
-                        height: "100%", 
-                        objectFit: "cover"
-                      }} 
-                    />
-                  )}
+                  {activeImageSrc && <img src={activeImageSrc} alt={proj.projectName} style={{ width: "100%", height: "100%", objectFit: "cover" }} />}
                 </div>
-
-                {/* CARD DETAILS WRAPPER */}
                 <div style={{ padding: "24px", display: "flex", flexDirection: "column", justifyContent: "space-between", flexGrow: 1 }}>
-                  <div>
-                    {/* APP TITLE */}
-                    <h2 style={{ 
-                      margin: "0 0 12px 0", 
-                      fontSize: "22px", 
-                      fontWeight: "600", 
-                      letterSpacing: "-0.3px",
-                      color: isDark ? "#ffffff" : "#1d1d1f" 
-                    }}>
-                      {proj.projectName.split(" — ")[0]}
-                    </h2>
-
-                    {/* ARCHITECTURE BADGE */}
-                    <div style={{ 
-                      fontSize: "11px", 
-                      fontWeight: "600", 
-                      textTransform: "uppercase", 
-                      letterSpacing: "0.5px", 
-                      color: isDark ? "#0a84ff" : "#0071e3", 
-                      marginBottom: "14px" 
-                    }}>
-                      {proj.architecture.split(" with ")[0]}
-                    </div>
-
-                    {/* SUMMARY TEXT */}
-                    <p style={{ 
-                      fontSize: "14.5px", 
-                      lineHeight: "1.6", 
-                      color: isDark ? "#e1e1e6" : "#48484a", 
-                      margin: "0 0 18px 0" 
-                    }}>
-                      {proj.summary}
-                    </p>
-
-                    {/* PILL STACKS TRACK */}
-                    <div style={{ 
-                      display: "flex", 
-                      flexWrap: "wrap", 
-                      gap: "8px 8px", 
-                      marginBottom: "20px"
-                    }}>
-                      {proj.techStack.slice(0, 6).map((tech, idx) => (
-                        <span key={idx} style={{
-                          fontSize: "11px", 
-                          padding: "5px 14px", 
-                          borderRadius: "20px", 
-                          backgroundColor: isDark ? "rgba(34, 54, 86, 0.3)" : "rgba(0, 113, 227, 0.05)",
-                          color: isDark ? "#52a2ff" : "#0071e3",
-                          border: isDark ? "1px solid rgba(82, 162, 255, 0.15)" : "1px solid rgba(0, 113, 227, 0.08)",
-                          fontWeight: "500",
-                          whiteSpace: "nowrap"
-                        }}>{tech}</span>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* INTERACTIVE ACTION TRIGGER BUTTON */}
-                  <button 
-                    onClick={() => openModal(proj)}
-                    style={{
-                      width: "100%",
-                      padding: "14px",
-                      borderRadius: "12px",
-                      border: "none",
-                      backgroundImage: "linear-gradient(90deg, #2f54ff 0%, #a24eff 100%)", 
-                      color: "#ffffff",
-                      fontSize: "15px",
-                      fontWeight: "600",
-                      cursor: "pointer",
-                      boxShadow: "0 4px 15px rgba(47, 84, 255, 0.25)",
-                      marginTop: "4px"
-                    }}
-                  >
-                    See More
-                  </button>
+                  <h2 style={{ margin: "0 0 12px 0", fontSize: "22px", fontWeight: "600", color: isDark ? "#ffffff" : "#1d1d1f" }}>{proj.projectName.split(" — ")[0]}</h2>
+                  <button onClick={() => openModal(proj)} style={{ width: "100%", padding: "14px", borderRadius: "12px", border: "none", backgroundImage: "linear-gradient(90deg, #2f54ff 0%, #a24eff 100%)", color: "#ffffff", fontSize: "15px", fontWeight: "600", cursor: "pointer", marginTop: "14px" }}>See More</button>
                 </div>
               </div>
             );
           })}
         </div>
 
-<div style={{ display: "flex", justifyContent: "center", marginTop: "48px" }}>
-  <button 
-    onClick={handleViewAllApps}
-    style={{
-      padding: "14px 32px",
-      // Glassmorphism Styles
-      backgroundColor: "rgba(255, 255, 255, 0.05)",
-      backdropFilter: "blur(10px)",
-      WebkitBackdropFilter: "blur(10px)",
-      border: "1px solid rgba(255, 255, 255, 0.15)",
-      color: "#ffffff",
-      borderRadius: "12px",
-      fontSize: "15px",
-      fontWeight: "600",
-      cursor: "pointer",
-      boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
-      transition: "all 0.3s ease"
-    }}
-    onMouseOver={(e) => {
-      e.currentTarget.style.backgroundColor = "rgba(255, 255, 255, 0.12)";
-      e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.3)";
-    }}
-    onMouseOut={(e) => {
-      e.currentTarget.style.backgroundColor = "rgba(255, 255, 255, 0.05)";
-      e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.15)";
-    }}
-  >
-    See All Apps
-  </button>
-</div>
+        {/* GLASS BUTTON */}
+        <div style={{ display: "flex", justifyContent: "center", marginTop: "48px" }}>
+          <button 
+            onClick={handleViewAllApps}
+            style={{
+              padding: "14px 32px",
+              backgroundColor: isDark ? "rgba(255, 255, 255, 0.05)" : "rgba(0, 0, 0, 0.05)",
+              backdropFilter: "blur(10px)",
+              WebkitBackdropFilter: "blur(10px)",
+              border: isDark ? "1px solid rgba(255, 255, 255, 0.15)" : "1px solid rgba(0, 0, 0, 0.1)",
+              color: isDark ? "#ffffff" : "#1d1d1f",
+              borderRadius: "12px",
+              fontSize: "15px",
+              fontWeight: "600",
+              cursor: "pointer",
+              transition: "all 0.3s ease"
+            }}
+          >
+            See All Apps
+          </button>
+        </div>
+      </div>
 
-      {/* SYSTEM DETAIL EXPANSION DIALOG LAYER */}
+      {/* MODAL SECTION */}
       {activeModalProject && (
         <div className="modal-backdrop" onClick={closeModal}>
-          <div 
-            className={isDark ? "dark-mode modal-container" : "modal-container"} 
-            onClick={(e) => e.stopPropagation()}
-          >
+          <div className={isDark ? "dark-mode modal-container" : "modal-container"} onClick={(e) => e.stopPropagation()}>
             <button className="modal-close-btn" onClick={closeModal}>&times;</button>
-            
             <div className="modal-header">
               <h2>{activeModalProject.projectName}</h2>
               <span className="modal-architecture-badge">{activeModalProject.architecture}</span>
             </div>
-
             <div className="modal-body">
-              <div className="modal-section">
-                <h3>The Engineering Challenge</h3>
-                <p>{activeModalProject.challenge}</p>
-              </div>
-
-              <div className="modal-section">
-                <h3>Core System Pillars</h3>
-                <div className="modal-tech-pills">
-                  {activeModalProject.techStack.map((tech, idx) => (
-                    <span key={idx} className="tech-pill">{tech}</span>
-                  ))}
-                </div>
-              </div>
-
-              <div className="modal-section">
-                <h3>Architectural Milestones & Core Wins</h3>
-                <ul>
-                  {activeModalProject.wins.map((win, idx) => (
-                    <li key={idx}>{win}</li>
-                  ))}
-                </ul>
-              </div>
+              <div className="modal-section"><h3>The Engineering Challenge</h3><p>{activeModalProject.challenge}</p></div>
+              <div className="modal-section"><h3>Core System Pillars</h3><div className="modal-tech-pills">{activeModalProject.techStack.map((tech, idx) => <span key={idx} className="tech-pill">{tech}</span>)}</div></div>
+              <div className="modal-section"><h3>Architectural Milestones</h3><ul>{activeModalProject.wins.map((win, idx) => <li key={idx}>{win}</li>)}</ul></div>
             </div>
           </div>
         </div>
