@@ -41,12 +41,11 @@ export default function Projects({ setPage }) {
     document.body.style.overflow = "unset"; 
   };
 
-  // --- FIXED: Push history state to keep the browser back button working ---
- const handleViewAllApps = () => {
-    // Pushing an explicit hash parameter guarantees the browser stack logs it
+  // Pushes the custom hash onto the browser stack before modifying state
+  const handleViewAllApps = () => {
     window.history.pushState({ page: "all-apps" }, "", "#projects-view");
     setPage("all-apps"); 
-    //window.scrollTo(0, 0);
+    window.scrollTo(0, 0);
   };
 
   return (
