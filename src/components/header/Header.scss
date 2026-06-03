@@ -1,11 +1,9 @@
 @import "../../_globalColor";
 
-/*React-headroom*/
+/* Disable structural constraints on the wrapper */
 .headroom-wrapper {
-  max-height: 100px;
+  max-height: none !important; 
 }
-
-/* header */
 
 .dark-menu {
   color: #F5F5F7 !important; 
@@ -20,90 +18,58 @@
   border-radius: 6px;
 }
 
-/* FIX: Stop the blue hover background from bleeding onto the Toggle Switch container */
-.dark-menu li:last-child a:hover,
-.header ul li:last-child a:hover {
-  background-color: transparent !important;
-}
-
 .header {
-  max-width: 100%;
-  margin: 0px auto;
+  width: 100%;
 }
 
-.header ul {
+// Global flex structural alignment layer
+.header-container {
+  max-width: 1340px; 
+  margin: 0 auto;
+  padding: 18px 6%; // Perfectly proportioned uniform desktop vertical padding
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.header .menu {
   margin: 0;
   padding: 0;
   list-style: none;
-  overflow: hidden;
   display: flex;
   align-items: center;
-}
-
-.grey-color {
-  color: $subTitle;
+  gap: 36px;
 }
 
 .header li a {
   display: block;
-  padding: 6px 14px; 
-  color: #1D1D1F !important; 
-  text-decoration: none;
+  font-size: 14px;
   font-weight: 500;
-  transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
-}
-
-.header li a:hover,
-.header .menu-btn:hover {
-  background-color: rgba(0, 0, 0, 0.04);
-  border-radius: 6px;
-}
-
-.header .logo {
-  display: block;
-  flex: none;
-  float: left;
-  font-size: 1.5em;
-  text-decoration: none;
-  margin-top: 0px; 
-  line-height: normal;
-}
-
-.header .logo-name {
-  font-family: inherit;
-  font-weight: bold;
-  font-variant-ligatures: no-common-ligatures;
-  -webkit-font-variant-ligatures: no-common-ligatures;
-  padding: 0 10px;
   color: #1D1D1F !important; 
+  text-decoration: none;
+  letter-spacing: -0.1px;
   transition: color 0.2s ease-in-out;
 }
 
-/* Pure CSS Dark Mode Interception */
-.dark-mode {
-  .header .logo-name {
-    color: #FFFFFF !important; 
-  }
-  .header li a {
-    color: #F5F5F7 !important; 
-  }
+.header .logo {
+  display: flex;
+  align-items: center;
+  cursor: default;
+  user-select: none;
 }
 
-/* menu */
-.header .menu {
-  clear: both;
-  max-height: 0;
-  transition: max-height 0.25s ease-out;
+/* Mobile Checkbox Toggle Mechanics */
+.header .menu-btn {
+  display: none;
 }
 
-/* menu icon */
 .header .menu-icon {
   cursor: pointer;
-  display: inline-block;
-  float: right;
-  padding: 12px 0px; 
-  position: relative;
+  display: none;
   user-select: none;
+  position: relative;
 }
 
 .header .menu-icon .navicon {
@@ -133,30 +99,14 @@
 .header .menu-icon .navicon-dark:before,
 .header .menu-icon .navicon-dark:after {
   background: $textColorDark !important;
-  content: "";
-  display: block;
-  height: 100%;
-  position: absolute;
-  transition: all 0.2s ease-out;
-  width: 100%;
 }
 
 .header .menu-icon .navicon:before { top: 5px; }
 .header .menu-icon .navicon:after { top: -5px; }
 
-/* menu btn */
-.header .menu-btn {
-  display: none;
-}
-
-.header .menu-btn:checked ~ .menu {
-  max-height: 300px; /* Adjusted to fit items comfortably without over-expanding */
-}
-
 .header .menu-btn:checked ~ .menu-icon .navicon {
   background: transparent !important;
 }
-
 .header .menu-btn:checked ~ .menu-icon .navicon:before { transform: rotate(-45deg); }
 .header .menu-btn:checked ~ .menu-icon .navicon:after { transform: rotate(45deg); }
 .header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
@@ -164,58 +114,46 @@
   top: 0;
 }
 
-/* Desktop and Large Screen Rules (48em = 768px) */
-@media (min-width: 48em) {
-  .header li {
-    float: left;
-  }
-  .header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .header .menu {
-    max-height: none;
-  }
-  .header .menu-icon {
-    display: none;
-  }
-}
-
-@media (max-width: 960px) and (min-width: 768px) {
-  .header {
-    font-size: 12px;
-  }
-}
-
-/* --- FIXED MOBILE BREAKPOINT HANDLING --- */
+/* --- REBUILT RESPONSIVE MOBILE HANDLER --- */
 @media (max-width: 48em) {
-  .header {
-    // FIXED: Restored side breathing room padding so content doesn't slam against screen borders
-    padding: 0 24px !important; 
+  .header-container {
+    padding: 16px 24px; // Gives the brand logo and hamburger button safe horizontal padding
+    flex-wrap: wrap; // Allows the menu list to break to a new line cleanly when expanded
   }
 
   .header .menu-icon {
-    padding: 12px 0px; 
+    display: block; // Show hamburger icon explicitly on mobile viewport screens
   }
 
-  // FIXED: Forces horizontal flex blocks into vertical stacking rows when expanded on mobile screens
   .header .menu {
+    display: flex;
     flex-direction: column;
-    align-items: stretch !important; // Stretches selection click bounds cleanly
+    align-items: stretch !important;
     width: 100%;
-    gap: 8px !important; // Replaces wide inline gaps with elegant vertical spacing
-    padding-bottom: 16px; // Cushion at the base of the open drawer
+    gap: 4px !important;
+    
+    // FIXED: Uses max-height for smooth expansion without clipping items
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1), padding 0.3s ease;
+    padding: 0;
+  }
+
+  // FIXED: Triggered when checkbox state is active. Fully expands to show ALL your links safely
+  .header .menu-btn:checked ~ .menu {
+    max-height: 200px; 
+    padding-top: 16px;
+    padding-bottom: 8px;
   }
 
   .header li {
     width: 100%;
-    text-align: left;
   }
 
   .header li a {
-    padding: 12px 16px; // Chunkier tap targets conforming to mobile human interface guidelines
+    padding: 12px 16px;
     width: 100%;
     box-sizing: border-box;
+    font-size: 15px;
   }
 }
