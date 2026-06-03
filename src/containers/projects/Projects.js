@@ -42,8 +42,9 @@ export default function Projects({ setPage }) {
   };
 
   // --- FIXED: Push history state to keep the browser back button working ---
-  const handleViewAllApps = () => {
-    window.history.pushState({ page: "all-apps" }, "", "");
+ const handleViewAllApps = () => {
+    // Pushing an explicit hash parameter guarantees the browser stack logs it
+    window.history.pushState({ page: "all-apps" }, "", "#projects-view");
     setPage("all-apps"); 
     window.scrollTo(0, 0);
   };
