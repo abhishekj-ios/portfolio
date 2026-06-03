@@ -47,7 +47,7 @@ const Main = ({ setPage }) => {
           <SplashScreen />
         ) : (
           <>
-            <Header />
+            <Header setPage={setPage}/>
             <Greeting setPage={setPage} />
             <WhatIDo />
             <StackProgress />
