@@ -186,7 +186,7 @@ export default function Projects({ setPage }) {
                       {proj.summary}
                     </p>
 
-                    {/* PILL STACKS TRACK - Array sliced to 6 elements to guarantee exactly two rows with zero truncation */}
+                    {/* PILL STACKS TRACK */}
                     <div style={{ 
                       display: "flex", 
                       flexWrap: "wrap", 
