@@ -6,23 +6,29 @@ import StyleContext from "../../contexts/StyleContext";
 function Header() {
   const { isDark } = useContext(StyleContext);
 
+  // Define the premium theme styles so they can be injected into both Headroom and the header element
+  const headerBackground = isDark ? "rgba(15, 12, 32, 0.75)" : "rgba(255, 255, 255, 0.85)";
+  const glassBlur = "blur(20px)";
+
   return (
-    <Headroom>
+    <Headroom
+      // FORCE HEADROOM WRAPPER MATCH: This ensures react-headroom doesn't render a solid or clear block
+      wrapperStyle={{
+        backgroundColor: headerBackground,
+        backdropFilter: glassBlur,
+        WebkitBackdropFilter: glassBlur,
+        transition: "all 0.3s ease"
+      }}
+    >
       <header 
         className={isDark ? "dark-menu header" : "header"}
         style={{
           padding: "18px 0", 
-          // FIXED: Matches the exact top color profile (#0f0c20) of your hero gradient with an alpha mask
-          backgroundColor: isDark ? "rgba(15, 12, 32, 0.75)" : "rgba(255, 255, 255, 0.85)", 
-          backdropFilter: "blur(20px)", 
-          WebkitBackdropFilter: "blur(20px)", 
-          // A subtle divider that won't clash with the deep violet background canvas
+          backgroundColor: headerBackground, 
+          backdropFilter: glassBlur, 
+          WebkitBackdropFilter: glassBlur, 
           borderBottom: isDark ? "1px solid rgba(255, 255, 255, 0.04)" : "1px solid rgba(0, 0, 0, 0.05)",
-          position: "fixed",
-          top: 0,
-          left: 0,
           width: "100%",
-          zIndex: 1000,
           transition: "all 0.3s ease"
         }}
       >
@@ -97,7 +103,7 @@ function Header() {
                   letterSpacing: "-0.1px",
                   transition: "color 0.2s ease"
                 }}
-                onMouseEnter={(e) => e.currentTarget.style.color = "#2f80ed"} // Matches your primary button gradient blue
+                onMouseEnter={(e) => e.currentTarget.style.color = "#2f80ed"} 
                 onMouseLeave={(e) => e.currentTarget.style.color = isDark ? "rgba(255, 255, 255, 0.85)" : "rgba(0, 0, 0, 0.8)"}
               >
                 Skills
