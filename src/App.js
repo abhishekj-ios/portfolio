@@ -34,14 +34,16 @@ function App() {
   // ----------------------------------------
 
   return (
-    <div>
-      {page === "home" ? (
+  <div>
+    {page === "home" ? (
+      <>
+        <Header setPage={setPage} />
         <Main setPage={setPage} />
-      ) : (
-        <AllApps setPage={setPage} />
-      )}
-    </div>
-  );
-}
+      </>
+    ) : (
+      <AllApps setPage={setPage} />
+    )}
+  </div>
+);
 
 export default App;
