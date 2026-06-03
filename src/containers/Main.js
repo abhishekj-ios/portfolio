@@ -26,40 +26,7 @@ const Main = ({ setPage }) => {
   const [isDark, setIsDark] = useLocalStorage("isDark", darkPref.matches);
   const [isShowingSplashAnimation, setIsShowingSplashAnimation] = useState(true);
 
-  // --- GUARANTEED ROUTING MECHANISM ---
-  useEffect(() => {
-    // 1. Force establish a clean base history step for the home screen if it doesn't exist
-    if (!window.history.state) {
-      window.history.replaceState({ page: "home" }, "", " ");
-    }
-
-    const handlePopState = (event) => {
-      // Direct catch: Check both state payloads and the URL hash
-      if (event.state && event.state.page === "all-apps") {
-        setPage("all-apps");
-      } else if (window.location.hash.includes("#projects-view")) {
-        setPage("all-apps");
-      } else {
-        // Fall back to home and completely strip any remaining hash extensions safely
-        setPage("home");
-        if (window.location.hash) {
-          window.history.replaceState({ page: "home" }, "", " ");
-        }
-      }
-    };
-
-    // Listen for back/forward events
-    window.addEventListener("popstate", handlePopState);
-    
-    // Also listen to direct hash mutations as a secondary guard layer
-    window.addEventListener("hashchange", handlePopState);
-
-    return () => {
-      window.removeEventListener("popstate", handlePopState);
-      window.removeEventListener("hashchange", handlePopState);
-    };
-  }, [setPage]);
-
+  // Purely manage the splash animation execution tracking loop here
   useEffect(() => {
     if (splashScreen.enabled) {
       const splashTimer = setTimeout(() => {
