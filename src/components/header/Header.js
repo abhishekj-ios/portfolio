@@ -100,7 +100,9 @@ function Header({ setPage }) {
               onClick={navigateToAllProjects}
               style={{ 
                 color: permanentWhite, 
-                cursor: "pointer" // Make it look like a link
+                cursor: "pointer",
+                fontSize: "inherit", 
+                fontWeight: "inherit"
               }}
               onMouseEnter={(e) => e.currentTarget.style.color = "#2f80ed"}
               onMouseLeave={(e) => e.currentTarget.style.color = permanentWhite}
