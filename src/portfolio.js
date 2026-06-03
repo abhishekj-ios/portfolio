@@ -24,25 +24,25 @@ const illustration = {
 };
 
 const greeting = {
-  username: "Abhishek",
-  title: "Hello, I'm Abhishek",
-  subTitle: "Senior iOS Developer",
-  resumeSectionDescription: "With 12+ years of expertise in Swift and SwiftUI, I design and deliver scalable, high-performance mobile applications. My focus is on clean architecture, maintainability, and user-centric design.",
-  resumeLink: "https://drive.google.com/file/d/14qK3Vm5Ud6vJEbKiPpRGzSQ_EsdM7wvk/view?usp=sharing",
-  displayGreeting: true 
+  username: "Abhishek",
+  title: "Senior iOS Developer", // Cleaned up to match your new executive title layout
+  subTitle: "Senior iOS Developer",
+  // Updated description string with your new, refined bio copy
+  resumeSectionDescription: "I design, architect, and ship high-performance, native iOS applications. Focused on clean code architecture, scalable performance, and user-centric design, I build robust mobile ecosystems that balance technical excellence with exceptional user experiences.",
+  resumeLink: "https://drive.google.com/file/d/14qK3Vm5Ud6vJEbKiPpRGzSQ_EsdM7wvk/view?usp=sharing",
+  displayGreeting: true 
 };
 
 // Social Media Links
-
 const socialMediaLinks = {
-  github: "",
-  linkedin: "https://www.linkedin.com/in/abhishek-j-ios", // Update with your exact URL slug if different
-  gmail: "kailasj281@gmail.com", // Replace with your primary professional email
-  gitlab: "",
-  facebook: "",
-  medium: "https://medium.com/@abhishek_j",
-  stackoverflow: "",
-  display: true // Set true to display this section, defaults to false
+  github: "",
+  linkedin: "https://www.linkedin.com/in/abhishek-j-ios", 
+  gmail: "kailasj281@gmail.com", 
+  gitlab: "",
+  facebook: "",
+  medium: "https://medium.com/@abhishek_j",
+  stackoverflow: "",
+  display: true 
 };
 
 // Skills Section
