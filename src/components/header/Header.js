@@ -65,7 +65,7 @@ function Header() {
                 onMouseEnter={(e) => e.currentTarget.style.color = "#2f80ed"} 
                 onMouseLeave={(e) => e.currentTarget.style.color = permanentWhite}
               >
-                Skills
+                Expertise
               </a>
             </li>
             <li>
@@ -76,7 +76,7 @@ function Header() {
                 onMouseEnter={(e) => e.currentTarget.style.color = "#2f80ed"}
                 onMouseLeave={(e) => e.currentTarget.style.color = permanentWhite}
               >
-                Recents
+                Recent Projects
               </a>
             </li>
             <li>
@@ -87,7 +87,7 @@ function Header() {
                 onMouseEnter={(e) => e.currentTarget.style.color = "#2f80ed"}
                 onMouseLeave={(e) => e.currentTarget.style.color = permanentWhite}
               >
-                Experience
+                Work Experience
               </a>
             </li>
           </ul>
