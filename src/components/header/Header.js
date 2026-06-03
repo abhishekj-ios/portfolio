@@ -94,7 +94,6 @@ function Header() {
 
         </div>
       </header>
-    </Headroom>
   );
 }
 
