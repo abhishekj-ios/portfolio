@@ -46,7 +46,7 @@ export default function Projects({ setPage }) {
     // Pushing an explicit hash parameter guarantees the browser stack logs it
     window.history.pushState({ page: "all-apps" }, "", "#projects-view");
     setPage("all-apps"); 
-    window.scrollTo(0, 0);
+    //window.scrollTo(0, 0);
   };
 
   return (
