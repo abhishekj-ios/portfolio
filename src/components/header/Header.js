@@ -11,17 +11,27 @@ function Header() {
       <header 
         className={isDark ? "dark-menu header" : "header"}
         style={{
-          padding: "24px 0", // Premium spacious padding
-          backgroundColor: isDark ? "#000000" : "#ffffff",
-          transition: "all 0.2s ease-in-out"
+          padding: "18px 0", 
+          // FIXED: Matches the exact top color profile (#0f0c20) of your hero gradient with an alpha mask
+          backgroundColor: isDark ? "rgba(15, 12, 32, 0.75)" : "rgba(255, 255, 255, 0.85)", 
+          backdropFilter: "blur(20px)", 
+          WebkitBackdropFilter: "blur(20px)", 
+          // A subtle divider that won't clash with the deep violet background canvas
+          borderBottom: isDark ? "1px solid rgba(255, 255, 255, 0.04)" : "1px solid rgba(0, 0, 0, 0.05)",
+          position: "fixed",
+          top: 0,
+          left: 0,
+          width: "100%",
+          zIndex: 1000,
+          transition: "all 0.3s ease"
         }}
       >
         {/* CONTAINER WRAPPER */}
         <div 
           style={{
-            maxWidth: "1200px",
+            maxWidth: "1340px", 
             margin: "0 auto",
-            padding: "0 40px",
+            padding: "0 6%", 
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
@@ -30,7 +40,7 @@ function Header() {
           }}
         >
           
-          {/* --- CHANGED: Clean Typography Logo (Abhishek J) --- */}
+          {/* BRAND NAME LOGO */}
           <div 
             className="logo" 
             style={{ 
@@ -43,9 +53,9 @@ function Header() {
             <span 
               style={{
                 fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
-                fontWeight: "700",       // Clean, professional bold weight
-                fontSize: "20px",         // Scaled perfectly for the full string length
-                letterSpacing: "-0.2px",  // Slightly tighter kerning for a crisp modern look
+                fontWeight: "600",       
+                fontSize: "19px",         
+                letterSpacing: "-0.3px",  
                 color: isDark ? "#ffffff" : "#1d1d1f",
                 lineHeight: "1"
               }}
@@ -53,7 +63,6 @@ function Header() {
               Abhishek J
             </span>
           </div>
-          {/* ---------------------------------------------------- */}
 
           {/* MOBILE TOGGLE MECHANICS */}
           <input className="menu-btn" type="checkbox" id="menu-btn" />
@@ -70,7 +79,7 @@ function Header() {
             className={isDark ? "dark-menu menu" : "menu"}
             style={{
               display: "flex",
-              gap: "32px",
+              gap: "36px", 
               listStyle: "none",
               margin: 0,
               padding: 0,
@@ -82,10 +91,14 @@ function Header() {
                 href="#whatIDo" 
                 style={{ 
                   textDecoration: "none", 
-                  fontSize: "15px", 
+                  fontSize: "14px", 
                   fontWeight: "500",
-                  letterSpacing: "-0.1px"
+                  color: isDark ? "rgba(255, 255, 255, 0.85)" : "rgba(0, 0, 0, 0.8)",
+                  letterSpacing: "-0.1px",
+                  transition: "color 0.2s ease"
                 }}
+                onMouseEnter={(e) => e.currentTarget.style.color = "#2f80ed"} // Matches your primary button gradient blue
+                onMouseLeave={(e) => e.currentTarget.style.color = isDark ? "rgba(255, 255, 255, 0.85)" : "rgba(0, 0, 0, 0.8)"}
               >
                 Skills
               </a>
@@ -95,10 +108,14 @@ function Header() {
                 href="#opensource" 
                 style={{ 
                   textDecoration: "none", 
-                  fontSize: "15px", 
+                  fontSize: "14px", 
                   fontWeight: "500",
-                  letterSpacing: "-0.1px"
+                  color: isDark ? "rgba(255, 255, 255, 0.85)" : "rgba(0, 0, 0, 0.8)",
+                  letterSpacing: "-0.1px",
+                  transition: "color 0.2s ease"
                 }}
+                onMouseEnter={(e) => e.currentTarget.style.color = "#2f80ed"}
+                onMouseLeave={(e) => e.currentTarget.style.color = isDark ? "rgba(255, 255, 255, 0.85)" : "rgba(0, 0, 0, 0.8)"}
               >
                 Recents
               </a>
@@ -108,10 +125,14 @@ function Header() {
                 href="#experience" 
                 style={{ 
                   textDecoration: "none", 
-                  fontSize: "15px", 
+                  fontSize: "14px", 
                   fontWeight: "500",
-                  letterSpacing: "-0.1px"
+                  color: isDark ? "rgba(255, 255, 255, 0.85)" : "rgba(0, 0, 0, 0.8)",
+                  letterSpacing: "-0.1px",
+                  transition: "color 0.2s ease"
                 }}
+                onMouseEnter={(e) => e.currentTarget.style.color = "#2f80ed"}
+                onMouseLeave={(e) => e.currentTarget.style.color = isDark ? "rgba(255, 255, 255, 0.85)" : "rgba(0, 0, 0, 0.8)"}
               >
                 Experience
               </a>
