@@ -33,7 +33,7 @@ function Header() {
         </label>
         <ul className={isDark ? "dark-menu menu" : "menu"}>
           <li>
-            <a href="#skills">Skills</a>
+            <a href="#whatIDo">Skills</a>
           </li>
           <li>
             <a href="#opensource">Recents</a>
