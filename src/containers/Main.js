@@ -27,36 +27,37 @@ const Main = ({ setPage }) => {
   const [isShowingSplashAnimation, setIsShowingSplashAnimation] =
     useState(true);
 
-  // --- NEW: Fix Browser Back Button History ---
+  // --- FIXED: Combined popstate listener and splash end synchronization ---
   useEffect(() => {
-    // 1. Ensure the current state is tracked as the 'home' view
-    window.history.replaceState({ page: "home" }, "", "");
-
-    // 2. Listen for the browser back/forward buttons
     const handlePopState = (event) => {
       if (event.state && event.state.page) {
         setPage(event.state.page);
       } else {
-        setPage("home"); // Fallback safety
+        setPage("home");
       }
     };
 
     window.addEventListener("popstate", handlePopState);
     return () => window.removeEventListener("popstate", handlePopState);
   }, [setPage]);
-  // --------------------------------------------
 
   useEffect(() => {
     if (splashScreen.enabled) {
-      const splashTimer = setTimeout(
-        () => setIsShowingSplashAnimation(false),
-        splashScreen.duration
-      );
+      const splashTimer = setTimeout(() => {
+        setIsShowingSplashAnimation(false);
+        // Force establish 'home' state into the browser pipeline right as the splash drops
+        window.history.replaceState({ page: "home" }, "", "");
+      }, splashScreen.duration);
+      
       return () => {
         clearTimeout(splashTimer);
       };
+    } else {
+      // If splash is turned off completely, set home immediately
+      window.history.replaceState({ page: "home" }, "", "");
     }
   }, []);
+  // ------------------------------------------------------------------------
 
   const changeTheme = () => {
     setIsDark(!isDark);
