@@ -140,15 +140,16 @@
     align-items: stretch !important;
     width: 100%;
     gap: 4px !important;
-    max-height: 0;
+    
+    /* FIX: Force height to 0 explicitly when not checked */
+    height: 0;
     overflow: hidden;
-    transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1), padding 0.3s ease;
+    transition: height 0.3s ease; 
     padding: 0;
     background: transparent;
   }
-
-  .header .menu-btn:checked ~ .menu {
-    max-height: 220px; 
+ .header .menu-btn:checked ~ .menu {
+    height: 200px; 
     padding-top: 16px;
     padding-bottom: 8px;
   }
