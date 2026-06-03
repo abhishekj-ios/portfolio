@@ -2,7 +2,7 @@ import React from "react";
 import Headroom from "react-headroom";
 import "./Header.scss";
 
-function Header() {
+function Header({ setPage }) {
   const headerBackground = "rgba(15, 12, 32, 0.75)";
   const glassBlur = "blur(20px)";
   const permanentWhite = "#ffffff"; // Locks text color to pure white universally
@@ -11,7 +11,12 @@ function Header() {
     const checkbox = document.getElementById("menu-btn");
     if (checkbox) checkbox.checked = false;
   };
-
+  const navigateToAllProjects = () => {
+    closeMenu(); // Close mobile menu first
+    window.history.pushState({ page: "all-apps" }, "", "#projects-view");
+    if (setPage) setPage("all-apps"); 
+    window.scrollTo(0, 0);
+  };
   return (
       <header 
         className="dark-menu header"
@@ -90,6 +95,19 @@ function Header() {
                 Work Experience
               </a>
             </li>
+            <li>
+            <span 
+              onClick={navigateToAllProjects}
+              style={{ 
+                color: permanentWhite, 
+                cursor: "pointer" // Make it look like a link
+              }}
+              onMouseEnter={(e) => e.currentTarget.style.color = "#2f80ed"}
+              onMouseLeave={(e) => e.currentTarget.style.color = permanentWhite}
+            >
+              All Projects
+            </span>
+          </li>
           </ul>
 
         </div>
