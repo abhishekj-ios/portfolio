@@ -1,7 +1,6 @@
 import React from "react";
 import "./Greeting.scss";
 import SocialMedia from "../../components/socialMedia/SocialMedia";
-import Button from "../../components/button/Button";
 import { greeting } from "../../portfolio";
 import { Fade } from "react-reveal";
 
@@ -20,7 +19,7 @@ export default function Greeting({ setPage }) {
       <div className="greet-main" id="greeting">
         <div className="greeting-container">
           
-          {/* MAIN HEADER AND BIO */}
+          {/* CONTENT HEADER BLOCK */}
           <h1 className="greeting-title">
             Senior iOS Developer
           </h1>
@@ -31,7 +30,7 @@ export default function Greeting({ setPage }) {
             I build robust mobile ecosystems that balance technical excellence with exceptional user experiences.
           </p>
           
-          {/* --- REORDERED: Metrics Row now displays proudly above actions --- */}
+          {/* --- REORDERED DATA METRICS GRID --- */}
           <div className="metrics-row-split">
             <div className="metric-column-item">
               <h3>13 Years</h3>
@@ -39,32 +38,40 @@ export default function Greeting({ setPage }) {
             </div>
 
             <div className="metric-column-item">
-              <h3>25+ Apps</h3>
-              <p>Consulted & Architected</p>
-            </div>
-
-            <div className="metric-column-item">
               <h3>15 Apps</h3>
               <p>Solo App Store Submissions</p>
             </div>
+
+            <div className="metric-column-item">
+              <h3>20+ Apps</h3>
+              <p>Consulted & Architected</p>
+            </div>
           </div>
 
-          {/* CALL TO ACTION BUTTONS */}
+          {/* --- NATIVE BALANCED ACTION BUTTON CONTROLS --- */}
           <div className="button-greeting-div">
             <div className="primary-btn-wrapper">
               <button 
                 className="main-button" 
                 onClick={handleViewProjectsClick}
               >
-                VIEW MY PROJECTS
+                View My Projects
               </button>
             </div>
+            
             <div className="secondary-btn-wrapper">
-              <Button text="DOWNLOAD RESUME" newTab={true} href={greeting.resumeLink} />
+              <a 
+                className="template-download-button"
+                href={greeting.resumeLink}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Download Resume
+              </a>
             </div>
           </div>
           
-          {/* SOCIAL ACCOUNTS CHANNEL */}
+          {/* SOCIAL FOOTPRINT NETWORKS */}
           <SocialMedia />
 
         </div>
