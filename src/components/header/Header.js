@@ -95,7 +95,7 @@ function Header({ setPage }) {
                 Work Experience
               </a>
             </li>
-/*<li>
+{/*<li>
   <span 
     onClick={navigateToAllProjects}
     style={{ 
@@ -111,7 +111,7 @@ function Header({ setPage }) {
   >
     All Projects
   </span>
-</li>*/
+</li>*/}
           </ul>
 
         </div>
