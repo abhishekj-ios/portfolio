@@ -20,7 +20,7 @@
   text-align: center;  
 
   // FIXED: Adds clear vertical clearance so the title doesn't hide behind the fixed header
-  margin-top: 60px; 
+  margin-top: 80px; 
 }
 
 .greeting-title {
@@ -128,7 +128,7 @@
   .greeting-container {
     padding: 0 20px; 
     // Tighter top offset to save premium screen real estate on mobile devices
-    margin-top: 40px; 
+    margin-top: 60px; 
   }
   .greeting-title {
     font-size: 38px;
