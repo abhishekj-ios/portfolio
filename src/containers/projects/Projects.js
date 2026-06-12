@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext, useEffect, useRef } from "react";
 import "./Project.scss"; 
 import { bigProjects } from "../../portfolio";
 import StyleContext from "../../contexts/StyleContext";
@@ -7,6 +7,32 @@ export default function Projects({ setPage }) {
   const { isDark } = useContext(StyleContext);
   const [activeModalProject, setActiveModalProject] = useState(null);
   const [preloadedIcons, setPreloadedIcons] = useState({});
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef(null);
+
+  // Scroll Trigger Intersection Observer Definition
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target); // Animates once and stays solid
+        }
+      },
+      {
+        root: null, // references viewport window
+        threshold: 0.12 // fires when 12% of the element is inside the screen bounds
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) observer.disconnect();
+    };
+  }, []);
 
   useEffect(() => {
     if (bigProjects && bigProjects.projects) {
@@ -47,10 +73,20 @@ export default function Projects({ setPage }) {
   };
 
   return (
-    <div className="main" id="opensource" style={{ padding: "90px 0", width: "100%", backgroundColor: isDark ? "#0f0f11" : "#f5f5f7", fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}>
+    <div 
+      ref={sectionRef}
+      className={`main scroll-reveal-section ${isVisible ? "reveal-visible" : ""}`}
+      id="opensource" 
+      style={{ 
+        padding: "90px 0", 
+        width: "100%", 
+        backgroundColor: isDark ? "#0f0f11" : "#f5f5f7", 
+        fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' 
+      }}
+    >
       <div className="projects-container-wrapper" style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px" }}>
         
-        {/* HEADER SECTION (CLEANED & OPTIMIZED UP TOP) */}
+        {/* HEADER SECTION */}
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", borderBottom: isDark ? "1px solid rgba(255, 255, 255, 0.08)" : "1px solid rgba(0, 0, 0, 0.08)", paddingBottom: "24px", marginBottom: "48px" }}>
           <div style={{ textAlign: "left" }}>
             <h1 className={isDark ? "dark-mode project-title" : "project-title"} style={{ fontSize: "34px", fontWeight: "700", letterSpacing: "-0.5px", margin: "0 0 8px 0", color: isDark ? "#ffffff" : "#1d1d1f" }}>
@@ -114,14 +150,13 @@ export default function Projects({ setPage }) {
                   <div>
                     <h2 style={{ margin: "0 0 8px 0", fontSize: "24px", fontWeight: "700", letterSpacing: "-0.3px", color: isDark ? "#ffffff" : "#1d1d1f" }}>{proj.projectName.split(" — ")[0]}</h2>
                     <div style={{ fontSize: "11px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.5px", color: isDark ? "#86868b" : "#6e6e73", marginBottom: "16px" }}>{proj.architecture.split(" with ")[0]}</div>
-                    <p style={{ fontSize: "14.5px", lineHeight: "1.6", color: isDark ? "#ceceeed" : "#424245", margin: "0 0 20px 0" }}>{proj.summary}</p>
+                    <p style={{ fontSize: "14.5px", lineHeight: "1.6", color: isDark ? "#e1e1e6" : "#424245", margin: "0 0 20px 0" }}>{proj.summary}</p>
                     <div style={{ display: "flex", flexWrap: "wrap", gap: "8px", marginBottom: "24px" }}>
                       {proj.techStack.slice(0, 6).map((tech, idx) => (
                         <span key={idx} style={{ fontSize: "11px", padding: "6px 14px", borderRadius: "20px", backgroundColor: isDark ? "rgba(255, 255, 255, 0.06)" : "rgba(0, 0, 0, 0.04)", color: isDark ? "#e1e1e6" : "#1d1d1f", border: isDark ? "1px solid rgba(255, 255, 255, 0.1)" : "1px solid rgba(0, 0, 0, 0.05)", fontWeight: "600" }}>{tech}</span>
                       ))}
                     </div>
                   </div>
-                  {/* MODERN UPDATED SEE MORE BUTTON */}
                   <button 
                     onClick={() => openModal(proj)} 
                     className="premium-btn"
