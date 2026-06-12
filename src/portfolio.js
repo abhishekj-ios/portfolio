@@ -29,7 +29,7 @@ const greeting = {
   subTitle: "Senior iOS Developer",
   // Updated description string with your new, refined bio copy
   resumeSectionDescription: "I design, architect, and ship high-performance, native iOS applications. Focused on clean code architecture, scalable performance, and user-centric design, I build robust mobile ecosystems that balance technical excellence with exceptional user experiences.",
-  resumeLink: "https://drive.google.com/file/d/14qK3Vm5Ud6vJEbKiPpRGzSQ_EsdM7wvk/view?usp=sharing",
+  resumeLink: "https://drive.google.com/file/d/1X6h0bgx2R_jLYQfEQm_nFucBNjAXjAnd/view?usp=share_link",
   displayGreeting: true 
 };
 
