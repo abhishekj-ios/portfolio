@@ -1,28 +1,98 @@
 /* ==========================================================================
-   Structural Wrapper & Typography (Fixes Edge-Bleeding & Titles Centering)
+   Structural Wrapper & Typography Layout
    ========================================================================== */
 .projects-container-wrapper {
   width: 100%;
-  max-width: 1140px; 
+  max-width: 1200px; 
   margin: 0 auto;    
   padding: 0 24px;   
   box-sizing: border-box;
 }
 
 .project-title {
-  text-align: center; 
-  margin-top: 0;
-  margin-bottom: 12px;
+  font-size: 28px;
   font-weight: 700;
-  background: none !important;        
-  background-color: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
+  letter-spacing: -0.5px;
+  margin: 0;
 }
 
 /* ==========================================================================
-   Dynamic Scroll Animation Utility Classes
+   Dynamic Responsive Header Structural Setups
    ========================================================================== */
+.projects-responsive-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+  margin-bottom: 40px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+
+  &.dark-mode {
+    border-bottom-color: rgba(255, 255, 255, 0.08);
+  }
+}
+
+.see-all-apps-header-btn {
+  background-color: transparent;
+  border: none;
+  color: #2563eb;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  transition: opacity 0.2s ease;
+
+  &:hover { opacity: 0.8; }
+}
+
+/* ==========================================================================
+   Responsive Multi-Device Feature Apps Horizontal & Grid Matrix Layouts
+   ========================================================================== */
+.featured-apps-scroll-container {
+  display: flex;
+  gap: 28px;
+  overflow-x: auto;
+  padding-bottom: 32px;
+  padding-top: 4px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.showcase-card-node {
+  flex: 0 0 auto;
+  width: 85vw;
+  max-width: 360px;
+  scroll-snap-align: center;
+}
+
+.premium-btn {
+  width: 100%; 
+  padding: 13px; 
+  border-radius: 10px; 
+  border: 1px solid rgba(0, 0, 0, 0.08); 
+  background-color: rgba(0, 0, 0, 0.02); 
+  color: #1d1d1f; 
+  font-size: 14px; 
+  font-weight: 600; 
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.08);
+    border-color: rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* Scroll Animation Hooks */
 .scroll-reveal-section {
   opacity: 0;
   transform: translateY(30px);
@@ -37,136 +107,24 @@
 }
 
 /* ==========================================================================
-   Premium Structural Layout Grid Cards (Matched to Skills.png Palette)
-   ========================================================================== */
-.repo-cards-div-main {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 24px;
-  width: 100%;
-}
-
-.architectural-premium-card {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 14px;
-  padding: 28px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  cursor: pointer;
-  min-height: 260px;
-  box-sizing: border-box;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
-              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
-              border-color 0.3s ease;
-
-  &:hover {
-    transform: translateY(-6px);
-    border-color: #cbd5e1;
-    box-shadow: 0 20px 40px rgba(17, 24, 39, 0.05);
-
-    .blueprint-action-link {
-      color: #0f172a;
-      .arrow-motion { transform: translateX(4px); }
-    }
-  }
-
-  .architecture-tag {
-    font-size: 11px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: #2563eb; 
-    display: inline-block;
-    margin-bottom: 8px;
-  }
-
-  .project-display-name {
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 1.3;
-    margin: 0 0 12px 0;
-    color: #1e293b;
-  }
-
-  .project-display-summary {
-    font-size: 14px;
-    line-height: 1.6;
-    color: #475569;
-    margin: 0 0 24px 0;
-    opacity: 0.95;
-  }
-
-  .card-bottom-meta {
-    display: flex;
-    flex-direction: column; 
-    gap: 16px;              
-    padding-top: 16px;
-    border-top: 1px solid #f1f5f9;
-    margin-top: auto;       
-    width: 100%;
-    box-sizing: border-box;
-  }
-
-  .mini-tech-preview {
-    display: flex;
-    flex-wrap: wrap;        
-    gap: 6px;
-    width: 100%;
-
-    .preview-pill {
-      font-size: 11px;
-      font-weight: 500;
-      background: #f8fafc;
-      color: #64748b;
-      padding: 4px 10px;
-      border-radius: 6px;
-      border: 1px solid #e2e8f0;
-      white-space: nowrap;  
-    }
-    .preview-pill-more {
-      font-size: 11px;
-      font-weight: 600;
-      color: #94a3b8;
-      padding-left: 2px;
-      align-self: center;
-    }
-  }
-
-  /* Dark Mode Intercepts - Synchronized to Site Design */
-  &.dark-mode {
-    background: #17191e; 
-    border: 1px solid rgba(255, 255, 255, 0.05);
-
-    &:hover {
-      border-color: rgba(255, 255, 255, 0.15);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-    }
-
-    .project-display-name { color: #f8fafc; }
-    .project-display-summary { color: #94a3b8; }
-    .architecture-tag { color: #60a5fa; }
-    .card-bottom-meta { border-top-color: #1e2533; }
-  }
-}
-
-/* ==========================================================================
-   Full Screen Immersive Viewport Fixed Overlays (Fixes Mobile Center Bias)
+   Full Viewport Forced Overlay (Isolated Context Layout Blocks)
    ========================================================================== */
 .modal-backdrop {
-  position: fixed; // FIXED: Anchored strictly to the viewport window bounds
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(11, 12, 15, 0.75); // Darkened slightly for enhanced content contrast
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  z-index: 99999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  position: fixed !important; 
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  background-color: rgba(11, 12, 15, 0.8) !important; 
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  z-index: 999999 !important; 
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 20px;
   box-sizing: border-box;
 }
 
@@ -174,83 +132,166 @@
   background: #ffffff;
   color: #111827;
   width: 100%;
-  max-width: 640px;
-  border-radius: 20px;
-  position: relative;
+  max-width: 580px;
+  max-height: 85vh; // Keeps it within display screen space limits
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
   box-sizing: border-box;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+  overflow: hidden; // Ensures contents scroll internally inside body element
   animation: modalScaleEntrance 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 
   &.dark-mode {
-    background: #17191e;
+    background: #1c1c1e;
     color: #f3f4f6;
     border: 1px solid rgba(255, 255, 255, 0.08);
 
-    .modal-section h3 { 
-      color: #86868b; 
+    .modal-sticky-header {
+      background: #1c1c1e;
+      border-bottom-color: rgba(255, 255, 255, 0.08);
+      h2 { color: #ffffff; }
     }
-    .tech-pill { 
-      background: rgba(255, 255, 255, 0.04); 
-      color: #94a3b8; 
-      border: 1px solid rgba(255, 255, 255, 0.05); 
-    }
-    ul li::before { 
-      color: #86868b; 
-    }
+    .modal-architecture-badge { color: #60a5fa; background: rgba(96, 165, 250, 0.1); }
+    .modal-section h3 { color: #86868b; }
+    .tech-pill { background: rgba(255, 255, 255, 0.05); color: #cbd5e1; border-color: rgba(255, 255, 255, 0.05); }
+    .modal-scrolling-body-content ul li { color: #cbd5e1; }
   }
 }
 
-.modal-body {
-  padding: 0;
-  
+/* Sticky Header Ring Inside Modal Container */
+.modal-sticky-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 24px 28px;
+  background: #ffffff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  z-index: 10;
+
+  h2 {
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0 0 6px 0;
+    color: #1d1d1f;
+    letter-spacing: -0.3px;
+  }
+}
+
+.modal-architecture-badge {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #2563eb;
+  background: rgba(37, 99, 235, 0.08);
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+.modal-close-round-btn {
+  background: rgba(0, 0, 0, 0.05);
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+
+  &:hover { transform: scale(1.05); }
+}
+
+/* Explicit Scrolling Boundary Container */
+.modal-scrolling-body-content {
+  padding: 28px;
+  overflow-y: auto; // This forces the long detail fields to stay perfectly scrollable
+  box-sizing: border-box;
+  -webkit-overflow-scrolling: touch;
+
   .modal-section {
     margin-bottom: 24px;
-    
+
     h3 {
-      font-size: 14px;
+      font-size: 12px;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.05em;
-      margin: 0 0 8px 0;
+      margin: 0 0 10px 0;
       color: #6e6e73;
     }
-    
+
     p {
       margin: 0;
+      font-size: 14px;
       line-height: 1.6;
     }
-    
+
     .modal-tech-pills {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      
+
       .tech-pill {
+        font-size: 11px;
+        padding: 5px 12px;
         border-radius: 6px;
+        background: #f5f5f7;
+        color: #1d1d1f;
+        border: 1px solid rgba(0, 0, 0, 0.04);
         font-weight: 500;
       }
     }
-    
+
     ul {
-      padding-left: 16px;
+      padding-left: 18px;
       margin: 0;
-      
+
       li {
-        margin-bottom: 8px;
-        line-height: 1.5;
+        font-size: 14px;
+        line-height: 1.6;
+        margin-bottom: 10px;
+        color: #424245;
         &:last-child { margin-bottom: 0; }
       }
     }
   }
 }
 
+/* ==========================================================================
+   Media Queries Breakdown Logic
+   ========================================================================== */
+@media (min-width: 768px) {
+  .project-title { font-size: 36px; }
+  
+  .projects-responsive-header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    text-align: left;
+  }
+}
+
+@media (min-width: 992px) {
+  .featured-apps-scroll-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    overflow-x: visible;
+    padding-bottom: 0;
+  }
+  .showcase-card-node {
+    width: auto;
+    scroll-snap-align: none;
+  }
+}
+
 @keyframes modalScaleEntrance {
-  from {
-    opacity: 0;
-    transform: scale(0.95) translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-  }
+  from { opacity: 0; transform: scale(0.96) translateY(8px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
 }
