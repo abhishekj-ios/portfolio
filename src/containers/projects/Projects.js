@@ -66,7 +66,7 @@ export default function Projects({ setPage }) {
       style={{ 
         padding: "90px 0", 
         width: "100%", 
-        backgroundColor: isDark ? "#111215" : "#f5f5f7", // Matches the exact dark slate from Skills.png
+        backgroundColor: isDark ? "#222223" : "#222223", // Matches the exact dark slate from Skills.png
         fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' 
       }}
     >
