@@ -134,7 +134,7 @@
     }
   }
 
-  /* Dark Mode Intercepts */
+  /* Dark Mode Intercepts - Synchronized to Site Design */
   &.dark-mode {
     background: #17191e; 
     border: 1px solid rgba(255, 255, 255, 0.05);
@@ -152,23 +152,21 @@
 }
 
 /* ==========================================================================
-   Full Screen Modal (Fix applied)
+   Full Screen Immersive Viewport Fixed Overlays (Fixes Mobile Center Bias)
    ========================================================================== */
 .modal-backdrop {
-  position: fixed;
+  position: fixed; // FIXED: Anchored strictly to the viewport window bounds
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(11, 12, 15, 0.75);
+  background-color: rgba(11, 12, 15, 0.75); // Darkened slightly for enhanced content contrast
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   z-index: 99999;
   display: flex;
+  align-items: center;
   justify-content: center;
-  align-items: flex-start;   /* FIX: align to top */
-  overflow-y: auto;          /* FIX: allow scroll */
-  padding: 40px 16px;        /* FIX: spacing from top */
   box-sizing: border-box;
 }
 
@@ -177,26 +175,73 @@
   color: #111827;
   width: 100%;
   max-width: 640px;
-  max-height: 90vh;          /* FIX: fit viewport */
-  overflow-y: auto;          /* FIX: scroll inside */
   border-radius: 20px;
   position: relative;
   box-sizing: border-box;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
   animation: modalScaleEntrance 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  padding: 28px 24px;
-  display: flex;
-  flex-direction: column;
 
   &.dark-mode {
     background: #17191e;
     color: #f3f4f6;
     border: 1px solid rgba(255, 255, 255, 0.08);
+
+    .modal-section h3 { 
+      color: #86868b; 
+    }
+    .tech-pill { 
+      background: rgba(255, 255, 255, 0.04); 
+      color: #94a3b8; 
+      border: 1px solid rgba(255, 255, 255, 0.05); 
+    }
+    ul li::before { 
+      color: #86868b; 
+    }
   }
 }
 
 .modal-body {
   padding: 0;
+  
+  .modal-section {
+    margin-bottom: 24px;
+    
+    h3 {
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin: 0 0 8px 0;
+      color: #6e6e73;
+    }
+    
+    p {
+      margin: 0;
+      line-height: 1.6;
+    }
+    
+    .modal-tech-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      
+      .tech-pill {
+        border-radius: 6px;
+        font-weight: 500;
+      }
+    }
+    
+    ul {
+      padding-left: 16px;
+      margin: 0;
+      
+      li {
+        margin-bottom: 8px;
+        line-height: 1.5;
+        &:last-child { margin-bottom: 0; }
+      }
+    }
+  }
 }
 
 @keyframes modalScaleEntrance {
