@@ -10,28 +10,19 @@ export default function Projects({ setPage }) {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
 
-  // Scroll Trigger Intersection Observer Definition
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
-          observer.unobserve(entry.target); // Animates once and stays solid
+          observer.unobserve(entry.target);
         }
       },
-      {
-        root: null, // references viewport window
-        threshold: 0.12 // fires when 12% of the element is inside the screen bounds
-      }
+      { root: null, threshold: 0.1 }
     );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => {
-      if (sectionRef.current) observer.disconnect();
-    };
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => { if (sectionRef.current) observer.disconnect(); };
   }, []);
 
   useEffect(() => {
@@ -42,19 +33,14 @@ export default function Projects({ setPage }) {
           const img = new Image();
           img.src = targetSrc;
           img.onload = () => {
-            setPreloadedIcons((prev) => ({
-              ...prev,
-              [proj.id]: targetSrc
-            }));
+            setPreloadedIcons((prev) => ({ ...prev, [proj.id]: targetSrc }));
           };
         }
       });
     }
   }, []);
 
-  if (!bigProjects || !bigProjects.display) {
-    return null;
-  }
+  if (!bigProjects || !bigProjects.display) return null;
 
   const openModal = (project) => {
     setActiveModalProject(project);
@@ -80,43 +66,39 @@ export default function Projects({ setPage }) {
       style={{ 
         padding: "90px 0", 
         width: "100%", 
-        backgroundColor: isDark ? "#0f0f11" : "#f5f5f7", 
+        backgroundColor: isDark ? "#111215" : "#f5f5f7", // Matches the exact dark slate from Skills.png
         fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' 
       }}
     >
       <div className="projects-container-wrapper" style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px" }}>
         
-        {/* HEADER SECTION */}
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", borderBottom: isDark ? "1px solid rgba(255, 255, 255, 0.08)" : "1px solid rgba(0, 0, 0, 0.08)", paddingBottom: "24px", marginBottom: "48px" }}>
-          <div style={{ textAlign: "left" }}>
-            <h1 className={isDark ? "dark-mode project-title" : "project-title"} style={{ fontSize: "34px", fontWeight: "700", letterSpacing: "-0.5px", margin: "0 0 8px 0", color: isDark ? "#ffffff" : "#1d1d1f" }}>
-              {bigProjects.title}
-            </h1>
-            <p className={isDark ? "dark-mode project-subtitle" : "project-subtitle"} style={{ fontSize: "15px", fontWeight: "500", textTransform: "uppercase", letterSpacing: "1px", color: isDark ? "#86868b" : "#6e6e73", margin: 0 }}>
-              {bigProjects.subtitle}
-            </p>
-          </div>
+        {/* CENTERED HEADER SECTION - SUBTITLE REMOVED */}
+        <div style={{ position: "relative", display: "flex", justifyContent: "center", alignItems: "center", marginBottom: "54px" }}>
+          <h1 className={isDark ? "dark-mode project-title" : "project-title"} style={{ fontSize: "36px", fontWeight: "700", letterSpacing: "-0.5px", color: isDark ? "#ffffff" : "#1d1d1f" }}>
+            {bigProjects.title}
+          </h1>
           
-          {/* REPOSITIONED SEE ALL APPS ACTION */}
+          {/* LINK REPOSITIONED ON THE RIGHT BOUNDARY */}
           <button 
             onClick={handleViewAllApps}
             style={{
-              padding: "10px 20px",
+              position: "absolute",
+              right: 0,
               backgroundColor: "transparent",
               border: "none",
-              color: isDark ? "#ffffff" : "#000000",
-              fontSize: "15px",
+              color: isDark ? "#a1a1a6" : "#6e6e73",
+              fontSize: "14px",
               fontWeight: "600",
               cursor: "pointer",
               display: "flex",
               alignItems: "center",
               gap: "6px",
-              transition: "opacity 0.2s ease"
+              transition: "color 0.2s ease"
             }}
-            onMouseOver={(e) => e.currentTarget.style.opacity = 0.7}
-            onMouseOut={(e) => e.currentTarget.style.opacity = 1}
+            onMouseOver={(e) => e.currentTarget.style.color = isDark ? "#ffffff" : "#000000"}
+            onMouseOut={(e) => e.currentTarget.style.color = isDark ? "#a1a1a6" : "#6e6e73"}
           >
-            See All Apps <span style={{ fontSize: "16px" }}>→</span>
+            See All Apps <span>→</span>
           </button>
         </div>
 
@@ -129,45 +111,44 @@ export default function Projects({ setPage }) {
               .showcase-card-node { scroll-snap-align: none !important; width: auto !important; }
             }
             .premium-btn {
-              transition: background-color 0.2s ease, transform 0.1s ease !important;
+              transition: background-color 0.2s ease, border-color 0.2s ease !important;
             }
             .premium-btn:hover {
-              background-color: ${isDark ? "#ffffff" : "#1d1d1f"} !important;
-              color: ${isDark ? "#000000" : "#ffffff"} !important;
-            }
-            .premium-btn:active {
-              transform: scale(0.98);
+              background-color: ${isDark ? "rgba(255, 255, 255, 0.08)" : "rgba(0, 0, 0, 0.08)"} !important;
+              border-color: ${isDark ? "rgba(255, 255, 255, 0.2)" : "rgba(0, 0, 0, 0.2)"} !important;
             }
           `}</style>
           {bigProjects.projects.map((proj) => {
             const activeImageSrc = preloadedIcons[proj.id] || (proj.icon?.default || proj.icon);
             return (
-              <div key={proj.id} className="showcase-card-node" style={{ flex: "0 0 auto", width: "85vw", maxWidth: "360px", scrollSnapAlign: "center", backgroundColor: isDark ? "#161617" : "#ffffff", border: isDark ? "1px solid rgba(255, 255, 255, 0.06)" : "1px solid rgba(0, 0, 0, 0.06)", borderRadius: "24px", overflow: "hidden", display: "flex", flexDirection: "column", boxShadow: isDark ? "0 14px 40px rgba(0,0,0,0.3)" : "0 14px 35px rgba(0,0,0,0.05)" }}>
-                <div style={{ width: "100%", height: "200px", overflow: "hidden", position: "relative", backgroundColor: isDark ? "#222224" : "#e8e8ed" }}>
+              <div key={proj.id} className="showcase-card-node" style={{ flex: "0 0 auto", width: "85vw", maxWidth: "360px", scrollSnapAlign: "center", backgroundColor: isDark ? "#17191e" : "#ffffff", border: isDark ? "1px solid rgba(255, 255, 255, 0.05)" : "1px solid rgba(0, 0, 0, 0.06)", borderRadius: "24px", overflow: "hidden", display: "flex", flexDirection: "column", boxShadow: isDark ? "0 14px 40px rgba(0,0,0,0.2)" : "0 14px 35px rgba(0,0,0,0.04)" }}>
+                <div style={{ width: "100%", height: "200px", overflow: "hidden", position: "relative", backgroundColor: isDark ? "#22252c" : "#e8e8ed" }}>
                   {activeImageSrc && <img src={activeImageSrc} alt={proj.projectName} loading="eager" style={{ width: "100%", height: "100%", objectFit: "cover" }} />}
                 </div>
                 <div style={{ padding: "28px", display: "flex", flexDirection: "column", justifyContent: "space-between", flexGrow: 1 }}>
                   <div>
-                    <h2 style={{ margin: "0 0 8px 0", fontSize: "24px", fontWeight: "700", letterSpacing: "-0.3px", color: isDark ? "#ffffff" : "#1d1d1f" }}>{proj.projectName.split(" — ")[0]}</h2>
-                    <div style={{ fontSize: "11px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.5px", color: isDark ? "#86868b" : "#6e6e73", marginBottom: "16px" }}>{proj.architecture.split(" with ")[0]}</div>
-                    <p style={{ fontSize: "14.5px", lineHeight: "1.6", color: isDark ? "#e1e1e6" : "#424245", margin: "0 0 20px 0" }}>{proj.summary}</p>
+                    <h2 style={{ margin: "0 0 6px 0", fontSize: "22px", fontWeight: "700", letterSpacing: "-0.3px", color: isDark ? "#ffffff" : "#1d1d1f" }}>{proj.projectName.split(" — ")[0]}</h2>
+                    <div style={{ fontSize: "11px", fontWeight: "600", textTransform: "uppercase", letterSpacing: "0.5px", color: isDark ? "#86868b" : "#6e6e73", marginBottom: "16px" }}>{proj.architecture.split(" with ")[0]}</div>
+                    <p style={{ fontSize: "14px", lineHeight: "1.6", color: isDark ? "#a1a1a6" : "#424245", margin: "0 0 20px 0" }}>{proj.summary}</p>
                     <div style={{ display: "flex", flexWrap: "wrap", gap: "8px", marginBottom: "24px" }}>
                       {proj.techStack.slice(0, 6).map((tech, idx) => (
-                        <span key={idx} style={{ fontSize: "11px", padding: "6px 14px", borderRadius: "20px", backgroundColor: isDark ? "rgba(255, 255, 255, 0.06)" : "rgba(0, 0, 0, 0.04)", color: isDark ? "#e1e1e6" : "#1d1d1f", border: isDark ? "1px solid rgba(255, 255, 255, 0.1)" : "1px solid rgba(0, 0, 0, 0.05)", fontWeight: "600" }}>{tech}</span>
+                        <span key={idx} style={{ fontSize: "11px", padding: "5px 12px", borderRadius: "6px", backgroundColor: isDark ? "rgba(255, 255, 255, 0.04)" : "rgba(0, 0, 0, 0.03)", color: isDark ? "#cbd5e1" : "#1d1d1f", border: isDark ? "1px solid rgba(255, 255, 255, 0.05)" : "1px solid rgba(0, 0, 0, 0.04)", fontWeight: "500" }}>{tech}</span>
                       ))}
                     </div>
                   </div>
+                  
+                  {/* COHESIVE SYSTEM BUTTON */}
                   <button 
                     onClick={() => openModal(proj)} 
                     className="premium-btn"
                     style={{ 
                       width: "100%", 
-                      padding: "14px", 
-                      borderRadius: "14px", 
-                      border: "none", 
-                      backgroundColor: isDark ? "rgba(255, 255, 255, 0.1)" : "rgba(0, 0, 0, 0.05)", 
-                      color: isDark ? "#ffffff" : "#1d1d1f", 
-                      fontSize: "15px", 
+                      padding: "13px", 
+                      borderRadius: "10px", 
+                      border: isDark ? "1px solid rgba(255, 255, 255, 0.1)" : "1px solid rgba(0, 0, 0, 0.08)", 
+                      backgroundColor: isDark ? "rgba(255, 255, 255, 0.04)" : "rgba(0, 0, 0, 0.02)", 
+                      color: isDark ? "#f3f4f6" : "#1d1d1f", 
+                      fontSize: "14px", 
                       fontWeight: "600", 
                       cursor: "pointer"
                     }}
