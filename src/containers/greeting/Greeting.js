@@ -1,3 +1,5 @@
+// Greeting.js
+
 import React from "react";
 import "./Greeting.scss";
 import SocialMedia from "../../components/socialMedia/SocialMedia";
@@ -15,22 +17,23 @@ export default function Greeting({ setPage }) {
   };
 
   return (
-    <Fade bottom duration={1000} distance="30px">
+    <Fade bottom duration={1000} distance="25px">
       <div className="greet-main" id="greeting">
         <div className="greeting-container">
           
-          {/* CONTENT HEADER BLOCK */}
+          {/* TITLE HEADER BLOCK */}
           <h1 className="greeting-title">
             Senior iOS Developer
           </h1>
           
+          {/* PROFILE ARCHITECTURE DESCRIPTION */}
           <p className="greeting-desc">
             I design, architect, and ship high-performance, native iOS applications. 
             Focused on clean code architecture, scalable performance, and user-centric design, 
             I build robust mobile ecosystems that balance technical excellence with exceptional user experiences.
           </p>
           
-          {/* --- REORDERED DATA METRICS GRID --- */}
+          {/* METRICS SHOWCASE GRID */}
           <div className="metrics-row-split">
             <div className="metric-column-item">
               <h3>13 Years</h3>
@@ -48,7 +51,7 @@ export default function Greeting({ setPage }) {
             </div>
           </div>
 
-          {/* --- NATIVE BALANCED ACTION BUTTON CONTROLS --- */}
+          {/* ACTION BUTTON CONTROLS */}
           <div className="button-greeting-div">
             <div className="primary-btn-wrapper">
               <button 
@@ -71,7 +74,7 @@ export default function Greeting({ setPage }) {
             </div>
           </div>
           
-          {/* SOCIAL FOOTPRINT NETWORKS */}
+          {/* SOCIAL FOOTPRINT ICONS */}
           <SocialMedia />
 
         </div>
