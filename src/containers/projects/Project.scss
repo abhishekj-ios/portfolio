@@ -1,33 +1,21 @@
 /* ==========================================================================
-   Structural Wrapper & Typography (Cleaned & Backgrounds Stripped)
+   Structural Wrapper & Typography (Centered Title, Subtitle Removed)
    ========================================================================== */
 .projects-container-wrapper {
   width: 100%;
-  max-width: 1140px; // Standard enterprise layout container bounds
-  margin: 0 auto;    // Centers perfectly on desktop viewports
-  padding: 0 24px;   // Prevents components from ever snapping against glass edges
+  max-width: 1140px; 
+  margin: 0 auto;    
+  padding: 0 24px;   
   box-sizing: border-box;
 }
 
 .project-title {
   text-align: center; // Centers your core section title heading
+  width: 100%;
   margin-top: 0;
-  margin-bottom: 12px;
+  margin-bottom: 0;
   font-weight: 700;
-  background: none !important;        // CRITICAL: Force-removes old template background stripes
-  background-color: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-}
-
-.project-subtitle {
-  text-align: center;
-  opacity: 0.6;
-  margin-bottom: 40px;
-  font-size: 14px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  background: none !important;        // CRITICAL: Force-removes old template background stripes
+  background: none !important;        
   background-color: transparent !important;
   border: none !important;
   box-shadow: none !important;
@@ -50,7 +38,7 @@
 }
 
 /* ==========================================================================
-   Premium Structural Layout Grid Cards
+   Premium Structural Layout Grid Cards (Matched to Skills.png Palette)
    ========================================================================== */
 .repo-cards-div-main {
   display: grid;
@@ -147,45 +135,20 @@
     }
   }
 
-  .blueprint-action-link {
-    font-size: 13px;
-    font-weight: 600;
-    color: #64748b;
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    align-self: flex-end;   
-    transition: color 0.2s ease;
-
-    .arrow-motion {
-      display: inline-block;
-      transition: transform 0.2s ease;
-    }
-  }
-
-  /* Dark Mode Intercepts */
+  /* Dark Mode Intercepts - Synchronized to Site Design */
   &.dark-mode {
-    background: #131722;
-    border: 1px solid #222936;
+    background: #17191e; // Slightly lighter card tint from Skills.png
+    border: 1px solid rgba(255, 255, 255, 0.05);
 
     &:hover {
-      border-color: #2e3748;
+      border-color: rgba(255, 255, 255, 0.15);
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-      .blueprint-action-link { color: #f8fafc; }
     }
 
     .project-display-name { color: #f8fafc; }
     .project-display-summary { color: #94a3b8; }
     .architecture-tag { color: #60a5fa; }
     .card-bottom-meta { border-top-color: #1e2533; }
-    
-    .mini-tech-preview {
-      .preview-pill {
-        background: #1c2331;
-        color: #94a3b8;
-        border-color: #2a3446;
-      }
-    }
   }
 }
 
@@ -198,8 +161,8 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(15, 23, 42, 0.4);
-  backdrop-filter: blur(8px);
+  background-color: rgba(11, 12, 15, 0.6);
+  backdrop-filter: blur(10px);
   z-index: 99999;
   display: flex;
   align-items: center;
@@ -223,13 +186,13 @@
   animation: modalScaleEntrance 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 
   &.dark-mode {
-    background: #0f131a;
+    background: #17191e;
     color: #f3f4f6;
-    border: 1px solid #222936;
+    border: 1px solid rgba(255, 255, 255, 0.08);
 
-    .modal-section h3 { color: #60a5fa; }
-    .tech-pill { background: #1c2331; color: #94a3b8; border: 1px solid #2a3446; }
-    ul li::before { color: #60a5fa; }
+    .modal-section h3 { color: #86868b; }
+    .tech-pill { background: rgba(255, 255, 255, 0.05); color: #94a3b8; border: 1px solid rgba(255, 255, 255, 0.05); }
+    ul li::before { color: #86868b; }
   }
 
   .modal-close-btn {
@@ -245,63 +208,4 @@
     transition: opacity 0.2s;
     &:hover { opacity: 1; }
   }
-
-  .modal-header {
-    margin-bottom: 28px;
-    h2 { font-size: 24px; font-weight: 800; margin: 0 0 6px 0; }
-    .modal-architecture-badge {
-      font-size: 12px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: #2563eb;
-    }
-  }
-
-  .modal-section {
-    margin-bottom: 28px;
-    h3 { font-size: 15px; font-weight: 700; color: #1e40af; margin: 0 0 10px 0; text-transform: uppercase; letter-spacing: 0.03em; }
-    p { font-size: 14px; line-height: 1.6; opacity: 0.85; margin: 0; }
-    
-    .modal-tech-pills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .tech-pill {
-      font-size: 12px;
-      background: #f1f5f9;
-      color: #475569;
-      padding: 6px 14px;
-      border-radius: 8px;
-      font-weight: 500;
-    }
-
-    ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      li {
-        font-size: 14px;
-        line-height: 1.6;
-        position: relative;
-        padding-left: 20px;
-        margin-bottom: 12px;
-        opacity: 0.9;
-        &::before {
-          content: "▪";
-          position: absolute;
-          left: 0;
-          color: #2563eb;
-          font-size: 16px;
-        }
-      }
-    }
-  }
-}
-
-@keyframes modalScaleEntrance {
-  from { opacity: 0; transform: scale(0.97) translateY(8px); }
-  to { opacity: 1; transform: scale(1) translateY(0); }
 }
