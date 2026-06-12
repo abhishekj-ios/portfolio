@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Structural Wrapper & Typography (Fixes Edge-Bleeding & Titles Centering)
+   Structural Wrapper & Typography (Cleaned & Backgrounds Stripped)
    ========================================================================== */
 .projects-container-wrapper {
   width: 100%;
@@ -14,6 +14,10 @@
   margin-top: 0;
   margin-bottom: 12px;
   font-weight: 700;
+  background: none !important;        // CRITICAL: Force-removes old template background stripes
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
 .project-subtitle {
@@ -23,6 +27,26 @@
   font-size: 14px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  background: none !important;        // CRITICAL: Force-removes old template background stripes
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* ==========================================================================
+   Dynamic Scroll Animation Utility Classes
+   ========================================================================== */
+.scroll-reveal-section {
+  opacity: 0;
+  transform: translateY(30px);
+  will-change: transform, opacity;
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+
+  &.reveal-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ==========================================================================
@@ -66,7 +90,7 @@
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    color: #2563eb; // Royal system brand blue
+    color: #2563eb; 
     display: inline-block;
     margin-bottom: 8px;
   }
@@ -87,23 +111,20 @@
     opacity: 0.95;
   }
 
-  /* ==========================================================================
-     Card Bottom Meta (Stacked layout to fully prevent structural collisions)
-     ========================================================================== */
   .card-bottom-meta {
     display: flex;
-    flex-direction: column; // Stacks items vertically to clear infinite horizontal room
-    gap: 16px;              // Distinct breathing room separating technical pills from action links
+    flex-direction: column; 
+    gap: 16px;              
     padding-top: 16px;
     border-top: 1px solid #f1f5f9;
-    margin-top: auto;       // Anchors block to the footer base of the element
+    margin-top: auto;       
     width: 100%;
     box-sizing: border-box;
   }
 
   .mini-tech-preview {
     display: flex;
-    flex-wrap: wrap;        // Forces tags to drop into secondary wrap lines flawlessly
+    flex-wrap: wrap;        
     gap: 6px;
     width: 100%;
 
@@ -115,7 +136,7 @@
       padding: 4px 10px;
       border-radius: 6px;
       border: 1px solid #e2e8f0;
-      white-space: nowrap;  // Disallows text strings inside pill blocks to split mid-word
+      white-space: nowrap;  
     }
     .preview-pill-more {
       font-size: 11px;
@@ -133,7 +154,7 @@
     display: flex;
     align-items: center;
     gap: 4px;
-    align-self: flex-end;   // Positions action element perfectly on the bottom right margin boundary
+    align-self: flex-end;   
     transition: color 0.2s ease;
 
     .arrow-motion {
