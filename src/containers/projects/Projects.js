@@ -44,7 +44,7 @@ export default function Projects({ setPage }) {
 
   const openModal = (project) => {
     setActiveModalProject(project);
-    document.body.style.overflow = "hidden"; 
+    document.body.style.overflow = "hidden"; // Prevents page-scroll breakdown
   };
 
   const closeModal = () => {
@@ -88,7 +88,7 @@ export default function Projects({ setPage }) {
           </button>
         </div>
 
-        {/* CARDS SCROLL CONTAINER GRID */}
+        {/* CARDS CONTAINER */}
         <div className="featured-apps-scroll-container" style={{ display: "flex", gap: "28px", overflowX: "auto", paddingBottom: "32px", paddingTop: "4px", scrollSnapType: "x mandatory" }}>
           <style>{`
             .featured-apps-scroll-container::-webkit-scrollbar { display: none; }
@@ -149,7 +149,6 @@ export default function Projects({ setPage }) {
               border-color: ${isDark ? "rgba(255, 255, 255, 0.2)" : "rgba(0, 0, 0, 0.2)"} !important;
             }
           `}</style>
-          
           {bigProjects.projects.map((proj) => {
             const activeImageSrc = preloadedIcons[proj.id] || (proj.icon?.default || proj.icon);
             return (
@@ -169,6 +168,7 @@ export default function Projects({ setPage }) {
                     </div>
                   </div>
                   
+                  {/* COHESIVE SYSTEM BUTTON */}
                   <button 
                     onClick={() => openModal(proj)} 
                     className="premium-btn"
@@ -193,7 +193,7 @@ export default function Projects({ setPage }) {
         </div>
       </div>
 
-      {/* FIXED MOBILE MODAL SYSTEM */}
+      {/* FIXED MOBILE MODAL SYSTEM (Absolute Position Fixed Breakdown) */}
       {activeModalProject && (
         <div className="modal-backdrop" onClick={closeModal} style={{ padding: "16px" }}>
           <div 
