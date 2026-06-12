@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Structural Wrapper & Typography (Centered Title, Subtitle Removed)
+   Structural Wrapper & Typography (Fixes Edge-Bleeding & Titles Centering)
    ========================================================================== */
 .projects-container-wrapper {
   width: 100%;
@@ -10,10 +10,9 @@
 }
 
 .project-title {
-  text-align: center; // Centers your core section title heading
-  width: 100%;
+  text-align: center; 
   margin-top: 0;
-  margin-bottom: 0;
+  margin-bottom: 12px;
   font-weight: 700;
   background: none !important;        
   background-color: transparent !important;
@@ -137,7 +136,7 @@
 
   /* Dark Mode Intercepts - Synchronized to Site Design */
   &.dark-mode {
-    background: #17191e; // Slightly lighter card tint from Skills.png
+    background: #17191e; 
     border: 1px solid rgba(255, 255, 255, 0.05);
 
     &:hover {
@@ -153,21 +152,21 @@
 }
 
 /* ==========================================================================
-   Full Screen Immersive Blur Overlay Modals
+   Full Screen Immersive Viewport Fixed Overlays (Fixes Mobile Center Bias)
    ========================================================================== */
 .modal-backdrop {
-  position: fixed;
+  position: fixed; // FIXED: Anchored strictly to the viewport window bounds
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(11, 12, 15, 0.6);
+  background-color: rgba(11, 12, 15, 0.75); // Darkened slightly for enhanced content contrast
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   z-index: 99999;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 24px;
   box-sizing: border-box;
 }
 
@@ -176,13 +175,10 @@
   color: #111827;
   width: 100%;
   max-width: 640px;
-  max-height: 85vh;
   border-radius: 20px;
-  padding: 36px;
   position: relative;
-  overflow-y: auto;
   box-sizing: border-box;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
   animation: modalScaleEntrance 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 
   &.dark-mode {
@@ -190,22 +186,71 @@
     color: #f3f4f6;
     border: 1px solid rgba(255, 255, 255, 0.08);
 
-    .modal-section h3 { color: #86868b; }
-    .tech-pill { background: rgba(255, 255, 255, 0.05); color: #94a3b8; border: 1px solid rgba(255, 255, 255, 0.05); }
-    ul li::before { color: #86868b; }
+    .modal-section h3 { 
+      color: #86868b; 
+    }
+    .tech-pill { 
+      background: rgba(255, 255, 255, 0.04); 
+      color: #94a3b8; 
+      border: 1px solid rgba(255, 255, 255, 0.05); 
+    }
+    ul li::before { 
+      color: #86868b; 
+    }
   }
+}
 
-  .modal-close-btn {
-    position: absolute;
-    top: 20px;
-    right: 24px;
-    background: none;
-    border: none;
-    font-size: 32px;
-    cursor: pointer;
-    color: inherit;
-    opacity: 0.4;
-    transition: opacity 0.2s;
-    &:hover { opacity: 1; }
+.modal-body {
+  padding: 0;
+  
+  .modal-section {
+    margin-bottom: 24px;
+    
+    h3 {
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin: 0 0 8px 0;
+      color: #6e6e73;
+    }
+    
+    p {
+      margin: 0;
+      line-height: 1.6;
+    }
+    
+    .modal-tech-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      
+      .tech-pill {
+        border-radius: 6px;
+        font-weight: 500;
+      }
+    }
+    
+    ul {
+      padding-left: 16px;
+      margin: 0;
+      
+      li {
+        margin-bottom: 8px;
+        line-height: 1.5;
+        &:last-child { margin-bottom: 0; }
+      }
+    }
+  }
+}
+
+@keyframes modalScaleEntrance {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
   }
 }
