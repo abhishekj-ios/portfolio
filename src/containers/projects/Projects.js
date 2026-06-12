@@ -47,17 +47,41 @@ export default function Projects({ setPage }) {
   };
 
   return (
-    <div className="main" id="opensource" style={{ padding: "80px 0", width: "100%", backgroundColor: isDark ? "#0f0f11" : "#f5f5f7" }}>
+    <div className="main" id="opensource" style={{ padding: "90px 0", width: "100%", backgroundColor: isDark ? "#0f0f11" : "#f5f5f7", fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}>
       <div className="projects-container-wrapper" style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px" }}>
         
-        {/* HEADER SECTION */}
-        <div style={{ textAlign: "center", marginBottom: "48px" }}>
-          <h1 className={isDark ? "dark-mode project-title" : "project-title"} style={{ fontSize: "32px", fontWeight: "700", margin: "0 0 12px 0", color: isDark ? "#ffffff" : "#1d1d1f" }}>
-            {bigProjects.title}
-          </h1>
-          <p className={isDark ? "dark-mode project-subtitle" : "project-subtitle"} style={{ fontSize: "16px", color: isDark ? "#a1a1a6" : "#86868b", margin: 0 }}>
-            {bigProjects.subtitle}
-          </p>
+        {/* HEADER SECTION (CLEANED & OPTIMIZED UP TOP) */}
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", borderBottom: isDark ? "1px solid rgba(255, 255, 255, 0.08)" : "1px solid rgba(0, 0, 0, 0.08)", paddingBottom: "24px", marginBottom: "48px" }}>
+          <div style={{ textAlign: "left" }}>
+            <h1 className={isDark ? "dark-mode project-title" : "project-title"} style={{ fontSize: "34px", fontWeight: "700", letterSpacing: "-0.5px", margin: "0 0 8px 0", color: isDark ? "#ffffff" : "#1d1d1f" }}>
+              {bigProjects.title}
+            </h1>
+            <p className={isDark ? "dark-mode project-subtitle" : "project-subtitle"} style={{ fontSize: "15px", fontWeight: "500", textTransform: "uppercase", letterSpacing: "1px", color: isDark ? "#86868b" : "#6e6e73", margin: 0 }}>
+              {bigProjects.subtitle}
+            </p>
+          </div>
+          
+          {/* REPOSITIONED SEE ALL APPS ACTION */}
+          <button 
+            onClick={handleViewAllApps}
+            style={{
+              padding: "10px 20px",
+              backgroundColor: "transparent",
+              border: "none",
+              color: isDark ? "#ffffff" : "#000000",
+              fontSize: "15px",
+              fontWeight: "600",
+              cursor: "pointer",
+              display: "flex",
+              alignItems: "center",
+              gap: "6px",
+              transition: "opacity 0.2s ease"
+            }}
+            onMouseOver={(e) => e.currentTarget.style.opacity = 0.7}
+            onMouseOut={(e) => e.currentTarget.style.opacity = 1}
+          >
+            See All Apps <span style={{ fontSize: "16px" }}>→</span>
+          </button>
         </div>
 
         {/* CARDS CONTAINER */}
@@ -68,58 +92,57 @@ export default function Projects({ setPage }) {
               .featured-apps-scroll-container { display: grid !important; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)) !important; overflow-x: visible !important; padding-bottom: 0 !important; }
               .showcase-card-node { scroll-snap-align: none !important; width: auto !important; }
             }
+            .premium-btn {
+              transition: background-color 0.2s ease, transform 0.1s ease !important;
+            }
+            .premium-btn:hover {
+              background-color: ${isDark ? "#ffffff" : "#1d1d1f"} !important;
+              color: ${isDark ? "#000000" : "#ffffff"} !important;
+            }
+            .premium-btn:active {
+              transform: scale(0.98);
+            }
           `}</style>
           {bigProjects.projects.map((proj) => {
             const activeImageSrc = preloadedIcons[proj.id] || (proj.icon?.default || proj.icon);
             return (
-              <div key={proj.id} className="showcase-card-node" style={{ flex: "0 0 auto", width: "85vw", maxWidth: "360px", scrollSnapAlign: "center", backgroundColor: isDark ? "#1c1c1e" : "#ffffff", border: isDark ? "1px solid rgba(255, 255, 255, 0.08)" : "1px solid rgba(0, 0, 0, 0.08)", borderRadius: "20px", overflow: "hidden", display: "flex", flexDirection: "column", boxShadow: isDark ? "0 12px 40px rgba(0,0,0,0.5)" : "0 12px 30px rgba(0,0,0,0.06)" }}>
-                <div style={{ width: "100%", height: "200px", overflow: "hidden", position: "relative", backgroundColor: isDark ? "#2c2c2e" : "#e5e5ea" }}>
+              <div key={proj.id} className="showcase-card-node" style={{ flex: "0 0 auto", width: "85vw", maxWidth: "360px", scrollSnapAlign: "center", backgroundColor: isDark ? "#161617" : "#ffffff", border: isDark ? "1px solid rgba(255, 255, 255, 0.06)" : "1px solid rgba(0, 0, 0, 0.06)", borderRadius: "24px", overflow: "hidden", display: "flex", flexDirection: "column", boxShadow: isDark ? "0 14px 40px rgba(0,0,0,0.3)" : "0 14px 35px rgba(0,0,0,0.05)" }}>
+                <div style={{ width: "100%", height: "200px", overflow: "hidden", position: "relative", backgroundColor: isDark ? "#222224" : "#e8e8ed" }}>
                   {activeImageSrc && <img src={activeImageSrc} alt={proj.projectName} loading="eager" style={{ width: "100%", height: "100%", objectFit: "cover" }} />}
                 </div>
-                <div style={{ padding: "24px", display: "flex", flexDirection: "column", justifyContent: "space-between", flexGrow: 1 }}>
+                <div style={{ padding: "28px", display: "flex", flexDirection: "column", justifyContent: "space-between", flexGrow: 1 }}>
                   <div>
-                    <h2 style={{ margin: "0 0 12px 0", fontSize: "22px", fontWeight: "600", color: isDark ? "#ffffff" : "#1d1d1f" }}>{proj.projectName.split(" — ")[0]}</h2>
-                    <div style={{ fontSize: "11px", fontWeight: "600", textTransform: "uppercase", color: isDark ? "#0a84ff" : "#0071e3", marginBottom: "14px" }}>{proj.architecture.split(" with ")[0]}</div>
-                    <p style={{ fontSize: "14.5px", lineHeight: "1.6", color: isDark ? "#e1e1e6" : "#48484a", margin: "0 0 18px 0" }}>{proj.summary}</p>
-                    <div style={{ display: "flex", flexWrap: "wrap", gap: "8px", marginBottom: "20px" }}>
+                    <h2 style={{ margin: "0 0 8px 0", fontSize: "24px", fontWeight: "700", letterSpacing: "-0.3px", color: isDark ? "#ffffff" : "#1d1d1f" }}>{proj.projectName.split(" — ")[0]}</h2>
+                    <div style={{ fontSize: "11px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.5px", color: isDark ? "#86868b" : "#6e6e73", marginBottom: "16px" }}>{proj.architecture.split(" with ")[0]}</div>
+                    <p style={{ fontSize: "14.5px", lineHeight: "1.6", color: isDark ? "#ceceeed" : "#424245", margin: "0 0 20px 0" }}>{proj.summary}</p>
+                    <div style={{ display: "flex", flexWrap: "wrap", gap: "8px", marginBottom: "24px" }}>
                       {proj.techStack.slice(0, 6).map((tech, idx) => (
-                        <span key={idx} style={{ fontSize: "11px", padding: "5px 14px", borderRadius: "20px", backgroundColor: isDark ? "rgba(34, 54, 86, 0.3)" : "rgba(0, 113, 227, 0.05)", color: isDark ? "#52a2ff" : "#0071e3", border: isDark ? "1px solid rgba(82, 162, 255, 0.15)" : "1px solid rgba(0, 113, 227, 0.08)", fontWeight: "500" }}>{tech}</span>
+                        <span key={idx} style={{ fontSize: "11px", padding: "6px 14px", borderRadius: "20px", backgroundColor: isDark ? "rgba(255, 255, 255, 0.06)" : "rgba(0, 0, 0, 0.04)", color: isDark ? "#e1e1e6" : "#1d1d1f", border: isDark ? "1px solid rgba(255, 255, 255, 0.1)" : "1px solid rgba(0, 0, 0, 0.05)", fontWeight: "600" }}>{tech}</span>
                       ))}
                     </div>
                   </div>
-                  <button onClick={() => openModal(proj)} style={{ width: "100%", padding: "14px", borderRadius: "12px", border: "none", backgroundImage: "linear-gradient(90deg, #2f54ff 0%, #a24eff 100%)", color: "#ffffff", fontSize: "15px", fontWeight: "600", cursor: "pointer", boxShadow: "0 4px 15px rgba(47, 84, 255, 0.25)" }}>See More</button>
+                  {/* MODERN UPDATED SEE MORE BUTTON */}
+                  <button 
+                    onClick={() => openModal(proj)} 
+                    className="premium-btn"
+                    style={{ 
+                      width: "100%", 
+                      padding: "14px", 
+                      borderRadius: "14px", 
+                      border: "none", 
+                      backgroundColor: isDark ? "rgba(255, 255, 255, 0.1)" : "rgba(0, 0, 0, 0.05)", 
+                      color: isDark ? "#ffffff" : "#1d1d1f", 
+                      fontSize: "15px", 
+                      fontWeight: "600", 
+                      cursor: "pointer"
+                    }}
+                  >
+                    See More
+                  </button>
                 </div>
               </div>
             );
           })}
-        </div>
-
-        {/* GLASS BUTTON */}
-        <div style={{ display: "flex", justifyContent: "center", marginTop: "48px" }}>
-          <button 
-            onClick={handleViewAllApps}
-            style={{
-              padding: "14px 32px",
-              backgroundColor: isDark ? "rgba(255, 255, 255, 0.05)" : "rgba(0, 0, 0, 0.05)",
-              backdropFilter: "blur(10px)",
-              WebkitBackdropFilter: "blur(10px)",
-              border: isDark ? "1px solid rgba(255, 255, 255, 0.15)" : "1px solid rgba(0, 0, 0, 0.1)",
-              color: isDark ? "#ffffff" : "#1d1d1f",
-              borderRadius: "12px",
-              fontSize: "15px",
-              fontWeight: "600",
-              cursor: "pointer",
-              transition: "all 0.3s ease"
-            }}
-            onMouseOver={(e) => {
-              e.currentTarget.style.backgroundColor = isDark ? "rgba(255, 255, 255, 0.12)" : "rgba(0, 0, 0, 0.1)";
-            }}
-            onMouseOut={(e) => {
-              e.currentTarget.style.backgroundColor = isDark ? "rgba(255, 255, 255, 0.05)" : "rgba(0, 0, 0, 0.05)";
-            }}
-          >
-            See All Apps
-          </button>
         </div>
       </div>
 
