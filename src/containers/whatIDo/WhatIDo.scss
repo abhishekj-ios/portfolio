@@ -8,6 +8,11 @@
   margin: 0 auto;
   font-family: "Google Sans Regular", sans-serif;
 
+  /* Handle responsive layout state swaps for text content titles */
+  .mobile-header {
+    display: none !important;
+  }
+
   .what-i-do-title {
     font-size: 40px;
     font-weight: 700;
@@ -42,6 +47,14 @@
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
+    
+    /* Toggle active typography states once we drop beneath 768px wide */
+    .desktop-header {
+      display: none !important;
+    }
+    .mobile-header {
+      display: block !important;
+    }
   }
 }
 
