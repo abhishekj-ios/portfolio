@@ -158,10 +158,10 @@ const bigProjects = {
     "Swift",
     "MVVM-C",
     "AVFoundation",
-    "Protocol-Oriented Programming",
     "CoreMedia",
     "CoreData",
     "WebSockets",
+    "Protocol-Oriented Programming",
     "Push Notifications"
   ],
   wins: [
