@@ -1,24 +1,20 @@
 @import "../../_globalColor";
 
-/* Header Container */
+/* ==========================================================================
+   Header Layout System & High-Contrast Typography
+   ========================================================================== */
+
 .dark-menu {
   color: #ffffff !important; 
 }
 
-/* FIXED: Explicitly forces text visibility to high-contrast white against the dark canvas */
+/* Forces active typographic link visibility to high-contrast white against the dark backdrop canvas */
 .dark-menu li a {
   color: #ffffff !important; 
 }
 
 .dark-menu li a:hover {
-  background-color: rgba(255, 255, 255, 0.08) !important;
-  border-radius: 6px;
-  color: #2f80ed !important; /* Glow blue on hover */
-}
-
-.dark-menu li:last-child a:hover,
-.header ul li:last-child a:hover {
-  background-color: transparent !important;
+  color: #2f80ed !important; /* Glow system blue on hover */
 }
 
 .header {
@@ -26,9 +22,11 @@
 }
 
 .header-container {
-  max-width: 1340px; 
+  /* FIXED: Snaps navbar content edges exactly to your 1140px site alignment columns */
+  max-width: 1140px; 
   margin: 0 auto;
-  padding: 18px 6%; 
+  /* FIXED: Changed from 6% to 24px to completely eliminate edge-bleeding on widescreen monitors */
+  padding: 18px 24px; 
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -42,18 +40,17 @@
   list-style: none;
   display: flex;
   align-items: center;
-  gap: 36px;
+  gap: 32px; /* Premium spacing track gap between layout link modules */
 }
 
 .header li a {
   display: block;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 500;
-  /* FIXED: Changed from #1D1D1F to crisp white to support global dark mode presentation */
   color: #ffffff !important;  
   text-decoration: none;
   letter-spacing: -0.1px;
-  transition: all 0.2s ease-in-out;
+  transition: color 0.2s ease-in-out;
 }
 
 .header .logo {
@@ -61,9 +58,14 @@
   align-items: center;
   cursor: default;
   user-select: none;
+  text-transform: uppercase; /* Enforces clean all-caps transform fallback */
+  letter-spacing: 0.05em;      /* Premium tracking breathing room for capital letters */
 }
 
-/* Mobile Checkbox Mechanics */
+/* ==========================================================================
+   Mobile Checkbox Navigation Mechanics
+   ========================================================================== */
+
 .header .menu-btn {
   display: none;
 }
@@ -85,7 +87,7 @@
 }
 
 .header .menu-icon .navicon-dark {
-  background: #ffffff !important; /* Clear white hamburger lines */
+  background: #ffffff !important; /* Clear high-contrast white hamburger menu tracks */
 }
 
 .header .menu-icon .navicon:before,
@@ -112,12 +114,16 @@
 }
 .header .menu-btn:checked ~ .menu-icon .navicon:before { transform: rotate(-45deg); }
 .header .menu-btn:checked ~ .menu-icon .navicon:after { transform: rotate(45deg); }
-.header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
-.header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
+.header .menu-btn:checked ~ .menu-icon;not(.steps) .navicon:before,
+.header .menu-btn:checked ~ .menu-icon;not(.steps) .navicon:after {
   top: 0;
 }
 
-/* Responsive Mobile Rules */
+/* ==========================================================================
+   Responsive Viewport Adaptive Overrides
+   ========================================================================== */
+
+/* Mobile Views (max-width: 48em / 768px) */
 @media (max-width: 48em) {
   .header-container {
     padding: 16px 24px; 
@@ -128,22 +134,20 @@
     display: block; 
   }
 
-  /* FIXED: Enforced clean standard multi-line CSS comment block syntax to prevent line breaks from eating rules */
   .header .menu {
     display: flex;
     flex-direction: column;
     align-items: stretch !important;
     width: 100%;
     gap: 4px !important;
-    
-    /* FIX: Force height to 0 explicitly when not checked */
     height: 0;
     overflow: hidden;
     transition: height 0.3s ease; 
     padding: 0;
     background: transparent;
   }
- .header .menu-btn:checked ~ .menu {
+
+  .header .menu-btn:checked ~ .menu {
     height: 200px; 
     padding-top: 16px;
     padding-bottom: 8px;
@@ -158,11 +162,17 @@
     width: 100%;
     box-sizing: border-box;
     font-size: 15px;
-    color: #ffffff !important; /* Absolute high-contrast link visibility guarantee */
+    color: #ffffff !important;
+    
+    /* Adds subtle container blocks for cleaner finger touch targets on phones */
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.05) !important;
+      border-radius: 6px;
+    }
   }
 }
 
-/* Desktop and Larger Monitors */
+/* Desktop and Large Layout Monitors (min-width: 48em / 769px) */
 @media (min-width: 48em) {
   .header li {
     float: left;
