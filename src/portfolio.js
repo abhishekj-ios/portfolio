@@ -173,15 +173,24 @@ const bigProjects = {
       id: "hero-smartflow",
       projectName: "SmartFlow — Real-Time Ledger Monitor",
       icon: smartFlowIcon,
-      architecture: "Event-Driven VIPER Core with Asynchronous Telemetry",
-      summary: "A secure tracking system built to ingest, map, and visualize transaction states across distributed blockchain networks in real-time.",
-      challenge: "Translating rapid immutable distributed ledger entries into a fluid, low-latency UI lifecycle timeline without generating memory leaks or performance bottlenecks.",
-      techStack: ["VIPER Core", "Blockchain API Services", "Real-Time Logs", "State Visualization Layers"],
-      wins: [
-        "Engineered a low-latency transaction status parser that transforms live stream telemetry into structural event logs.",
-        "Constructed a high-fidelity transaction lifecycle visualization component using performance-tuned rendering structures.",
-        "Eliminated runtime retention cycles entirely during persistent WebSockets/API polling phases."
-      ]
+      architecture: "Secure Blockchain Trade Monitor with Real-Time Lifecycle Tracking",
+      summary: "A role-isolated enterprise trade monitoring engine tracking distributed blockchain ledger states and rendering high-performance transaction lifecycle visualizations in real time.",
+  challenge: "Orchestrating low-latency state synchronization between traditional RESTful backend APIs and distributed blockchain networks while maintaining highly secure, role-based data isolation layers and fluid, non-blocking lifecycle visualizations.",
+  techStack: [
+    "Swift",
+    "VIPER",
+    "Protocol-Oriented Programming",
+    "WebSockets",
+    "CoreAnimation",
+    "Secure Keychain",
+    "Push Notifications"
+  ],
+  wins: [
+    "Engineered a protocol-driven data abstraction layer that successfully decoupled smart contract endpoints from view representation structures.",
+    "Built a thread-safe transaction state processor capable of safely handling high-frequency ledger events concurrently without degrading main UI loop frames.",
+    "Engineered an Interactor-backed data layer that completely isolated blockchain endpoints and Entity models from the presentation logic",
+    "Built a thread-safe background processing engine to handle high-frequency ledger events concurrently, ensuring the Presenter updates the UI without lag."
+  ]
     }
   ]
 };
