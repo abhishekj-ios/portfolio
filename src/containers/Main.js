@@ -23,7 +23,8 @@ import Experience from "./experience/Experience";
 
 const Main = ({ setPage }) => {
   const darkPref = window.matchMedia("(prefers-color-scheme: dark)");
-  const [isDark, setIsDark] = useLocalStorage("isDark", darkPref.matches);
+  //const [isDark, setIsDark] = useLocalStorage("isDark", darkPref.matches);
+  const [isDark, setIsDark] = useLocalStorage("isDark", true);
   const [isShowingSplashAnimation, setIsShowingSplashAnimation] = useState(true);
 
   // Purely manage the splash animation execution tracking loop here
