@@ -214,9 +214,10 @@ export const workExperiences = {
       date: "June 2024 – Present",
       subtitle: "Deep technical engagement initiated in 2024, continuing through the company’s official incorporation in 2025.",
       descBullets: [
-        "Spearhead high-level technical direction and mobile product strategy for enterprise clients, defining scalable iOS development roadmaps.",
-        "Architect and transition complex architectures into highly decoupled, modular Swift ecosystems to support simultaneous multi-team development tracks.",
-        "Own system design definitions, security standards, and third-party infrastructure integrations across large-scale client applications."
+        "Team Building & Mentorship: Focused heavily on scaling engineering capability by hiring and mentoring developers and enforcing company-preferred standards for development workflows.",
+        "Project & Feature Execution: Directed the technical execution of short-term mobile projects and fast-paced feature additions, defining clear roadmaps for immediate delivery.",
+        "Architectural Evolution: Formulated system design definitions and guided the transition of complex client legacy codebases into highly decoupled, modular Swift ecosystems.",
+        "Development Optimisation: Organised code structures and third-party tools to keep different features separated, making it easy for multiple teams to work on the app at the same time without friction."
       ],
       skills: ["SwiftUI", "Architecture", "Module Design", "Product Strategy"]
     },
