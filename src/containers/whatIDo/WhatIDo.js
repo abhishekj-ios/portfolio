@@ -45,8 +45,13 @@ export default function WhatIDo() {
   return (
     <div className="what-i-do-container" id="whatIDo">
       <Fade bottom duration={1000} distance="20px">
-        <h1 className="what-i-do-title">{whatIDo.title}</h1>
-        <p className="what-i-do-subtitle">{whatIDo.subTitle}</p>
+        {/* DESKTOP TITLE: Shows original configuration text from portfolio.js */}
+        <h1 className="what-i-do-title desktop-header">{whatIDo.title}</h1>
+        
+        {/* MOBILE TITLE: Inline overridden to show a compact single word */}
+        <h1 className="what-i-do-title mobile-header">Expertise</h1>
+        
+        {/* Subtitle tag block has been completely deleted from here */}
       </Fade>
 
       <div className="skills-grid-wrapper">
