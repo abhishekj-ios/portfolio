@@ -153,7 +153,7 @@ export default function Projects({ setPage }) {
             const activeImageSrc = preloadedIcons[proj.id] || (proj.icon?.default || proj.icon);
             return (
               <div key={proj.id} className="showcase-card-node" style={{ flex: "0 0 auto", width: "85vw", maxWidth: "360px", scrollSnapAlign: "center", backgroundColor: isDark ? "#17191e" : "#ffffff", border: isDark ? "1px solid rgba(255, 255, 255, 0.05)" : "1px solid rgba(0, 0, 0, 0.06)", borderRadius: "24px", overflow: "hidden", display: "flex", flexDirection: "column", boxShadow: isDark ? "0 14px 40px rgba(0,0,0,0.2)" : "0 14px 35px rgba(0,0,0,0.04)" }}>
-                  <div style={{ width: "100%", height: "300px", overflow: "hidden", position: "relative", backgroundColor: isDark ? "#22252c" : "#e8e8ed" }}>
+              <div style={{ width: "100%", aspectRatio: "3 / 2", overflow: "hidden", position: "relative", backgroundColor: isDark ? "#22252c" : "#e8e8ed" }}>{activeImageSrc && <img src={activeImageSrc} alt={proj.projectName} loading="eager" style={{ width: "100%", height: "100%", objectFit: "cover" }} />}</div>   
                   {activeImageSrc && <img src={activeImageSrc} alt={proj.projectName} loading="eager" style={{ width: "100%", height: "100%", objectFit: "cover" }} />}
                 </div>
                 <div style={{ padding: "28px", display: "flex", flexDirection: "column", justifyContent: "space-between", flexGrow: 1 }}>
