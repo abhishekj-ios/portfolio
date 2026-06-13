@@ -68,7 +68,7 @@ export default function Projects({ setPage }) {
         padding: "70px 0", 
         width: "100%", 
         backgroundColor: isDark ? "#222223" : "#f5f5f7", 
-        fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' 
+        fontFamily: '"Google Sans Regular", sans-serif' 
       }}
     >
       <div className="projects-container-wrapper" style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px" }}>
@@ -77,19 +77,19 @@ export default function Projects({ setPage }) {
         <div className="projects-responsive-header">
           <div style={{ flex: "1" }}>
             <h1 
-  className={`${isDark ? "dark-mode project-title" : "project-title"} desktop-header`} 
-  style={{ fontWeight: "700", letterSpacing: "-0.5px", color: isDark ? "#ffffff" : "#1d1d1f", margin: 0 }}
->
-  {bigProjects.title}
-</h1>
+              className={`${isDark ? "dark-mode project-title" : "project-title"} desktop-header`} 
+              style={{ fontWeight: "700", letterSpacing: "-0.5px", color: isDark ? "#ffffff" : "#1d1d1f", margin: 0 }}
+            >
+              {bigProjects.title}
+            </h1>
 
-{/* MOBILE VERSION - Shows your short title */}
-<h1 
-  className={`${isDark ? "dark-mode project-title" : "project-title"} mobile-header`} 
-  style={{ fontWeight: "700", letterSpacing: "-0.5px", color: isDark ? "#ffffff" : "#1d1d1f", margin: 0 }}
-> 
- LATEST PROJECTS
-</h1>
+            {/* MOBILE VERSION - Shows your short title */}
+            <h1 
+              className={`${isDark ? "dark-mode project-title" : "project-title"} mobile-header`} 
+              style={{ fontWeight: "700", letterSpacing: "-0.5px", color: isDark ? "#ffffff" : "#1d1d1f", margin: 0 }}
+            > 
+               LATEST PROJECTS
+            </h1>
           </div>
           
           <button 
@@ -163,7 +163,7 @@ export default function Projects({ setPage }) {
           {bigProjects.projects.map((proj) => {
             const activeImageSrc = preloadedIcons[proj.id] || (proj.icon?.default || proj.icon);
             return (
-              <div key={proj.id} className="showcase-card-node" style={{ flex: "0 0 auto", width: "85vw", maxWidth: "360px", scrollSnapAlign: "center", backgroundColor: isDark ? "#17191e" : "#ffffff", border: isDark ? "1px solid rgba(255, 255, 255, 0.05)" : "1px solid rgba(0, 0, 0, 0.06)", borderRadius: "24px", overflow: "hidden", display: "flex", flexDirection: "column", boxShadow: isDark ? "0 14px 40px rgba(0,0,0,0.2)" : "0 14px 35px rgba(0,0,0,0.04)" }}>
+              <div key={proj.id} className="showcase-card-node" style={{ flex: "0 0 auto", width: "85vw", maxWidth: "360px", scrollSnapAlign: "center", backgroundColor: isDark ? "#17191e" : "#ffffff", border: isDark ? "1px solid rgba(255, 255, 255, 0.05)" : "1px solid rgba(0, 0, 0, 0.06)", borderRadius: "24px", overflow: "hidden", display: "flex", flexDirection: "column", boxShadow: isDark ? "0 14px 40px rgba(0,0,0,0.2)" : "0 14px 35px rgba(0,0,0,0.04)", fontFamily: '"Google Sans Regular", sans-serif' }}>
                 <div style={{ width: "100%", aspectRatio: "3 / 2", overflow: "hidden", position: "relative", backgroundColor: isDark ? "#22252c" : "#e8e8ed" }}>{activeImageSrc && <img src={activeImageSrc} alt={proj.projectName} loading="eager" style={{ width: "100%", height: "100%", objectFit: "cover" }} />}</div>
                 <div style={{ padding: "28px", display: "flex", flexDirection: "column", justifyContent: "space-between", flexGrow: 1 }}>
                   <div>
@@ -203,7 +203,7 @@ export default function Projects({ setPage }) {
 
       {/* PORTAL-WRAPPED FIXED MODAL MOUNTED DIRECTLY TO BODY */}
       {activeModalProject && ReactDOM.createPortal(
-        <div className="modal-backdrop" onClick={closeModal} style={{ padding: "16px" }}>
+        <div className="modal-backdrop" onClick={closeModal} style={{ padding: "16px", fontFamily: '"Google Sans Regular", sans-serif' }}>
           <div 
             className={isDark ? "dark-mode modal-container" : "modal-container"} 
             onClick={(e) => e.stopPropagation()}
@@ -212,15 +212,16 @@ export default function Projects({ setPage }) {
               overflowY: "auto", 
               padding: "28px 24px",
               display: "flex",
-              flexDirection: "column"
+              flexDirection: "column",
+              fontFamily: '"Google Sans Regular", sans-serif' /* Enforces font tracking on popup root container */
             }}
           >
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "20px", width: "100%" }}>
               <div style={{ paddingRight: "30px" }}>
-                <h2 style={{ fontSize: "22px", fontWeight: "800", margin: "0 0 6px 0", color: isDark ? "#ffffff" : "#111827" }}>
+                <h2 style={{ fontSize: "22px", fontWeight: "800", margin: "0 0 6px 0", color: isDark ? "#ffffff" : "#111827", fontFamily: '"Google Sans Regular", sans-serif' }}>
                   {activeModalProject.projectName}
                 </h2>
-                <span className="modal-architecture-badge" style={{ fontSize: "11px" }}>
+                <span className="modal-architecture-badge" style={{ fontSize: "11px", fontFamily: '"Google Sans Regular", sans-serif' }}>
                   {activeModalProject.architecture}
                 </span>
               </div>
@@ -236,7 +237,7 @@ export default function Projects({ setPage }) {
                   cursor: "pointer", 
                   color: isDark ? "#ffffff" : "#000000",
                   display: "flex",
-                  alignItems: "center",
+                  align-items: "center",
                   justifyContent: "center",
                   flexShrink: 0
                 }}
@@ -245,18 +246,18 @@ export default function Projects({ setPage }) {
               </button>
             </div>
             
-            <div className="modal-body" style={{ overflowY: "visible" }}>
+            <div className="modal-body" style={{ overflowY: "visible", fontFamily: '"Google Sans Regular", sans-serif' }}>
               <div className="modal-section">
-                <h3 style={{ fontSize: "13px" }}>The Engineering Challenge</h3>
-                <p style={{ fontSize: "13.5px" }}>{activeModalProject.challenge}</p>
+                <h3 style={{ fontSize: "13px", fontFamily: '"Google Sans Regular", sans-serif' }}>The Engineering Challenge</h3>
+                <p style={{ fontSize: "13.5px", fontFamily: '"Google Sans Regular", sans-serif' }}>{activeModalProject.challenge}</p>
               </div>
               <div className="modal-section">
-                <h3 style={{ fontSize: "13px" }}>Core System Pillars</h3>
-                <div className="modal-tech-pills">{activeModalProject.techStack.map((tech, idx) => <span key={idx} className="tech-pill" style={{ fontSize: "11px", padding: "4px 10px" }}>{tech}</span>)}</div>
+                <h3 style={{ fontSize: "13px", fontFamily: '"Google Sans Regular", sans-serif' }}>Core System Pillars</h3>
+                <div className="modal-tech-pills">{activeModalProject.techStack.map((tech, idx) => <span key={idx} className="tech-pill" style={{ fontSize: "11px", padding: "4px 10px", fontFamily: '"Google Sans Regular", sans-serif' }}>{tech}</span>)}</div>
               </div>
               <div className="modal-section" style={{ marginBottom: 0 }}>
-                <h3 style={{ fontSize: "13px" }}>Architectural Milestones & Core Wins</h3>
-                <ul style={{ margin: 0 }}>{activeModalProject.wins.map((win, idx) => <li key={idx} style={{ fontSize: "13.5px" }}>{win}</li>)}</ul>
+                <h3 style={{ fontSize: "13px", fontFamily: '"Google Sans Regular", sans-serif' }}>Architectural Milestones & Core Wins</h3>
+                <ul style={{ margin: 0, fontFamily: '"Google Sans Regular", sans-serif' }}>{activeModalProject.wins.map((win, idx) => <li key={idx} style={{ fontSize: "13.5px", fontFamily: '"Google Sans Regular", sans-serif' }}>{win}</li>)}</ul>
               </div>
             </div>
           </div>
