@@ -8,7 +8,7 @@
   margin: 0 auto;
   font-family: "Google Sans Regular", sans-serif;
 
-  /* 1. Root level defaults for responsive structural switches */
+  /* 1. Nested safely to prevent breaking other section layouts on website */
   .mobile-header {
     display: none !important;
   }
@@ -51,9 +51,6 @@
   width: 100%;
 }
 
-/* ==========================================================================
-   Global Mobile Media Query Viewport Overrides
-   ========================================================================== */
 /* ==========================================================================
    Global Mobile Media Query Viewport Overrides
    ========================================================================== */
