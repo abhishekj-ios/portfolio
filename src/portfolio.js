@@ -9,6 +9,7 @@ import splashAnimation from "./assets/lottie/splashAnimation"; // Rename to your
 import bloomIcon from './assets/images/bloomnew.webp';
 import smartFinIcon from './assets/images/SmartFin.webp';
 import smartFlowIcon from './assets/images/SmartFlow.webp';
+import beyondClassScreen from './assets/images/beyondScreen.webp';
 // Splash Screen
 
 const splashScreen = {
@@ -130,13 +131,13 @@ const bigProjects = {
       "Swift",
       "MVVM-C",
       "Protocol-Oriented Programming",
-    "CoreBluetooth",
-    "Stripe API",
-    "Apple Pay",
-    "MapKit Core",
-    "Firebase Stream",
-    "AVFoundation"
-  ],
+      "CoreBluetooth",
+      "Stripe API",
+      "Apple Pay",
+      "MapKit Core",
+      "Firebase Stream",
+      "AVFoundation"
+      ],
   wins: [
     "Architected an abstract, protocol-driven Bluetooth communication layer that gracefully handles hardware variations across multiple lock manufacturers.",
     "Engineered a thread-safe rental billing calculator processing real-time ride duration and server data syncing without blocking the main UI thread.",
@@ -145,18 +146,28 @@ const bigProjects = {
   ]
     },
     {
-      id: "hero-smartfin",
-      projectName: "SmartFin — Institutional Banking Hub",
+      id: "hero-beyondClass",
+      projectName: "Beyond Class — Interactive Music Coaching App",
       icon: smartFinIcon,
-      architecture: "Decoupled VIPER Architecture with Strict Interface Abstraction",
-      summary: "Enterprise trade-finance services platform enabling international traders to securely negotiate financial assistance directly with international partner banks.",
-      challenge: "Handling heavy concurrent data payloads, rendering multi-tiered interactive financial charts, and maintaining air-gapped security parameters across separate role-based submodules.",
-      techStack: ["VIPER Core", "Swift Concurrency", "Background Tasks", "Interactive Charting Core"],
-      wins: [
-        "Achieved 100% decoupling of complex bank/trader transaction lifecycles using strict protocol-driven routing.",
-        "Optimized rendering logic and background data ingestion pipelines to maximize UI performance during intense trade spikes.",
-        "Implemented secure, localized role-based access tokens separating authorization models between distinct financial parties."
-      ]
+      architecture: "Modular MVVM-C with Protocol-Oriented Media Pipelines",
+  summary: "A dual-module student-coach collaboration platform managing high-throughput asynchronous media lifecycles, role-based navigation graphs, and low-latency interactive evaluation tools.",
+  challenge: "Orchestrating a unified codebase supporting completely distinct, role-based workflows while managing high-throughput asynchronous media lifecycles, real-time messaging syncs, and fluid, low-latency video preview interactions without degraded UI frames.",
+  techStack: [
+    "Swift",
+    "MVVM-C",
+    "Protocol-Oriented Programming",
+    "AVFoundation",
+    "CoreMedia",
+    "CoreData",
+    "WebSockets",
+    "Push Notifications"
+  ],
+  wins: [
+    "Engineered a secure runtime state switch using Protocol-Oriented configuration trees to completely isolate Student assets from Coach evaluation tools under a single codebase.",
+    "Optimized AVFoundation capture sessions with custom asset-export configurations, slashing media file sizes prior to transit without degrading critical musical audio fidelity.",
+    "Utilized independent sub-coordinators (MVVM-C) to isolate the complex navigation graphs of the separate Student and Coach modules via a central authentication switch.",
+    "Built a custom interactive review timeline with decoupled animation layers, maintaining a locked 120Hz frame rate during concurrent video playback and audio note recording."
+  ]
     },
     {
       id: "hero-smartflow",
