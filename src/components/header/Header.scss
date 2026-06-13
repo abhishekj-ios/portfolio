@@ -22,15 +22,14 @@
 }
 
 .header-container {
-  /* FIXED: Snaps navbar content edges exactly to your 1140px site alignment columns */
-  max-width: 1140px; 
-  margin: 0 auto;
-  /* FIXED: Changed from 6% to 24px to completely eliminate edge-bleeding on widescreen monitors */
-  padding: 18px 24px; 
+  width: 100%;
+  max-width: 100% !important; 
+  margin: 0;
+  padding: 18px 40px; 
+  
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
   box-sizing: border-box;
 }
 
