@@ -20,6 +20,24 @@
   box-shadow: none !important;
 }
 
+/* Responsive Structural Switches for Desktop vs Mobile Headers */
+.mobile-header {
+  display: none !important;
+}
+
+.desktop-header {
+  display: block !important;
+}
+
+@media (max-width: 768px) {
+  .desktop-header {
+    display: none !important;
+  }
+  .mobile-header {
+    display: block !important;
+  }
+}
+
 /* ==========================================================================
    Dynamic Scroll Animation Utility Classes
    ========================================================================== */
