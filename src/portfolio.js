@@ -133,6 +133,8 @@ const bigProjects = {
       "Core Bluetooth",
       "Stripe API",
       "Apple Pay",
+      "Animations",
+      "Custom Views",
       "Protocol-Oriented Programming",
       "MapKit Core",
       "Firebase Stream",
@@ -179,6 +181,8 @@ const bigProjects = {
   techStack: [
     "Swift",
     "VIPER",
+    "Graphs",
+    "Core Data",
     "Protocol-Oriented Programming",
     "WebSockets",
     "CoreAnimation",
