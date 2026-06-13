@@ -213,7 +213,7 @@ export default function Projects({ setPage }) {
               padding: "28px 24px",
               display: "flex",
               flexDirection: "column",
-              fontFamily: '"Google Sans Regular", sans-serif' /* Enforces font tracking on popup root container */
+              fontFamily: '"Google Sans Regular", sans-serif'
             }}
           >
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "20px", width: "100%" }}>
@@ -237,7 +237,7 @@ export default function Projects({ setPage }) {
                   cursor: "pointer", 
                   color: isDark ? "#ffffff" : "#000000",
                   display: "flex",
-                  align-items: "center",
+                  alignItems: "center",      /* FIXED: Changed from align-items to alignItems */
                   justifyContent: "center",
                   flexShrink: 0
                 }}
@@ -262,7 +262,7 @@ export default function Projects({ setPage }) {
             </div>
           </div>
         </div>,
-        document.body // Escapes the parent context completely
+        document.body 
       )}
     </div>
   );
