@@ -51,19 +51,8 @@ export default function Greeting({ setPage }) {
             </div>
           </div>
 
-          {/* ACTION BUTTON CONTROLS */}
+          {/* ACTION BUTTON CONTROL (SINGLE MONOLITHIC CTA) */}
           <div className="button-greeting-div">
-            <div className="secondary-btn-wrapper">
-              <a 
-                className="template-download-button"
-                href={greeting.resumeLink}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View My Resume
-              </a>
-            </div>
-
             <div className="primary-btn-wrapper">
               <button 
                 className="main-button" 
