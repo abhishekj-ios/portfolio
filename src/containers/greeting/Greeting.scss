@@ -68,17 +68,22 @@ $apple-gradient: linear-gradient(135deg, #00FF87 0%, #60EFFF 100%);
   /* Typographic Authority: Bold, Pronounced Stats */
   h3 {
     font-size: 38px;
-    font-weight: 800; // Bumped weight to build strong contrast
-    margin: 0 0 4px 0;
+    font-weight: 800; 
+    margin: 0; // Cleared bottom margin to let margin-top on the label handle the gap precisely
     color: #ffffff;
     letter-spacing: -0.02em;
   }
+  
+  /* Updated Label Styling */
   p {
-    font-size: 12px;
-    color: #86868b; // Classic low-contrast secondary system gray
-    margin: 0;
+    font-size: 14px; // Bumped up from 12px for better readability/scale
+    color: #86868b; 
+    margin-top: 8px; // Added distinct breathing room between the metric and this label
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
     font-weight: 500;
-    text-transform: none; // Normalizing from uppercase to clean Title Case
+    text-transform: none; 
     letter-spacing: -0.01em; 
   }
 }
