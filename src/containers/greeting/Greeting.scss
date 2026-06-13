@@ -1,5 +1,8 @@
 // Greeting.scss
 
+// Apple Brand Gradient Configuration
+$apple-gradient: linear-gradient(135deg, #00FF87 0%, #60EFFF 100%);
+
 .greet-main {
   background: #111215 radial-gradient(circle at 50% 25%, rgba(255, 255, 255, 0.02) 0%, rgba(17, 18, 21, 0) 65%);
   padding: 80px 0 50px 0; 
@@ -19,17 +22,18 @@
   display: flex;
   flex-direction: column;
   align-items: center; 
-  text-align: center;   
+  text-align: center;    
   margin-top: 10px; 
 }
 
+/* HIGH-BRIGHTNESS GRADIENT TITLE HEADER */
 .greeting-title {
   font-size: 56px;
   line-height: 1.15;
   font-weight: 800;
   letter-spacing: -0.03em; 
   margin: 0 0 20px 0; 
-  background: linear-gradient(180deg, #ffffff 0%, #e2e2e9 100%);
+  background: $apple-gradient;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -44,6 +48,7 @@
   max-width: 720px;
 }
 
+/* METRICS DISTRIBUTION PLATFORM */
 .metrics-row-split {
   border-top: 1px solid rgba(255, 255, 255, 0.06);
   border-bottom: 1px solid rgba(255, 255, 255, 0.06); 
@@ -56,38 +61,38 @@
 }
 
 .metric-column-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  /* Typographic Authority: Bold, Pronounced Stats */
   h3 {
-    font-size: 34px;
-    font-weight: 700;
+    font-size: 38px;
+    font-weight: 800; // Bumped weight to build strong contrast
     margin: 0 0 4px 0;
     color: #ffffff;
     letter-spacing: -0.02em;
   }
   p {
     font-size: 12px;
-    color: #86868b; 
+    color: #86868b; // Classic low-contrast secondary system gray
     margin: 0;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em; 
+    font-weight: 500;
+    text-transform: none; // Normalizing from uppercase to clean Title Case
+    letter-spacing: -0.01em; 
   }
 }
 
+/* BUTTON WORKFLOW LAYOUT */
 .button-greeting-div {
   display: flex;
   gap: 16px;
-  margin-bottom: 36px; 
+  margin-bottom: 44px; 
   align-items: center;
   justify-content: center;
   width: 100%;
-  max-width: 440px; 
+  max-width: 460px; 
   box-sizing: border-box;
-}
-
-.social-media-div {
-  margin: 0;
-  padding: 0;
-  margin-bottom: 32px !important; 
 }
 
 .primary-btn-wrapper, .secondary-btn-wrapper {
@@ -103,37 +108,79 @@
     justify-content: center;
     box-sizing: border-box;
     text-transform: none; 
-    
-    background: rgba(255, 255, 255, 0.04) !important; 
-    backdrop-filter: blur(12px) !important;
-    -webkit-backdrop-filter: blur(12px) !important;
-    border: 1px solid rgba(255, 255, 255, 0.08) !important;
-    
-    color: #f3f4f6 !important;
     font-size: 14px !important; 
     font-weight: 600 !important;
     border-radius: 10px !important; 
     cursor: pointer;
     letter-spacing: -0.01em;
     text-decoration: none !important;
-    transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease !important;
-
-    &:hover {
-      background: rgba(255, 255, 255, 0.08) !important;
-      border: 1px solid rgba(255, 255, 255, 0.18) !important;
-      transform: translateY(-1px);
-    }
-
-    &:active {
-      transform: translateY(0);
-      background: rgba(255, 255, 255, 0.05) !important;
-    }
+    transition: all 0.2s cubic-bezier(0.25, 1, 0.5, 1) !important;
   }
 }
 
+/* Secondary Button Layer: Glassmorphism Border Variant */
+.secondary-btn-wrapper .template-download-button {
+  background: rgba(255, 255, 255, 0.04) !important; 
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  color: #f3f4f6 !important;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.18) !important;
+    transform: translateY(-1px);
+  }
+  &:active {
+    background: rgba(255, 255, 255, 0.05) !important;
+    transform: translateY(0);
+  }
+}
+
+/* Primary Action Layer: Saturated High-Luminance Gradient Fill */
+.primary-btn-wrapper .main-button {
+  background: $apple-gradient !important;
+  border: none !important;
+  color: #050505 !important; // High-contrast crisp black text over neon fill
+  box-shadow: 0 4px 20px rgba(0, 255, 135, 0.15);
+
+  &:hover {
+    opacity: 0.92;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 24px rgba(0, 255, 135, 0.25);
+  }
+  &:active {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* DIVIDER & SOCIAL CHANNELS PACKAGING */
+.footer-line {
+  border: none;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.06);
+  width: 100%;
+  margin: 0 0 32px 0;
+}
+
+.social-media-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  
+  // Overriding parent plugin legacy behaviors if any
+  .social-media-div {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+}
+
+/* COMPACT RESPONSIVE RESPONSIVENESS ENGINE */
 @media (max-width: 768px) {
   .greet-main {
-    padding: 50px 0 40px 0; 
+    padding: 60px 0 40px 0; 
   }
   .greeting-container {
     padding: 0 24px; 
@@ -145,22 +192,23 @@
   }
   .greeting-desc {
     font-size: 15.5px;
-    margin-bottom: 32px;
+    margin-bottom: 36px;
+    line-height: 1.55;
   }
   .metrics-row-split {
-    grid-template-columns: 1fr; 
-    gap: 24px;
+    grid-template-columns: 1fr; // Converts to a stack configuration seamlessly
+    gap: 20px;
     padding: 24px 0;
-    margin-bottom: 32px;
+    margin-bottom: 36px;
   }
   .metric-column-item {
-    h3 { font-size: 30px; }
+    h3 { font-size: 32px; }
   }
   .button-greeting-div {
-    flex-direction: column; 
+    flex-direction: column; // Primary stacks on top of Secondary gracefully
     width: 100%;
     gap: 12px;
     padding: 0;
-    margin-bottom: 28px; 
+    margin-bottom: 36px; 
   }
 }
