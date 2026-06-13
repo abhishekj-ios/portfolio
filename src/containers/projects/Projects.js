@@ -1,11 +1,9 @@
-import React, { useState, useContext, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import ReactDOM from "react-dom"; // Added for structural viewport breakout
 import "./Project.scss"; 
 import { bigProjects } from "../../portfolio";
-import StyleContext from "../../contexts/StyleContext";
 
 export default function Projects({ setPage }) {
-  const { isDark } = useContext(StyleContext);
   const [activeModalProject, setActiveModalProject] = useState(null);
   const [preloadedIcons, setPreloadedIcons] = useState({});
   const [isVisible, setIsVisible] = useState(false);
@@ -62,31 +60,31 @@ export default function Projects({ setPage }) {
   return (
     <div 
       ref={sectionRef}
-      className={`main scroll-reveal-section ${isVisible ? "reveal-visible" : ""}`}
+      className="main scroll-reveal-section reveal-visible"
       id="opensource" 
       style={{ 
         padding: "70px 0", 
         width: "100%", 
-        backgroundColor: isDark ? "#222223" : "#f5f5f7", 
+        backgroundColor: "#17191e", /* Forced Premium Dark Canvas */
         fontFamily: '"Google Sans Regular", sans-serif' 
       }}
     >
       <div className="projects-container-wrapper" style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px" }}>
         
-        {/* RESTORED RESPONSIVE HEADER CONTAINER BLOCK */}
+        {/* RESPONSIVE HEADER CONTAINER BLOCK */}
         <div className="projects-responsive-header">
           <div style={{ flex: "1" }}>
             <h1 
-              className={`${isDark ? "dark-mode project-title" : "project-title"} desktop-header`} 
-              style={{ fontWeight: "700", letterSpacing: "-0.5px", color: isDark ? "#ffffff" : "#1d1d1f", margin: 0 }}
+              className="dark-mode project-title desktop-header" 
+              style={{ fontWeight: "700", letterSpacing: "-0.5px", color: "#ffffff", margin: 0 }}
             >
               {bigProjects.title}
             </h1>
 
-            {/* MOBILE VERSION - Shows your short title */}
+            {/* MOBILE VERSION */}
             <h1 
-              className={`${isDark ? "dark-mode project-title" : "project-title"} mobile-header`} 
-              style={{ fontWeight: "700", letterSpacing: "-0.5px", color: isDark ? "#ffffff" : "#1d1d1f", margin: 0 }}
+              className="dark-mode project-title mobile-header" 
+              style={{ fontWeight: "700", letterSpacing: "-0.5px", color: "#ffffff", margin: 0 }}
             > 
                LATEST PROJECTS
             </h1>
@@ -100,7 +98,7 @@ export default function Projects({ setPage }) {
           </button>
         </div>
 
-        {/* RESTORED CARDS CONTAINER */}
+        {/* CARDS CONTAINER */}
         <div className="featured-apps-scroll-container" style={{ display: "flex", gap: "28px", overflowX: "auto", paddingBottom: "32px", paddingTop: "4px", scrollSnapType: "x mandatory" }}>
           <style>{`
             .featured-apps-scroll-container::-webkit-scrollbar { display: none; }
@@ -112,14 +110,14 @@ export default function Projects({ setPage }) {
               gap: 16px;
               text-align: center;
               margin-bottom: 40px;
-              border-bottom: ${isDark ? "1px solid rgba(255, 255, 255, 0.08)" : "1px solid rgba(0, 0, 0, 0.08)"};
+              border-bottom: 1px solid rgba(255, 255, 255, 0.08);
               padding-bottom: 24px;
             }
             .project-title { font-size: 28px; }
             .see-all-apps-header-btn {
               background-color: transparent;
               border: none;
-              color: ${isDark ? "#60a5fa" : "#2563eb"};
+              color: #60a5fa; /* Locked vibrant blue */
               font-size: 15px;
               font-weight: 600;
               cursor: pointer;
@@ -139,11 +137,11 @@ export default function Projects({ setPage }) {
               }
               .project-title { font-size: 36px !important; }
               .see-all-apps-header-btn {
-                color: ${isDark ? "#a1a1a6" : "#6e6e73"} !important;
+                color: #a1a1a6 !important;
                 padding: 0 !important;
               }
               .see-all-apps-header-btn:hover {
-                color: ${isDark ? "#ffffff" : "#000000"} !important;
+                color: #ffffff !important;
               }
             }
 
@@ -156,23 +154,23 @@ export default function Projects({ setPage }) {
               transition: background-color 0.2s ease, border-color 0.2s ease !important;
             }
             .premium-btn:hover {
-              background-color: ${isDark ? "rgba(255, 255, 255, 0.08)" : "rgba(0, 0, 0, 0.08)"} !important;
-              border-color: ${isDark ? "rgba(255, 255, 255, 0.2)" : "rgba(0, 0, 0, 0.2)"} !important;
+              background-color: rgba(255, 255, 255, 0.08) !important;
+              border-color: rgba(255, 255, 255, 0.2) !important;
             }
           `}</style>
           {bigProjects.projects.map((proj) => {
             const activeImageSrc = preloadedIcons[proj.id] || (proj.icon?.default || proj.icon);
             return (
-              <div key={proj.id} className="showcase-card-node" style={{ flex: "0 0 auto", width: "85vw", maxWidth: "360px", scrollSnapAlign: "center", backgroundColor: isDark ? "#17191e" : "#ffffff", border: isDark ? "1px solid rgba(255, 255, 255, 0.05)" : "1px solid rgba(0, 0, 0, 0.06)", borderRadius: "24px", overflow: "hidden", display: "flex", flexDirection: "column", boxShadow: isDark ? "0 14px 40px rgba(0,0,0,0.2)" : "0 14px 35px rgba(0,0,0,0.04)", fontFamily: '"Google Sans Regular", sans-serif' }}>
-                <div style={{ width: "100%", aspectRatio: "3 / 2", overflow: "hidden", position: "relative", backgroundColor: isDark ? "#22252c" : "#e8e8ed" }}>{activeImageSrc && <img src={activeImageSrc} alt={proj.projectName} loading="eager" style={{ width: "100%", height: "100%", objectFit: "cover" }} />}</div>
+              <div key={proj.id} className="showcase-card-node" style={{ flex: "0 0 auto", width: "85vw", maxWidth: "360px", scrollSnapAlign: "center", backgroundColor: "#17191e", border: "1px solid rgba(255, 255, 255, 0.05)", borderRadius: "24px", overflow: "hidden", display: "flex", flexDirection: "column", boxShadow: "0 14px 40px rgba(0,0,0,0.3)", fontFamily: '"Google Sans Regular", sans-serif' }}>
+                <div style={{ width: "100%", aspectRatio: "3 / 2", overflow: "hidden", position: "relative", backgroundColor: "#22252c" }}>{activeImageSrc && <img src={activeImageSrc} alt={proj.projectName} loading="eager" style={{ width: "100%", height: "100%", objectFit: "cover" }} />}</div>
                 <div style={{ padding: "28px", display: "flex", flexDirection: "column", justifyContent: "space-between", flexGrow: 1 }}>
                   <div>
-                    <h2 style={{ margin: "0 0 6px 0", fontSize: "22px", fontWeight: "700", letterSpacing: "-0.3px", color: isDark ? "#ffffff" : "#1d1d1f" }}>{proj.projectName.split(" — ")[0]}</h2>
-                    <div style={{ fontSize: "11px", fontWeight: "600", textTransform: "uppercase", letterSpacing: "0.5px", color: isDark ? "#86868b" : "#6e6e73", marginBottom: "16px" }}>{proj.architecture.split(" with ")[0]}</div>
-                    <p style={{ fontSize: "14px", lineHeight: "1.6", color: isDark ? "#a1a1a6" : "#424245", margin: "0 0 20px 0" }}>{proj.summary}</p>
+                    <h2 style={{ margin: "0 0 6px 0", fontSize: "22px", fontWeight: "700", letterSpacing: "-0.3px", color: "#ffffff" }}>{proj.projectName.split(" — ")[0]}</h2>
+                    <div style={{ fontSize: "11px", fontWeight: "600", textTransform: "uppercase", letterSpacing: "0.5px", color: "#86868b", marginBottom: "16px" }}>{proj.architecture.split(" with ")[0]}</div>
+                    <p style={{ fontSize: "14px", lineHeight: "1.6", color: "#a1a1a6", margin: "0 0 20px 0" }}>{proj.summary}</p>
                     <div style={{ display: "flex", flexWrap: "wrap", gap: "8px", marginBottom: "24px" }}>
                       {proj.techStack.slice(0, 6).map((tech, idx) => (
-                        <span key={idx} style={{ fontSize: "11px", padding: "5px 12px", borderRadius: "6px", backgroundColor: isDark ? "rgba(255, 255, 255, 0.04)" : "rgba(0, 0, 0, 0.03)", color: isDark ? "#cbd5e1" : "#1d1d1f", border: isDark ? "1px solid rgba(255, 255, 255, 0.05)" : "1px solid rgba(0, 0, 0, 0.04)", fontWeight: "500" }}>{tech}</span>
+                        <span key={idx} style={{ fontSize: "11px", padding: "5px 12px", borderRadius: "6px", backgroundColor: "rgba(255, 255, 255, 0.04)", color: "#cbd5e1", border: "1px solid rgba(255, 255, 255, 0.05)", fontWeight: "500" }}>{tech}</span>
                       ))}
                     </div>
                   </div>
@@ -184,9 +182,9 @@ export default function Projects({ setPage }) {
                       width: "100%", 
                       padding: "13px", 
                       borderRadius: "10px", 
-                      border: isDark ? "1px solid rgba(255, 255, 255, 0.1)" : "1px solid rgba(0, 0, 0, 0.08)", 
-                      backgroundColor: isDark ? "rgba(255, 255, 255, 0.04)" : "rgba(0, 0, 0, 0.02)", 
-                      color: isDark ? "#f3f4f6" : "#1d1d1f", 
+                      border: "1px solid rgba(255, 255, 255, 0.1)", 
+                      backgroundColor: "rgba(255, 255, 255, 0.04)", 
+                      color: "#f3f4f6", 
                       fontSize: "14px", 
                       fontWeight: "600", 
                       cursor: "pointer"
@@ -205,7 +203,7 @@ export default function Projects({ setPage }) {
       {activeModalProject && ReactDOM.createPortal(
         <div className="modal-backdrop" onClick={closeModal} style={{ padding: "16px", fontFamily: '"Google Sans Regular", sans-serif' }}>
           <div 
-            className={isDark ? "dark-mode modal-container" : "modal-container"} 
+            className="dark-mode modal-container" 
             onClick={(e) => e.stopPropagation()}
             style={{
               maxHeight: "82vh", 
@@ -218,26 +216,26 @@ export default function Projects({ setPage }) {
           >
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "20px", width: "100%" }}>
               <div style={{ paddingRight: "30px" }}>
-                <h2 style={{ fontSize: "22px", fontWeight: "800", margin: "0 0 6px 0", color: isDark ? "#ffffff" : "#111827", fontFamily: '"Google Sans Regular", sans-serif' }}>
+                <h2 style={{ fontSize: "22px", fontWeight: "800", margin: "0 0 6px 0", color: "#ffffff", fontFamily: '"Google Sans Regular", sans-serif' }}>
                   {activeModalProject.projectName}
                 </h2>
-                <span className="modal-architecture-badge" style={{ fontSize: "11px", fontFamily: '"Google Sans Regular", sans-serif' }}>
+                <span className="modal-architecture-badge" style={{ fontSize: "11px", fontFamily: '"Google Sans Regular", sans-serif', color: "#86868b" }}>
                   {activeModalProject.architecture}
                 </span>
               </div>
               <button 
                 onClick={closeModal}
                 style={{ 
-                  background: isDark ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.05)",
+                  background: "rgba(255,255,255,0.08)",
                   border: "none", 
                   borderRadius: "50%", 
                   width: "36px", 
                   height: "36px", 
                   fontSize: "20px", 
                   cursor: "pointer", 
-                  color: isDark ? "#ffffff" : "#000000",
+                  color: "#ffffff",
                   display: "flex",
-                  alignItems: "center",      /* FIXED: Changed from align-items to alignItems */
+                  alignItems: "center",
                   justifyContent: "center",
                   flexShrink: 0
                 }}
@@ -248,16 +246,16 @@ export default function Projects({ setPage }) {
             
             <div className="modal-body" style={{ overflowY: "visible", fontFamily: '"Google Sans Regular", sans-serif' }}>
               <div className="modal-section">
-                <h3 style={{ fontSize: "13px", fontFamily: '"Google Sans Regular", sans-serif' }}>The Engineering Challenge</h3>
-                <p style={{ fontSize: "13.5px", fontFamily: '"Google Sans Regular", sans-serif' }}>{activeModalProject.challenge}</p>
+                <h3 style={{ fontSize: "13px", fontFamily: '"Google Sans Regular", sans-serif', color: "#60a5fa" }}>The Engineering Challenge</h3>
+                <p style={{ fontSize: "13.5px", fontFamily: '"Google Sans Regular", sans-serif', color: "#a1a1a6" }}>{activeModalProject.challenge}</p>
               </div>
               <div className="modal-section">
-                <h3 style={{ fontSize: "13px", fontFamily: '"Google Sans Regular", sans-serif' }}>Core System Pillars</h3>
+                <h3 style={{ fontSize: "13px", fontFamily: '"Google Sans Regular", sans-serif', color: "#60a5fa" }}>Core System Pillars</h3>
                 <div className="modal-tech-pills">{activeModalProject.techStack.map((tech, idx) => <span key={idx} className="tech-pill" style={{ fontSize: "11px", padding: "4px 10px", fontFamily: '"Google Sans Regular", sans-serif' }}>{tech}</span>)}</div>
               </div>
               <div className="modal-section" style={{ marginBottom: 0 }}>
-                <h3 style={{ fontSize: "13px", fontFamily: '"Google Sans Regular", sans-serif' }}>Architectural Milestones & Core Wins</h3>
-                <ul style={{ margin: 0, fontFamily: '"Google Sans Regular", sans-serif' }}>{activeModalProject.wins.map((win, idx) => <li key={idx} style={{ fontSize: "13.5px", fontFamily: '"Google Sans Regular", sans-serif' }}>{win}</li>)}</ul>
+                <h3 style={{ fontSize: "13px", fontFamily: '"Google Sans Regular", sans-serif', color: "#60a5fa" }}>Architectural Milestones & Core Wins</h3>
+                <ul style={{ margin: 0, fontFamily: '"Google Sans Regular", sans-serif', color: "#a1a1a6" }}>{activeModalProject.wins.map((win, idx) => <li key={idx} style={{ fontSize: "13.5px", fontFamily: '"Google Sans Regular", sans-serif' }}>{win}</li>)}</ul>
               </div>
             </div>
           </div>
