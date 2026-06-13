@@ -14,7 +14,6 @@ export default function Experience() {
 
       <div className="experience-cards-grid" style={{ display: "flex", flexDirection: "column", gap: "28px" }}>
         {workExperiences.experience.map((exp, index) => {
-          // The first card (Staff Engineer) gets the premium active styling highlight
           const isCurrentRole = index === 0; 
           
           return (
@@ -26,7 +25,7 @@ export default function Experience() {
                   borderRadius: "24px",
                   padding: "32px",
                   border: isCurrentRole ? "1px solid rgba(96, 165, 250, 0.3)" : "1px solid rgba(255, 255, 255, 0.05)",
-                  boxShadow: "0 14px 40px rgba(0, 0, 0, 0.2)"
+                  boxShadow: "0 12px 30px rgba(0, 0, 0, 0.4)" /* FORCED: Clean, deep dark shadow layer */
                 }}
               >
                 <div className="card-header-row" style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: "16px", flexWrap: "wrap", marginBottom: "16px" }}>
@@ -51,9 +50,24 @@ export default function Experience() {
                   ))}
                 </ul>
 
+                {/* THE BOTTOM LAYER TECH PILLS TRACK */}
                 <div className="experience-card-tags-footer" style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
                   {exp.skills.map((skill, i) => (
-                    <span key={i} className="tech-tag-pill" style={{ fontSize: "11px", fontWeight: "500", padding: "5px 12px", borderRadius: "6px", backgroundColor: "rgba(255, 255, 255, 0.04)", color: "#cbd5e1", border: "1px solid rgba(255, 255, 255, 0.05)" }}>{skill}</span>
+                    <span 
+                      key={i} 
+                      className="tech-tag-pill" 
+                      style={{ 
+                        fontSize: "11px", 
+                        fontWeight: "500", 
+                        padding: "5px 12px", 
+                        borderRadius: "6px", 
+                        backgroundColor: "rgba(255, 255, 255, 0.05)", /* FORCED: Dark translucent pill background */
+                        color: "#cbd5e1",                             /* FORCED: Legible soft white text */
+                        border: "1px solid rgba(255, 255, 255, 0.08)" /* FORCED: Subdued thin border */
+                      }}
+                    >
+                      {skill}
+                    </span>
                   ))}
                 </div>
               </div>
