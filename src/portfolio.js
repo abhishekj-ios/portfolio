@@ -49,7 +49,7 @@ const socialMediaLinks = {
 // Skills Section
 
 export const whatIDo = {
-  title: "Specializations & Expertise",
+  title: "SPECIALIZATIONS & EXPERTISE", 
   subTitle: "Over a decade of engineering high-performance mobile systems, shaping modular codebases, and scaling technical teams.",
   skills: [
     {
@@ -116,7 +116,7 @@ const techStack = {
 // Some big projects you have worked on
 // FIXED: Removed inline export to avoid double-export syntax conflicts
 const bigProjects = {
-  title: "Featured Production Apps",
+  title: "FEATURED PRODUCTION APPS ",
   subtitle: "A technical spotlight on my 3 most recent native deployments",
   display: true,
   projects: [
