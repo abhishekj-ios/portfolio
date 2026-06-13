@@ -123,15 +123,26 @@ const bigProjects = {
       id: "hero-bloom",
       projectName: "Bloom — IoT Micro-Mobility Platform",
       icon: bloomIcon,
-      architecture: "Modular MVVM Architecture with Hardware Isolation Layers",
-      summary: "Architectural core driving an IoT bike-rental engine scaled seamlessly across 7 distinct white-label client variants. Isolates custom firmware protocols from core business logic.",
-      challenge: "Managing asynchronous hardware state-machines, real-time geolocation tracking, and high-stakes multi-tenant payment pipelines concurrently without locking the main thread.",
-      techStack: ["CoreBluetooth", "Stripe API", "Apple Pay", "MapKit Core", "Firebase Stream"],
-      wins: [
-        "Architected an abstract Bluetooth communication layer that gracefully handles hardware variations across multiple lock manufacturers.",
-        "Engineered a thread-safe rental billing calculator processing real-time ride duration and server data syncing.",
-        "Successfully delivered high functional and UI customization modules across 7 live production derivatives."
-      ]
+      architecture: "Modular MVVM-C with Protocol-Oriented Hardware Isolation Layers",
+      summary: "Architectural core driving an IoT bike-rental engine scaled seamlessly across 7 distinct white-label client variants. Isolates custom firmware protocols from core business logic using POP.",
+      challenge: "Managing asynchronous hardware state machines, real-time geolocation tracking, and high-stakes multi-tenant payment pipelines concurrently without locking the main thread. The core architectural challenge was decoupling the hardware-specific Bluetooth protocols from the business logic to ensure the platform could scale seamlessly into a white-label solution across distinct product variants.",
+      techStack: [
+      "Swift",
+      "MVVM-C",
+      "Protocol-Oriented Programming",
+    "CoreBluetooth",
+    "Stripe API",
+    "Apple Pay",
+    "MapKit Core",
+    "Firebase Stream",
+    "AVFoundation"
+  ],
+  wins: [
+    "Architected an abstract, protocol-driven Bluetooth communication layer that gracefully handles hardware variations across multiple lock manufacturers.",
+    "Engineered a thread-safe rental billing calculator processing real-time ride duration and server data syncing without blocking the main UI thread.",
+    "Leveraged the Coordinator pattern (MVVM-C) to isolate navigation logic and smoothly manage deep-linked user flows across distinct application variants.",
+    "Successfully delivered high-fidelity functional and UI customization modules across 7 live production derivatives."
+  ]
     },
     {
       id: "hero-smartfin",
