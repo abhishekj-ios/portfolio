@@ -44,7 +44,6 @@ body {
    Global Mobile Spacing Overrides (Fixes Over-Stretched Layouts)
    ========================================================================== */
 @media (max-width: 768px) {
-  /* Safely converted comment to CSS standard block comment */
   .main,
   .greet-main,
   .work-experience-main,
@@ -55,7 +54,6 @@ body {
     padding-bottom: 40px !important; 
   }
 
-  /* Safely converted comment to CSS standard block comment */
   .project-title,
   .greeting-title,
   .skills-heading,
@@ -63,6 +61,7 @@ body {
     margin-bottom: 20px !important;
   }
 }
+
 /* ==========================================================================
    GLOBAL DARK MODE LOCKUP - Overrides any device light-theme variables
    ========================================================================== */
@@ -78,24 +77,37 @@ section,
 .skills-section, 
 .experience-section, 
 .work-experience,
-.techstack-div {
+.techstack-div,
+#skills,
+#experience {
   background-color: #17191e !important;
 }
 
-/* 3. Force cards and nested nodes inside those sections to remain dark */
+/* 3. Aggressively target ANY div or child element acting as a card container */
+.skills-section div,
+.experience-section div,
+.work-experience div,
 .skills-card, 
 .experience-card, 
 .work-card-div,
-.timeline-block {
+[class*="card"],
+[class*="Card"] {
   background-color: #1e222b !important; /* Premium inner card dark gray */
   border-color: rgba(255, 255, 255, 0.05) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25) !important;
 }
 
-/* 4. Ensure all structural typography remains perfectly high-contrast white/gray */
-h1, h2, h3, h4, h5, h6, .heading, .subTitle {
+/* 4. Force ALL nested typography/text tracks anywhere in those blocks to white */
+.skills-section *,
+.experience-section *,
+.work-experience * {
   color: #ffffff !important;
 }
 
-p, li, .card-text, .experience-text-details {
-  color: #a1a1a6 !important; /* Soft gray body text */
+/* 5. Keep descriptions, dates, and paragraph tags a clean, soft secondary gray */
+.skills-section p, .skills-section span,
+.experience-section p, .experience-section span,
+.work-experience p, .work-experience span,
+[class*="duration"], [class*="desc"] {
+  color: #a1a1a6 !important;
 }
