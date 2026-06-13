@@ -10,7 +10,7 @@ import bloomIcon from './assets/images/bloomnew.webp';
 import smartFinIcon from './assets/images/SmartFin.webp';
 import smartFlowIcon from './assets/images/SmartFlow.webp';
 import beyondClassScreen from './assets/images/beyondScreen.webp';
-// Splash Screen
+// Splash Screen//src/
 
 const splashScreen = {
   enabled: true, // set false to disable splash screen
@@ -148,7 +148,7 @@ const bigProjects = {
     {
       id: "hero-beyondClass",
       projectName: "Beyond Class — Interactive Music Coaching App",
-      icon: smartFinIcon,
+      icon: beyondClassScreen,
       architecture: "Modular MVVM-C with Protocol-Oriented Media Pipelines",
   summary: "A dual-module student-coach collaboration platform managing high-throughput asynchronous media lifecycles, role-based navigation graphs, and low-latency interactive evaluation tools.",
   challenge: "Orchestrating a unified codebase supporting completely distinct, role-based workflows while managing high-throughput asynchronous media lifecycles, real-time messaging syncs, and fluid, low-latency video preview interactions without degraded UI frames.",
