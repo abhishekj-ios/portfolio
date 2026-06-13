@@ -148,3 +148,28 @@ section,
 .experience-card-duration {
   color: #a1a1a6 !important;
 }
+/* ==========================================================================
+   CLEANUP: Strips away hidden light-theme background overlays & shadows
+   ========================================================================== */
+
+/* 1. Neutralize hidden background containers on title and meta tags */
+.experience-card-role,
+.experience-card-company,
+.role-company-meta,
+.experience-main-title,
+.experience-bullet-list,
+.experience-bullet-item {
+  background: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+}
+
+/* 2. Catch any lingering layout cards that might be nesting duplicate backgrounds */
+.experience-history-card * {
+  text-shadow: none !important;
+}
+
+/* 3. Force the parent block to a uniform, clean, flat canvas shade */
+.experience-cards-grid > div {
+  background-image: none !important;
+}
