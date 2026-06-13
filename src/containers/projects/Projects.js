@@ -96,7 +96,7 @@ export default function Projects({ setPage }) {
             onClick={handleViewAllApps}
             className="see-all-apps-header-btn"
           >
-            See All Apps <span>→</span>
+            Explore More Apps <span>→</span>
           </button>
         </div>
 
