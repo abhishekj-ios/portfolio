@@ -88,7 +88,7 @@ export default function Projects({ setPage }) {
   className={`${isDark ? "dark-mode project-title" : "project-title"} mobile-header`} 
   style={{ fontWeight: "700", letterSpacing: "-0.5px", color: isDark ? "#ffffff" : "#1d1d1f", margin: 0 }}
 >
-  Projects
+  Latest Projects
 </h1>
           </div>
           
