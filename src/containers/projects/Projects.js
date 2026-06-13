@@ -76,9 +76,20 @@ export default function Projects({ setPage }) {
         {/* RESTORED RESPONSIVE HEADER CONTAINER BLOCK */}
         <div className="projects-responsive-header">
           <div style={{ flex: "1" }}>
-            <h1 className={isDark ? "dark-mode project-title" : "project-title"} style={{ fontWeight: "700", letterSpacing: "-0.5px", color: isDark ? "#ffffff" : "#1d1d1f", margin: 0 }}>
-              {bigProjects.title}
-            </h1>
+            <h1 
+  className={`${isDark ? "dark-mode project-title" : "project-title"} desktop-header`} 
+  style={{ fontWeight: "700", letterSpacing: "-0.5px", color: isDark ? "#ffffff" : "#1d1d1f", margin: 0 }}
+>
+  {bigProjects.title}
+</h1>
+
+{/* MOBILE VERSION - Shows your short title */}
+<h1 
+  className={`${isDark ? "dark-mode project-title" : "project-title"} mobile-header`} 
+  style={{ fontWeight: "700", letterSpacing: "-0.5px", color: isDark ? "#ffffff" : "#1d1d1f", margin: 0 }}
+>
+  Projects
+</h1>
           </div>
           
           <button 
