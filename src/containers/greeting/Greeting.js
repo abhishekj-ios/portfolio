@@ -36,32 +36,23 @@ export default function Greeting({ setPage }) {
           {/* METRICS SHOWCASE GRID */}
           <div className="metrics-row-split">
             <div className="metric-column-item">
-              <h3>13 Years</h3>
+              <h3>13+ Years</h3>
               <p>Professional Experience</p>
             </div>
 
             <div className="metric-column-item">
               <h3>15 Apps</h3>
-              <p>Solo App Store Submissions</p>
+              <p>App Store Submissions</p>
             </div>
 
             <div className="metric-column-item">
               <h3>20+ Apps</h3>
-              <p>Consulted & Architected</p>
+              <p>Consulted/Developed</p>
             </div>
           </div>
 
           {/* ACTION BUTTON CONTROLS */}
           <div className="button-greeting-div">
-            <div className="primary-btn-wrapper">
-              <button 
-                className="main-button" 
-                onClick={handleViewProjectsClick}
-              >
-                View My Projects
-              </button>
-            </div>
-            
             <div className="secondary-btn-wrapper">
               <a 
                 className="template-download-button"
@@ -69,13 +60,26 @@ export default function Greeting({ setPage }) {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Download Resume
+                View My Resume
               </a>
+            </div>
+
+            <div className="primary-btn-wrapper">
+              <button 
+                className="main-button" 
+                onClick={handleViewProjectsClick}
+              >
+                View All Projects
+              </button>
             </div>
           </div>
           
-          {/* SOCIAL FOOTPRINT ICONS */}
-          <SocialMedia />
+          {/* DIVIDER & SOCIAL FOOTPRINT */}
+          <hr className="footer-line" />
+          
+          <div className="social-media-wrapper">
+            <SocialMedia />
+          </div>
 
         </div>
       </div>
