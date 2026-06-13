@@ -130,10 +130,10 @@ const bigProjects = {
       techStack: [
       "Swift",
       "MVVM-C",
-      "Protocol-Oriented Programming",
-      "CoreBluetooth",
+      "Core Bluetooth",
       "Stripe API",
       "Apple Pay",
+      "Protocol-Oriented Programming",
       "MapKit Core",
       "Firebase Stream",
       "AVFoundation"
@@ -155,8 +155,8 @@ const bigProjects = {
   techStack: [
     "Swift",
     "MVVM-C",
-    "Protocol-Oriented Programming",
     "AVFoundation",
+    "Protocol-Oriented Programming",
     "CoreMedia",
     "CoreData",
     "WebSockets",
