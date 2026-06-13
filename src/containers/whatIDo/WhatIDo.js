@@ -49,7 +49,7 @@ export default function WhatIDo() {
         <h1 className="what-i-do-title desktop-header">{whatIDo.title}</h1>
         
         {/* MOBILE TITLE: Inline overridden to show a compact single word */}
-        <h1 className="what-i-do-title mobile-header">Expertise</h1>
+        <h1 className="what-i-do-title mobile-header">EXPERTISE</h1>
         
         {/* Subtitle tag block has been completely deleted from here */}
       </Fade>
