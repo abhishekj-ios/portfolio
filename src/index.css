@@ -34,3 +34,27 @@ body {
     line-height: normal;
   }
 }
+
+/* ==========================================================================
+   Global Mobile Spacing Overrides (Fixes Over-Stretched Layouts)
+   ========================================================================== */
+@media (max-width: 768px) {
+  // Compresses massive vertical gaps on mobile screens
+  .main,
+  .greet-main,
+  .work-experience-main,
+  #opensource,
+  #greeting,
+  #experience {
+    padding-top: 36px !important;    /* Tightened from 70px/80px */
+    padding-bottom: 40px !important; /* Elegant mobile spacing */
+  }
+
+  // Brings component titles closer to their content blocks
+  .project-title,
+  .greeting-title,
+  .skills-heading,
+  .experience-heading {
+    margin-bottom: 20px !important;
+  }
+}
