@@ -63,3 +63,39 @@ body {
     margin-bottom: 20px !important;
   }
 }
+/* ==========================================================================
+   GLOBAL DARK MODE LOCKUP - Overrides any device light-theme variables
+   ========================================================================== */
+
+/* 1. Force the root and body backgrounds to pitch black */
+html, body, #root, .main {
+  background-color: #17191e !important;
+  color: #ffffff !important;
+}
+
+/* 2. Catch the structural section wrappers (Skills & Work Experience containers) */
+section, 
+.skills-section, 
+.experience-section, 
+.work-experience,
+.techstack-div {
+  background-color: #17191e !important;
+}
+
+/* 3. Force cards and nested nodes inside those sections to remain dark */
+.skills-card, 
+.experience-card, 
+.work-card-div,
+.timeline-block {
+  background-color: #1e222b !important; /* Premium inner card dark gray */
+  border-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+/* 4. Ensure all structural typography remains perfectly high-contrast white/gray */
+h1, h2, h3, h4, h5, h6, .heading, .subTitle {
+  color: #ffffff !important;
+}
+
+p, li, .card-text, .experience-text-details {
+  color: #a1a1a6 !important; /* Soft gray body text */
+}
