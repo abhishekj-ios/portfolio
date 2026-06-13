@@ -28,31 +28,5 @@
 .App-link { color: $appLink; }
 .subTitle { color: $subTitle; }
 
-/* ==========================================================================
-   Mobile Optimization Engine (Fixes Over-Stretched Spacing & Headers)
-   ========================================================================== */
-@media (max-width: 768px) {
-  // Snugly tightens up paragraph headers globally
-  h1, h2, h3 { 
-    margin-bottom: 0.5rem !important; 
-  }
 
-  // Intercepts major sectional containers to cut out the massive vertical gaps
-  .main,
-  .greet-main,
-  .work-experience-main,
-  #opensource,
-  #greeting,
-  #experience {
-    padding-top: 36px !important;    /* Compressed down from massive 70px/80px blocks */
-    padding-bottom: 40px !important; /* Perfect modern look on compact touch screen viewports */
-  }
 
-  // Snaps individual component display titles closer to their text blocks
-  .project-title,
-  .greeting-title,
-  .skills-heading,
-  .experience-heading {
-    margin-bottom: 20px !important;
-  }
-}
