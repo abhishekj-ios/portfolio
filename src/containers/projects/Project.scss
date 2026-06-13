@@ -12,12 +12,34 @@
 .project-title {
   text-align: center; 
   margin-top: 0;
-  margin-bottom: 12px;
+  /* 2) Reduced spacing from default setup */
+  margin-bottom: 16px; 
+  /* 4) Increased the Font size of Latest Projects */
+  font-size: 48px;     
   font-weight: 700;
   background: none !important;        
   background-color: transparent !important;
   border: none !important;
   box-shadow: none !important;
+}
+
+/* 3) Remove that white line/border below the See All Apps button link */
+.projects-see-all-apps-link {
+  text-decoration: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+
+  &:hover {
+    text-decoration: none !important;
+    border-bottom: none !important;
+  }
+
+  /* Target nested children or pseudo elements just in case template forces lines */
+  span, a, &::after {
+    text-decoration: none !important;
+    border-bottom: none !important;
+  }
 }
 
 /* Responsive Structural Switches for Desktop vs Mobile Headers */
@@ -29,12 +51,27 @@
   display: block !important;
 }
 
+/* ==========================================================================
+   Global Mobile Media Query Viewport Overrides (max-width: 768px)
+   ========================================================================== */
 @media (max-width: 768px) {
   .desktop-header {
     display: none !important;
   }
   .mobile-header {
     display: block !important;
+  }
+
+  /* 4) Scaled mobile title slightly cleaner for smaller mobile viewports */
+  .project-title {
+    font-size: 34px !important;
+    /* 2) Reduce the massive vertical space on mobile layout screens */
+    margin-bottom: 8px !important; 
+  }
+
+  /* 2) Pull the grids up slightly closer to the link button targets */
+  .repo-cards-div-main {
+    margin-top: 16px !important;
   }
 }
 
