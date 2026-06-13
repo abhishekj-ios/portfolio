@@ -11,12 +11,14 @@ function Header({ setPage }) {
     const checkbox = document.getElementById("menu-btn");
     if (checkbox) checkbox.checked = false;
   };
+
   const navigateToAllProjects = () => {
     closeMenu(); // Close mobile menu first
     window.history.pushState({ page: "all-apps" }, "", "#projects-view");
     if (setPage) setPage("all-apps"); 
     window.scrollTo(0, 0);
   };
+
   return (
       <header 
         className="dark-menu header"
@@ -39,9 +41,10 @@ function Header({ setPage }) {
             <span 
               style={{
                 fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
-                fontWeight: "600",       
-                fontSize: "19px",         
-                letterSpacing: "-0.3px",  
+                fontWeight: "700",       
+                fontSize: "20px",        
+                textTransform: "uppercase", /* Forces your name to render ALL CAPS */
+                letterSpacing: "0.05em",    /* Adds premium wide tracking for the all-caps look */
                 color: permanentWhite, 
                 lineHeight: "1"
               }}
@@ -95,23 +98,23 @@ function Header({ setPage }) {
                 Work Experience
               </a>
             </li>
-{/*<li>
-  <span 
-    onClick={navigateToAllProjects}
-    style={{ 
-      color: permanentWhite, 
-      cursor: "pointer",
-      fontSize: "15px",      // Explicitly set to 15px
-      fontWeight: "500",     // Explicitly set weight
-      fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
-      transition: "color 0.3s ease" // Makes the hover effect smooth
-    }}
-    onMouseEnter={(e) => e.currentTarget.style.color = "#2f80ed"}
-    onMouseLeave={(e) => e.currentTarget.style.color = permanentWhite}
-  >
-    All Projects
-  </span>
-</li>*/}
+            {/*<li>
+              <span 
+                onClick={navigateToAllProjects}
+                style={{ 
+                  color: permanentWhite, 
+                  cursor: "pointer",
+                  fontSize: "15px",      
+                  fontWeight: "500",     
+                  fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+                  transition: "color 0.3s ease" 
+                }}
+                onMouseEnter={(e) => e.currentTarget.style.color = "#2f80ed"}
+                onMouseLeave={(e) => e.currentTarget.style.color = permanentWhite}
+              >
+                All Projects
+              </span>
+            </li>*/}
           </ul>
 
         </div>
