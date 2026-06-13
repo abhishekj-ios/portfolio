@@ -183,10 +183,11 @@ const bigProjects = {
     "VIPER",
     "Graphs",
     "Core Data",
+    "Push Notifications",
+    "Secure Keychain",
     "Protocol-Oriented Programming",
     "WebSockets",
     "CoreAnimation",
-    "Secure Keychain",
     "Push Notifications"
   ],
   wins: [
