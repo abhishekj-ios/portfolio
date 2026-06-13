@@ -54,23 +54,26 @@
 /* ==========================================================================
    Global Mobile Media Query Viewport Overrides
    ========================================================================== */
+/* ==========================================================================
+   Global Mobile Media Query Viewport Overrides
+   ========================================================================== */
 @media (max-width: 768px) {
   /* Snap cards down to a single columnar list */
   .skills-grid-wrapper {
     grid-template-columns: 1fr;
   }
 
-  /* 3. Safely handles title swapping at root level scope */
-  .desktop-header {
-    display: none !important;
-  }
-  .mobile-header {
-    display: block !important;
-  }
-
-  /* Slightly tighter layout clearance padding for compact screen sizes */
-  .what-i-do-container .what-i-do-title {
-    margin-bottom: 24px;
+  /* FIX: Explicitly nest the layout overrides to match structural specificity */
+  .what-i-do-container {
+    .desktop-header {
+      display: none !important;
+    }
+    .mobile-header {
+      display: block !important;
+    }
+    .what-i-do-title {
+      margin-bottom: 24px;
+    }
   }
 }
 
